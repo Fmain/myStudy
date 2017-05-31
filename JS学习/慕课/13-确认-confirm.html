@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>13-确认-confirm</title>
+    <script type="text/javascript">
+        function rec(){
+            var mymessage = confirm("你是女士吗?");
+            if (mymessage==true) {
+                document.write("女士你好！");
+            }else{
+                document.write("先生你好！");
+            }
+        }
+
+    </script>
+</head>
+<body>
+<!--
+语法:
+confirm(str);
+参数:
+srt:在消息对话框要显示的文本
+返回值:Boolean值;
+    当用户点击"确认"按钮时,返回true;
+    当用户点击"取消"按钮时,返回false;
+注意:
+通过返回值可以判断用户点击了什么按钮
+问题：
+    进入的页面是什么页面
+ -->
+
+
+<input type="button" value="点击我"  onclick="rec();" />
+</body>
+</html>

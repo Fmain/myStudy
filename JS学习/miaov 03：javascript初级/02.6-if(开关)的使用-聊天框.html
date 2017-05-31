@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.6-if的使用-聊天框.html</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .win{
+            width: 300px;
+            height: 500px;
+            margin: 100px auto;
+            background: #ededed;
+            border: 1px solid #000;
+            border-radius: 5%;
+        }
+        .win .bod{
+            width: 250px;
+            height: 380px;
+            margin: 50px auto;
+            border: 5px solid #000;
+            background: yellow;
+
+        }
+        .show{
+            height: 330px;
+            border-bottom:1px solid #ccc;
+            overflow: auto;
+        }
+        .win img{
+            margin: 5px;
+            width: 40px;
+            height: 40px;
+            vertical-align: middle;
+            border-radius: 10%;
+        }
+        .win #inp{
+            width: 130px;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5%;
+        }
+        .win #send{
+            width: 50px;
+            height: 40px;
+        }
+        .logo{
+            background: #fff;
+            margin: -35px auto;
+            width: 30px;
+            height: 30px;
+            border: 5px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 30%;
+        }
+    </style>
+
+</head>
+<body>
+<div class="win">
+    <div class="bod">
+        <div class="show" id="show"></div>
+        <img src="images/1.png" alt="" class="emj" id="emj">
+        <input type="text"  id="inp">
+        <input type="button" id="send" value="发送">
+    </div>
+    <div class="logo"></div>
+</div>
+<script>
+    var oShow = document.getElementById("show");
+    var oEmj = document.getElementById("emj");
+    var oInp= document.getElementById("inp");
+    var oSend = document.getElementById("send");
+
+
+    /*
+    创造一个开关
+    开关变量要放在外面
+    */
+    var onOff = false;
+
+    oEmj.onclick = function () {
+        if (onOff){
+            oEmj.src = "images/1.png";
+            onOff = false;
+
+        }else {
+            oEmj.src = "images/2.png";
+            onOff = true;
+
+        }
+    }
+
+    oSend.onclick = function () {
+        if (onOff){
+            //oShow.innerHTML += oInp.value + "<img src='images/2.png'>"+ "<br/>" ;
+            oShow.innerHTML +="<img src='images/2.png'>"+ "说："+ oInp.value + "<br/>" ;
+        }else {
+            oShow.innerHTML +="<img src='images/1.png'>"+ "说："+ oInp.value + "<br/>" ;
+        }
+        oInp.value = "";
+    }
+
+    /*
+    问题:
+        1.如何设置innerHTML内容里面的标签属性
+
+    */
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>67-清除浮动方式3</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        .box1{
+            background-color: red;
+            margin-bottom: 40px;;
+        }
+        .box1 p{
+            background-color: blue;
+            width: 100px;
+            float: left;
+        }
+        .box2{
+            /*clear: both;*/
+            margin-top: 20px;
+            background-color: green;
+        }
+        .box2 p{
+            background-color: yellow;
+            width: 100px;
+            float: left;
+        }
+        .wall{
+            clear: both;
+
+        }
+        .h20{
+            height: 20px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+清除浮动方式的第三种方式(隔墙法)
+
+外墙法:
+在两个盒子中间添加一个额外的块级元素，给这个元素设置clear: both;属性
+不可以让第一个盒子使用clear: both;属性
+
+
+内墙法
+在第一个盒子中所有子元素最后添加一个额外的块级元素，给这个元素设置clear: both;属性
+可以让第一个盒子使用clear: both;属性
+
+
+区别：
+外墙法不可以撑起第一个盒子的高度，内墙法可以
+
+由于只为了更改样式，在企业开发中都不常用
+-->
+
+
+
+<div class="box1">
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+    <div class="wall h20"></div>
+</div>
+
+<div class="box2">
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+</div>
+</body>
+</html>

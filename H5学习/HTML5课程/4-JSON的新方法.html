@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-JSON的新方法</title>
+    <script src="json2.js"></script>
+    <script>
+        /*var str = 'function show(){alert(123)}';*/
+
+        //eval  把字符串解析成JS  不安全
+        /*eval(str);
+        show();*/
+
+        //parse  只能解析JSON形式的字符串变成JS(安全性高一些)
+        //错误示范
+        /*JSON.parse(str);
+        show();*/
+
+        var str = '{"name":"fmx"}'; //字符串中的属性要严格的加上引号
+
+        var json = JSON.parse(str);
+        alert(json.name);
+
+        var json1 = {
+            "person":{
+                "name":"baidu",
+                "website":"http://www.baidu.com",
+                "email":"baidu@baidu.com"
+            }
+        };
+        var str1 = JSON.stringify(json1);
+        //alert(str1);
+        var json2 = JSON.parse(str1);
+
+        alert(json2.person.name);
+
+
+        //把json转化成字符串
+        /*var json = {name:'hello'};
+        var str = JSON.stringify(json);
+        alert(str);     //{"name":"hello"}*/
+
+        //
+        /*var a = {
+            name:'hello',
+            b:{
+                sex:'男'
+            }
+        };*/
+
+        /*//普通赋值
+        var c = a;
+        c.b.sex = '女';
+        alert(a.b.sex);     //女*/
+
+        /*//遍历赋值
+        var c = {};
+        for(var attr in a){
+            c[attr] = a[attr];
+        }
+        c.b.sex = '女';
+        alert(a.b.sex); //女*/
+
+        //递归赋值(深层次拷贝)
+        //视频:对象的引用
+
+        //转换法赋值(深层次拷贝)
+        /*var str = JSON.stringify(a);    //把json对象转成字符串
+        var c = JSON.parse(str);        //把转成的字符串解析成json对象
+
+        c.b.sex = '女';
+        alert(a.b.sex);  //男
+        //注意:解决IE6以下的兼容问题,使用json2.js*/
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

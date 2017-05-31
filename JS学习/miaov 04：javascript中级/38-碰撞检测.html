@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>38-碰撞检测</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /*
+         碰撞检测,实际上是检测两个对象边的重合,如果有内容重合,即碰撞了
+            九宫格排除法:
+         */
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var oImg = document.getElementById('img');
+            var oText = document.getElementById('text1');
+
+            drag(oDiv,oDiv2);
+            function drag(obj,obj2) {
+                obj.onmousedown = function (ev) {
+                    obj.style.zIndex = 999;
+                    obj.style.position = 'absolute';
+                    var ev = ev || event;
+                    var disX = ev.clientX - this.offsetLeft;
+                    var disY = ev.clientY - this.offsetTop;
+                    if (obj.setCapture) { //解决: 3非标准IE下
+                        obj.setCapture();
+                    }
+                    document.onmousemove = function (ev) { //oDiv->document 解决:1.拖拽过快
+                        var ev = ev || event;
+
+                        var L = ev.clientX - disX;
+                        var T = ev.clientY - disY;
+
+                        //碰撞检测
+
+                        var L1 = L;
+                        var R1 = L + obj.offsetWidth;
+                        var T1 = T;
+                        var B1 = T + obj.offsetHeight;
+
+                        var L2 = obj2.offsetLeft;
+                        var R2 = L2 + obj2.offsetWidth;
+                        var T2 = obj2.offsetTop;
+                        var B2 = T2 + obj2.offsetHeight;
+
+                        if (R1<L2 || L1>R2 || B1<T2 || T1>B2){
+                            obj2.style.backgroundColor = 'green';
+                        }else{
+                            obj2.style.backgroundColor = 'Yellow';
+
+                        }
+                        obj.style.left = L + 'px';
+                        obj.style.top = T + 'px';
+                    };
+                    document.onmouseup = function () { //oDiv->document 解决:2.把div拖拽到另一个标签后面,然后在这个标签上面释放鼠标
+                        document.onmousemove = document.onmouseup = null;
+                        if (obj.setCapture) { //解决: 3非标准IE下
+                            obj.releaseCapture();
+                        }
+                    };
+                    return false; // ->添加 解决:3标准下.拖拽的时候,如果有文字被选中
+                };
+            }
+
+        }
+    </script>
+</head>
+<body>
+abcdefghijkhlmn
+<input type="text" id="text1">
+<div id="div1"></div>
+<div id="div2" style="width: 100px;height: 100px;background: green;position: absolute;left: 400px;top: 200px;"></div>
+<img id="img" src="../miaov%2003：javascript初级/images/4.png" alt="">
+</body>
+</html>

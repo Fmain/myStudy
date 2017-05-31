@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>19-document.getElementById</title>
+    <script type="text/javascript">
+        var mychar = document.getElementById("con");
+        document.write(mychar);
+    </script>
+</head>
+<body>
+<!--
+通过ID获取元素
+    学过HTML/CSS样式，都知道，网页由标签将信息组织起来，而标签的id属性值是唯一的，就像是每人有一个身份证号一样，只要通过身份证号就可以找到相对应的人。那么在网页中，我们通过id先找到标签，然后进行操作。
+
+语法:
+    document.getElementById(“id”)
+
+注意:
+    获取的元素是一个对象，如想对元素进行操作，我们要通过它的属性或方法。
+    id需要用""包起来
+
+ -->
+<p id="con">JavaScript</p>
+
+</body>
+</html>

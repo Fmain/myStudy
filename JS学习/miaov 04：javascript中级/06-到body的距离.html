@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>06-到body的距离</title>
+    <style type="text/css">
+        div{
+            padding: 40px;
+        }
+        #div1{background:red;}
+        #div2{background:green; position:relative;}
+        #div3{background:blue;}
+    </style>
+    <script>
+    window.onload = function () {
+        var oDiv3 = document.getElementById('div3');
+
+//        alert(oDiv3.offsetLeft);
+        var iTop = 0;
+        var obj = oDiv3;
+        /*
+         while (obj.parentNode != undefined){
+         iTop += obj.offsetTop;
+         //            alert('iTop:'+iTop);
+         obj = obj.parentNode;     //body.parnetNode = html; html.parnetNode = undefined;
+         //            alert('obj:'+obj.tagName);
+         }
+         alert('iTop:'+iTop);   //96
+         */
+
+        //取得当前元素到页面顶部绝对距离的方式
+        while (obj){
+//            alert(obj.id+':'+obj.offsetTop);
+            iTop += obj.offsetTop;
+            obj = obj.offsetParent; //offsetParent 如果没有定位父级,默认body
+//            alert(obj.id);
+        }
+//            alert('iTop:'+iTop);    //88
+
+        var p = getPos(oDiv3);
+        alert(p.left);
+
+        function getPos(obj) {
+            var pos = {left:0,top:0};
+
+            while(obj){
+                pos.left += obj.offsetLeft;
+                pos.top += obj.offsetTop;
+
+                obj = obj.offsetParent;
+            }
+            return pos;
+        }
+    }
+    </script>
+</head>
+<body id="body1">
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+</body>
+</html>

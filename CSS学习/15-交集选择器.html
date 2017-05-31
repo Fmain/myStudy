@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>15-交集选择器</title>
+    <style>
+        p.para1{
+            color: #ffff00;
+        }
+        .para1#identity{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+交集选择器
+作用：给所有选择器选中的标签中，相交的那部分标签设置属性
+格式：
+选择器1选择器2{
+    属性：值；
+}
+注意点：
+选择器之间没有任何链接符号
+选择器可以使用标签名称/id名称/class名称
+-->
+<p>我是段落</p>
+<p>我是段落</p>
+<p class="para1" id="identity">我是段落</p>
+<p class="para1">我是段落</p>
+<p>我是段落</p>
+<p>我是段落</p>
+</body>
+</html>

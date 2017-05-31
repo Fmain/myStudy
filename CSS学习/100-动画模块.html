@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>100-动画模块</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            /*transition: margin-left 1s;*/
+
+            /*1.告诉系统要执行哪个动画*/
+            animation-name: fmx;
+
+            /*3.告诉系统动画持续的时长*/
+            animation-duration: 10s;
+        }
+            /*2.告诉系统我们需要自己创建一个名称叫做fmx的动画*/
+        @keyframes fmx {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 500px;
+            }
+        }
+        /*div:hover{*/
+            /*margin-left: 500px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<!--
+过渡与动画之间异同
+    区别
+        过渡只有人为触发才能执行动画
+        动画不需要人为触发就能执行动画
+    相同点
+        都是用来给元素添加动画
+        都是系统新增的属性
+        都需要满足三要素
+-->
+<div></div>
+</body>
+</html>

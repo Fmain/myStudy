@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.3-添加回调</title>
+    <style type="text/css">
+        #div1{width: 100px;height: 100px;background: red;position: absolute;top: 100px;left: 200px;}
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var oBtn1 = $('btn1');
+            var oBtn2 = $('btn2');
+            var oBtn3 = $('btn3');
+            var oBtn4 = $('btn4');
+            var oDiv = $('div1');
+
+            oBtn1.onclick = function() {
+                //doMove(oDiv,'width',20,600);
+                 doMove(oDiv,'left',10,800,function(){
+                    doMove(oDiv,'top',10,300);
+                 });
+            };
+
+            function doMove (obj,attr,dir,target,endFn) {
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function() {
+                    var speed = parseInt(getStyle(obj,attr)) + dir ;
+                    if (speed>target&&dir>0 || speed<target&&dir<0) {
+                        speed = target;
+                    };
+                    obj.style[attr] = speed + 'px';
+                    if (speed==target) {
+                        clearInterval(obj.timer);
+
+                        //////////////////////////////////////////
+                        /*
+                        if (endFn) {
+                            endFn();
+                        };
+                        */
+                       endFn&&endFn();
+                       ///////////////////////////////////////////
+                    };
+                },20);
+            }
+        })
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="往右">
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>60-浮动元素的排序规则</title>
+    <style>
+        .box1{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            float: left;
+        }
+        .box2{
+            width: 100px;
+
+
+            height: 100px;
+            background-color: pink;
+            /*float: right;*/
+        }
+        .box3{
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
+            float: left;
+        }
+        .box4{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--
+
+浮动元素排序规则
+1.相同方向上，先浮动的会显示在前面，后浮动的会显示在后面
+2.不同方向上，左浮动会找左浮动，有浮动会找有浮动
+3.浮动元素浮动之后的位置，有浮动元素浮动之前在标准流中的位置确定
+
+-->
+<div class="box1">1</div>
+<div class="box2">2</div>
+<div class="box3">3</div>
+<div class="box4">4</div>
+
+</body>
+</html>

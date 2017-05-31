@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>05-Vue键盘事件</title>
+    <script src="vue.js"></script>
+    <script type="text/javascript">
+    /*
+    keydown :
+    onkeyup :
+    event.keyCode :
+    event.ctrlKey/shiftKey/altKey :
+
+    @keydown.enter/up/dowm/left/right...="show($event)"
+    @keydown.65="show($event)"
+
+     */
+     window.onload = function() {
+        new Vue({
+            el:'#box',
+            methods:{
+                show:function  (ev) {
+                    alert(ev.keyCode);
+                    alert(ev.ctrlKey);
+                }
+            }
+        })
+     };
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="text" @keydown="show($event)">:keydown
+    <br><br>
+    <input type="text" @keyup="show($event)">:keyup
+    <br><br>
+    <input type="text" @keydown.enter="show($event)">:enter键触发
+    <br><br>
+    <input type="text" @keydown.65="show($event)">:a键触发
+</div>
+</body>
+</html>

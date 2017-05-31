@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.search();方法</title>
+    <script>
+    /*
+    search(); 方法:该方法用于检索字符串中指定的子字符串,或检索与正则表达式相匹配的字符串.
+        语法: stringObject.search(regexp);
+            @param(参数)
+                regexp可以需要在stringObject中检索的字符串,也可以是需要检索的RegExp对象.
+            @return(返回值)
+                stringObject中第一个与regexp对象相匹配的子串的其实位置.如果没有找到任何匹配的子串,则返回-1;
+        注意: search()方法不执行全局匹配,他将忽略标志g,同时他也没有regexp对象的lastIndex的属性,且总是从字符串开始位置进行查找,总是返回的是stringObjext匹配的第一个位置.
+     */
+
+    var str = 'hello world,hello world';
+
+    //返回匹配到的第一个位置(使用RegExp对象检索)
+    console.log(str.search(/l/)); //2
+
+    //attribute参数中设置g,没有全局的概念,总是返回匹配到的第一个位置
+    console.log(str.search(/l/g)); //2
+
+    //attribute参数中设置i,可以忽略大小写来检索
+    console.log(str.search(/L/i)); //2
+
+    //如果没有检索到,则返回-1
+    console.log(str.search(/a/)); //-1
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

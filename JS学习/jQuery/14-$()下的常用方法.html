@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7.$()下的常用方法</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /* $()下的常用方法
+    attr(): 属性设置
+    filter(): 过滤
+    not() : filter的反义词
+    has() : 包含
+    next(): 下一个兄弟节点
+    prev(): 上一个兄弟节点
+    find(): 查找
+    eq()  : 下标
+    index(): 当前元素在所有兄弟节点中的位置
+     */
+    $(function () {
+        //attr()
+        //alert($('div').attr('title'));
+        //$('div').attr('title','345');
+        //$('div').attr('class','box');
+
+        //filter()
+        //$('div').filter('.box').css('background','red');
+
+        //not()
+        //$('div').not('.box').css('background','red');
+
+        //has()
+        //$('div').has('span').css('background','blue');
+
+        //next()
+        //$('span').next().css('background','blue');
+
+        //find()
+        //$('div').find('h2').css('background','yellow');
+
+        //eq()
+        $('div').find('h2').eq(0).css('background','yellow');
+
+        //index()
+        alert($('#h').index());
+
+    });
+    </script>
+
+</head>
+<body>
+<div title="123">div1
+    <h3>h3</h3>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h3 id="h">h3</h3>
+    <h2>h2</h2>
+    <h3>h3</h3>
+</div>
+<h2>外面的h2</h2>
+<div class="box">div2</div>
+<div class="box1">div3
+    <span>div3.span</span>
+    <div>div3.span后面的div</div>
+</div>
+<span>span</span>
+<p>p</p>
+</body>
+</html>

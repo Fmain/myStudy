@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.JQ选择器</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+     $("p") 元素选择器
+     $("#test") #id 选择器
+     $(".test") .class 选择器
+     $("*")	选取所有元素
+     $(this)	选取当前 HTML 元素
+     $("p.cla")	选取 class 为 cla 的 <p> 元素
+     $("p:first")	选取第一个 <p> 元素
+     $("ul li:first")	选取第一个 <ul> 元素的第一个 <li> 元素
+     $("ul li:first-child")	选取每个 <ul> 元素的第一个 <li> 元素
+     $("[href]")	选取带有 href 属性的元素
+     $("a[target='_blank']")	选取所有 target 属性值等于 "_blank" 的 <a> 元素
+     $("a[target!='_blank']")	选取所有 target 属性值不等于 "_blank" 的 <a> 元素
+     $(":button")	选取所有 type="button" 的 <input> 元素 和 <button> 元素
+     $("tr:even")	选取偶数位置的 <tr> 元素
+     $("tr:odd")	选取奇数位置的 <tr> 元素
+     */
+    </script>
+</head>
+<body>
+<div id="div1" class="box">div1</div>
+<span class="box">span</span>
+<ul>
+    <li></li>
+    <li title="hello"></li>
+    <li></li>
+    <li></li>
+    <li title="hello"></li>
+    <li class="box"></li>
+    <li></li>
+    <li class="box"></li>
+    <li></li>
+</ul>
+
+
+<script>
+    //模拟css选择元素
+    /*document.getElementById('div1');
+    document.getElementsByClassName('div');*/
+    //$('div').css('background','red');
+    $('.box').css('background','red');
+    //$('#div1').css('background','red');
+
+    //独有表达式选择
+    $('li:first').css('background','red');
+    $('li:last').css('background','rgba(0,0,0,0.5)');
+    $('li:eq(2)').css('background','#ccc');
+    //奇数选择
+    $('li:even').css('width','30px');
+    //偶数选择
+    $('li:odd').css('background','yellow');
+
+    //多种筛选方法
+    $('li').filter('.box').css('height','40px');
+    $('li').filter('[title=hello]').css('background','green');
+</script>
+</body>
+</html>

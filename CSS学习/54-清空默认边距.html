@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>54-清空默认边距</title>
+    <style>
+
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        /*
+        *{
+            margin:0;
+            padding:0;
+        }
+        */
+        p{
+            border: 1px solid #000;
+            width: 610px;
+            height: 110px;
+            background-color: #cdcdcd;
+        }
+    </style>
+</head>
+<body>
+<!--
+在企业开发中，为了更好的控制和计算盒子的宽高，编写代码前，清楚默认边距
+格式：
+*{
+            margin:0;
+            padding:0;
+ }
+ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+ 注意点：
+ *选择器会遍历所有标签，所以性能不好
+-->
+<p>
+    葬爱:非主流文化的常用词，是当今网络流行术语.且流行于非主流杀马特之中。葬，即埋葬，爱，即爱情，翻译成外语就bury love
+</p>
+
+</body>
+</html>

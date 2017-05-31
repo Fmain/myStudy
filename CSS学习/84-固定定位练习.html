@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>84-固定定位练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .nav{
+            width: 100%;
+            height: 45px;
+            background:  url(image/nav.png) center top no-repeat;
+            position: fixed;
+        }
+        .content{
+            width: 100%;
+            height: 8250px;
+            background:  url(image/content.png) center top no-repeat;
+        }
+        div img:first-child{
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+        div img:last-child{
+            position: fixed;
+            right: 0;
+            top: 200px;
+        }
+        a{
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.3);
+            line-height: 50px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="nav"></div>
+<div class="content">
+    <img src="image/left_ad.png" alt="">
+    <img src="image/right_ad.png" alt="">
+</div>
+<a href="#">返回</a>
+</body>
+</html>

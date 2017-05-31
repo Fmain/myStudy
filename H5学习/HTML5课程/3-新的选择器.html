@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-新的选择器</title>
+    <script>
+        window.onload = function () {
+
+            //var oDiv = document.querySelector('#div1');
+            //var oDiv = document.querySelector('#div1');
+            //var oDiv = document.querySelector('.box');
+            //var oDiv = document.querySelector('[title=hello]');
+            oDiv.style.background = 'red';
+
+            var aDiv = document.querySelectorAll('.box');
+            aDiv[1].style.background = 'red';
+
+        }
+    </script>
+</head>
+<body>
+<div class="box" id="div1" title="hello">111</div>
+<div class="box">222</div>
+</body>
+</html>

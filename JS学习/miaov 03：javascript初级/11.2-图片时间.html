@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.2-图片时间</title>
+    <style type="text/css">
+        img{
+            position: absolute;
+            left: 20px;
+            top: 100px;
+        }
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        function myTimeHMS(){
+            var myTime = new Date();    //typeof object
+            var str = '';
+
+            var iHours = myTime.getHours();   //typeof number
+            var iMinutes = myTime.getMinutes();   //typeof number
+            var iSeconds = myTime.getSeconds();   //typeof number
+
+            str = toTwo(iHours)+toTwo(iMinutes)+toTwo(iSeconds);
+
+            return str;
+        }
+
+        $(function(){
+            var oP = document.getElementById('time');
+            var aImg = document.getElementsByTagName('img');
+
+            fnTime ();  //提前执行,一上来就出现
+            setInterval(fnTime,1000);
+            function fnTime () {
+                var str = myTimeHMS();
+                oP.innerHTML = str;
+                for (var i = 0; i < aImg.length; i++) {
+                    aImg[i].src = "images/number/"+str.charAt(i)+".JPG";
+
+                };
+
+            }
+
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].style.left += 10+140*i+'px';
+            };
+            aImg[0].onclick = function() {
+                doMove (aImg[0],'top',30,280);
+            };
+
+        })
+
+    </script>
+</head>
+<body>
+<p id="time" style="font-size: 40px;"></p>
+<img src=""/>
+<img src="images/number/0.JPG"/>
+<img src="images/number/2.JPG"/>
+<img src="images/number/1.JPG"/>
+<img src="images/number/2.JPG"/>
+<img src="images/number/5.JPG"/>
+</body>
+</html>

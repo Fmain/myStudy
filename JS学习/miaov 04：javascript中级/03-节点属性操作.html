@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>03-节点属性操作</title>
+    <script type="text/javascript">
+    /*
+    元素.firstChild:  只读属性,第一个子节点
+        标准下,会包含文本类型的节点
+        非标准下,只包含元素节点
+    元素.firstElementChild:   只读属性,标准下获取第一个元素(标签)类型的子节点
+
+    元素.lastChild    只读属性,最有一个子节点
+    元素.lastElementChild
+
+    元素.nextSibling  只读属性,下一个兄弟节点
+    元素.nextElementSibling
+
+    元素.previousSibling  只读属性,上一个兄弟节点
+    元素.previousElementSibling
+
+     */
+        window.onload = function() {
+            var oUl = document.getElementById('ul1');
+
+            // alert(oUl.firstChild);  //[object Text]
+            /*
+            if (oUl.firstElementChild) {
+                oUl.firstElementChild.style.background = 'red';
+            } else{
+                oUl.firstChild.style.background = 'red';
+            };
+             */
+            /*
+            var oFirst = oUl.firstElementChild||oUl.firstChild; //如果在oUl没有子节点的情况下,标准下,oUl.firstElementChild这个方法为空,所以走oUl.firstChild,获取text节点,然后报错
+            if (oFirst) {
+                oFirst.style.background = 'red';
+            } else{
+                alert('没有子节点可以设置');
+            };
+            解决方案:
+            if (oUl.children[0]) {
+                oUl.children[0].style.background = 'red';
+            } else{
+                alert('没有子节点可以设置');
+            };
+            */
+
+
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1"">
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>

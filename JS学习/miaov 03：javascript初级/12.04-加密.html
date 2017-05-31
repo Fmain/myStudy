@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.4-加密</title>
+</head>
+<body>
+<input type="text" />
+<input type="button" value="加密">
+<div id="div1">加密...</div>
+
+
+<script type="text/javascript">
+    var aInp = document.getElementsByTagName('input');
+    var oDiv = document.getElementById('div1');
+
+    aInp[1].onclick = function() {
+        var str = aInp[0].value;
+        var str1 = '';
+
+        // alert(str.charCodeAt(0));
+        for (var i = 0; i < str.length; i++) {
+            //str1 += String.fromCharCode(str.charCodeAt(i)-5201314) ;
+            str1 += str.charCodeAt(i) ;
+        };
+        oDiv.innerHTML = str1;
+    };
+</script>
+</body>
+</html>

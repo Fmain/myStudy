@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>36-背景定位属性</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+        }
+        .box1{
+            background: red;
+            background-image: url(image/bdlogo.gif);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+        }
+    </style>
+</head>
+<body>
+<!--
+如何控制背景图片的位置
+ 格式：background-position: 0 0;
+ 取值：
+ 1.具体的方位名词
+ 水平方向：left center right
+ 垂直方向：top center bottom
+ 2.具体的像素
+ 例如：（100px 100px）
+ 必须带px单位
+ 可以取负值
+
+注意点：
+同一个标签可以同时设置背景图片和背景颜色，如果同时存在，图片会覆盖颜色
+-->
+<div class="box1"></div>
+</body>
+</html>

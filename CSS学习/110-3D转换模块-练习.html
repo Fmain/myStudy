@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            /*background-color: rgba(0,0,0,0.3);*/
+            margin: 100px auto;
+            transform-style: preserve-3D;
+            transform: rotateY(-17deg) rotateX(-17deg);
+            position: relative;
+        }
+        li{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 200px;
+            position: absolute;
+            border: 1px solid #000;
+            box-sizing: border-box;
+        }
+        ul li:nth-child(1){
+            background-color: #ff3b4f;
+            opacity: 0.3;
+            transform: rotateX(90deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(2){
+            background-color: #ff5f4e;
+            opacity: 0.3;
+            transform: rotateX(180deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(3) {
+            background-color: #6596c8;
+            opacity: 0.3;
+            transform: rotateX(270deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(4){
+            background-color: #00bcfe;
+            opacity: 0.3;
+            transform: rotateX(360deg) translateZ(100px) scale(2,1);
+        }
+        ul li:nth-child(5){
+            background-color: purple;
+            opacity: 0.3;
+            transform: rotateY(-90deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            background-color: #006200;
+            opacity: 0.3;
+            transform: rotateY(90deg) translateZ(200px);
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+</body>
+</html>

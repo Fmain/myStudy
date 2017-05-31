@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23-className属性</title>
+    <style>
+        body{
+            font-size: 16px;
+        }
+        .one{
+            border: 1px solid #000;
+            width: 230px;
+            height: 50px;
+            background-color: #ccc;
+            color: red;
+        }
+        .two{
+            border: 1px solid #000;
+            width: 230px;
+            height: 50px;
+            background-color: #9cf;
+            color: blue;
+        }
+    </style>
+    <script>
+        function add() {
+            document.getElementById("p1").className = "one";
+        }
+        function change() {
+            document.getElementById("p2").className = "two";
+        }
+        function remove(){
+            document.getElementById("p1").removeAttribute('class');
+        }
+    </script>
+</head>
+<body>
+<!--
+控制类名（className 属性）
+    className 属性设置或返回元素的class 属性。
+
+语法：
+    object.className = classname
+
+作用:
+    1.获取元素的class 属性
+    2.为网页内的某个元素指定一个css样式来更改该元素的外观
+
+问题:
+    怎么清除或还原元素的属性
+-->
+<p id="p1">
+    这是第一段落
+</p>
+<input type="button" value="添加样式" onclick="add();">
+<input type="button" value="取消样式" onclick="remove">
+<p id="p2" class="one" >
+    这是第二段落
+</p>
+<input type="button" value="更改外观" onclick="change();">
+<input type="button" value="取消样式" onclick="remove">
+</body>
+</html>

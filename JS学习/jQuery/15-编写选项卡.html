@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>8.编写选项卡</title>
+    <style>
+        #div1 div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            display: none;
+        }
+        .active{
+            background: red;
+        }
+
+    </style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $('#div1').find('input').click(function () {
+            //$('input[type="button"]').click(function () {
+                //console.log($(this).index());
+                $('#div1').find('input').attr('class','');
+                $('#div1').find('div').css('display','none');
+
+                $(this).attr('class','active');
+                $('#div1').find('div').eq($(this).index()).css('display','block');
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input class="active" type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display: block;">11111111</div>
+    <div>22222222</div>
+    <div>33333333</div>
+</div>
+<!--<script>
+    oDiv = document.getElementById('div1');
+    aInp = oDiv.getElementsByTagName('input');
+    aDiv = oDiv.getElementsByTagName('div');
+
+    for(var i=0;i<aInp.length;i++){
+        aInp[i].index = i;
+        aInp[i].onclick = function () {
+            for(var i=0;i<aDiv.length;i++){
+                aDiv[i].style.display = 'none';
+                aInp[i].classList.remove('active');
+            }
+            aDiv[this.index].style.display = 'block';
+            this.classList.add('active');
+        }
+    }
+</script>-->
+</body>
+</html>

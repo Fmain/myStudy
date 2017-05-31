@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-事件默认行为</title>
+
+    <script>
+    /*
+    事件默认行为 : 当一个事件发生的时候浏览器自己会默认做的事情
+
+    怎么阻止?
+        1.当前这个行为是什么事件触发的?
+        2.然后在这个事件的处理函数中使用return false;
+    阻止事件默认行为:
+        return false; 阻止的是
+            1.obj.on事件名称 = fn; 所触发的默认行为
+            2.IE下 event.attachEvent();添加事件
+        event.preventDefault(); 阻止
+            由于IE下没有addEventListener()方法 绑定的事件需要通过event下面的preventDefault();
+
+
+
+     oncontextmenu : 右键菜单事件,当右键菜单(环境菜单)显示出来的时候触发
+     */
+    /*
+    document.onkeydown = function () {
+        return false;
+    };
+    document.oncontextmenu = function () {
+        return false;
+    }
+
+    document.addEventListener('contextmenu',function (ev) {
+        ev.preventDefault();
+        //return false; //此次不能阻止默认事件
+    });
+     */
+    document.attachEvent('oncontextmenu',function () {
+        return false;
+    });
+    </script>
+</head>
+<body style="height: 2000px;">
+<input type="text" name="" id="">
+</body>
+</html>

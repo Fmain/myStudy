@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-留言本</title>
+    <script>
+    window.onload = function () {
+        var oText = document.getElementById('text1');
+        var oUl = document.getElementById('ul1');
+        
+        oText.onkeyup = function (ev) {
+
+            var ev = ev || event;
+
+            //alert(this.value);
+            if (this.value != ''){
+                if (ev.keyCode == 13 && ev.ctrlKey){ //如果接收到enter && ctrl
+                    var oLi = document.createElement('li');
+                    oLi.innerHTML = this.value;
+
+                    if (oUl.children[0]){
+                        oUl.appendChild(oLi,oUl.children[0]);
+                    }else {
+                        oUl.appendChild(oLi);
+                    }
+
+                }
+
+
+
+            }
+
+
+        }
+        
+    }
+    </script>
+</head>
+<body>
+<input type="text" id="text1">
+<ul id="ul1"></ul>
+</body>
+</html>

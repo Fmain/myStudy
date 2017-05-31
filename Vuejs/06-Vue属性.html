@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>06-Vue属性</title>
+    <style type="text/css">
+        div{padding: 20px;border: 1px solid #000;}
+        .red{background:red;}
+        .blue{color:blue;}
+    </style>
+    <!-- <script src="vue.js"></script> -->
+    <script src="old/vue.js"></script>
+    <script type="text/javascript">
+    /*
+    属性设置:
+        v-bind:属性名="属性值"
+        如:v-bind:src="url"
+
+    简写:
+        :src=""
+
+    特殊:
+        class和style
+
+        class:
+            :class="[r,b]"  此处r,b为data中的r
+            :class="{red:true,blue:t}"  此处的red为style中的red,t为data中的t,默认为false
+            :class="json"
+
+        style:
+            :style="[c,b]"
+            :style="json"
+
+     */
+     window.onload = function() {
+
+        var b = new Vue({
+            el:'#box',
+            data:{
+                url:'https://www.baidu.com/img/bd_logo1.png',
+                w:200+'px',
+                t:'hhhhhhhhh',
+            }
+        });
+        var b2 = new Vue({
+            el:'#box2',
+            data:{
+                r:'red',
+                b:'blue'
+            }
+        });
+        var b3 = new Vue({
+            el:'#box3',
+            data:{
+                t:true
+            }
+        });
+        var b4 = new Vue({
+            el:'#box4',
+            data:{
+                json:{
+                    red:true,
+                    blue:false
+                }
+            }
+        });
+        var b5 = new Vue({
+            el:'#box5',
+            data:{
+                c:{color:'red'},
+                b:{background:'yellow'}
+            }
+        });
+        var b6 = new Vue({
+            el:'#box6',
+            data:{
+                json:{color:'red',background:'yellow'}
+            }
+        });
+     };
+    </script>
+</head>
+<body>
+<div id="box">
+    <!-- <img src="{{url}}" alt=""> -->
+    <img v-bind:src="url">
+    <img :src="url" :width="w" :title="t">
+</div>
+<hr>
+<br>
+class:
+<div id="box1" class="red">111111111111</div>
+<br>
+<div id="box2" :class="[r,b]">2222222222222</div>
+<br>
+<div id="box3" :class="{red:true,blue:t}">3333333333333</div>
+<br>
+<div id="box4" :class="json">4444444444444</div>
+<hr>
+<br>
+style:
+<div id="box5" :style="[c,b]">5555555555555</div>
+<br>
+<div id="box6" :style="json">6666666666666</div>
+</body>
+</html>

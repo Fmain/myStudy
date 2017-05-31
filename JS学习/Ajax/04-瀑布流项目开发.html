@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04-瀑布流项目开发</title>
+    <!--
+    瀑布流
+    -->
+    <style>
+        body{
+            border: 0;
+            margin: 0;
+        }
+        #ul1{
+            width: 1080px;
+            margin: 100px auto;
+        }
+        #ul1 li{
+            width: 247px;
+            list-style: none;
+            float: left;
+            margin: 10px;
+        }
+        #ul1 li div{
+            border: 1px solid #000;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        #ul1 li div img{
+            width: 225px;
+            display: block;
+        }
+
+    </style>
+    <script src="./src/ajax.js"></script>
+    <script>
+        window.onload = function () {
+            ajax('get','getPics.php','cpage=1',function (data) {
+                alert(data);
+            })
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>
+        <div>
+            <img src="http://s2.mogucdn.com/mlcdn/c45406/170319_1a5b7d6a4i6f48549b6k0dbbkihj5_640x960.jpg_240x360.v1cAC.70.webp" alt="">
+            <p>蜜妃儿夏装新款女装字母印花圆</p>
+        </div>
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

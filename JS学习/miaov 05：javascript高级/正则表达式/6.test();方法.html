@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6.test();方法</title>
+    <script>
+    /*
+    test(); 方法:  该方法用于检测一个字符串是否匹配某个模式；
+        语法: RegExpObject.test(str);
+        @param(参数)
+            str是需要检测的字符串;
+        @return(返回值)
+            如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；
+     */
+    var str = 'longen and yunxi';
+
+    console.log(/longen/.test(str)); //true
+    console.log(/longa/.test(str));  //false
+
+    // 或者创建RegExp对象模式
+    var regexp = new RegExp('longen');
+    console.log(regexp.test(str)); //true
+    </script>
+</head>
+<body>
+
+</body>
+</html>

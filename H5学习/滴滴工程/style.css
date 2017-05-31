@@ -1,0 +1,316 @@
+/*公共部分*/
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+body{
+    color: #222;
+    background: red;
+    font-family: "Microsoft YaHei",SimSun-ExtB;
+    font-size: 12px;
+    padding: 44px 0 50px 0;
+}
+.header,.footer{
+    position: fixed;
+    left:0;
+    width: 100%;
+}
+/*顶部栏*/
+.header{
+    top:0;
+    background-color: #6666e6;
+    color:#fff;
+    line-height: 44px;
+    font-size: 20px;
+    text-align: center;
+    z-index: 10;
+}
+.header .back{
+    position: absolute;
+    width: 14px;
+    left:10px;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/*底部栏*/
+.footer{
+    bottom:0;
+    background-color: #444;
+    color:#fff;
+    display: table;
+    width: 100%;
+    font-size: 10px;
+}
+
+.footer .footer-item{
+    display: table-cell;
+    width: 20%;
+    text-align: center;
+    height: 50px;
+    vertical-align: middle;
+}
+.footer img{
+    height: 20px;
+    display: block;
+    margin: auto;
+}
+.footer .img2{
+    display: none;
+}
+
+.footer .active .img2{
+    display: block;
+}
+.footer .active .img1{
+    display: none;
+}
+
+.footer .icon{
+    display: block;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center ;
+    background-size: cover;
+}
+
+.footer .footer-item:nth-child(1) .icon{
+     background-image: url(image/nav10.png);
+ }
+.footer .footer-item:nth-child(1).active .icon{
+    background-image: url(image/nav11.png);
+}
+.footer .footer-item:nth-child(2) .icon{
+    background-image: url(image/nav20.png);
+}
+.footer .footer-item:nth-child(2).active .icon{
+    background-image: url(image/nav21.png);
+}
+.footer .footer-item:nth-child(3) .icon{
+    background-image: url(image/nav30.png);
+}
+.footer .footer-item:nth-child(3).active .icon{
+    background-image: url(image/nav31.png);
+}
+.footer .footer-item:nth-child(4) .icon{
+    background-image: url(image/nav40.png);
+}
+.footer .footer-item:nth-child(4).active .icon{
+    background-image: url(image/nav41.png);
+}
+.footer .footer-item:nth-child(5) .icon{
+    background-image: url(image/nav50.png);
+}
+.footer .footer-item:nth-child(5).active .icon{
+    background-image: url(image/nav51.png);
+}
+
+
+.footer .footer-item.active{
+    color:red;
+}
+
+.main{
+    background-color: #f1f1f1;
+    overflow-x:hidden ;
+}
+
+/*平台*/
+.plat-main .intro{
+    padding: 20px;
+}
+.plat-main .img{
+    width: 100%;
+}
+.plat-main .category{
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+    margin-bottom: 20px;
+}
+.plat-main .yellow{
+    color:rgb(250,180,122);
+    font-weight:bold;
+}
+.plat-main .intro p{
+    line-height: 2;
+    margin-bottom: 10px;
+}
+
+/*主页*/
+.home-main .navs{
+   font-size: 0px;
+}
+.home-main .nav-item{
+    font-size: 14px;
+    display: inline-block;
+    width: 33.3333%;
+    text-align: center;
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+}
+.home-main .navs img{
+    width: 55px;
+    display: block;
+    margin: auto;
+}
+.home-main .images-container{
+    overflow-x: hidden;
+    position: relative;
+
+}
+.home-main .images-container .points{
+    position: absolute;
+    bottom: 20px;
+    left:50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 200px;
+    text-align: center;
+}
+.home-main .images-container .points  li{
+    width: 10px;
+    height: 10px;
+    background-color:#ccc;
+    border-radius: 100%;
+    margin: 0 5px;
+    display: inline-block;
+}
+.home-main .images-container .points .active{
+    background-color: #006db8;
+}
+.home-main .images{
+    width: 300%;
+    display: table;
+    /*transform: translateX(-33.3333%);*/
+}
+.home-main .images .item{
+    display: table-cell;
+    width: 33.3333%;
+}
+.home-main .images img{
+   width: 100%;
+}
+
+/*project*/
+.project-main .navs{
+    display: flex;
+    justify-content: space-around;
+}
+.project-main .navs a{
+    height: 70px;
+    width: 30%;
+    line-height: 70px;
+    text-align: center;
+    color: #333333;
+    font-weight: bold;
+}
+.project-main .navs .active{
+    background: #d7d7d7;
+}
+.project-main .navs a:hover{
+    background: #d7d7d7;
+}
+.project-main .content img{
+    margin:auto;
+    width: 100%;
+}
+/*.project-main .content{
+    display: none;
+}*/
+/*.project-main .content.active{
+    display: block;
+}*/
+.project-main .serves{
+    text-align: center;
+}
+.project-main .serves li{
+    width: 80%;
+    position: relative;
+    left: 10%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.project-main .serves img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+.project-main .serves div{
+    text-align: justify;
+}
+
+/*user*/
+.user-main .info{
+    height: 200px;
+    line-height: 200px;
+    background: url(image/banner5.png) no-repeat center;
+    background-size: cover;
+    text-align: center;
+}
+.user-main .content{
+    line-height: 1.2;
+    display: inline-block;
+    vertical-align: middle;
+}
+.user-main .info .img{
+    width: 55px;
+    border-radius: 100%;
+}
+.user-main .info .btn{
+    display: inline-block;
+    background-color: blue;
+    color:#fff;
+    border-radius: 5px;
+    padding: 5px;
+}
+.user-main .navs{
+    padding: 0 20px;
+}
+.user-main .navs .nav-item{
+    margin: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 0px;
+    position: relative;
+}
+.user-main .nav-item .icon,
+.user-main .nav-item .name{
+    display: inline-block;
+    vertical-align: middle;
+}
+.user-main .nav-item .name{
+    font-size: 14px;
+}
+.user-main .nav-item .icon{
+    width: 20px;
+    margin: 0 10px ;
+}
+.user-main .nav-item .enter{
+    display: none;
+    position: absolute;
+    right: 10px;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.user-main .nav-item:hover .enter{
+    display: block;
+}
+
+/*流程*/
+.process-main  img{
+    width: 100%;
+}

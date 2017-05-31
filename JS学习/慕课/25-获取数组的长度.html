@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>25-获取数组的长度</title>
+    <script>
+        var myNum = [1,3,2,4];
+        document.write("数组长度："+myNum.length+"<br>");
+        myNum[5] = 3;
+        for(var i=0;i<8;i++){
+            document.write("这是数组第"+(i+1)+"个元素"+myNum[i]+"<br>");
+        };
+        document.write("数组长度："+myNum.length+"<br>");
+    </script>
+</head>
+<body>
+<!--
+数组属性length
+
+语法：
+    myarray.length; //获得数组myarray的长度
+
+注意：
+    1.因为数组的索引总是由0开始，所以一个数组的上下限分别是：0和length-1。如数组的长度是5，数组的上下限分别是0和4。
+    2.同时，JavaScript数组的length属性是可变的，这一点需要特别注意。
+    3.数组随元素的增加，长度也会改变
+-->
+
+
+
+</body>
+</html>

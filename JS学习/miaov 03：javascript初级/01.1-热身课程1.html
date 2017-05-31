@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-1-热身运动1</title>
+    <script>
+        /*
+         1.JS中如何获取元素:
+         通过ID名称获取元素:
+         document.getElementById("link");
+
+         2.事件:
+         鼠标事件,键盘事件,系统事件,表单事件,自定义事件...
+             onclick
+             onmouseover
+             onmouseout
+             onmousemove 鼠标抚摸事件
+             onmousedown
+         ....
+
+         onload 加载完以后执行...
+             window.onload = 事情;
+             img.onload
+             body.onload
+             ...
+
+         3.如何添加事件:
+             元素.onmouseover()
+
+         4.函数:可以理解为命令
+             function abc(){
+             ...
+             }
+                 1.直接调用:abc();
+                 2.事件调用:元素.事件=函数名 oDiv.onclick=abc;
+            function(){}    匿名函数
+                元素.事件 = function(){};
+         5.变量:
+             var li = document.getElementById("link");
+         */
+        window.onload = function () {
+
+            var li = document.getElementById("link");
+            var ul = document.getElementById("ul1");
+            var a = document.getElementById("a1");
+
+            li.onmouseover = function () {
+                ul.style.display = "block";
+                a.style.background = "yellow";
+            };
+            li.onmouseout = function () {
+                ul.style.display = "none";
+                a.style.background = "#f1f1f1";
+            };
+        };
+
+    </script>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 400px;
+            height: 200px;
+            margin:20px auto;
+        }
+        li{
+            list-style: none;
+        }
+        .lis{
+            width: 80px;
+            height: 30px;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .lis a{
+            display: block;
+            line-height: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            background: #f1f1f1;
+        }
+
+        ul ul{
+            width: 140px;
+            border: 1px solid #000;
+            position: absolute;
+            top: 30px;
+            left: -1px;
+            display: none;
+            /*visibility: hidden;*/
+
+        }
+
+        ul ul li{
+            text-align: center;
+            line-height: 30px;
+            background: yellow;
+        }
+        /**/
+
+    </style>
+
+</head>
+<body>
+<!--
+
+JS实现原理
+    1.实现布局
+    2.
+
+
+tips:
+
+如果希望把某个元素移除视线
+    1.display:none; 显示为无,不占文档流
+    2.visibility: hidden;   隐藏
+    3.改变宽/高 可以让元素慢慢打开效果
+    4.透明度   可以做淡入淡出效果
+    5.left/top  如腾讯网
+    6.拿一个白色div盖住它
+    7.margin负值
+    ....
+
+-->
+
+<div>
+    <ul>
+        <li id="link" class="lis">
+            <a id="a1" href="#">微博</a>
+            <ul id="ul1">
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

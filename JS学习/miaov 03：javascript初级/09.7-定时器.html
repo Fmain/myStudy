@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>9.7-定时器</title>
+    <script type="text/javascript">
+        /*
+        定时器: 在某一定的时间内,发生什么事.时间概念
+            setInterval( 函数,毫秒 );   //重复执行  '发动机'
+            clearInterval(timer);   //清除执行
+            setTimeout();               //执行一次  '炸弹'
+            clearTimeout(timer);
+         */
+        // for (var i = 0; i < 10; i++) {};
+        var i = 0;
+        var timer = null;
+        function fn1 () {
+            i++;
+            document.title = i;
+            if (i===10) {
+            clearInterval(timer);
+            };
+        }
+        fn1();  //直接调用 防止定时器前几秒的等待再调用函数
+        //document.onclick = fn1; //时间调用
+        timer = setInterval(fn1,2000);  //不能写fn1(); 加括号代表有返回值
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

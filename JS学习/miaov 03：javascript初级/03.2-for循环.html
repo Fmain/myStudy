@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2-for循环</title>
+    <style>
+        li{
+            height: 30px;
+            border-bottom:1px solid #333;
+        }
+    </style>
+    <script>
+        /*
+        前提:
+            1.重复执行某些代码
+            2.每次执行的时候,有个数字在变化
+        for(var i=0;i<3;i++){
+            //alert(i);
+        }
+
+        //alert(i);        i=3
+         */
+        window.onload = function (  ) {
+            var oUl = document.getElementById('list');
+            var aLi = oUl.getElementsByTagName('li');
+            var arr = ['今天','明天','后天'];
+            /*
+            aLi[0].onclick = function (  ) {
+                alert(1);
+            }
+            aLi[0].onclick = function (  ) {
+                alert(1);
+            }
+            aLi[0].onclick = function (  ) {
+                alert(1);
+            }
+             */
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].innerHTML = arr[i];
+                aLi[i].onclick = function (){
+                  //alert(i);   弹出3
+                  alert(arr[i]);
+                }
+            }
+            /*
+            数字大的时候性能有问题!!!
+             */
+            var str='';
+            for(var j=0;j<6000;j++){
+                //document.body.innerHTML += '<input type="button" value="按钮">';
+                str += '<input type="button" value="按钮">';
+            }
+            document.body.innerHTML = str;
+        }
+    </script>
+
+
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

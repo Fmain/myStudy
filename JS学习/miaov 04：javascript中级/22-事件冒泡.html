@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>22-事件冒泡</title>
+    <style>
+        div{padding: 40px;}
+        #div1{background: red;}
+        #div2{background: green;}
+        #div3{background: blue;position: absolute;top: 300px;}
+    </style>
+    <script>
+    /*
+    事件冒泡: 当一个元素接收到事件的时候,会把它接收到的所有传播给他的父级,一直到顶层window.事件冒泡机制
+
+    阻止冒泡 : 只需要在当前要阻止冒泡事件函数中调用 event.cancelBubble = true;
+     */
+        window.onload = function () {
+            var oDiv1 = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var oDiv3 = document.getElementById('div3');
+
+            function fn1() {
+                alert(this.id);
+            }
+
+            //给元素加事件处理函数
+
+            //时间函数绑定
+            oDiv1.onclick = fn1;    //告诉div1,如果他接受到了一个点击事件,那么他就去执行fn1
+            //oDiv2.onclick = fn1;
+            oDiv3.onclick = fn1;    //div3 div2 div1
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+</body>
+</html>

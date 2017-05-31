@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3.4-for循环遍历二维数组/嵌套元素</title>
+    <script>
+        var arr = [
+          [1,2,3],
+          [4,5,6],
+          [7,8,9]
+        ];
+        //arr[0][1]
+
+        for (var i=0;i<arr.length;i++){
+          //arr[i][0];
+          //arr[i][1];
+          //arr[i][2];
+            for (var j=0;j<arr[i].length;j++){
+              //alert(arr[i][j])
+            }
+        }
+
+        window.onload = function () {
+
+            var oUl = document.getElementById('list');
+            var aUl = oUl.getElementsByTagName('ul');
+            var len = aUl.length;
+            var aLi = null;
+
+            for (var i=0;i<len;i++){
+              aLi = aUl[i].getElementsByTagName('li');
+                for (var j=0;j<aLi.length;j++){
+                    aLi[j].style.border = '1px solid red';
+              }
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li>
+        <h2>我的好友</h2>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </li>
+    <ol>
+        <li>hhh</li>
+    </ol>
+    <li>
+        <h2>b</h2>
+        <ul>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </li>
+    <li>
+        <h2>c</h2>
+        <ul>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

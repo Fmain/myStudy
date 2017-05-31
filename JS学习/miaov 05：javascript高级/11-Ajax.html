@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11-Ajax</title>
+    <script>
+    /*
+    Ajax(Asynchronous JavaScript and XML): 异步JavaScript和XML
+        用JavaScript异步形式去操作xml
+        功能:数据交互
+        特点:节省用户操作,事件,提高用户体验,减少数据请求
+
+        1.创建一个Ajax对象 XMLHttpRequest()
+            IE6以下 new　ActiveXObject('Microsoft.XMLHTTP')
+     */
+    window.onload = function () {
+        var oBtn = document.getElementById('btn');
+
+        oBtn.onclick = function () {
+
+            //1.打开浏览器
+            try{
+                var xhr = new XMLHttpRequest();
+            }catch (e){
+                var xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+
+            //2.在地址栏中输入地址
+            xhr.open('get','11.get.php?username='+encodeURI('你好')+'&age=30&' + new Date().getTime(),true); //问题1.缓存问题,在url?后面接一个随机数,时间戳,及时更新       问题2.乱码 编码encodeURI
+
+            //3.提交 enter
+            xhr.send();
+
+            //4.等待服务器返回内容
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4){
+                    alert(xhr.responseText);
+                }
+            }
+        }
+
+    }
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+</body>
+</html>

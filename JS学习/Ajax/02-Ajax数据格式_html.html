@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>02-Ajax数据格式_html</title>
+    <script type="text/javascript">
+     /*
+     解析Html
+        - HTML 由一些普通文本组成,如果服务器通过XMLHttpRequest发送HTML,文本将储存在responseText属性中.
+        - 不必从responseText属性中读取数据,它已经是希望的格式,可以直接将他插入到页面中.
+        - 插入HTML代码最简单的方法是更新这个元素的innerHTML属性
+
+    优点:
+        - 从服务器端发送的HTML代码在浏览器端不需要用JavaScript进行解析
+        - HTML的可读性好
+        - HTML代码块与innerHTML属性搭配,效率高
+
+    缺点:
+        - 若需要通过AJAX更新一篇文档的多个部分,HTML不合适
+        - innerHTML并非DOM标准.
+      */
+
+     window.onload = function () {
+         var aNodes = document.getElementsByTagName('a');
+         for(var i=0;i<aNodes.length;i++){
+             aNodes[i].onclick = function () {
+                 var requst = null;
+                 if(window.XMLHttpRequest){
+                     requst = new XMLHttpRequest();
+                 }else{
+                     requst = new ActiveXObject('Microsoft.XMLHTTP');
+                 }
+
+                 var method = 'GET';
+                 var url = this.href ;
+                 requst.open(method,url);
+                 requst.send(null);
+
+                 requst.onreadystatechange = function () {
+                     if(requst.readyState==4){
+                        if(requst.status==200||requst.status==304){
+                            document.getElementById('details').innerHTML = requst.responseText;
+                        }
+                     }
+                 };
+
+
+                 return false;
+             }
+         }
+     }
+    </script>
+</head>
+<body>
+<h1>People</h1>
+<ul>
+    <li><a href="./src/02-a.html">baidu</a></li>
+    <li><a href="./src/02-b.html">sina</a></li>
+    <li><a href="./src/02-c.html">taobao</a></li>
+</ul>
+<div id="details">
+</div>
+</body>
+</html>

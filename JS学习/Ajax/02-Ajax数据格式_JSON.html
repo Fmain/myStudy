@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>02-Ajax数据格式_JSON</title>
+    <script type="text/javascript">
+    /*
+     JSON
+     - JSON(JavaScript Object Notation)是一种简单的数据格式,比xml更轻巧.Json是JavaScript原生格式,这意味着在JavaScript中处理JSON数据不需要任何特殊的API或工具包.
+     - JSON的规则很简单: 对象是一个无序的"'名称/值'对"集合.一个对象以"{"(左括号)开始,"}"(右括号)结束.每个"名称"后跟一个":"(冒号):"'名称/值'对"之间使用","(逗号)分隔
+
+     解析JSON
+     - JSON只是一种文本字符串.他被储存在responseText属性中
+     - 为了读取储存在responseText属性中的JSON数据,需要根据JavaScript的eval语句.函数eval会把一个字符串当作他的参数.然后这个字符串会被当作JavaScript代码来执行.因为JSON的字符串就是由JavaScript代码构成的,所以它本身是可执行的
+     - JSON提供了json.js包,下载后,使用parseJSON方法将字符串解析成JS对象
+
+     优点:
+     - 作为一种数据传输格式,json和xml很相似,但是他更加灵巧
+     - json不需要从服务器端发送含有特定内容类型的首部信息
+
+     缺点:
+     - 语法过于严谨
+     - 代码不易读
+     - eval函数存在风险
+     */
+/*
+    var json = {
+        "name":"Ryan",
+        "age":21,
+        "school":{
+            "city":"zmd",
+            "school":"hhxy"
+        },
+        "teaching":function(){
+            console.log("fmx");
+        }
+    };
+    console.log(json.name); //Ryan
+    console.log(json.school.city); //zmd
+    json.teaching(); //fmx
+
+
+    //parse()方法
+    var jsonStr = '{"name":"json_str"}'; //必须按照 '{"":""}'; 格式写
+    console.log(jsonStr.name); //undefined
+    //eval() 可以吧一个字符串转为本地的JS代码来执行
+    var jsonP = JSON.parse(jsonStr);
+    alert(jsonP.name);
+*/
+
+
+
+    window.onload = function () {
+        var aNodes = document.getElementsByTagName('a');
+        for(var i=0;i<aNodes.length;i++){
+            aNodes[i].onclick = function () {
+                var requst = null;
+                if(window.XMLHttpRequest){
+                    requst = new XMLHttpRequest();
+                }else{
+                    requst = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                var method = 'GET';
+                var url = this.href ;
+                requst.open(method,url);
+                requst.send(null);
+
+                requst.onreadystatechange = function () {
+                    if(requst.readyState==4){
+                        if(requst.status==200||requst.status==304){
+                            //1.结果为json格式,所以需要使用responseText 来获取
+                            //var result = "'"+requst.responseText+"'";
+                            //var result1 = '{"person":{"name":"baidu","website":"http://www.baidu.com","email":"baidu@baidu.com"}}';
+                            //var object = JSON.parse(result);
+                            var result = requst.responseText;
+                            //alert(result);
+                            //alert(typeof(result));
+                            //2.把获取的JSON格式字符串转化成JSON格式
+                            var object = eval("("+result+")");
+                            //alert(object);
+                            //alert(typeof(object));
+
+                            var name = object.person.name;
+                            var website = object.person.website;
+                            var email = object.person.email;
+
+
+                            var aNode = document.createElement('a');
+                            aNode.appendChild(document.createTextNode(name));
+                            aNode.href = 'mailto:' + email;
+
+                            var h2Node = document.createElement('h2');//为什么不先创建h2节点,是否关于性能优化
+                            h2Node.appendChild(aNode);
+
+                            var aNode2 = document.createElement('a');
+                            aNode2.appendChild(document.createTextNode(website));
+                            aNode2.href = website;
+
+                            var detailsNode = document.getElementById('details');
+                            detailsNode.innerHTML = '';
+                            detailsNode.appendChild(h2Node);
+                            detailsNode.appendChild(aNode2);
+
+
+                        }
+                    }
+                };
+
+
+                return false;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<h1>People</h1>
+<ul>
+    <li><a href="src/02-a.json">baidu</a></li>
+    <li><a href="src/02-b.json">sina</a></li>
+    <li><a href="src/02-c.json">taobao</a></li>
+</ul>
+<div id="details">
+</div>
+</body>
+</html>

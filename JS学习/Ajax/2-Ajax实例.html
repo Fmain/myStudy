@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2-Ajax实例</title>
+    <script>
+        function loadXMLDoc() {
+            //1.创建 XMLHttpRequest 对象
+            var xmlhttp;
+            if(window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }else{
+                xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            //2.向服务器发送请求
+        }
+    </script>
+</head>
+<body>
+
+<div id="myDiv"><h2>使用 AJAX 修改该文本内容</h2></div>
+<button type="button" onclick="loadXMLDoc()">修改内容</button>
+
+</body>
+</html>

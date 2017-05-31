@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>65-清除浮动方式2</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        .box1{
+            background-color: red;
+        }
+        .box1 p{
+            background-color: blue;
+            width: 100px;
+            float: left;
+        }
+        .box2{
+            clear: both;
+            background-color: green;
+        }
+        .box2 p{
+            background-color: yellow;
+            width: 100px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--
+1.消除浮动方式1：
+给前面一个父元素设置高度
+注意：
+在企业开发中，能不写高度就不写高度的，所以这种方式用的很少
+
+2.清除浮动方式2：
+给后面的盒子添加clear属性
+取值：
+none：默认取值，按照浮动方式排序
+left：不找前面的左浮动元素
+right：不找前面的右浮动元素
+both：不着前面的浮动元素（企业中常用）
+注意点：给某个属性添加clear属性之后，这个属性的margin属性就会失效
+-->
+<div class="box1">
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+</div>
+<div class="box2">
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+</div>
+</body>
+</html>

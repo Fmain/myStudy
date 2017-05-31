@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.6-自动生成一组新闻</title>
+    <script>
+        window.onload = function () {
+
+            var arr =[
+                '近期14省份22名省委常委履新 异地调任频繁',
+                '云南掀史上最严旅游整顿 大理600家客栈餐厅停业',
+                '江西斥6千万修8公里公路却坑坑洼洼 质量一栏显合格',
+                '欧洲多国启动全面跨境边检 希望阻挡恐怖分子进入',
+                '东莞深夜升级限购：外地人需1年社保 满2年才可交易'
+            ]
+            var oBtn = document.getElementById('btn1');
+            var oUl = document.getElementById('list');
+            /*
+                解决思路:
+                1.找按钮麻烦(用户体验不好)
+                    oBtn.disabled = true;
+                    oBtn.style.display = 'none';
+                2.先清空,再生成,浏览器性能差
+                    oUl.innerHTML = '';
+                3.添加开关判断
+
+             */
+            var onOff = true;
+
+            oBtn.onclick = function () {
+                //oBtn.disabled = true;
+                //oBtn.style.display = 'none';
+                //oUl.innerHTML = '';
+
+
+                //onOff = false;  no
+                if (onOff){
+                    //onOff = false;    ok
+                    for (var i=0;i<arr.length;i++){
+                        oUl.innerHTML += '<li>'+ arr[i] +'</li>';
+                    }
+                    onOff = false;  //ok
+                }
+                //onOff = false;    ok
+            }
+        }
+    </script>
+
+</head>
+<body>
+<input id="btn1" type="button"  value="自动生成5条新闻">
+<ul id="list">
+
+</ul>
+
+</body>
+</html>

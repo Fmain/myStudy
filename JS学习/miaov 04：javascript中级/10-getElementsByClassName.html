@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10-getElementsByClassName</title>
+    <script>
+        window.onload = function () {
+            var oUl1 = document.getElementById('ul1');
+            var oUl2 = document.getElementById('ul2');
+
+
+            var aLi = getElementsByClassName(document,'p','box');
+
+            alert(aLi.length);
+            console.log(aLi);
+
+            for (var i=0;i<aLi.length;i++){
+                aLi[i].style.background = 'red';
+            }
+
+
+            //获取父级parent元素中的,tagName标签下的,名为'className'的元素;
+            function getElementsByClassName(parent,tagName,className) {
+                var aEls = parent.getElementsByTagName(tagName);
+                var arr = [];
+
+                for (var i=0;i<aEls.length;i++){
+//                    if (aEls[i].className == className){
+//                        arr.push(aEls[i]);
+//                    }
+                    var aClassName = aEls[i].className.split(' ');
+                    for(var j=0;j<aClassName.length;j++){
+                        if(aClassName[j] == className){
+                            arr.push(aEls[i]);
+                            break;//防止一个元素中有两个相同className
+                        }
+                    }
+                }
+                return arr;
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li>111</li>
+    <li class="box1">222</li>
+    <li class="box box">333</li>
+    <li class="box box2">444</li>
+</ul>
+<ul id="ul2">
+    <li class="box box">111</li>
+    <li class="box1">222</li>
+    <li>333</li>
+    <li class="box box2">444</li>
+</ul>
+<div id="div1">
+    <p class="box">pppppp</p>
+</div>
+</body>
+</html>

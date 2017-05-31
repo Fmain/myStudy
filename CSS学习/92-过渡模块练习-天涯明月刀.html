@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>92-过渡模块练习-手风琴效果</title>
+    <style>
+        .a{
+            width: 800px;
+            height: 300px;
+            border: 1px solid #ccc;
+            margin: 60px auto;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .a0{
+            width: 391px;
+            height: 299px;
+            background: url("ty/a0.png") 0 0 no-repeat;
+            position: absolute;
+            left: 0px;
+        }
+        .b{
+            width: 459px;
+            height: 299px;
+            position: absolute;
+            left: 0px;
+            transition-property: left;
+            background-color: blue;
+        }
+        .b:hover{
+            left: 459px;
+        }
+        .a1{
+            background: url("ty/a1.png") 0 0 no-repeat;
+            left: 391px;
+        }
+        .a2{
+            background: url("ty/a2.png") 0 0 no-repeat;
+            left: 459px;
+        }
+        .a3{
+            background: url("ty/a3.png") 0 0 no-repeat;
+            left: 527px;
+        }
+        .a4{
+            background: url("ty/a4.png") 0 0 no-repeat;
+            left: 595px;
+        }
+        .a5{
+            background: url("ty/a5.png") 0 0 no-repeat;
+            left: 663px;
+        }
+        .a6{
+            background: url("ty/a6.png") 0 0 no-repeat;
+            left: 731px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="a">
+    <div class="a0"></div>
+    <div class="a1 b"></div>
+    <div class="a2 b"></div>
+    <div class="a3 b"></div>
+    <div class="a4 b"></div>
+    <div class="a5 b"></div>
+    <div class="a6 b"></div>
+
+</div>
+</body>
+</html>

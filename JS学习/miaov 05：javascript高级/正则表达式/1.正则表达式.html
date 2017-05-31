@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.正则表达式</title>
+    <script>
+    /*
+    1 正则表达式：
+        正则表的是是一个描述字符模式的对象，ECMAScript的RegExp类表示正则表达式，而String和RegExp都定义了使用正则表达式惊醒强大的模式匹配和文本检索
+
+
+    2 正则表达式的基本语法:
+        1.直接量语法:
+            /pattern/attributes;
+        2.创建正则表达式：
+            new RegExp(pattern,attributes);
+                @param 参数:参数pattern是一个模式字符串,制定了正则表达式的模式;
+                    参数attribute(属性)是一个可选参数,包含属性:
+                        g :与全局匹配
+                        i :不区分大小写匹配
+                        m :多行匹配
+                @return 返回值:一个新的RegExp对象,具有指定的模式和标志;
+
+    3 正则表达式的基本方法:
+        1.支持正则表达式的String对象的方法
+            1.1.search(); 该方法用于检索字符串中指定的子字符串,或检索与正则表达式相匹配扥字符串.
+                stringObject.search(regexp);
+            1.2.match(); 该方法用于在字符串内检索指定的值,或找到一个或者多个正则表达式的匹配.该方法类似于indexOf()或者lastIndexOf();但是他返回的是指定的值,而不是字符串的位置;
+                stringObject.match(searchValue)或者stringObject.match(regexp)
+            1.3.replace(); 该方法用于在字符串中使用一些字符替换另一些字符,或者替换一个与正则表达式匹配的子字符串;
+                stringObject.replace(regexp/substr,replacement);
+            1.4.replace(); 该方法用于在字符串中使用一些字符替换另一些字符，或者替换一个与正则表达式匹配的子字符串；
+            1.5.split(); 该方法把一个字符串分割成字符串数组。
+
+        2.RegExp对象方法
+            2.1.test();  该方法用于检测一个字符串是否匹配某个模式；
+            2.2.exec():  该方法用于检索字符串中的正则表达式的匹配。
+
+    4 正则中的普通字符
+        字母，数字，汉字，下划线及一些没有特殊定义的标点符号，都属于普通字符，正则中的普通字符，在匹配字符串的时候，匹配与之相同的字符即可~ 比如如下代码：
+        var str = "abcde";
+        console.log(str.match(/a/)); // ["a", index: 0, input: "abcde"]
+        如上代码，字符串abcde匹配a的时候，匹配成功，索引位置从0开始；
+
+    5 方括号[]的含义:
+        方括号包含一系列字符，能够匹配其中任意一个字符, 如[abc]可以匹配abc中任意一个字符，使用[^abc]包含的字符abc，则能够匹配abc字符之外的任何一个字符，只能是一个字符。如下的含义：
+            [abc]:  查找在方括号中的任意一个字符；
+            [^abc]: 查找不在方括号中的任意一个字符；
+            [0-9]: 查找0-9中的任意一个数字；
+            [a-z]: 查找从小写a到z中的任意一个字符；
+            (red|blue|green); 查找小括号中的任意一项，小括号中的 | 是或者的意思；
+            列举1：表达式[bcd][bcd] 匹配 "abcde"时候，匹配成功，内容是bc，匹配到的位置开始于1，结束与3；如下代码：
+                var str = "abcde";
+                console.log(str.match(/[bcd][bcd]/)); // ["bc", index: 1, input: "abcde"]
+    6 javascript中的元字符
+        1.  元字符.  查找任意的单个字符，除换行符外
+            语法：new RegExp(“regexp.”) 或者直接量语法 /regexp./
+            例子：
+                var str = "abcde";
+                console.log(str.match(/a.c/)); // ["abc", index: 0, input: "abcde"]
+        2.  \w      任意一个字母或数字或下划线，A_Za_z0_9,_中任意一个
+            语法：new RegExp(“\w”); 或 直接量语法：/\w/
+            例子：
+                var str = "abcde";
+                // 匹配单个字符，找到一个直接返回
+                console.log(str.match(/\w/)); // ["a", index: 0, input: "abcde"]
+                // 匹配所有字符
+                console.log(str.match(/\w+/)); //["abcde", index: 0, input: "abcde"]
+        3.  \W      查找非单词的字符，等价于[^A_Za_z0_9_]，没有找到返回null
+            语法：new RegExp(“\W”) 或直接量 /\W/
+        4.  \d      匹配一个数字字符，等价于[0-9]
+            语法：new RegExp(“\d”); 或 直接量语法：/\d/
+            例子：
+                var str = "abcde111";
+                console.log(/\d/g.exec(str)); // ["1", index: 5, input: "abcde111"]
+        5.  \D      匹配一个非数字字符，等价于[^0-9]
+            语法：new RegExp(“\D”) 或直接量 /\D/
+        6.  \s      匹配任何空白字符，包括空格，制表符，换行符等等。等价于[\f\n\r\t\v]
+            语法：new RegExp(“\s”) 或直接量 /\s/
+            例子：
+                var str="Is this all there is?";
+                console.log(/\s/g.exec(str)); // [" ", index: 2, input: "Is this all there is?"]
+        7.  \S      匹配任何非空白字符，等价于[^\f\n\r\t\v]
+            语法：匹配任何非空白字符，等价于[^\f\n\r\t\v]
+        8.  \b      匹配一个单词边界，也就是指单词和空格间的位置，比如’er\b’可以匹配”never”中的”er”,但是不能匹配”verb”中的”er”
+            语法：new RegExp(“\bregexp”) 或直接量 /\bregexp/
+            例子：
+                var str="Is this all there is?";
+                console.log(/\bthis\b/g.exec(str)); // ["this", index: 3, input: "Is this all there is?"]
+        9.  \B      匹配非单词边界,’er\B’能匹配’verb’中的’er’,但不能匹配’never’中的’er’
+            语法：new RegExp(“\Bregexp”) 或直接量 /\Bregexp/
+            例子：
+                var str="Is this all there is?";
+                console.log(/\Bhi/g.exec(str)); // ["hi", index: 4, input: "Is this all there is?"]
+        10. \0      查找NUL字符。
+            语法：
+            例子：
+        11. \n      匹配一个换行符,返回换行符被找到的位置。如果未找到匹配，则返回 -1。
+            语法：new RegExp(“\n”) 或直接量 /\n/
+            例子：
+                var str="Is this all \n there is?";
+                console.log(/\n/g.exec(str)); // ["换行符", index: 12, input: "Is this all ↵there is?"]
+        12. \f      匹配一个换页符
+        13. \r      匹配一个回车符
+        14. \t      匹配一个制表符
+        15. \v      匹配一个垂直制表符
+        16. \xxx    查找一个以八进制数xxx规定的字符,如果未找到匹配，则返回 null。
+            语法：new RegExp(“\xxx”) 或直接量 /\xxx/
+            例子：
+                var str="Visit W3School. Hello World!";
+                console.log(/\127/g.exec(str)); // ["W", index: 6, input: "Visit W3School. Hello World!"]
+            如上代码分析：127的八进制转换为10进制的值等于 1*8的二次方 + 2*8的一次方 + 7*8的0次方 = 64 + 16 + 7 = 87 而W的ASCLL编码转换为10进制也是87，因此打印W
+        17. \xdd    查找以16进制数dd规定的字符。如果未找到匹配，则返回 null。
+            语法：new RegExp(“\xdd”) 或直接量 /\xdd/
+            例子：
+                var str="Visit W3School. Hello World!";
+                console.log(/\x57/g.exec(str)); // ["W", index: 6, input: "Visit W3School. Hello World!"]   W的16进制数等于57；
+        18. \uxxxx  查找以16进制数的xxxx规定的Unicode字符。
+            语法：new RegExp(“\uxxx”) 或直接量 /\uxxx/
+            例子：
+                var str="Visit W3School. Hello World!";
+                console.log(/\u0057/g.exec(str)); // ["W", index: 6, input: "Visit W3School. Hello World!"]
+
+    7 RegExp特殊字符中的需要转义字符
+        需要转义的特殊字符前面加 \
+        $ 匹配输入字符串的结尾位置，如果需要匹配本身的话，使用\$
+        ^ 匹配输入字符串的开始位置，匹配^本身的话，使用\^
+        * 匹配前面的子表达式的零次或者多次，匹配*本身的话，使用\*
+        + 匹配子表达式的1次或者多次，匹配+本身的话，使用\+
+        . 匹配除换行符之外的任何一个字符，匹配.本身的话，使用\.
+        [ 匹配一个中括号开始，匹配本身的，使用\[
+        ? 匹配前面的子表达式的零次或者1次，或指明一个非贪婪限定符，要匹配本身的话，使用\?
+        \ 匹配本身的话，请使用\\
+        { 标记限定符开始的地方，要匹配{ ,请使用\{
+        | 指明多项中的一个选择，可以理解含义为或的意思，匹配本身的话，使用\|
+
+
+
+     */
+
+
+
+
+
+
+
+
+    /*
+     var box = new RegExp('Box'); //第一个参数是模式字符串
+     alert(box); //   /Box/ 两个反斜杠是正则表达式的字面量表示法
+     */
+    var str = "abcde";
+    console.log(str.match(/[bcd][bcd]/)); // ["bc", index: 1, input: "abcde"]
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

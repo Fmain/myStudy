@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.4-倒计时</title>
+    <script type="text/javascript">
+        //现在的时间点(在变)
+        //未来的时间点(不变)
+        var iNow = new Date();
+        var iNew = new Date(2017,5,20,13,14,0);
+
+        var t = Math.floor((iNew - iNow)/1000);    //s为单位
+        // Math.floor();   //向下取正
+        alert(t);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

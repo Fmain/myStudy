@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>08-作业留言板加强</title>
+    <script>
+        /*
+         最多只能添加5（自己定）条，最先留的言会被清除
+         */
+        window.onload = function () {
+            var oText = document.getElementById('text1');
+            var oBtn = document.getElementById('btn');
+            var oUl = document.getElementById('ul1');
+            var num = 0;
+            oBtn.onclick = function () {
+                aLi = document.createElement('li');
+
+                aLi.innerHTML = oText.value;
+
+                if (num<5){
+                    if(oUl.childNodes[0]){
+                        oUl.insertBefore(aLi,oUl.childNodes[0]);
+                    }else {
+                        oUl.appendChild(aLi);
+                    }
+                    num++;
+                }else {
+                    oUl.removeChild(oUl.childNodes[4]);
+                    oUl.insertBefore(aLi,oUl.childNodes[0]);
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="text1" type="text">
+<input id="btn" type="button" value="添加">
+<ul id="ul1"></ul>
+</body>
+</html>

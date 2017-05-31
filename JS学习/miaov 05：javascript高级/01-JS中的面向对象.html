@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-JS中的面向对象</title>
+    <script>
+    /*
+    1.面向对象的特点
+        抽象: 抓住核心问题
+        封装: 不考虑内部实现,只考虑功能使用
+        继承: 从已有的对象上,继承出新的对象
+        多态: 父类和子类有不同的操作,但是也不尽相同
+
+    2.对象的组成
+        属性--变量:状态,静态的
+            1.变量,是自由的
+            2.属性,属于一个对象的变量
+        方法--函数:过程,动态的
+            1.函数,是自由的
+            2.方法,属于一个对象的函数
+            3.构造函数,用来构造对象的函数,首字母大写
+            4.事件处理函数,用来处理一个事件的函数
+
+    3.全局的变量和函数属于window
+        function show() {
+            alert(this);
+        }
+        //window.show = function () {
+        //    alert(this);
+        //}
+        show();
+        //window.show();
+
+    4.this :当前的方法属于谁,this就指向谁
+        在函数前面有new的时候会失效
+
+    5.用工厂方式构造对象
+        问题:
+            1.没有new,
+            2.每个对象都有自己的一套方法和属性,及其浪费资源
+        function createPerson(name,sex) { //构造函数
+            //1.原料
+            var obj = new Object();
+            //2.加工
+            obj.name = name;
+            obj.sex = sex;
+            obj.showName = function () {
+                alert('my name is ' + this.name);
+            };
+            obj.showSex = function () {
+                alert('my sex is ' + this.sex);
+            };
+            //3.出厂
+            return obj;
+        }
+        var p1 = createPerson('fmx','男');
+        var p2 = createPerson('abc','男');
+        p1.showName();
+        p1.showSex();
+        p2.showName();
+
+    6.每写一次function就会诞生一个新的函数对象
+        var a = new Function("alert('abc')"); //等同
+        var b = function (){
+            alert('abc);
+        }
+
+    7.添加new
+        function createPerson(name,sex) { //构造函数
+            //假想的系统内部工作流程
+            //var this = new Object();
+            this.name = name;
+            this.sex = sex;
+            this.showName = function () {
+                alert('my name is ' + this.name);
+            };
+            this.showSex = function () {
+                alert('my sex is ' + this.sex);
+            };
+            //假想的系统内部工作流程
+            //return this;
+        }
+        var p1 = new createPerson('fmx','男');
+        var p2 = new createPerson('abc','男');
+        p1.showName();
+        p1.showSex();
+        p2.showName();
+
+    8.有new的时候
+        function show() {
+            //假想的系统内部工作流程
+            //var this = new Object();
+            alert(this);
+        }
+        show();     //[object Window]
+        new show(); //[object Object]  新创建的对象
+
+    9.使用原型法,给类添加方法
+        function createPerson(name,sex) { //构造函数
+            this.name = name;
+            this.sex = sex;
+        }
+        createPerson.prototype.showName = function () {
+            alert('my name is ' + this.name);
+        };
+        createPerson.prototype.showSex = function () {
+            alert('my sex is ' + this.sex);
+        };
+        var p1 = new createPerson('fmx','男');
+        var p2 = new createPerson('abc','男');
+        p1.showName();
+        p1.showSex();
+        p2.showName();
+        p2.showSex();
+
+     */
+
+    function createPerson(name,sex) { //构造函数
+        this.name = name;
+        this.sex = sex;
+    }
+    createPerson.prototype.showName = function () {
+        alert('my name is ' + this.name);
+    };
+    createPerson.prototype.showSex = function () {
+        alert('my sex is ' + this.sex);
+    };
+    var p1 = new createPerson('fmx','男');
+    var p2 = new createPerson('abc','男');
+    p1.showName();
+    p1.showSex();
+    p2.showName();
+    p2.showSex();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

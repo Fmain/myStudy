@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-优先级之important</title>
+    <style>
+        #id1{
+            color: purple;
+            font-size: 10px;
+        }
+        .para{
+            color: pink;
+        }
+        p{
+            color: green ;
+        }
+        *{
+            color: blue !important;
+            font-size: 50px;
+        }
+        li{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+!important
+作用：用于提升某个直接选中标签的选择器中的某个属性的优先级，可以将被指定的属性的优先级提升为最高
+注意点：
+1.只能用于直接选中，不能用于间接选中
+2.通配符选择器选中的标签也是直接选中的
+3.!important只能提升被指定的属性的优先级，其他的属性的优先级不会被提升
+-->
+<ul>
+    <li>
+        <p id="id1" class="para">abcd</p>
+    </li>
+</ul>
+
+</body>
+</html>

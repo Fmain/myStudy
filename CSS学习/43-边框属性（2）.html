@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>43-边框属性（2）</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*border-width: 10px 10px 10px 10px;*/
+            /*border-style: double double double double;*/
+            /*border-color: #b2ff24 purple pink darkblue;*/
+            border-top-width: 10px;
+            border-top-style: dashed;
+            border-top-color: #000;
+        }
+    </style>
+</head>
+<body>
+<!--
+连写(分别设置四条边的边框)
+border-width: 上 有 下 左;
+border-style:上 有 下 左;
+border-color:上 有 下 左;
+
+注意点：按照上右下左的顺时针负值
+省略规律：
+上右下：左边取值和右边一样
+上右：左边和右边一样 下边和上边一样
+上：右下左和上边一样
+
+非连写
+-->
+<div class="box"></div>
+
+</body>
+</html>

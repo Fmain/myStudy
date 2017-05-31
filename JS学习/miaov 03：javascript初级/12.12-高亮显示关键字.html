@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.12-高亮显示关键字</title>
+    <style type="text/css">
+        p{
+            /* display: inline-block; */
+            width: 400px;
+            border: 10px solid #CCC;
+            margin: 40px auto;
+            padding: 10px;
+        }
+        span{
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+<input type="text" />
+<input type="button" value="查找">
+
+<p>北京市医药分开综合改革已全面实施半个月以来，至此，所有公立医院全部取消挂号费、诊疗费，设立医事服务费。新政落地以来，北京各医疗机构在改善医疗服务和重塑医学价值层面效果初显，医改把提升医疗服务价值、让患者就诊环境更好当做重中之重。让我们看看改革新政实施后，医院、患者、管理者如何说</p>
+
+
+<script type="text/javascript">
+    var aInp = document.getElementsByTagName('input');
+    var oP = document.getElementsByTagName('p')[0];
+
+    aInp[1].onclick = function() {
+
+        var str = aInp[0].value;
+
+        if (!str)return;
+
+        oP.innerHTML = oP.innerHTML.split(str).join('<span>'+str+'</span>');
+
+        //存在bug:不能清除上一个高亮样式
+    };
+</script>
+</body>
+</html>

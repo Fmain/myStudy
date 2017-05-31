@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>04-父节点</title>
+    <style type="text/css">
+        div{
+            padding: 40px;
+        }
+        #div1{background:red;}
+        #div2{background:green; position:relative;}
+        #div3{background:blue;}
+    </style>
+    <script type="text/javascript">
+    /*
+    parentNode  只读属性,当前节点的父级节点
+        无兼容问题
+
+    offsetParent    只读属性,离当前元素最近的一个有定位的父级节点
+        如果没有定位父级,默认是body,IE7 也是body
+        如果有定位父级,IE7 则是HTML
+        IE7如果当前元素的某个父级触发了layout,那么offsetParent就会被只想到这个触发了layout特性的父节点上
+
+
+     */
+        window.onload = function() {
+            var aA = document.getElementsByTagName('a');
+            /*
+            //parentNode
+            for (var i = 0; i < aA.length; i++) {
+                aA[i].onclick = function() {
+                    this.parentNode.style.display = 'none';
+                };
+            };
+            */
+
+            //offsetParent();
+            var oDiv3 = document.getElementById('div3');
+
+            alert(oDiv3.offsetParent.id);   //body1
+
+            alert(oDiv3.parentNode.id);   //body1
+
+
+            // alert(document.getElementById('div2').currentStyle.hasLayout);
+            alert(oDiv3.offsetParent.id);   // div2  前提#div2{background:green; position:relative;}
+
+
+
+
+
+        };
+    </script>
+</head>
+<body id="body1">
+<ul id="ul1">
+    <li>111<a href="javascript:;">隐藏</a></li>
+    <li>222<a href="javascript:;">隐藏</a></li>
+    <li>333<a href="javascript:;">隐藏</a></li>
+    <li>444<a href="javascript:;">隐藏</a></li>
+</ul>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+</body>
+</html>

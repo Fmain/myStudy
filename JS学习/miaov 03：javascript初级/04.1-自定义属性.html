@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1-自定义属性</title>
+    <style>
+        li{
+            list-style:none;
+            width: 114px;
+            height: 140px;
+            background: url("images/1.jpg");
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+    <script>
+        /*
+        HTML标签属性:(读写操作)
+        自定义属性
+            JS可以为任何HTML元素添加任意个自定义属性
+         */
+        /*
+        window.onload = function () {
+
+
+            var aBtn = document.getElementsByTagName('input');
+
+            //aBtn[0].abc = 123;
+            //alert(aBtn[0].abc);   读操作
+            //aBtn[0].abc = 345;    写操作
+
+            for (var i=0;i<aBtn.length;i++){
+                aBtn[i].abc = 123;
+                aBtn[i].xyz = true;
+            }
+        }
+         */
+        window.onload = function () {
+
+            var aLi = document.getElementsByTagName('li');
+            //var onOff = true;   //添加一个判断开关,只能控制一组
+
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].onOff = true;
+                aLi[i].onclick = function () {
+                    if(this.onOff){
+                        this.style.background = 'url("images/2.jpg")'
+                        this.onOff = false;
+                    }else {
+                        this.style.background = 'url("images/1.jpg")'
+                        this.onOff = true;
+                    }
+
+                }
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮">
+<hr>
+
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

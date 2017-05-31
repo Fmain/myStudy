@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.方法函数化</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        /*window.onload = function () {
+            var oDiv = document.getElementById('div1');
+
+            oDiv.onclick = function () {
+                alert(this.innerHTML);
+            }
+        }*/
+        $(function () {
+            //var oDiv = $('#div1');
+            $('#div1').click(function () {
+                //alert(this.innerHTML);
+                alert($(this).html());
+            });
+        });
+    </script>
+</head>
+<body>
+<!--
+方法函数化:
+function $(){};
+$();
+
+innerHTML = 123;
+html(123);
+-->
+<div id="div1">123</div>
+</body>
+</html>

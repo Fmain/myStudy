@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>75-定位流</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: blue;
+
+            /*
+            position: relative;
+            top: 40px;
+            right: 50px;
+            bottom: 50px;
+            left: 50px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom:0;
+
+            */
+
+            /*position: fixed;*/
+
+
+        }
+        .box3{
+            background-color: yellow;
+        }
+        /*
+        span{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        input{
+            width: 200px;
+            height: 50px;
+        }
+        img{
+            width: 200px;
+            height: 50px;
+            position: relative;
+            top: 0;
+        }
+        */
+    </style>
+</head>
+<body>
+<!--
+定位流分类
+1.相对 position: relative;
+    相对自己以前在标准流中的位置来移动
+    注意点：
+        不脱离标准流，还是会在标准流种占用空间
+        同一个方向上的定位属性只能使用一个
+        邮局不脱离标准流，所以在相对定位种是区分块级/行内/行内块级元素
+        相对定位的元素会占用标准流中的位置，所以为相对定位的元素设置margin和padding属性时会影响到标准流布局
+    应用场景：
+        对元素进行微调
+        配合绝对定位使用
+
+2.绝对 position: absolute;
+    相对于body来定位
+    注意点：
+        脱离标准流，不会再标准流中占空间
+        不区分块级/行内/行内块级元素
+    规律：
+    默认情况下，绝对定位元素，无论有没有祖先元素，都以body为参考点
+    如果祖先元素是(相对、绝对、固定)定位流，那么这个绝对定位元素，就会以祖先元素为参考点
+    如果祖先元素中有多个定位流，那么这个绝对定位元素会以离他最近的祖先元素为参考点
+    应用场景：
+    对元素进行微调
+    配合相对定位使用
+3.固定 position: fixed;
+    可以让某个元素不随滚动条滚动而滚动
+    注意点:
+        脱离标准流，不会再标准流中占空间
+        不区分块级/行内/行内块级元素
+    应用场景:
+    固定导航栏、固定广告、固定返回顶部键
+4.静态
+    默认定位流
+
+
+5.z-index属性
+    默认情况下所有元素都有一个默认的z-index属性
+    作用
+    专门用于控制定位刘元素的覆盖关系
+
+    默认情况下,定位流的元素会覆盖标准流元素
+    默认情况下,定位刘流元素的元素后面编写的会盖住前面编写的
+    如果定位流元素设置了z-index属性,那么谁的z-index属性比较大,谁就显示在上面
+
+    注意点:
+        如果两个元素都没有设置z-index属性,那么谁的z-index属性比较大谁就显示在上面
+        如果两个元素的父元素都设置了z-index属性,那么谁的父元素z-index属性大谁就显示在上面
+
+-->
+<!--相对定位
+
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+-->
+<!--
+<span>我和联合国</span>
+
+<input type="text" name="" id="">
+<img src="WY/call.jpg" alt="">
+
+-->
+<!---->
+<div class="box1">
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>95-2D转换模块-旋转轴向</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 30px auto;
+            /*
+            透视属性:   近大远小
+            单位    :   像素    距离物体多少像素
+            注意点:
+                透视属性必须添加到需要呈现近大远小的效果的元素的父元素上面
+            */
+            perspective: 100px;
+        }
+        ul li{
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            margin: 50px auto;
+            border: 1px solid #000;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .x{
+            background-color: yellow;
+            transform: rotateX(45deg);
+        }
+        .y{
+            background-color: blue;
+            transform: rotateY(45deg);
+        }
+        .z{
+            background-color: pink;
+            transform: rotateZ(45deg);
+        }
+
+    </style>
+</head>
+<body>
+<!--
+想围绕哪个轴旋转,只需要在rotate后面加上那个轴即可
+默认是围绕Z轴旋转
+-->
+<ul>
+    <li>
+        <div class="x"></div>
+    </li>
+</ul>
+<ul>
+    <li>
+        <div class="y"></div>
+    </li>
+</ul>
+<ul>
+    <li>
+        <div class="z"></div>
+    </li>
+</ul>
+</body>
+</html>

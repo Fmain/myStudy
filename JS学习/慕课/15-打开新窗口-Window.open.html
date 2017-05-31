@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>15-打开新窗口</title>
+    <script type="text/javascript">
+        function rec(){
+            var baidu = "http://www.baidu.com";
+            window.open(baidu,'_blank','top=auto;left=auto;width=600,height=400,menubar=no,toolbar=no, status=no,scrollbars=yes')
+        }
+    </script>
+</head>
+<body>
+<!--
+open() 方法:  可以查找一个已经存在或者新建的浏览器窗口。
+
+语法:
+    window.open([URL], [窗口名称], [参数字符串])
+
+参数:
+    1.URL：可选参数，在窗口中要显示网页的网址或路径。如果省略这个参数，或者它的值是空字符串，那么窗口就不显示任何文档。
+    2.窗口名称：可选参数，被打开窗口的名称。
+        2.1. 该名称由字母、数字和下划线字符组成。
+        2.2. "_top"、"_blank"、"_self"具有特殊意义的名称。
+           _blank：在新窗口显示目标网页
+           _self：在当前窗口显示目标网页
+           _top：框架网页中在上部窗口中显示目标网页
+        3.3.相同 name 的窗口只能创建一个，要想创建多个窗口则 name 不能相同。
+        3.4.name 不能包含有空格。
+    3.参数字符串：可选参数，设置窗口参数，各参数用逗号隔开。
+
+ -->
+ <input type="button" value="代开新窗口"  onclick="rec();" />
+</body>
+</html>

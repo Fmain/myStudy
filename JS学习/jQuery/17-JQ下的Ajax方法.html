@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>17-JQ下的Ajax方法</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+        /*
+         1. $(selector).load(URL,data,callback);
+            URL(必选)参数规定您希望加载的 URL。也可以把 jQuery 选择器添加到 URL 参数。
+                如: $("#div1").load("demo_test.txt #p1");
+            data(可选)参数规定与请求一同发送的查询字符串键/值对集合。
+            callback(可选)参数是规定当 load() 方法完成后所要允许的回调函数。回调函数可以设置不同的参数：
+                responseTxt - 包含调用成功时的结果内容
+                statusTXT - 包含调用的状态
+                xhr - 包含 XMLHttpRequest 对象
+                如:
+                    $("button").click(function(){
+                        $("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+                            if(statusTxt=="success")alert("外部内容加载成功!");
+                            if(statusTxt=="error")alert("Error: "+xhr.status+": "+xhr.statusText);
+                        });
+                    });
+
+         2. $.get(URL,callback); //通过 HTTP GET 请求从服务器上请求数据。
+            第一个参数是我们希望请求的 URL（"demo_test.php"）。
+            第二个参数是回调函数。第一个回调参数存有被请求页面的内容，第二个回调参数存有请求的状态。
+                data    数据  第一个回调参数存有被请求页面的内容
+                status  状态  第二个参数存有请求的状态。
+                如:
+                    $("button").click(function(){
+                        $.get("demo_test.php",function(data,status){
+                            alert("数据: " + data + "\n状态: " + status);
+                        });
+                    });
+
+        3. $.post(URL,data,callback);  //通过 HTTP POST 请求从服务器上请求数据。
+            必需的 URL 参数规定您希望请求的 URL。
+            可选的 data 参数规定连同请求发送的数据。
+            可选的 callback 参数是请求成功后所执行的函数名。
+                第一个回调参数存有被请求页面的内容
+                第二个参数存有请求的状态。
+
+        */
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>

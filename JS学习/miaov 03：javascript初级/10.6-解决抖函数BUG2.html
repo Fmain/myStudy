@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>10.6-解决抖函数BUG2</title>
+<style>
+    img { width:100px; height:100px; position:absolute; top:200px; }
+</style>
+<script>
+function shake( obj, attr,pos, endFn ){
+    var arr = [] //20 -20 18 -18 ...
+    var num = 0;
+    for (var i = 20; i >= 0; i-=2) {
+         arr.push(i,-i);
+    }
+    // if (obj.onOff) {
+         clearInterval(obj.shake);
+         obj.shake = setInterval(function(){
+             // obj.onOff = false;
+             obj.style[attr] = pos + arr[num] + 'px';
+             num ++ ;
+             if (num == arr.length) {
+                     // obj.onOff = true;
+                     clearInterval(obj.shake);
+                     endFn && endFn();
+             }
+         },50);
+    // }
+}
+ window.onload = function(){
+         var aImg = document.getElementsByTagName('img');
+
+
+         for (var i = 0; i < aImg.length; i++) {
+                 aImg[i].style.left = (10+100)*i+'px';
+                var pos = parseInt(getStyle(aImg[i], 'top'));
+                 // aImg[i].onOff = true;
+                 aImg[i].onmouseover = function(){
+                         shake(this, 'top', pos);
+                 }
+         }
+ }
+ // 获取元素样式函数
+function getStyle(obj, attr){
+        return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle( obj )[attr];
+}
+
+
+</script>
+
+</head>
+
+<body>
+<p>方法一：设置开关，限制在抖动还没有结束之前不能触发下一次抖动</p>
+<p>方法二：在运动过程中只存一次元素的left或top值</p>
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+</body>
+</html>

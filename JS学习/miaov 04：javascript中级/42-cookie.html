@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>42-cookie</title>
+    <script>
+    /*
+    通过变量存储的数据,在浏览器关闭后就会被销毁
+    cookie : 存储数据,当用户访问了某个网站()的时候,我们就可以通过cookie来向访问者电脑上存储数据
+        1.不同浏览器存储位置不一样,所以不同浏览器存放的cookie不能通用
+        2.cookie的存储是以域名的形式进行区分的
+        3.cookie的数据是可以设置名字的 类似 json.name=1;比如:
+            document.cookie = '名字=值;expirse=' + 字符串格式的时间;
+
+     */
+    //写操作
+    /*document.cookie = 'username=leo';
+    document.cookie = 'age=32';
+    //读操作
+    alert(document.cookie);*/
+    var oDate = new Date();
+    oDate.setDate(oDate.getDate()+5);
+    /*document.cookie = 'username=fmx;expirse=' + oDate.toGMTString();
+    document.cookie = 'age=21';*/
+    alert(document.cookie);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.4-NaN</title>
+    <script>
+
+        /*
+        1.NaN :   not a number    不是一个数字的数字类型
+            一旦写程序出现了:NaN    肯定进行了非法的运算操作
+            NaN在布尔值中是false
+            NaN 与自己都不相等
+         */
+        /*
+        var a = Number('abc');
+        alert(a);   //NaN
+        alert(typeof (a));  //number
+        //NaN 是 false
+        if(a){
+            alert('真');
+        }else{
+            alert('真');
+        }
+        //NaN 与自己都不相等
+        alert(a === a); //false
+         */
+
+        /*
+        2.isNaN : Is not a number     是不是 不是一个数字(不是数字)
+            isNaN();
+            可以判断某些之是不是数字
+                如果喜欢,是true.如果不喜欢,是false
+                即,见到数字,弹出false
+            内部是由Number()判断
+        */
+
+//        alert(isNaN('250'));    //先 Number()'250'->250->false
+//        alert(isNaN('true'));   //false
+
+
+        //判断是不是数字
+        window.onload = function () {
+            var aInp = document.getElementsByTagName('input');
+            aInp[1].onclick = function () {
+                str = aInp[0].value;
+                //只要是从HTML中拿到的内容,类型都是字符串
+
+                //alert(typeof str);    //都是string
+                if(isNaN(str)){
+                    alert(str+'不是数字');
+                }else if(str==''){
+                    alert('请输入');
+                }else{
+                    alert(str+'是数字');
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+<input type="text">
+<input type="button" value="判断输入值是不是数字">
+
+</body>
+</html>

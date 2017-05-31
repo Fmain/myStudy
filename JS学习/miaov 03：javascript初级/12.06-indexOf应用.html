@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.6-indexOf应用</title>
+    <script type="text/javascript">
+
+    var str = '北京市医药分开综合改革已全面实施半个月以来，至此，所有公立医院全部取消挂号费、诊疗费，设立医事服务费。新政落地以来，北京各医疗机构在改善医疗服务和重塑医学价值层面效果初显，医改把提升医疗服务价值、让患者就诊环境更好当做重中之重。让我们看看改革新政实施后，医院、患者、管理者如何说？';
+
+    var s = '北京';
+    var i = 0;
+    /*
+    for (;str.indexOf(s,i)!=-1;) {
+        alert(str.indexOf(s,i));
+        i = str.indexOf(s,i) + s.length;
+    };
+    */
+
+    while(str.indexOf(s,i)!=-1){
+        alert(str.indexOf(s,i));    //0 58
+        i = str.indexOf(s,i) + s.length;
+    }
+
+    //如何把查找到的保持下来
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

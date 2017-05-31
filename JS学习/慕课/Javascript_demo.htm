@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>JavaScript_Demo</title>
+	<meta charset=utf-8>
+	<script type="text/JavaScript">
+        var greeting = 'My name is ${name}, age ${age}, I am a ${job.jobName}';
+        var employee = {
+            name: 'XiaoMing',
+            age: 11,
+            job: {
+                jobName: 'designer',
+                jobLevel: 'senior'
+            }
+        };
+        function render(){
+            greeting.charAt()
+
+        }
+            var result = greeting.render(employee);
+            console.log(result);  //My name is XiaoMing, age 11, I am a designer
+
+
+
+	</script>
+	<style type="text/css" media="screen">
+
+	</style>
+</head>
+<body>
+<input type="button" value="点击按钮" onclick="rec();" />
+</body>
+</html>

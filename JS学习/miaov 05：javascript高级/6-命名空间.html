@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-命名空间</title>
+    <script>
+    /*
+    像一个文件夹一样,便于管理,类似Java包的概念
+     */
+    var json = {};
+    json.common = {
+        getByClass: function () {
+            alert(1);
+        },
+        myAddEvent: function () {
+
+        }
+    };
+    json.fx = {
+        startMove: function () {
+            
+        },
+        drag: function () {
+            
+        }
+    };
+    json.common.getByClass();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>14-表单的操作</title>
+    <script>
+        /*
+        表单:是把前端用户的数据操作提交到后端去
+        name:  表单.name
+
+        onchange: 当值发生改变的时候出发
+            text: 当光标离开的时候,如果内容有改变,则触发
+            radio/checkbox:标准下点击的时候只要值变了就会触发
+                  非标准下,焦点离开的时候,如果值变了,就会触发
+        onsubmit: 事件,当表单提交的时候触发
+            submit();   方法 提交表单
+
+        onreset: 事件,当表单充值的时候触发
+         */
+        window.onload = function () {
+            var oForm = document.getElementById('form1');
+
+            //alert(oForm.text1.value);
+            oForm.text1.onchange = function () {
+                alert(this.value);
+            };
+
+            for (var i=0;i<oForm.sex.length;i++){
+                oForm.sex[i].onchange = function () {
+                    alert(this.value);
+                }
+            }
+
+            for (var i=0;i<oForm.a.length;i++){
+                oForm.a[i].onchange = function () {
+                    alert(this.value);
+                }
+            }
+
+            oForm.city.onchange = function () {
+                alert(this.value);
+            };
+
+            oForm.btn.onclick = function () {
+                //radio,checkbox
+//                alert(oForm.sex[0].checked);
+                for (var i=0;i<oForm.sex.length;i++){
+                    if (oForm.sex[i].checked){
+                        alert(oForm.sex[i].value+'被选中了');
+                    }
+                }
+            };
+
+
+            oForm.onsubmit = function () {
+                if(this.text2.value == ''){
+                    alert('请输入内容');
+                    return false;
+                }
+                alert('提交了');
+            };
+
+            oForm.onreset = function () {
+                /*
+                var re = confirm('确定重置吗?');
+                 if (re){
+                 return true;
+                 }else{
+                 return false;
+                 }
+                 */
+                return confirm('确定重置吗?');
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<form id="form1" action="http://www.baidu.com">
+    <input type="text" name="text1" value="内容">
+
+    <input type="radio" name="sex" value="男" checked>男
+    <input type="radio" name="sex" value="女">女
+
+    <input type="checkbox" name="a" value="html">html
+    <input type="checkbox" name="a" value="css">css
+    <input type="checkbox" name="a" value="javascript">javascript
+
+    <select name="city">
+        <option value="">请选择城市</option>
+        <option value="北京">北京</option>
+        <option value="上海">上海</option>
+        <option value="广州">广州</option>
+    </select>
+
+    <input type="button" value="按钮" name="btn">
+    <hr>
+    <input type="text" name="text2">
+    <input type="text" name="text3">
+    <input type="submit" value="提交" name="dosubmit">
+    <input type="reset" value="重置" name="soreset">
+</form>
+</body>
+</html>

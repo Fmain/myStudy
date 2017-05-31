@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>09-Vue交互</title>
+    <script src="vue.js"></script>
+    <!--<script src="vue-resource.js"></script>-->
+    <!-- <script src="old/vue.js"></script> -->
+    <script src="old/vue-resource.js"></script>
+    <script type="text/javascript">
+    /*
+    如果vue想做数据交互,需要引入:vue-resource
+
+    get:
+        1.获取普通文本数据:
+        get:function () {
+            this.$http.get('09-a.txt').then(function (res) {
+                //alert('成功');
+                alert(res.data);
+            },function (res) {
+                alert(res.status)
+            })
+        }
+        2.给服务器发送数据
+        get2:function () {
+            this.$http.get('09-get.php',{
+                a:1,
+                b:2
+            }).then(function (res) {
+                //alert('成功');
+                alert(res.data);
+            },function (res) {
+                alert(res.status)
+            })
+        }
+
+    post:
+        get2:function () {
+            this.$http.get('09-get.php',{
+                a:1,
+                b:2
+            },{
+                emulateJSON:true
+            }).then(function (res) {
+                //alert('成功');
+                alert(res.data);
+            },function (res) {
+                alert(res.status)
+            })
+        }
+
+     */
+    window.onload = function  () {
+        new Vue({
+            el:'#box',
+            data:{
+            },
+            methods:{
+                get1:function () {
+                    this.$http.get('09-a.txt').then(function (res) {
+                        //alert('成功');
+                        alert(res.data);
+                    },function (res) {
+                        alert(res.status)
+                    })
+                },
+                get2:function () {
+                    this.$http.get('09-get.php',{
+                        a:1,
+                        b:2
+                    }).then(function (res) {
+                        //alert('成功');
+                        alert(res.data);
+                    },function (res) {
+                        alert(res.status)
+                    })
+                },
+                get4:function () {
+                    this.$http.jsonp('https://sug.so.360.cn/suggest', {
+                        word: 'a'
+                    }).then(function (res) {
+                        alert(res.data.s);
+                    }, function (res) {
+                        alert(res.status)
+                    })
+                },
+                get5:function () {
+                    this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su', {
+                        wd: 'a'
+                    }, {
+                        jsonp: 'cb'  //callback名字,默认名字就是"callback"
+                    }).then(function (res) {
+                        alert(res.data.s);
+                    }, function (res) {
+                        alert(res.status)
+                    })
+                }
+            }
+        })
+    }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="button" value="按钮1" @click="get1()">
+    <input type="button" value="按钮2" @click="get2()">
+    <input type="button" value="按钮4" @click="get4()">
+    <input type="button" value="按钮5" @click="get5()">
+</div>
+</body>
+</html>

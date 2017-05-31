@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-鼠标画线</title>
+    <style>
+        body{
+            background: #000;
+            color: #fff;
+        }
+        #c1{
+            background: #fff;
+        }
+        #c1 span{
+            color: #fff;
+        }
+    </style>
+    <script>
+    window.onload = function () {
+        var oC = document.getElementById('c1');
+        var cas = oC.getContext('2d');
+
+        oC.onmousedown = function (ev) {
+            var ev = ev||window.event;
+
+            var x = ev.clientX-oC.offsetLeft;
+            var y = ev.clientY-oC.offsetTop;
+
+            cas.moveTo(x,y);
+
+            document.onmousemove = function (ev) {
+
+                var ev = ev||window.event;
+                var x = ev.clientX - oC.offsetLeft;
+                var y = ev.clientY - oC.offsetTop;
+                cas.lineTo(x,y);
+                cas.stroke();
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+
+<canvas id="c1" width="500" height="500">
+    <span>不支持canvas浏览器</span>
+</canvas>
+
+</body>
+</html>

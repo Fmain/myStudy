@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>7.2-JS中的作用域1</title>
+    <script type="text/javascript">
+/*
+    //if
+    alert(fn1);
+    var a = 1;
+    function fn1 () {
+        alert(123);
+    }
+    if (true) {
+    }
+*/
+    window.onload = function  () {
+        var aBtn = document.getElementsByTagName('input');
+
+        for (var i = aBtn.length - 1; i >= 0; i--) {
+            aBtn[i].onclick = function(){
+                aBtn[i].style.background = 'yellow';
+                alert(i);   //3
+                // for (var i = aB.length - 1; i >= 0; i--) {
+                //     aBtn[i].style.background = 'yellow';
+                // }
+            }
+        };
+    }
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮1">
+<input type="button" value="按钮2">
+<input type="button" value="按钮3">
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.split();方法</title>
+    <script>
+        /*
+        split(); 方法: 该方法把一个字符串分割成字符串数组。
+            语法: stringObject.split(separator,howmany);
+                @param(参数)
+                    1. separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;
+                    2. howmany[可选] 该参数指定返回的数组的最大长度，如果设置了该参数，返回的子字符串不会多于这个参数指定的数组。如果没有设置该参数的话，整个字符串都会被分割，不考虑他的长度。
+                @return(返回值)
+                    一个字符串数组。该数组通过在separator指定的边界处将字符串stringObject分割成子字符串。
+        */
+        var str = 'What are you doing?';
+
+        //以' '分割字符串
+        console.log(str.split(' ')); //["What", "are", "you", "doing?"]
+
+        //以''分割字符串
+        console.log(str.split('')); //["W", "h", "a", "t", " ", "a", "r", "e", " ", "y", "o", "u", " ", "d", "o", "i", "n", "g", "?"]
+
+        // 指定返回数组的最大长度为3
+        console.log(str.split('',3));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

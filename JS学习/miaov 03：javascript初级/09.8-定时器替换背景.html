@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>9.8-定时器替换背景</title>
+    <script src="../JS库/fmx.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var aBtn = document.getElementsByTagName('input');
+            var oBody = document.body;
+            var num = 0;
+            var timer = null;
+            var arrUrl = ['../images/a1.jpg','../images/a2.jpg','../images/a3.jpg','../images/a4.jpg']
+            //oBody.style.background = 'url('+arrUrl[0]+') no-repeat';
+            aBtn[0].onclick = function() {
+
+                clearInterval(timer);   //null,未定义  都可以,先关后开
+
+                timer = setInterval(function () {
+                    oBody.style.background = 'url('+arrUrl[num]+') no-repeat';
+                    num++;
+                    num %= arrUrl.length;
+                },500);
+            };
+            aBtn[1].onclick = function  () {
+                clearInterval(timer);
+            }
+
+
+        });
+    </script>
+</head>
+<body background="no-rep">
+<input type="button" value="换背景">
+<input type="button" value="停">
+
+</body>
+</html>

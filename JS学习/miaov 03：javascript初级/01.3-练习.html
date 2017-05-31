@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-1.3-练习</title>
+    <style>
+        h2{
+            display: inline-block;
+        }
+        .set{
+            width: 90px;
+            height: 40px;
+            color: #fff;
+            background: red;
+            border: 1px solid gold;
+        }
+        .div1{
+            width: 100px;
+            height: 100px;
+            border: 4px solid #000;
+        }
+        .tip{
+            width: 300px;
+            height: 200px;
+            border: 20px solid #ccc;
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            background: #fff;
+            margin-left: -120px;
+            display: none;
+        }
+        .tip ul li{
+            list-style:none;
+            width: 250px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 10px;
+        }
+        .tip ul li a{
+            text-decoration: none;
+            display: inline-block;
+            width: 42px;
+            height: 30px;
+            background: #efefef;
+            text-align: center;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 14px;
+            color: #a3a3a3;
+            box-sizing: border-box;
+        }
+        .tip ul li a:hover{
+            background-color: orange;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .tip ul .li1 a{
+            color: #fff;
+            width: 40px;
+            height: 30px;
+        }
+        .tip ul li .red{
+            background: #9cce00;
+        }
+        .tip ul li .red:hover{
+            background: red;
+        }
+        .tip ul li .yellow{
+            background: #efbd00;
+        }
+        .tip ul li .yellow:hover{
+            background: yellow;
+        }
+        .tip ul li .blue{
+            background: #5a94ef;
+        }
+        .tip ul li .blue:hover{
+            background: blue;
+        }
+
+        .tip div{
+            width: 200px;
+            margin: 30px auto;
+            text-align: center;
+        }
+        .tip div input{
+            width: 60px;
+            height: 30px;
+            color: #fff;
+            background: #002952;
+            border:none;
+        }
+    </style>
+
+</head>
+<body>
+<h2>请为下面的DIV设置样式:</h2>
+<input id="set" class="set" onclick="Set()" type="button" value="点击设置">
+<div class="div1" id="div1"></div>
+<div class="tip" id="tip">
+    <ul>
+        <li class="li1">
+            请选择背景色:
+            <a href="#" onclick="cRed()" class="red">红</a>
+            <a href="#" onclick="cYellow()" class="yellow">黄</a>
+            <a href="#" onclick="cBlue()" class="blue">蓝</a>
+        </li>
+        <li>
+            请选择宽(px):
+            <a href="#" onclick="cW1()" class="w1">200</a>
+            <a href="#" onclick="cW2()" class="w2">300</a>
+            <a href="#" onclick="cW3()" class="w3">400</a>
+        </li>
+        <li>
+            请选择高(px):
+            <a href="#" onclick="cH1()" class="h1">200</a>
+            <a href="#" onclick="cH2()" class="h2">300</a>
+            <a href="#" onclick="cH3()" class="h3">400</a>
+        </li>
+    </ul>
+    <div>
+        <input type="button" onclick="Clear()" value="恢复">
+        <input type="button" onclick="Ok()" value="确定">
+    </div>
+</div>
+<script>
+    var div = document.getElementById("div1");
+    var tip = document.getElementById("tip");
+    function Set() {
+        tip.style.display = "block";
+    }
+    function cRed() {
+        div.style.background = "red";
+    }
+    function cYellow() {
+        div.style.background = "yellow";
+    }
+    function cBlue() {
+        div.style.background = "blue";
+    }
+    function cW1() {
+        div.style.width = "200px";
+    }
+    function cW2() {
+        div.style.width = "300px";
+    }
+    function cW3() {
+        div.style.width = "400px";
+    }
+    function cH1() {
+        div.style.height = "200px";
+    }
+    function cH2() {
+        div.style.height = "300px";
+    }
+    function cH3() {
+        div.style.height = "400px";
+    }
+    function Clear() {
+        div.style = document.getElementById("div1");
+    }
+    function Ok() {
+        tip.style.display = "none"
+    }
+</script>
+</body>
+</html>

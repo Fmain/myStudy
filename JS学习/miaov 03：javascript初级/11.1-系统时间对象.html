@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.1-系统时间对象</title>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        /*
+        new Date();  //当前系统的时间对象
+
+        1.getFullYear();  年
+        2.getMonth()+1;   月
+            1月为0,正常的月份需要+1
+        3.getDate();      日
+        4.getDay();       星期
+            星期日为0
+        5.getHours();     时
+        6.getMinutes();   分
+        7.getSeconds();   秒
+
+        function myTime(){
+            var myTime = new Date();    //typeof object
+            var str = '';
+
+            var iYear = myTime.getFullYear();   //typeof number
+            var iMonth = myTime.getMonth()+1;   //typeof number
+            var iDate = myTime.getDate();   //typeof number
+            var iWeek = myTime.getDay();   //typeof number
+            var iHours = myTime.getHours();   //typeof number
+            var iMinutes = myTime.getMinutes();   //typeof number
+            var iSeconds = myTime.getSeconds();   //typeof number
+
+            if (iWeek===0)iWeek='星期日';
+            if (iWeek===1)iWeek='星期一';
+            if (iWeek===2)iWeek='星期二';
+            if (iWeek===3)iWeek='星期三';
+            if (iWeek===4)iWeek='星期四';
+            if (iWeek===5)iWeek='星期五';
+            if (iWeek===6)iWeek='星期六';
+
+            str = iYear+'年'+iMonth+'月'+iDate+'日 '+iWeek+' '+iHours+':'+iMinutes+':'+iSeconds;
+            return str;
+        }
+         */
+
+
+        $(function(){
+            var oBody = document.body;
+            fnTime ();  //提前执行,一上来就出现
+            setInterval(fnTime,1000);
+            function fnTime () {
+                oBody.innerHTML = myTime()
+            }
+        })
+        /*
+        alert(toTwo(5));    //'05'
+        alert(toTwo(15));    //'15'
+
+        function toTwo (n) {
+
+            // if (n<10) {
+            //     return '0' + n;
+            // } else{
+            //     return '' + n;
+            // };
+
+            return n<10?'0'+n:''+n;
+        }
+        */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

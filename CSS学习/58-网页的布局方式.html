@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>58-网页的布局方式</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /*display: inline-block;*/
+            float: left;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /*display: inline-block;*/
+            /*margin-left: 20px;*/
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<!--
+网页的布局方式是指浏览器是如何对网页中的元素进行排版
+
+1.标准流(文档流/普通流)排版方式
+网页默认排版方式
+css中元素分为块级元素/行内元素/行内块级元素
+分为垂直排版（块级元素）和水平排版（元素是行内或者是行内块级元素）
+2.浮动流排版方式
+是一种半脱离标准流的排版方式
+只有水平方向的一种排版方式
+只能设置某个元素左对齐或者右对齐，没有居中
+在浮动流中不可以使用margin：0 auto；
+特点
+不区分块级元素、行内元素、行内块级元素，无论哪个都可以水平排版
+无论哪个都可以设置宽高
+浮动流中的元素和标准流中的行内块级元素很像
+3.定位流排版方式
+-->
+<div>我怕时间</div>
+<h1>wppaj</h1>
+<p>woshoan</p>
+
+<span>owhonfa</span>
+<strong>哦哦就哦啊</strong>
+<b>我就发哦价格</b>
+<hr>
+<div class="box1"></div>
+<div class="box2"></div>
+
+</body>
+</html>

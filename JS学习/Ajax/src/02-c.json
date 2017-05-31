@@ -1,0 +1,10 @@
+/**
+ * Created by Administrator on 2017/5/20.
+ */
+{
+    "person":{
+        "name":"taobao",
+        "website":"http://www.taobao.com",
+        "email":"taobao@taobao.com"
+}
+}

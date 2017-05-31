@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>112-背景尺寸属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        ul li{
+            list-style:none;
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 30px 30px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 200px;
+        }
+        ul li:nth-child(1){
+            background: url("image/150.jpg") no-repeat;
+        }
+        ul li:nth-child(2){
+            background: url("image/150.jpg") no-repeat;
+            background-size:200px 100px;
+        }
+        ul li:nth-child(3){
+            background: url("image/150.jpg") no-repeat;
+            background-size:50% 100%;
+        }
+        ul li:nth-child(3){
+            background: url("image/150.jpg") no-repeat;
+            background-size:50% 100%;
+        }
+        ul li:nth-child(4){
+            background: url("image/150.jpg") no-repeat;
+            background-size:auto 80%;
+        }
+        ul li:nth-child(5){
+            background: url("image/150.jpg") no-repeat;
+            background-size: 50% auto ;
+        }
+        ul li:nth-child(6){
+            /*
+            cover含义
+            图片需要等比拉伸
+            需要拉伸到宽度和高度都填满元素
+            */
+            background: url("image/150.jpg") no-repeat;
+            background-size:cover ;
+        }
+        ul li:nth-child(7){
+            /*
+            cover含义
+            图片需要等比拉伸
+            直到拉伸到宽度或高度填满元素
+            */
+            background: url("image/150.jpg") no-repeat;
+            background-size: contain ;
+        }
+    </style>
+</head>
+<body>
+<!--
+背景尺寸属性
+背景尺寸属性是css3中新增的一个属性,专门用于设置背景图片
+-->
+<ul>
+    <li>默认</li>
+    <li>具体像素</li>
+    <li>百分比</li>
+    <li>宽度等比拉伸</li>
+    <li>高度等比拉伸</li>
+    <li>cover</li>
+    <li>contain</li>
+</ul>
+</body>
+</html>

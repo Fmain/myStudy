@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.7-this</title>
+    <script>
+        /*
+            this:   指的是调用当前方法(函数)的那个对象
+
+         */
+        /*
+        //alert(this);    //[object Window]
+        function fn1() {
+            alert(this);
+        }
+        //fn1();
+        //window.fn1();
+         */
+
+        window.onload = function () {
+            var aBtn = document.getElementsByTagName('input');
+            var that = null;
+            for(var i=0;i<aBtn.length;i++){
+                /*
+                 aBtn[i].onclick = function () {
+                 //this.style.background = 'red';
+                 that = this;
+                 fn1();
+                 }
+                 */
+
+                aBtn[i].onclick = fn1;
+
+            }
+            function fn1() {
+                //this    ->window
+                //that.style.background = 'red';
+                this.style.background = 'blue';
+
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮1" id="btn">
+<input type="button" value="按钮2" onclick="fn1();alert(this);" id="btn2">
+<input type="button" value="按钮3">
+<input type="button" value="按钮4">
+<input type="button" value="按钮5">
+<script>
+    var oBtn = document.getElementById('btn');
+
+    oBtn.onclick = fn1; //不能写fn1();
+    oBtn.onclick = function () {
+        //alert(this);
+        fn1();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>70-清除浮动方式5</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        /*
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            overflow: hidden;
+        }
+        */
+        /*
+        .box1{
+            background-color: red;
+            overflow: hidden;
+        }
+        .box1 p{
+            background-color: blue;
+            width: 100px;
+            float: left;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box2 p{
+            background-color: yellow;
+            width: 100px;
+            float: left;
+        }
+        .box1{
+            兼容IE6
+            *zoom: 1;
+        }
+        */
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            overflow: hidden;
+         }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--
+ overflow: hidden;
+
+1.可以将超出标签范围的内容裁剪掉
+2.清除浮动
+3.可以让里面的盒子设置margin：top；之后外面的盒子不被顶下来
+-->
+<!--
+<div>我是文字i开会啦了快捷方式考虑后果快乐江湖上的啊顺丰很快忘记额好看回来咯是否开机速度和高科技还是看了几个</div>
+<div>kljhaslkdfjlk;ajglkasdhgkljsghsakdgdjgk</div>
+-->
+<!--
+<div class="box1">
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+</div>
+
+<div class="box2">
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+</div>
+-->
+<div class="box1">
+    <div class="box2"></div>
+</div>
+
+</body>
+</html>

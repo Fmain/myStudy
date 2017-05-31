@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+    window.onload = function () {
+        var oImg = document.getElementById('hImages');
+        var oUl = document.getElementById('points');
+        var aLi = oUl.getElementsByTagName('li');
+        var timer = null;
+        var num = 0;
+        var i = 0;
+
+        aLi[0].className = 'active';
+
+        clearInterval(timer);
+        timer = setInterval(function () {
+            console.log('1:'+i);
+            i++;
+            num = -((i)%3)/3*100;
+            if (i>2){
+             i = 0;
+            }
+            console.log('2:'+i);
+            console.log('3:'+num);
+            oImg.style.transform = 'translateX('+num+'%)';
+            for(var j=0;j<3;j++){
+                aLi[j].className = '';
+            }
+            aLi[i].className = 'active';
+        },3000)
+    };
+    </script>
+</head>
+<body>
+   <!--主体部分-->
+   <section class="main home-main">
+       <!--顶部-->
+       <header class="header">
+           滴滴平台
+       </header>
+       <!--轮播图-->
+       <section class="images-container">
+           <ul id="hImages" class="images">
+               <li class="item">
+                   <img src="image/index-banner1.png" alt="">
+               </li>
+               <li class="item">
+                   <img src="image/index-banner2.png" alt="">
+               </li>
+               <li class="item">
+                   <img src="image/index-banner3.png" alt="">
+               </li>
+           </ul>
+           <ul id="points" class="points">
+               <li></li><li></li><li></li>
+           </ul>
+       </section>
+
+       <!--主体导航-->
+       <ul class="navs">
+           <li class="nav-item">
+               <a href="project.html">
+                   <img src="image/index1.png" alt="">
+                   <!--div p sapn section-->
+                   <span>创业项目</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="plat.html">
+                   <img src="image/index2.png" alt="">
+                   <!--div p sapn section-->
+                   <span>平台风采</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="process.html">
+                   <img src="image/index3.png" alt="">
+                   <!--div p sapn section-->
+                   <span>报名流程</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index4.png" alt="">
+                   <!--div p sapn section-->
+                   <span>客户管理</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index5.png" alt="">
+                   <!--div p sapn section-->
+                   <span>财务管理</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index6.png" alt="">
+                   <!--div p sapn section-->
+                   <span>新闻报告</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index7.png" alt="">
+                   <!--div p sapn section-->
+                   <span>工作案例</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index8.png" alt="">
+                   <!--div p sapn section-->
+                   <span>修改密码</span>
+               </a>
+           </li>
+           <li class="nav-item">
+               <a href="javascript:;">
+                   <img src="image/index9.png" alt="">
+                   <!--div p sapn section-->
+                   <span>注册客户</span>
+               </a>
+           </li>
+       </ul>
+   </section>
+
+   <!--底部导航-->
+   <footer class="footer">
+       <a href="home.html" class="footer-item active">
+           <img src="image/nav10.png" class="img1" alt="">
+           <img src="image/nav11.png" class="img2" alt="">
+           <span>首页</span>
+       </a>
+       <a href="project.html" class="footer-item ">
+           <img src="image/nav20.png" class="img1" alt="">
+           <img src="image/nav21.png" class="img2" alt="">
+           <span>创业项目</span>
+       </a>
+       <a href="process.html" class="footer-item">
+           <img src="image/nav30.png" class="img1" alt="">
+           <img src="image/nav31.png" class="img2" alt="">
+           <span>报名流程</span>
+       </a>
+       <a href="plat.html" class="footer-item">
+           <img src="image/nav40.png" class="img1" alt="">
+           <img src="image/nav41.png" class="img2" alt="">
+           <span>平台风采</span>
+       </a>
+       <a href="user.html" class="footer-item">
+           <img src="image/nav50.png" class="img1" alt="">
+           <img src="image/nav51.png" class="img2" alt="">
+           <span>我的滴滴</span>
+       </a>
+   </footer>
+</body>
+</html>

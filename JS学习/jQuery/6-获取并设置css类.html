@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.6-获取并设置css类</title>
+    <style>
+        .important
+        {
+            font-weight:bold;
+            font-size:xx-large;
+        }
+
+        .blue
+        {
+            color:blue;
+        }
+    </style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /*获取并设置 CSS 类
+     addClass() - 向被选元素添加一个或多个类
+     removeClass() - 从被选元素删除一个或多个类
+     toggleClass() - 对被选元素进行添加/删除类的切换操作
+     css() - 设置或返回样式属性
+     */
+    $(function () {
+        //addClass() 方法
+        $("#btn1").click(function(){
+            $("h1,h2,p").addClass("blue");
+            $("div").addClass("important important");
+        });
+
+        //removeClass() 方法
+        //在不同的元素中删除指定的 class 属性：
+        $("#btn2").click(function(){
+            $("h1,h2,p").removeClass("blue important");
+        });
+
+        //toggleClass() 方法
+        //对被选元素进行添加/删除类的切换操作
+        $("#btn3").click(function(){
+            $("h1,h2,p").toggleClass("blue important");
+        });
+    });
+
+    </script>
+
+</head>
+<body>
+<h1>h1</h1>
+<h2>h2</h2>
+<p>p</p>
+<input id="btn1" type="button" value="addClass">
+<input id="btn2" type="button" value="removeClass">
+<input id="btn3" type="button" value="toggleClass">
+<input id="btn4" type="button" value="">
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>104-动画模块-云层效果</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       ul{
+           height: 400px;
+           background-color: skyblue;
+           margin-top: 100px;
+           animation:change 5s linear 0s infinite alternate;
+           position: relative;
+           overflow: hidden;
+       }
+        ul li{
+            width: 400%;
+            height: 100%;
+            border: 1px solid #000;
+            position: absolute;
+            left: -300%;
+            top: 0;
+            list-style: none;
+        }
+        ul li:nth-child(1){
+            background: url("image/cloud3.jpg") 100px 50px;
+            animation: move1 30s linear 0s infinite alternate;
+        }
+        ul li:nth-child(2){
+            background: url("image/cloud1.png") 200px 100px;
+            animation: move2 30s linear 0s infinite alternate;
+
+        }
+        ul li:nth-child(3){
+            background: url("image/cloud3.jpg") 300px 150px;
+            animation: move3 30s linear 0s infinite alternate;
+
+        }
+        @keyframes change {
+            from{
+                background-color: skyblue;
+            }
+            to{
+                background-color: black;
+            }
+        }
+        @keyframes move1 {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 100%;
+            }
+
+        }
+        @keyframes move2 {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 200%;
+            }
+
+        }
+        @keyframes move3 {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 300%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<ul>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

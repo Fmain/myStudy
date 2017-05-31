@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10.5-解决抖函数BUG</title>
+<style type="text/css">
+img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 200px;
+}
+</style>
+</head>
+<body>
+
+<img src="images/a1.jpg" />
+<img src="images/a2.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+<img src="images/a1.jpg" />
+
+<script>
+function getStyle (object, attribute, pseudoElt) {
+    return object.currentStyle ? object.currentStyle[attribute] : getComputedStyle(object,pseudoElt)[attribute];
+}
+function shake (object, direction, callback) {
+    object.isShaking = true;
+    var pos = parseInt(getStyle(object, direction));
+    var aOffsetting = [];
+    for (var i = 20; i > 0 ; i-=1) {
+        aOffsetting.push(i,-i);
+    }
+    aOffsetting.push(0);
+    var num = 0;
+    clearInterval(object.shakeTimer);
+    object.shakeTimer = setInterval(function () {
+        var des = pos + aOffsetting[num] + "px";
+        num++;
+        if (num == aOffsetting.length) {
+            object.isShaking = false;
+            clearInterval(object.shakeTimer);
+            callback && callback();
+        }
+        object.style[direction] = des;
+    }, 50);
+}
+window.onload = function () {
+    var aImg = document.getElementsByTagName("img");
+    for (var i = 0; i < aImg.length; i++) {
+        aImg[i].style.left = 30 + i * 110 + "px";
+        aImg[i].isShaking = false;
+        aImg[i].onmouseover = function () {
+            if (!this.isShaking) shake(this,"top");
+        };
+    }
+};
+</script>
+</body>
+</html>

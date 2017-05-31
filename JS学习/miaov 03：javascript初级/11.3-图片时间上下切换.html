@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.3-图片时间上下切换</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        ul{
+            width: 800px;
+            height: 180px;
+            background: red;
+            position: absolute;
+            left: 30px;
+            top: 60px;
+            overflow:hidden;
+
+        }
+        img{
+            width: 120px;
+            height: 180px;
+            position: absolute;
+            left: 20px;
+            top: 0px;
+        }
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var oTime = document.getElementById('time');
+            var oUl = document.getElementById('clock');
+            var aLi = oUl.getElementsByTagName('li')[0];
+            var aImg = oUl.getElementsByTagName('img');
+            for (var i = 0; i < aImg.length; i++) {
+                aImg[i].style.top = 0+i*180+'px';
+            }
+
+            aImg[0].onclick = function() {
+                var timer = null;
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    for (var i = 0; i < aImg.length; i++) {
+                        alert(aImg[0].style.top);
+                        doMove (aImg[i],'top',1,-180);
+                        if (aImg[i].style.top == '-180px') {
+                            aImg[i].style.top = '180px';
+                            // alert(aImg[0].style.top);
+                        };
+
+                        // aImg[i].style.left = 0+i*120+'px';
+                    };
+
+                },50);
+
+
+
+            };
+        })
+        function myTimeHMS(){
+            var myTime = new Date();    //typeof object
+            var str = '';
+
+            var iHours = myTime.getHours();   //typeof number
+            var iMinutes = myTime.getMinutes();   //typeof number
+            var iSeconds = myTime.getSeconds();   //typeof number
+
+            str = toTwo(iHours)+toTwo(iMinutes)+toTwo(iSeconds);
+
+            return str;
+        }
+        function doMove (obj,attr,dir,target) {
+            //三目运算符: a?b:c if(a){return b}else{return c};
+            dir = parseInt(getStyle(obj,attr))<target ? dir : -dir;//判断dir正负,控制方向
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+                var speed = parseInt(getStyle(obj,attr)) + dir ;
+                /*
+                //判断往前跑还是往后跑
+                if (speed>target&&dir>0) {
+                    speed = target;
+                };
+                if (speed<target&&dir<0) {
+                    speed = target;
+                };
+                 */
+                if (speed>target&&dir>0 || speed<target&&dir<0) {
+                    speed = target;
+                };
+                obj.style[attr] = speed + 'px';
+                if (speed==target) {
+                    clearInterval(obj.timer);
+                };
+            },50);
+        }
+    </script>
+</head>
+<body>
+<p id="time" style="font-size: 40px;">123</p>
+<ul id="clock">
+    <li>
+        <img src="images/number/0.JPG" alt="">
+        <img src="images/number/1.JPG" alt="">
+    </li>
+
+</ul>
+</body>
+</html>

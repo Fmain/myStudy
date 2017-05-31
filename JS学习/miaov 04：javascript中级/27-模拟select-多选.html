@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>27-模拟select-多选</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #selectBox{
+            /*display: none;*/
+            /*display: inline-block;*/
+            width: 200px;
+            position: relative;
+            left: 30px;
+            top: 30px;
+        }
+        #text1{
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            border: 1px solid #ef9408;
+        }
+        #selectBox ul{
+            display: none;
+        }
+        #selectBox li{
+            list-style: none;
+        }
+        #selectBox a{
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            width: 200px;
+            height: 30px;
+            line-height: 30px;
+            border: 1px solid #ef9408;
+        }
+        .active{
+            background: #ef9408;
+            color: #FFF;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+
+            var oBox = document.getElementById('selectBox');
+            var oUl = document.getElementById('ul1');
+            var oText1 = document.getElementById('text1');
+
+            var arr = ['111','222','333','444','555','aaa'];
+
+
+            oBox.onmouseover = function () {
+                oUl.style.display = 'block';
+            };
+            oBox.onmouseout = function () {
+                oUl.style.display = 'none';
+            };
+
+            for(var i=0;i<arr.length;i++){
+                //每循环一次创立一个li标签
+                var aLi= document.createElement('li');
+                //这个是动态创建的a
+                var oA = document.createElement('a');
+                //这个是读取oUl中的a
+                var aA = oUl.getElementsByTagName('a');
+
+                oUl.appendChild(aLi);
+                //把li标签添加到ul标签中,不可以挪在外面,否则只能添加一次li标签,且是最后一个
+                aLi.appendChild(oA);
+                //在每个li标签中加入数组对应的内容
+                oA.innerHTML = arr[i];
+                oA.href = 'javascript:;';
+
+                //alert(aA.length);
+
+                aA[i].onclick = function () {
+                    //先清空
+                    for(var i=0;i<arr.length;i++){
+                        aA[i].className = '';
+                    }
+                    this.className = 'active';
+
+                    //alert(this.innerHTML);
+                    oText1.value = this.innerHTML;
+
+                    oUl.style.display = 'none';
+                };
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+<div id="selectBox">
+    <input type="text" name="text1" id="text1">
+    <ul id="ul1"></ul>
+</div>
+</body>
+</html>

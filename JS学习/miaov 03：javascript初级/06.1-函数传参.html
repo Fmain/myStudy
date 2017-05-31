@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>6.1-函数传参</title>
+    <script>
+        /*
+        函数传递参数
+
+        参数:JS的数据类型:
+            数字.字符串.布尔值.函数.对象.未定义
+         */
+        fn1(11,'px');
+        function fn1 (a,b) {
+            // alert(a+b);
+        }
+
+        fn2('miaov');
+        fn2('妙味abc');
+        function fn2 (a) {
+            // alert(a.charAt(2));
+        }
+
+        // fn3(function(a){alert(a);});
+        function fn3 (fn) {
+            // fn(1000);
+            fn();
+        }
+        function fn4() {
+            alert(4);
+        };
+        fn3(fn4);   //有名函数后面不用加()
+
+        fn5(window,document);
+        function fn5 (w,d) {
+            w.onload = function() {
+                d.body.innerHTML = 1234;
+            };
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

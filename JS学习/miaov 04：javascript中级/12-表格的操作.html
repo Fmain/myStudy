@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>12-表格的操作</title>
+    <script>
+        /*
+        tHead   :   表格头
+        tBodids :   表格正文
+        tFoot   :   表格尾
+            rows:   行
+            cells:  列
+         */
+        window.onload = function () {
+            var oTab = document.getElementById('tab1');
+
+            //alert(oTab.children[1].children[1].children[1].innerHTML);  //小美
+            //alert(oTab.tBodies[0].rows[1].cells[1].innerHTML);  //小美
+
+        }
+    </script>
+</head>
+<body>
+<table id="tab1" width="100%" border="1px solid #000" >
+    <thead>
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td><a href="javascript:;">操作</a></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>leo</td>
+        <td>男</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>小美</td>
+        <td>女</td>
+        <td><a href="javascript:;">删除</a></td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>

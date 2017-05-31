@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-XMLHttpRequest</title>
+    <script>
+    /*
+     XMLHttpRequest
+
+        //js创建XMLHttpRequest对象
+             function getHTTPObject() {
+             var xhr = false;
+             if(window.XMLHttpRequest){
+             xhr = new XMLHttpRequest();
+             }else if(window.ActiveXObject){
+             xhr = new ActiveXObject("Microsoft.XMLHTTP");
+             }
+             return xhr;
+             }
+
+
+        XMLHttpRequest对象方法:
+            1 open('method'.'url',asynch)   建立对服务器的调用,
+                Method参数
+                    GET: 若只想在服务器检索一个文件,而不需要发送任何数据,使用GET(可以在GET请求里通过附加在URL上的查询字符串来发送数据,不过数据大小限制为2000个字符)如:
+                        var url = this.href + '?fname=Henry&lname=Ford';
+                    POST: 若需要向服务器发送数据,用POST
+                    区别:
+                        与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+                        然而，在以下情况中，请使用 POST 请求：
+                            无法使用缓存文件（更新服务器上的文件或数据库）
+                            向服务器发送大量数据（POST 没有数据量限制）
+                            发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+
+     PUT:
+                url参数
+                    路径字符串,指向你所请求的服务器上的那个文件,可以是相对URL或者绝对URL
+                asynch参数
+                    XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true;不推荐使用 async=false，但是对于一些小型的请求，也是可以的。
+                    表示请求是否要异步传输,默认true.
+                    true:   在读取后面的脚本之前,不需要等待服务器的相应
+                    false:  当脚本处理过程经过这点时,会停下来,一直等到Ajax请求执行完毕再继续执行.JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。当使用 async=false 时，不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可：
+                注意:
+                    在某些情况下,有些浏览器会把多个XMLHttpRequest请求的结果缓存在同一个URL.如果对每个请求的响应不同,就会带来不好的结果.解决办法:讲时间戳追加到URL的最后,就能保证URL的唯一性,从而避免浏览器缓存结果.
+            2 send(content)
+                向服务器发送请求
+            3 setRequestHeader('header','value')
+                 header参数: 规定头的名称
+                 value参数: 规定头的值
+                把指定首部设置位所提供的值,在设置任何首部之前必须先调用open()
+                如果需要像 HTML 表单那样 POST 数据，使用 setRequestHeader() 来添加 HTTP 头。然后在 send() 方法中规定希望发送的数据：如:
+                     xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+                     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                     xmlhttp.send("fname=Henry&lname=Ford");
+            4 abort()
+                停止当前请求
+            5 getAllResponseHeaders()
+                把HTTP请求的所有响应首部作为键/值对返回
+            6 getResponseHeader('header')
+                返回指定首部的串值
+
+
+        XMLHttpRequest对象属性:
+            1 onreadystatechange
+                该事件是由服务器触发,而不是用户.
+                在Ajax执行过程中,服务器会通知客户端当前的通信状态.这依靠更新XMLHttpRequest对象的readyState来实现
+                改变readyState属性是服务器对客户端连接操作的一种方式.每次readyState属性的改变都会触发readystatechange事件
+                每个状态改变是都会触发这个事件处理器,通常会调用一个JavaScript函数
+
+            2 readyState
+                每当 readyState 改变时，就会触发 onreadystatechange 事件。
+                请求的状态,有5个可取值:
+                    0=请求未初始化,
+                    1=服务器连接已建立,
+                    2=请求已接收,
+                    3=请求处理中,
+                    4=请求已完成，且响应已就绪
+
+            3 status
+                 服务器的HTTP状态码
+                     200 一切正常(OK)
+                     304 没有被修改(not modified)这通常用于浏览器的缓存机制，使用GET请求时尤其需要注意
+                     400 无法找到请求的资源。
+                     401 访问资源的权限不够。
+                     403 禁止访问(forbidden)没有权限访问资源。
+                     404 没有找到页面(NotFount)
+                     405 需要访问的资源被禁止。
+                     407 访问的资源需要代理身份验证。
+                     414 请求的URL太长。
+                     500 内部服务器出错(internal service error)
+
+            4 responseXML
+                服务器的响应,表示为XML.这个对象可以解析为DOM对象
+                如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，使用 responseXML 属性
+
+            5 responseText     返回字符串形式的响应
+                 如果来自服务器的响应并非 XML，使用 responseText 属性
+
+            6 statusText
+                HTTP状态码的相应文本(OK或NotFount等)
+
+
+
+     */
+
+
+    window.onload = function () {
+        //获取a节点,并对他添加onclick相应函数
+        document.getElementsByTagName('a')[0].onclick = function () {
+            //1.创建一个XMLHttpRequest对象
+            var xhr = false;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else if(window.ActiveXObject){
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //2.准备发送请求的数据:url
+            var url = this.href/* + "?time=" + new Date()*/;
+            /*如果没有处理可能得到的是缓存的结果。解决方案:
+                + "?time=" + new Date() 添加时间戳,已达到禁用缓存的目的
+                + "?t=" + Math.random() 添加随机数,已达到禁用缓存的目的
+                */
+            //!!3.调用XMLHttpRequest对象的open()方法
+            xhr.open('GET',url);
+            //!!4.调用XMLHttpRequest对象的send()方法
+            xhr.send(null); //xhr.send();
+            //!!!5.为XMLHttpRequest对象添加onreadystatechange响应函数
+            xhr.onreadystatechange = function () {
+                //6.判断响应是否完成:XMLHttpRequest对象的readyState属性值为4的时候,响应完成
+                if(xhr.readyState==4){
+                    //7.再判断响应是否可用:XMLHttpRequest对象status属性值为200
+                    if(xhr.status==200||xhr.status==304){
+                        //8.获取响应结果:使用XMLHttpRequest对象的responseText或responseXML属性
+                        alert(xhr.responseText);
+                    }else if(xhr.status==404){
+                        //可以添加响应不可用的时候,处理函数
+                        alert('对不起,请求的文件有误');
+                    }
+                }
+            };
+
+            //取消a节点默认行为
+            return false;
+        }
+    }
+    </script>
+</head>
+<body>
+<a href="helloAjax.txt">HelloAjax</a>
+</body>
+</html>

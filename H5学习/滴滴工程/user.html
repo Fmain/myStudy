@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+    window.onload = function () {
+        var oNav = document.getElementById('navs');
+        var aLi = oNav.getElementsByTagName('li');
+        var aImg = oNav.getElementsByTagName('img');
+        var i = 0;
+
+        for(i;i<aLi.length;i++){
+            aLi[i].index = i*2+1;
+            console.log(aLi[i].index);
+            aImg[1].style.display = 'block';
+
+            aLi[i].onclick = function () {
+                aImg[this.index].style.display = 'block';
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+   <section class="main user-main">
+       <header class="header">个人信息</header>
+       <section class="info">
+           <div class="content">
+               <img src="image/user-header.png" class="img" alt="">
+               <div class="name">fmx</div>
+               <a href="" class="btn">退出登录</a>
+           </div>
+
+       </section>
+       <ul id="navs" class="navs">
+           <li class="nav-item">
+               <img class="icon" src="image/user-1.png" alt="">
+               <span class="name">我的客户</span>
+               <img src="image/enter.png" class="enter" alt="">
+           </li>
+           <li class="nav-item">
+               <img class="icon" src="image/user-2.png" alt="">
+               <span class="name">我的余额</span>
+                <img src="image/enter.png" class="enter" alt="">
+           </li>
+           <li class="nav-item">
+               <img class="icon" src="image/user-3.png" alt="">
+               <span class="name">注册客户</span>
+                <img src="image/enter.png" class="enter" alt="">
+           </li>
+           <li class="nav-item">
+               <img class="icon" src="image/user-4.png" alt="">
+               <span class="name">修改密码</span>
+                <img src="image/enter.png" class="enter" alt="">
+           </li>
+       </ul>
+   </section>
+   <footer class="footer">
+       <a href="home.html" class="footer-item home">
+           <span class="icon"></span>
+           <span class="name">首页</span>
+       </a>
+       <a href="project.html" class="footer-item ">
+           <span class="icon"></span>
+           <span class="name">创业项目</span>
+       </a>
+       <a href="process.html" class="footer-item">
+           <span class="icon"></span>
+           <span class="name">报名流程</span>
+       </a>
+       <a href="plat.html" class="footer-item">
+           <span class="icon"></span>
+           <span class="name">平台风采</span>
+       </a>
+       <a href="user.html" class="footer-item active">
+           <span class="icon"></span>
+           <span class="name">我的滴滴</span>
+       </a>
+
+   </footer>
+</body>
+</html>

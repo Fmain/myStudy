@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>53-盒子和内容居中</title>
+    <style>
+        .father{
+            width: 800px;
+            height: 500px;
+            background-color: red;
+            /*text-align: center;*/
+            margin: 0 auto;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 0 auto;
+            display: inline-block;
+
+        }
+        img{
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+<!--
+text-align: center;设置盒子中内容（存储的文字或者图片）水平居中
+margin: 0 auto; 让盒子自己居中
+-->
+
+<div class="father">
+    我是文字
+    <br>
+    <img src="image/bdlogo.gif" alt="">
+    <div class="son"></div>
+</div>
+</body>
+</html>

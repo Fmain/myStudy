@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.8-substring应用</title>
+    <style type="text/css">
+        p{
+            margin: 40px auto;
+            width: 300px;
+            /* height: 200px; */
+            border: 10px solid #bbb;
+            padding: 10px;
+            background: #E1D045;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oP = document.getElementsByTagName('p')[0];
+            var oSpan = document.getElementsByTagName('span')[0];
+            var oA = document.getElementsByTagName('a')[0];
+
+            var str = oSpan.innerHTML;
+
+            var onOff = true;
+            oA.onclick = function() {
+                // alert(str.substring(0,18));
+                if (onOff) {
+                    oSpan.innerHTML = str.substring(0,15);
+                    oA.innerHTML = '>>展开';
+                }else{
+                    oSpan.innerHTML = str.substring(0);
+                    oA.innerHTML = '>>收缩';
+                };
+                onOff = !onOff;
+
+            };
+
+        };
+    </script>
+</head>
+<body>
+<p><span>北京市医药分开综合改革已全面实施半个月以来，至此，所有公立医院全部取消挂号费、诊疗费，设立医事服务费。新政落地以来，北京各医疗机构在改善医疗服务和重塑医学价值层面效果初显，医改把提升医疗服务价值、让患者就诊环境更好当做重中之重。让我们看看改革新政实施后，医院、患者、管理者如何说?</span><a href="javascript:;">>>收缩</a>
+</p>
+</body>
+</html>

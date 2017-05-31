@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>02-Ajax数据格式_xml</title>
+    <script type="text/javascript">
+        /*
+         解析xml
+         -
+
+         优点:
+         - XML是一种通用的数据格式
+         - 不必把数据强加到已定义好的格式中,而是要为数据自定义合适的标记.
+         - 利用DOM可以完全掌控文档
+
+         缺点:
+         - 如果文档来自于服务器,就必须得保证文档含有正确的首部信息.若文档类型不正确,那么responseXML的值将是空的
+         - 当浏览器接收到长的xml文件后,DOM解析可能会很复杂
+         */
+
+    window.onload = function () {
+        var aNodes = document.getElementsByTagName('a');
+        for(var i=0;i<aNodes.length;i++){
+            aNodes[i].onclick = function () {
+                var requst = null;
+                if(window.XMLHttpRequest){
+                    requst = new XMLHttpRequest();
+                }else{
+                    requst = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                var method = 'GET';
+                var url = this.href ;
+                requst.open(method,url);
+                requst.send(null);
+
+                requst.onreadystatechange = function () {
+                    if(requst.readyState==4){
+                        if(requst.status==200||requst.status==304){
+                            //1.结果为xml格式,所以需要使用responseXML 来获取
+                            var result = requst.responseXML;
+                            //2.结果不能直接使用,必须先创建对应的节点,再把节点加入到#details中
+                            //目标格式:
+                            /*
+                             <h2><a href="http://www.baidu.com">baidu</a></h2>
+                             <a href="http://www.baidu.com">http://www.baidu.com</a>
+                             */
+                            var name = result.getElementsByTagName('name')[0].firstChild.nodeValue;
+                            var website = result.getElementsByTagName('website')[0].firstChild.nodeValue;
+                            var email = result.getElementsByTagName('email')[0].firstChild.nodeValue;
+                            //alert(name);
+
+
+                            var aNode = document.createElement('a');
+                            aNode.appendChild(document.createTextNode(name));
+                            aNode.href = 'mailto:' + email;
+
+                            var h2Node = document.createElement('h2');//为什么不先创建h2节点,是否关于性能优化
+                            h2Node.appendChild(aNode);
+
+                            var aNode2 = document.createElement('a');
+                            aNode2.appendChild(document.createTextNode(website));
+                            aNode2.href = website;
+
+                            var detailsNode = document.getElementById('details');
+                            detailsNode.innerHTML = '';
+                            detailsNode.appendChild(h2Node);
+                            detailsNode.appendChild(aNode2);
+
+
+                        }
+                    }
+                };
+
+
+                return false;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+<h1>People</h1>
+<ul>
+    <li><a href="./src/02-a.xml">baidu</a></li>
+    <li><a href="./src/02-b.xml">sina</a></li>
+    <li><a href="./src/02-c.xml">taobao</a></li>
+</ul>
+<div id="details">
+</div>
+</body>
+</html>

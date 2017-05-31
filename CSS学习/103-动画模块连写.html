@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>103-动画模块连写</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            animation: sport 10s 2s  infinite alternate  ;
+        }
+        @keyframes sport {
+            from{
+                margin-left: 0;
+            }
+            to{
+                margin-left: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!--
+动画连写格式:
+animation: name duration timing-function delay iteration-count direction;
+animation:动画名称 动画时长 动画运动速度 动画演示 动画播放次数 轮流反向播放次数
+
+连写简写
+animation: name duration;
+animation:动画名称 动画时长;
+-->
+
+<div></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11-添加或移除Class</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .box1{
+            border: 10px solid #000;
+        }
+    </style>
+    <script>
+    /*
+    如果利用oDiv.className = 'box1';会导致原有的box样式被覆盖
+    如何在原有的样式上再添加一个其他样式
+     */
+
+    window.onload = function () {
+        var oDiv = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+
+//        oDiv.className = 'box1';
+//        addClass(oDiv,'box');
+//        addClass(oDiv,'box');
+//        addClass(oDiv,'box1');
+//        addClass(oDiv,'box1');
+//        addClass(oDiv,'box2');
+
+        ////////////////////////////
+        // 添加Class
+        ////////////////////////////  b
+        function addClass(obj,className) {
+//            if(obj.className == null){//如果原来
+//                obj.className = className;
+//            }else{  //如果原来有Class
+                var arrClassName = obj.className.split(' ');
+                var _index = arrIndexOf(arrClassName,className);
+                // alert(_index);
+                if (_index == ''){   //如果要添加的Class在原来的Class中不存在或没有Class
+                    obj.className += ' '+className;
+                }//如果要添加的Class在原来的Class中存在,不执行
+//            }
+        }
+
+        function arrIndexOf(arr, v) {
+            var _index = [];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]==v){
+                    _index.push(i);
+                }
+            }
+            return _index;
+        }
+
+//        var arr2 = [2.2,2,2];
+//        alert(arrIndexOf(arr2,2));
+
+        removeClass(oDiv2,'box1');
+        removeClass(oDiv2,'box2');
+
+        ////////////////////////////
+        // 移除Class
+        ////////////////////////////  b
+        function removeClass(obj, className) {
+//            if (obj.className == ''){   //如果Class不存在
+//                obj.className = className;
+//            }else{
+                arrClassName = obj.className.split(' ');
+                //alert(arrClassName);
+                var _index = arrIndexOf(arrClassName,className);
+                //alert(_index);
+                if (_index != ''){
+                    for(var i=0; i<_index.length;i++){
+                        arrClassName.splice(_index,1);
+                    }
+                    obj.className = arrClassName.join(' ');
+//                }
+            }
+            //如果Class存在多个
+        }
+    }
+
+    </script>
+</head>
+<body>
+<div id="div1" >div</div>
+<div id="div2" class="box box1 box  box2 ">div2</div>
+</body>
+</html>

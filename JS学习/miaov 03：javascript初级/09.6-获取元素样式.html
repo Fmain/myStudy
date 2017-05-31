@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>9.7-获取元素样式</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 120px;
+            background: red;
+        }
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        $(function  () {
+            $('btn1').onclick = function() {
+                //alert($('div1').style.width);
+                // alert(getComputedStyle($('div1')).width);
+                /*
+                1.getComputedStyle 获取到的是计算机计算后的样式
+                    在IE低版本下有问题
+                2.obj.currentStyle.style
+                alert($('div1').currentStyle.width);  //标准浏览器不兼容
+
+                    background  复合样式(不要获取)
+                    backgroundColor 单一样式(不要用来做判断)
+
+                    不要有空格
+
+                    不要获取未设置后的样式: 不兼容
+
+                 */
+                /*
+                //已封装在fmx.js中
+                if ($('div1').currentStyle) {
+                    alert($('div1').currentStyle.width);
+                }else{
+                    alert(getComputedStyle($('div1')).width);
+                };
+                */
+               // alert(getStyle($('div1'),'width'));
+               // alert(getStyle($('div1'),'height'))
+               alert(getStyle($('div1'),'marginRight'));
+            };
+        })
+
+    </script>
+
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+<div id="div1"></div>
+</body>
+</html>

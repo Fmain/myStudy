@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6.取值赋值合体</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+
+     */
+    $(function () {
+        /*var oDiv = $('div1');
+        //oDiv.innerHTML = 'hello'; //赋值
+        //alert(oDiv.innerHTML);    //取值
+
+        oDiv.html('hello'); //赋值
+        alert(oDiv.html()); //取值
+
+        css('width','200px'); //赋值
+        css('width');         //取值*/
+
+        alert($('li').html());  //当一组元素的时候,取值是一组中的第一个,可以用循环读取
+        $('li').html('hello');  //当一组元素的时候,赋值是一组中的所有元素
+    });
+    </script>
+</head>
+<body>
+<div id="div1">123</div>
+<ul>
+    <li>aaa</li>
+    <li>bbb</li>
+    <li>ccc</li>
+    <li>ddd</li>
+    <li>eee</li>
+</ul>
+</body>
+</html>

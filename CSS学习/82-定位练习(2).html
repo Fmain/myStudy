@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>82-定位练习(2)</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .img{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            background:  url(image/ad.jpg) 0 0 no-repeat;
+            border: 2px solid #fed600;
+            position: relative;
+        }
+        .tab{
+            /*rgba*/
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            line-height: 80px;
+            font-size: 40px;
+            text-align: center;
+            width: 40px;
+            height: 80px;
+            position: absolute;
+            top: 50%;
+            margin-top: -40px;
+        }
+        .left{
+            left: 0;
+        }
+        .right{
+            right: 0;
+        }
+        .num{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        .num li{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            background-color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            list-style: none;
+            float: left;
+            border: 1px solid #fed600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="img">
+    <div class="left tab">&lt;</div>
+    <div class="right tab">&gt;</div>
+    <ol class="num">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+</div>
+
+</body>
+</html>

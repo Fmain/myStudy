@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>59-浮动元素的脱标</title>
+    <style>
+        .box1{
+
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box2{
+            float: left;
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--
+浮动元素的脱标
+脱标：脱离标准流
+当某一个元素浮动后，那么这个元素看上去就像被从标准流中删除了一样
+如果前面一个元素浮动了，而后面一个没有浮动，那么这个时候前面的会盖住后面一个元素
+
+-->
+<div class="box1"></div>
+<div class="box2"></div>
+</body>
+</html>

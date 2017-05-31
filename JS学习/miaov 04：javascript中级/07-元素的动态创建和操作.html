@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07-元素的动态创建</title>
+    <script>
+    /*
+    innerHTML 是先获取添加到页面的内容,然后在继续添加,当内容多的时候,性能会非常低
+
+    0.document.createElement('标签名称'); 创建元素
+    1.父级.appendChild(要添加的元素)    在后面插入
+    2.父级.insertBefore(新元素,被插入的已有元素)     在前面插入
+    3.父级.removeChild(要删除的元素);   删除子节点
+    4.父级.replaceChild(新节点,被替换节点);  替换子节点
+
+     */
+        window.onload = function () {
+
+            var oText = document.getElementById('text1');
+            var oBtn1 = document.getElementById('btn1');
+            var oUl = document.getElementById('ul1');
+
+            oBtn1.onclick = function () {
+
+                /*
+                一.创建元素
+                    方法: document.createElement('标签名称');
+                 */
+                var oLi = document.createElement('li');//创建元素,通过这个步骤,不会在页面中显示
+
+                oLi.innerHTML = oText.value;
+//                +'<a href="javascript:;">删除</a>'
+
+
+                /*
+                二.添加创建元素到页面中
+                */
+                    /*方法1.
+                    父级.appendChild(要添加的元素) 方法 在父级元素最后一个子元素后门追加一个要添加的子元素
+                     */
+                    //oUl.appendChild(oLi);
+
+                    /*方法2.
+                    父级.insertBefore(新元素,被插入的已有元素)   方法 在父级元素中指定的元素前面插入一个新元素
+                     如果第二个参数的节点不存在,在IE下会报错,其他标准下,则会appendChild的形式进行添加
+                     //解决IE不兼容问题
+                    if (oUl.children[0]){
+                        oUl.insertBefore(oLi,oUl.children[0]);
+                    }else{
+                        oUl.appendChild(oLi);
+                    }
+                     */
+
+                    /*方法3.
+                     父级.removeChild(要删除的元素);     删除元素
+                     */
+                oUl.appendChild(oLi);
+                var oA = document.createElement('a');
+                oA.innerHTML = '删除';
+                oA.href = 'javascript:;';
+                oA.onclick = function () {
+
+                    oUl.removeChild(this.parentNode);
+
+                }
+                oLi.appendChild(oA);
+            }
+
+
+                    /*方法4.
+                     父级.replaceChild(新节点,被替换节点);  替换子节点
+                     */
+            var oDiv = document.getElementById('div1');
+            var oBtn2 = document.getElementById('btn2');
+            var oP = document.getElementById('p1');
+            oBtn2.onclick = function () {
+                document.body.replaceChild(oDiv,oP);
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="text1">
+<input type="button" id="btn1" value="留言">
+<ul id="ul1"></ul>
+<hr>
+<hr>
+<div id="div1">div1</div>
+<input type="button" value="按钮" id="btn2">
+<hr>
+<p id="p1">ppppp</p>
+</body>
+</html>

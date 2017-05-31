@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9-canvas插入图片</title>
+    <style>
+        body{
+            background: #000;
+        }
+        #c1{
+            background: #fff;
+        }
+    </style>
+    <script>
+    window.onload = function () {
+        var oC = document.getElementById('c1');
+        var cas = oC.getContext('2d');
+
+        var yImg = new Image();
+
+        yImg.src = './bdlogo.gif';
+
+        yImg.onload = function () {
+            draw(this);
+        };
+
+        function draw(obj) {
+            /*//canvas插入图片
+            cas.drawImage(obj,0,0);*/
+
+            //canvas设置背景
+            var bg = cas.createPattern(obj,'repeat');
+            cas.fillStyle = bg;
+            cas.fillRect(0,0,300,300);
+        }
+    }
+    </script>
+</head>
+<body>
+
+<canvas id="c1" width="400" height="400">
+
+</canvas>
+
+</body>
+</html>

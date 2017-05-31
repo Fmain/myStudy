@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.4-属性读写操作注意事项</title>
+    <script>
+        window.onload = function () {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oBtn3 = document.getElementById('btn3');
+            var oBtn4 = document.getElementById('btn4');
+            var oP= document.getElementById('p1');
+            var oImg = document.getElementById('img1');
+            var oInp = document.getElementById('inp1');
+
+            var num = 16;
+            /*
+            1. JS中部运输出现的特殊字符
+                JS中不允许出现'--'
+                    font-size     fontSize
+                    padding-top   paddingTop
+            */
+            oBtn1.onclick = function () {
+                //num = num + 2;
+                //num += 2;
+                num ++; //每次增加1
+                oP.style.fontSize = num + 'px';
+            }
+            oBtn2.onclick = function () {
+                num --; //每次增加1
+                oP.style.fontSize = num + 'px';
+            }
+
+
+            /*
+             2.JS中的关键字和保留字
+                保留字:class     class->className
+                关键字: var function
+             */
+            oBtn3.onclick = function () {
+                //通过JS设置元素样式
+                //oP.style.width = '300px';
+                //oP.style.background = 'red';
+                //oP.style.padding = '20px';
+                //oP.style.color = 'yellow';
+                //oP.style.border = '10px solid #ccc';
+                oP.className = 'red';
+
+            }
+            oBtn4.onclick = function () {
+                oP.className = 'yellow';
+            }
+
+            /*
+            3.相对路径的读值问题
+                3.1 所有的相对路径 都别拿来做判断!!!
+                        img src
+                        href=''   href=''
+                3.2 颜色值不要拿来做判断!!!
+                        color:red #f00  rgb(255,0,0)
+                3.3 innerHTML 值别拿来做判断
+             */
+            oImg.onclick = function () {
+
+
+                //alert(oImg.src);
+                //images/1.png
+                //http://localhost:63342/WebStorm/JS%E5%AD%A6%E4%B9%A0/images/1.png
+                if (oImg.src=='http://localhost:63342/WebStorm/JS%E5%AD%A6%E4%B9%A0/images/1.png'){
+                    oImg.src = 'images/2.png';
+                }
+            }
+
+            /*
+            4.IE6 IE7 IE8 不支持,会报错!!!
+                如下:可以设置点击按钮时将button隐藏,checkbox由隐藏变为现实
+                回避不支持的地方,达到视觉效果
+            */
+            oInp.onclick = function () {
+                //button
+                alert(1);
+                oInp.type = 'checkbox';
+
+
+            }
+
+            /*
+            5.IE 和 非IE
+                如:
+                    oDiv.style.float = 'left';
+
+                    oDiv.style.styleFloat = 'left';     IE
+                    oDiv.style.cssFloat = 'left';       非IE
+
+                    解决方案:
+                        .left{ float:left;}
+                        .right{ float:right;}
+
+                        <div class="right"></div>
+                技术上: 必须能做到掌握兼容性(兼容性问题的解决方案)
+                需求上: 商量着来(提供最准确的呈现方案)
+            */
+        }
+    </script>
+    <style>
+        .red{
+            width: 300px;
+            background: red;
+            padding: 20px;
+            color: yellow;
+            border: 20px solid #000;
+        }
+        .yellow{
+            width: 500px;
+            background: yellow;
+            padding: 10px;
+            color: red;
+            border: 10px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<input id="btn1" type="button" value="+">
+<input id="btn2" type="button" value="-">
+
+
+<input id="btn3" type="button" value="红">
+<input id="btn4" type="button" value="黄">
+<p id="p1">
+    这桩2016年发生的谋杀案包含李某在内共有三名嫌疑犯，案情涉及了跨种族恋爱、情杀纠葛、抛尸130公里、装甲车破门等一系列元素。李某家人迅速掏出价值人民币4.8亿元的保释金，也让美国社会感到震惊。李家拿出400万美元现金和加州湾区的15套豪宅作保释金抵押，背后也牵出了旧金山一位神秘的华裔“房姐”。
+</p>
+<img id="img1" src="images/1.png" alt="">
+
+
+<input id="inp1" type="button">
+</body>
+</html>

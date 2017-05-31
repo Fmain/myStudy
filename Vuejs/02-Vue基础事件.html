@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-Vue基础事件</title>
+    <script src="vue.js"></script>
+    <!-- <script src="../vue.js"></script> -->
+    <script>
+    /*
+    v-on:鼠标事件="事件绑定函数"
+
+     */
+
+    window.onload = function () {
+        var a = new Vue({
+            el:'#box1',
+            data:{
+                arr:['a','b','c'],
+                json:{
+                    A:'a',
+                    B:'b',
+                    C:'c'
+                }
+            },
+            methods:{
+                show:function(){
+                    alert(1);
+                }
+            }
+        });
+        var b = new Vue({
+            el:'#box2',
+            data:{
+                arr:['a','b','c']
+            },
+            methods:{
+                add:function(){
+                    // alert(this.arr);
+                    this.arr.push('d');
+                }
+            }
+        });
+        var c = new Vue({
+            el:'#box3',
+            data:{
+                t:1,
+            }/*,
+            methods:{
+                tab:function() {
+                    //alert(this.t);
+                    if (this.t==1) {
+                        this.t = 0
+                    } else{
+                        this.t = 1
+                    };
+                    this.t==1?this.t=0:this.t=1;
+                }
+            }*/
+        });
+    }
+
+    </script>
+</head>
+<body>
+
+<div id="box">
+    <input type="button" name="" value="按钮" onclick='alert(1)'>
+</div>
+<hr>
+
+<div id="box1">
+    <input type="button" value="按钮1" v-on:click="show()">
+</div>
+<hr>
+
+<div id="box2">
+    <input type="button" value="按钮2" v-on:click="add()">
+    <ul>
+        <li v-for="v in arr">
+            {{v}}
+        </li>
+    </ul>
+</div>
+<hr>
+
+<div id="box3">
+    <input type="button" name="" value="按钮3" v-on:click="t==1?t=0:t=1;">
+    <div style="width: 100px;height: 100px;background: red;" v-show="t">
+
+    </div>
+</div>
+</body>
+</html>

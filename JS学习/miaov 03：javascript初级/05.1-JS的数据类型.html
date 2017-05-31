@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.1-JS的数据类型</title>
+    <script>
+        /*
+        ECMAScript:标准.核心
+
+        typeof 判断数据类型:
+            数字类型
+            字符串类型
+            布尔类型
+            函数类型
+            对象(obj  []  {}  null)
+            未定义
+
+
+         */
+
+        var i = 10;
+        var s = 'fmx';
+        var b = true;
+
+        var fn = function () {
+//            alert(1);
+        }
+        fn();
+
+
+        var obj = window;
+        obj.abc = 123;
+//        alert(typeof obj);  //object 物体.东西.对象
+//        alert(window.abc);
+
+        var arr = [1,2,3,4];    //数组也是obj
+        //alert(arr.length);
+        //alert(arr[2]=2345);
+//        arr.push(5,6,7);
+//        alert(arr);
+//        arr.abc = 123;
+//        alert(arr.abc);
+
+        var json = {    //像数组一样可以存放东西,也是对象
+            num:1,
+            name:'miaov',
+            age:5
+        };
+//        alert(json.name+'今年'+json.age);
+
+        var n = null;   //obj 为空,暂时不可以添加属性
+//        alert(typeof n);
+
+        //typeof    查看数据的类型
+//        alert(typeof i);
+
+        //length 查看字符串长度
+//        alert(s.length );
+        //charAt(x) 根据子字符串的下标来获取子字符串
+//        alert(s.charAt(0));
+
+        var u;  //undefined 未定义
+        alert(typeof u);
+        //是一种状态,不常用表示你写的程序出问题了
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

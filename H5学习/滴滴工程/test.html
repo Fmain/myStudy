@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <style>
+        html,body{
+            height: 100%;
+        }
+        body{
+
+            display: flex;
+            flex-direction: column;
+        }
+        header{
+            height: 44px;
+            background-color: blue;
+        }
+        footer{
+            height: 50px;
+            background-color: #444;
+        }
+        main{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            width: 100%;
+            max-height: 200px;
+        }
+        .nav{
+            flex: 1;
+            background-color: #ddd;
+            display: flex;
+            align-items: stretch;
+            flex-wrap: wrap;
+        }
+        .nav div{
+            margin-bottom: 20px;
+            background-color: #fff;
+            width: 100%;
+
+        }
+    </style>
+</head>
+<body>
+   <header></header>
+   <main>
+       <div class="img">
+           <img src="image/banner2.png" alt="">
+       </div>
+       <section class="nav">
+           <div>1</div>
+           <div>2</div>
+           <div>3</div>
+       </section>
+   </main>
+   <footer></footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-面向对象写选项卡</title>
+    <style>
+    #div1 input{
+        background: #ccc;
+    }
+    #div1 .active{
+        background: yellow;
+    }
+    #div1 div{
+        width: 200px;
+        height: 200px;
+        background: #ccc;
+        display: none;
+    }
+    </style>
+    <script>
+    /*
+    把面向过程的选项卡改成面向对象的选项卡
+        1.前提:所有的代码都包含在window.onload();中
+        2.改写:不能有函数嵌套,但可以有全局变量
+        3.  onload    改成   构造函数
+            全局变量   改成   属性
+            函数      改成   方法
+        4.改错
+            this会出问题
+                1.用了定时器
+                2.用了事件
+            解决办法:
+                通过闭包传递this,再套一层,改传that
+     */
+
+    window.onload = function () {
+        var oTab = new TabSwitch('div1');
+    };
+    function TabSwitch(id) {
+        var oDiv = document.getElementById(id);
+        this.aBtn = oDiv.getElementsByTagName('input');
+        this.aDiv = oDiv.getElementsByTagName('div');
+        var i = 0;
+        var that = this;
+        for (i=0;i<this.aBtn.length;i++){
+            this.aBtn[i].index = i;
+            this.aBtn[i].onclick = function () {
+                that.tab(this);
+            };
+        }
+    }
+    TabSwitch.prototype.tab = function (oBtn) {
+        for(i=0;i<this.aBtn.length;i++){
+            this.aBtn[i].className = '';
+            this.aDiv[i].style.display = 'none';
+        }
+        oBtn.className = 'active';
+        this.aDiv[oBtn.index].style.display = 'block';
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <input type="button" value="教育" class="active">
+    <input type="button" value="财经">
+    <input type="button" value="aaa">
+    <div style="display: block;">abcdefghijklmn</div>
+    <div>lskjljflkajg</div>
+    <div>lskjljfhoaijgdkljglkajg;l</div>
+</div>
+<!--<script>
+    window.onload = function () {
+        var oDiv = document.getElementById('div1');
+        var aBtn = oDiv.getElementsByTagName('input');
+        var aDiv = oDiv.getElementsByTagName('div');
+        var i = 0;
+
+        for (i=0;i<aBtn.length;i++){
+            aBtn[i].index = i;
+            aBtn[i].onclick = function () {
+                for(i=0;i<aBtn.length;i++){
+                    aBtn[i].className = '';
+                    aDiv[i].style.display = 'none';
+                }
+                this.className = 'active';
+                aDiv[this.index].style.display = 'block';
+            }
+        }
+    }
+</script>-->
+</body>
+</html>

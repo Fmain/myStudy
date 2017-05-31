@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>5.5-找到合适的值</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border:0;
+        }
+        ol, ul ,li{list-style: none;}
+        .box{
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+        }
+    </style>
+    <script>
+        var aBtn = document.getElementsByTagName('input');
+        var oBox = document.getElementsByClassName('box');
+        var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90 ];
+
+        /*
+         1、找到arr里所有的数字：-98765, 34, -2, 0, 5
+         2、找到可以转成数字的：'100px', -98765, 34, -2, 0, '300', '23.45元',  5
+         3、把转成数字以后，最大值判断出来：300
+         4、把 NaN 所在的位置找出来：1 14 17  19
+         */
+    window.onload = function  () {
+        oBox[0].onclick = function  () {
+        }
+
+        aBtn[0].onclick = function () {
+            for (var i = 0; i < arr.length; i++) {
+                if (isNaN(arr[i])==false) {
+                    oBox[0].innerHTML += arr[i]+'<br/>';
+                };
+            };
+        }
+
+        aBtn[1].onclick = function () { alert(2); }
+        aBtn[2].onclick = function () { alert(3); }
+        aBtn[3].onclick = function () { alert(4); }
+    }
+    </script>
+
+</head>
+<input type="button" value="找到arr里所有的数字">
+<input type="button" value="找到可以转成数字">
+<input type="button" value="把转成数字以后，最大值判断出来">
+<input type="button" value="把 NaN 所在的位置找出来">
+<div class="box"></div>
+<body>
+</body>
+</html>

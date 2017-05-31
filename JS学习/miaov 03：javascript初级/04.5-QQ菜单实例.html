@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.11-QQ菜单实例</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style:none;
+        }
+        #list{
+            width: 240px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+        #list .lis{}
+        #list .lis h2{
+            height: 30px;
+            line-height: 30px;
+            text-indent: 20px;
+            font-size: 18px;
+            background: rgba(96, 255, 185, 0.5) url("images/ico1.gif") no-repeat 5px center;
+        }
+        #list .lis .active1{
+            background: rgba(96, 255, 185, 1) url("images/ico2.gif") no-repeat 5px center;
+        }
+        #list .lis ul{
+            display: none;
+        }
+        #list .lis ul li{
+            line-height: 24px;
+            background: rgba(175, 222, 230, 0.3);
+            border-bottom:1px solid #333;
+            text-indent:24px;
+        }
+        #list .lis ul .active2{
+            font-size: 18px;
+            line-height: 30px;
+            background: rgb(175, 222, 230);
+            border-bottom:1px solid #333;
+            text-indent:24px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementById('list');
+            var aH2 = oUl.getElementsByTagName('h2');
+            var aUl = oUl.getElementsByTagName('ul');
+            var aLi = null;
+            var arrLi = [];
+
+            //var onOff = true;
+
+            for(var i=0;i<aH2.length;i++){
+                aH2[i].index = i;
+                //aH2[i].onOff = true;  因为有自带的属性className可以作为判断条件
+                aH2[i].onclick = function () {
+                    /*
+                    //设置点击一个h2,其他h2标签关闭
+                    for(var i=0;i<aH2.length;i++){
+                        aUl[i].style.display = 'none';
+                        aH2[i].className = '';
+                    }
+                    aUl[this.index].style.display = 'block';
+                    this.className = 'active1';
+                     */
+                    /**/
+                    if(this.className == ''){
+                        aUl[this.index].style.display = 'block';
+                        this.className = 'active1';
+                    }else{
+                        aUl[this.index].style.display = 'none';
+                        this.className = '';
+                    }
+
+                }
+            }
+
+            for(var i=0;i<aUl.length;i++){
+                var aLi = aUl[i].getElementsByTagName('li');
+                for(var j=0;j<aLi.length;j++){
+                    arrLi.push(aLi[j]);
+                    /*
+                    var oldLi = aLi[j];
+                    aLi[j].index = j;
+
+                    aLi[aLi[j].index].onclick = function () {
+                        oldLi.className = '';
+                        oldLi = this;
+                        this.className = 'active2';
+                    }
+                     */
+                }
+            }
+
+            for(var i=0;i<arrLi.length;i++){
+                arrLi[i].onclick = function () {
+                    for(var i=0;i<arrLi.length;i++){
+                        arrLi[i].className = '';
+                    }
+                    this.className = 'active2';
+                }
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li class="lis">
+        <h2>我的好友</h2>
+        <ul>
+            <li>张1</li>
+            <li>张2</li>
+            <li>张3</li>
+            <li>张4</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>企业好友</h2>
+        <ul>
+            <li>李1</li>
+            <li>李2</li>
+            <li>李3</li>
+        </ul>
+    </li>
+    <li class="lis">
+        <h2>黑名单</h2>
+        <ul>
+            <li>王1</li>
+            <li>王2</li>
+            <li>王3</li>
+            <li>王4</li>
+            <li>王5</li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

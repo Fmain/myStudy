@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.7-抖动函数封装</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position:absolute;
+            left: 30px;
+            top: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            var oDiv = document.getElementsByTagName('div')[0];
+            shake(oDiv,'left','onmousemove');
+        };
+
+        function shake (obj,attr,act) {
+            var pos = parseInt(getStyle(obj,attr));
+            act?(obj[act] = shakeNA):(shakeNA());
+            /*
+            if (act) {
+                obj[act] = shakeNA;
+            }else{
+                shakeNA();
+            };
+            */
+            function shakeNA () {
+                var arr = [];
+                var num = 0;
+                var timer = null;
+                for (var i = 20; i > 0; i -=2) {
+                    arr.push(i,-i);
+                };
+                arr.push(0);
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    obj.style[attr] = pos + arr[num] + 'px';
+                    num++;
+                    if (num == arr.length) {
+                        clearInterval(timer);
+                    };
+                },50);
+            }
+
+        };
+
+        function getStyle (obj,attr) {
+            return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj)[attr];
+        }
+    </script>
+
+</head>
+<body>
+<div></div>
+</body>
+</html>

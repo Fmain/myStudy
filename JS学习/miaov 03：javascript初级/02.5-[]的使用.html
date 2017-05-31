@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.5-[]的使用</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oAttr = document.getElementById('attr');
+            var oVal = document.getElementById('val');
+            var oDiv = document.getElementById('div1');
+            var oBtn = document.getElementById('btn1');
+
+            /*
+                JS中允许"."替换成"[]"
+                .后面的值无法修改
+                []里面的值可以随便写入
+
+            */
+            oBtn.onclick = function () {
+                //oAttr.value     'width' 'background'
+                //oVal.value      '200px' 'red'
+                //oDiv.style.width = 200px;         .后面的值无法修改
+                //oDiv.style[width] = oVal.value;   []里面的值可以随便写入
+                oDiv.style[oAttr.value] = oVal.value;
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+请你输入属性名称:<input type="text" id="attr">
+<br>
+请你输入属性值:<input type="text" id="val">
+<br>
+<input id="btn1" type="button" value="确定">
+<div id="div1"></div>
+</body>
+</html>

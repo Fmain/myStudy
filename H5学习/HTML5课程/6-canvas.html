@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-canvas</title>
+    <style>
+        body{
+            background: #000;
+            color: #fff;
+        }
+        #c1{
+            background: #fff;
+        }
+        #c1 span{
+            color: #fff;
+        }
+    </style>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+默认:宽300 高150
+问题:1在标签上写宽高,在style中写会有问题
+
++绘制方块:
+    - fillRect(L,T,W,H): 填充的方块,默认颜色是黑色
+    - strokeRect(L,T,W,H): 带边框的方块
+
++设置绘图:
+    - fillStyle: 填充颜色(绘制canvas是由顺序的)
+    - lineWidth: 线宽度,是一个数值
+    - strokeStyle: 边线颜色
+
++边界绘制:
+    - lineJoin: 边界连接点样式
+        *miter(默认)
+        *round(圆角)
+        *bevel(斜角)
+    - linCap: 端点样式
+        *butt(默认)
+        *round(圆角)
+        *square(高度多出为宽一半的值)
+
++绘制路径
+    - beginPath: 开始绘制路径
+    - closePath: 结束绘制路径
+    - moveTo: 移动到绘制的新目标点
+    - lineTo: 新的目标点
+
+    - stroke: 画线,默认黑色
+    - fill: 填充,默认黑色
+    - rec: 矩形区域
+    - clearRect: 删除一个画布的矩形区域 //类似橡皮擦功能,清空画布:cas.clearRect(0,0,cas.width,cas.height);
+
+    - save: 保存路径
+    - restore: 恢复路径
+
++绘制圆
+    - arc(x,y,半径,起始弧度,结束弧度,旋转方向)
+        - x,y:起始位置
+        - 弧度与角度的关系: 弧度=角度*Math.PI/180
+        - 旋转方向:顺时针(默认:false).逆时针(true)
+
++绘制其他曲线
+    - arcTo(x1,y1,x2,y2,r)
+        - 第一组坐标,第二组坐标,半径
+    - quadraticCurveTo(dx,dy,x1,y1)
+        - 贝塞尔曲线:第一组控制点,第二组结束坐标
+    - bezierCurveTo(dx1,dy1,dx2,dy2,x1,y1)
+        - 贝塞尔曲线:第一组控制点,第二组控制点,第三组结束坐标
+
++插入图片
+    - 等图片加载完,再执行canvas的操作
+        - 图片预加载:在onload中调用方法
+    - drawImage(oImg,x,y,w,h)
+        - oImg:当前图片;x,y:坐标;w,h:宽高
+
++设置背景
+    - createPattern(oImg,平铺方式)
+        - 平铺方式:repeat,repeat-x,repeat-y,no-repeat
+
++渐变
+    - createLinearGradient(x1,y1,x2,y2)
+        - 线性渐变
+        - 第一组参数:起始点坐标,第二组参数:结束点坐标
+        - addColorStop(位置,颜色)添加渐变点
+    -createRadialGradient(x1,y1,r1,x2,y2,r2,)
+        - 放射性渐变:
+        - 参数: 第一个远的坐标和半径,第二个圆的坐标和半径
+
++文本
+    - strokeText(文字,x,y)   --> 文字边框
+    - fillText(文字,x,y)     --> 文字填充
+    - font   -->文字大小:'60px impact'  第二个参数为字体样式
+    - textAlign   --> 默认是start跟left一样的效果(end,right,center)
+    - textBaseline  --> 文字上下的位置的方式,默认:alphabetic
+    - measureText()
+        - measureText(str).width:  只要宽度,没有高度.(文字居中)
+
++阴影
+    - shadowOffsetX,shadowOffsetY   --> x轴偏移,y轴偏移
+    - shadowBlur        --> 高斯模糊值
+    - shadowColor       --> 阴影颜色
+
+    
+
+!注意：
+    1.HTML5使用canvas的时候，canvas的高度和宽度一定要使用内联的方式设置，否则画出的图形会变形
+    2.画笔默认从0.5开始左右0.5扩展,所以不从整数开始的宽是2px,从0.5开始的宽是1px
+    3.设置属性和绘制方块顺序不同时,结果也不同
+     */
+        $(function() {
+            var cas = $('#c1')[0].getContext("2d");
+
+            //jQuery()返回的是jQuery对象，而jQuery对象是没有getContext方法的，需要把jQuery对象转换成Dom对象，官方文档推荐的方法如上述代码，其实jQuery对象就是类数组，用数组下标可以取得Dom对象。
+
+            //cas.fillRect(50, 50, 50, 50);
+
+            //cas.strokeRect(20, 130, 50, 50);
+            //cas.strokeRect(100.5, 100.5, 50, 50);
+
+            //cas.lineWidth = 1;
+
+
+            /*
+            cas.fillStyle = 'blue';
+
+            cas.strokeStyle = 'red';
+
+            cas.lineWidth = 10;
+
+            cas.lineJoin = 'round';
+
+            cas.strokeRect(100.5, 100.5, 50, 50);
+
+            cas.fillRect(50, 50, 50, 50);*/
+
+            cas.save();
+                cas.beginPath();
+                cas.moveTo(100,100);
+                cas.lineTo(200,200);
+                cas.lineTo(250,150);
+                cas.closePath(); //完成起始和结束的自动闭合
+                //cas.stroke(); //边框的
+                cas.fill(); //填充的
+            cas.restore();
+
+            cas.beginPath();
+            cas.moveTo(300,100);
+            cas.lineTo(300,200);
+            cas.lineTo(400,200);
+            cas.closePath();
+            cas.stroke(); //边框的
+            //cas.fill(); //填充的
+
+
+        });
+    </script>
+</head>
+<body>
+
+<canvas id="c1" width="500" height="500">
+    <span>不支持canvas浏览器</span>
+</canvas>
+
+
+<hr>
+
+</body>
+</html>

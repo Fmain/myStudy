@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5-Json方式实现面对对象</title>
+    <script>
+    /*
+    Json 方式更适合生成只用到一个的对象
+    */
+    /*var obj = {a:12,b:5,c:function(){alert(this.a)}};
+    obj.c();*/
+    var p1 = {
+        name:'fmx',
+        sex :'男',
+        showName: function () {
+            alert('my name is '+this.name);
+        },
+        showSex : function () {
+            alert('my sex is '+this.sex)
+        }
+    };
+    p1.showSex();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

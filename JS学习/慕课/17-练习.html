@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>17-练习</title>
+    <script type="text/javascript">
+        function rec(){
+            var openwindow = confirm("新窗口打开时是否弹出输入对话框?");
+            if (openwindow==true) {
+                var href = prompt("请输入你要打开的网址:",href);
+                window.open(href,'_blank ','top=auto,left=auto,width=400px,height=500px,menubar=no,toolbar=no,status=no,scrollbars=yes');
+            } else{
+                close($(this));
+            }
+
+        }
+    </script>
+</head>
+<body>
+<!--
+任务
+1、新窗口打开时弹出确认框，是否打开
+提示: 使用 if 判断确认框是否点击了确定，如点击弹出输入对话框，否则没有任何操作。
+
+2、通过输入对话框，确定打开的网址，默认为 http：//www.imooc.com/
+
+3、打开的窗口要求，宽400像素，高500像素，无菜单栏、无工具栏。
+ -->
+ <input type="button" value="打开网址" onclick="rec();" />
+</body>
+</html>

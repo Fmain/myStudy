@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>101-动画模块其他属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            /*1.告诉系统要执行哪个动画*/
+            animation: fmx 3s 100 alternate ease;
+            /*3.告诉系统动画持续的时长*/
+        }
+        @keyframes fmx {
+            from{
+                margin-left: 0px;
+                background-color: yellow;
+            }
+            to{
+                margin-left: 350px;
+                background-color: red;
+            }
+        }
+        div:hover{
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

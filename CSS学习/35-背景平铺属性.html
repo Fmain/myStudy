@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>35-背景平铺属性</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background: red;
+        }
+        .box1{
+            background-image: url(image/bdlogo.gif);
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body>
+<!--
+如何控制背景图片的平铺方式
+在css中有一个background-repeat：url；属性
+取值：
+repeat 默认，水平和垂直方向都要平铺
+no-repeat 在水平和垂直方向都不需要平铺
+repeat-x 只在水平方向平铺
+rapeat-y 只在垂直方向平铺
+
+可以通过背景图片的平铺来降低图片的大小，提升网页的访问速度
+
+
+-->
+<div class="box1"></div>
+
+</body>
+</html>

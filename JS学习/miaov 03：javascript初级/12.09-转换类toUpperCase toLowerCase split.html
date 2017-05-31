@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.9-字符串转换</title>
+    <script type="text/javascript">
+    /*
+    toUpperCase();
+        全部转换成大写
+    toLowerCase();
+        全部转换成小写
+    split();
+        把字符串分割成数组
+     */
+
+     var str = 'www.BAIDU.con';
+
+     // alert(str.toUpperCase());  //全部转换成大写
+     // alert(str.toLowerCase());  //全部转换成小写
+
+
+     // alert(str.split('.'));   //是数组,['www','BAIDU','con']
+     var arr = str.split('.');
+     //alert(arr[1]);
+
+     var str1 = 'fmx';
+     // alert(str1.split());   //['fmx']
+     // alert(str1.split(''));   //['f','m','x']
+
+     var str2 = '啊啊是秒啊秒次次次';
+     // alert(str2.split('秒'));
+
+     var str3 = '/www.BAIDU.con/';
+     // alert(str3.split('/'));    //[,www.BAIDU.con,] 长度3
+
+     var str4 = '2017-4-22-17-04';
+     alert(str4.split('-',3));  //['2017'.'4','22']
+
+
+    </script>
+</head>
+<body>
+<div id="div1">
+    <p>一段文字</p>
+</div>
+</body>
+</html>

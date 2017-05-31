@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>20-innerHTML属性</title>
+
+</head>
+<body>
+<!--
+innerHTML 属性
+    innerHTML 属性用于获取或替换 HTML 元素的内容。
+
+语法:
+    Object.innerHTML
+
+注意:
+    1.Object是获取的元素对象，如通过document.getElementById("ID")获取的元素。
+    2.注意书写，innerHTML区分大小写。
+
+
+ -->
+<h2 id="con">javascript</h2>
+
+
+<p>JavaScript是一种基于对象、事件驱动的简单脚本语言，嵌入在HTML文档中，由浏览器负责解释和执行，在网页上产生动态的显示效果并实现与用户交互功能。</p>
+<script type="text/javascript">
+        var mychar = document.getElementById("con");
+        document.write("原标题内容:"+mychar.innerHTML+"<br />");
+        mychar.innerHTML = "Hello!";
+        document.write("修改后标题:"+mychar.innerHTML+"<br />");
+    </script>
+</body>
+</html>

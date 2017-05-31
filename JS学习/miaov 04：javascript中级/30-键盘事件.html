@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>30-键盘事件</title>
+    <script>
+    /*
+    onkeydown : 当键盘按键按下的时候触发,如果按下不抬起,那么会连续触发,第一次和第二次之间会有一个停顿,如果游戏需要,可以通过定时器解决
+    onkeyup : 当键盘按键抬起的时候触发
+
+    event.keyCode : 数字类型 键盘按键对应的值 键值
+
+    event.ctrlKey/shiftKey/altKey : 布尔值 当一个事件发生的时候,如果ctrl||shift||alt是按下状态,返回true,否则返回false
+
+     */
+    document.onkeydown = function (ev) {
+        //alert(1);
+
+        var ev = ev || event;
+        //alert(ev.keyCode);
+
+    }
+    document.onclick = function (ev) {
+        var ev = ev||event;
+        alert(ev.ctrlKey);
+    }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

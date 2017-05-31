@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>9.3-$符的简化版</title>
+    <script type="text/javascript">
+    /*
+        $(function() {
+            $('#btn1').click(function() {
+                $(this).css('background','red');
+            };)
+        };)
+    */
+   $(function() {
+    $('btn1').onclick = function() {
+        $(this)
+    };
+   });
+   function $ (v) {
+       if (typeof v === 'function') {
+        window.onload = v;
+       }else if (typeof v==='string') {
+        return document.getElementById(v);
+       }else if (typeof v==='object') {
+        return v;
+       }
+   }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="按钮">
+</body>
+</html>

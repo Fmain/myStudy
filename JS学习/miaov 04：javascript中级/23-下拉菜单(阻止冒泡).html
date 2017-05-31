@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>23-下拉菜单</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+    <script>
+    window.onload = function () {
+
+        var oBtn = document.getElementById('btn');
+        var oDiv = document.getElementById('div1');
+
+        oBtn.onclick = function (ev) {
+            var ev = ev || event;
+            ev.cancelBubble = true; //阻止当前对象的当前事件的冒泡
+
+            oDiv.style.display = 'block';
+        };
+
+        document.onclick = function () {
+            setTimeout(function () {
+                oDiv.style.display = 'none';
+            },1000)
+        }
+
+    }
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<div id="div1"></div>
+<p>pppppp</p>
+<p>pppppp</p>
+<p>pppppp</p>
+<input type="text" name="" id="">
+<input type="text" name="" id="">
+<input type="text" name="" id="">
+
+
+</body>
+</html>

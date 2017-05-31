@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-jQuery中的Ajax</title>
+    <script src="../../OpenSource/jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+    jQuery中的Ajax
+        - jQuery对Ajax操作进行了封装,在jQuery中最底层的方法是$.ajax(),第二层是load(),$.get()和$post(),第三层是$.getScript()和$.getJSON()
+
+        load()方法
+            * 任何一个html节点都可以使用load方法来加载Ajax,结果将直接插入html节点中
+            - 是jQuery中最简单和常用的Ajax方法,能载入远程的HTML代码并插入到DOM中,他的结构是:
+                load(url,data,callback)
+                - url 类型(String) : 请求HTML页面的URL地址
+                - data(可选) 类型(Object) : 发送到服务器的key/value数据
+                - callback(可选) 类型(Function) : 请求完成时的回调函数,无论请求成功或失败
+            - 只需要使用jQuery选择权为HTML片段指定目标位置,然后将要加载的文件的url作为参数传递给load()方法即可
+            - 如果只需要加载目标HTML页面内的某些元素,则可以通过load()方法的url参数来达到目的,通过url参数指定选择符,就可以方便的从加载过来的HTML文档中选出所需要的内容,load()方法的url参数的语法结构为"url selector"(注意:url和选择器之间有一个空格)
+            - 传参方式:load()方法的传递参数根据参数data来自动自定,如果没有参数传递,采用GET方式传递,否则采用POST方式.
+            - 对于必须在加载完才能继续的操作,load()方法提供了毁掉函数,该函数有三个参数:代表请求返回内容的data;代表请求状态的textStatus对象和XMLHttpRequest对象
+
+        get()方法
+            - 使用GET方式来进行异步请求,他的结构是:
+                get(url,data,callback,type)
+                - url 类型(String) 请求html页面的地址
+                - data(可选) 类型(Object) : 发送到服务器的key/value数据
+                - callback(可选) 类型(Function) : 请求完成时的回调函数,只有当response的放回状态为success,才调用该方法,自动将请求结果和状态传递给该方法
+                    - 回调函数参数,data代表返回的内容,可以是xml,json,html片段等
+                    - textstatus 代表请求的状态,可能为:success,error,notmodify,timeout4种
+                - type(可选) 类型(string) :服务器返回内容的格式,包括xml,html,json等
+
+        get()和post()方法是jQuery中的全局函数
+
+     */
+
+    /*//使用jQuery中load方法处理Ajax(简单常用)
+    $(function () {
+        $('a').click(function () {
+            var url = this.href;
+            var args = {'time':new Date()};
+            $('#content').load(url,args);
+            return false;
+        })
+    })*/
+
+    $(function () {
+        $('a').click(function () {
+            var url = this.href + ' h2 a'; //h2 前面有空格
+            var args = {'time':new Date()};
+            $('#details').load(url,args);
+            //alert(1);
+
+            return false;
+        })
+    })
+
+    </script>
+</head>
+<body>
+
+<!--<a href="src/01-helloAjax.txt">Hello Ajax</a>
+<div id="content"></div>-->
+
+<ul>
+    <li><a href="./src/02-a.html">baidu</a></li>
+    <li><a href="./src/02-b.html">sina</a></li>
+    <li><a href="./src/02-c.html">taobao</a></li>
+</ul>
+<div id="details"></div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>04-事件深入</title>
+    <script src="vue.js"></script>
+    <style type="text/css">
+        div{padding: 40px;}
+        #box{background: red;}
+        #box1{background:red;}
+        #box2{background:yellow;}
+        #box3{background:blue;}
+        #box4{background:red;}
+        #box5{background:yellow;}
+        #box6{background:blue;}
+    </style>
+    <script type="text/javascript">
+    /*
+    v-on:  可以简写为:  @
+
+    事件对象:
+        @click="showClientX($event)"
+
+    事件对象绑定函数传参:
+        @click="showClientX($event,12)"
+
+    阻止事件冒泡:
+        1. ev.cancelBubble=true;
+        2. @click.stop="show2($event)"
+
+    阻止默认事件:
+        1. ev.preventDefault();
+        2. @contextmenu.prevent=""
+
+
+     */
+        window.onload = function() {
+
+            new Vue({
+                el:'#box',
+                data:{},
+                methods:{
+                    show:function() {
+                        alert('这是按钮');
+                    },
+                    showClientX:function(ev,x) {
+                        alert(ev.clientX);
+                        alert(x);
+                    }
+                }
+            });
+            new Vue({
+                el:'#box1',
+                methods:{
+                    show1:function(ev) {
+                        alert(1);
+                    },
+                    show2:function(ev) {
+                        alert(2);
+                    },
+                    show3:function(ev) {
+                        alert(3);
+                        ev.cancelBubble=true;
+                    }
+                }
+            });
+            new Vue({
+                el:'#box4',
+                methods:{
+                    show4:function(ev) {
+                        alert(4);
+                        ev.preventDefault();
+                    }
+                }
+            })
+
+        }
+    </script>
+</head>
+<body>
+<div id="box" @click="showClientX($event,12)">
+    <input type="button" name="" value="按钮" v-on:click="show()">
+</div>
+<hr>
+阻止事件冒泡:
+<br>
+<div id="box1" @click="show1($event)">1
+    <div id="box2" @click.stop="show2($event)">2
+        <div id="box3" @click="show3($event)">3</div>
+    </div>
+</div>
+<hr>
+阻止默认事件:
+<br>
+<div id="box4">
+    <div id="box5" @contextmenu="show4($event)"></div>
+    <br>
+    <div id="box6" @contextmenu.prevent=""></div>
+</div>
+</body>
+</html>

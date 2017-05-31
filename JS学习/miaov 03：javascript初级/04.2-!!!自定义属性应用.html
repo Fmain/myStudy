@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2-自定义属性应用</title>
+    <script>
+        window.onload = function () {
+            var aBtn = document.getElementsByTagName('input');
+            var aP = document.getElementsByTagName('p');
+            var arr = ['A','B','C','D'];
+
+            /*
+            1.点击按钮后,各自发生各自相应值的改变
+                如:点击图片是连续切换
+             */
+
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].num = 0;
+                aBtn[i].onclick = function () {
+                    //aBtn[i].value = '2';  为什么不可以运行
+                    //this.value = arr[i];
+                    //alert(arr[this.num]);
+                    this.value = arr[this.num]; //添加按钮操作
+                    this.num++; //点击后变量更改
+                    //判读越界处理
+                    if (this.num==arr.length){
+                        this.num = 0;
+                    }
+                }
+            }
+
+
+            /*
+            2.点击按钮后,各自发生对应值的改变
+
+            for (var i=0;i<aBtn.length;i++){
+                aBtn[i].index = i;  //自定义索引值
+
+                aBtn[i].onclick = function () {
+                    //alert(i);   // i=3
+                    //alert(this.index);
+                    //alert(arr[this.index]);
+                    this.value = arr[this.index];
+
+                    aP[this.index].innerHTML = arr[this.index];
+                }
+            }
+             */
+
+
+        }
+    </script>
+</head>
+<body>
+<!---->
+<input type="button" value="btn1">
+<input type="button" value="btn2">
+<input type="button" value="btn3">
+
+<p>a</p>
+<p>b</p>
+<p>c</p>
+</body>
+</html>

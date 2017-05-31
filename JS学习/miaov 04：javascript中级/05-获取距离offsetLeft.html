@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>05-获取距离offsetLeft</title>
+    <style type="text/css">
+        div{
+            padding: 40px;
+        }
+        #div1{background:red;}
+        #div2{background:green;position: relative;}
+        #div3{background:blue;}
+    </style>
+    <script type="text/javascript">
+    /*
+    元素.offsetLeft/元素.offsetTop:     只读属性,当前元素到定位父级的距离(偏离值),即到当前元素的offsetParent的距离
+        如果没有定位父级,标准下:
+            offsetParent-->body
+            offsetLeft-->html
+        如果有定位父级,
+            其他浏览器:到定位父级的距离
+            IE7以下:
+                如果自己有定位,到定位父级的距离
+                如果自己没有定位,那么offsetLeft/Top是到body的距离
+
+    style.width:    样式宽     有单位'px'
+
+    clientWidth:    可视区宽    样式宽+padding     无单位
+
+    offsetWidth:    占位宽     样式宽+padding+border  无单位
+     */
+
+    window.onload = function() {
+
+        var oDiv3 = document.getElementById('div3');
+
+        // alert(oDiv3.offsetLeft);
+
+
+        var oDiv4 = document.getElementById('div4');
+
+        alert(oDiv4.style.width);   //100
+        alert(oDiv4.clientWidth);   //120 样式宽+padding
+
+
+    };
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+
+<div id="div4" style="width: 100px;height: 100px;border: 1px solid red;padding: 10px;margin: 10px;"></div>
+</body>
+</html>

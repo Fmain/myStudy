@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-css显示模式转换</title>
+    <style>
+        div{
+            display: inline;
+            background: red;
+            width: 200px;
+            height: 200px;
+        }
+        span{
+            display: block;
+            background: green;
+            width: 200px;
+            height: 200px;
+        }
+        .cc{
+            background: blue;
+            width: 200px;
+            height: 200px;
+            display: inline-block;;
+        }
+    </style>
+</head>
+<body>
+<!--
+如何转换css元素的显示模式
+设置元素的dispaly属性
+
+inline 块级
+block 行内
+inline-block 行内块级
+-->
+<div>abcdefg</div>
+<div>abcdefg</div>
+
+<span>cdefgh</span>
+<span>cdefgh</span>
+
+<p class="cc">我是段落</p>
+<b class="cc">我是加粗</b>
+</body>
+</html>

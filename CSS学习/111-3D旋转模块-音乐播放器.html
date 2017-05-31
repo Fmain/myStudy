@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>111-3D旋转模块-音乐播放器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("ty/bj.jpg") no-repeat center center fixed;
+            background-size:cover;
+            overflow: hidden;
+        }
+        ul{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left:50%;
+            margin-left: -100px;
+            bottom:250px;
+            transform: rotateX(-10deg) rotateY(0deg);
+            transform-style: preserve-3D;
+            animation: rotation 10s linear 0s infinite;
+
+        }
+        @keyframes rotation {
+            from{
+                transform: rotateX(-10deg)  rotateY(-360deg);
+            }
+        }
+        li{
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            font-size: 40px;
+            line-height: 200px;
+            text-align: center;
+            position: absolute;
+            background-color: black;
+        }
+        ul li:nth-child(1){
+            /*opacity: 0.3;*/
+            transform: rotateY(0deg) translateZ(200px);
+        }
+        ul li:nth-child(2){
+            /*opacity: 0.3;*/
+            transform: rotateY(-300deg) translateZ(200px);
+        }
+        ul li:nth-child(3){
+            /*opacity: 0.3;*/
+            transform: rotateY(-240deg) translateZ(200px);
+        }
+        ul li:nth-child(4){
+            /*opacity: 0.3;*/
+            transform: rotateY(-180deg) translateZ(200px);
+        }
+        ul li:nth-child(5){
+            /*opacity: 0.3;*/
+            transform: rotateY(-120deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            /*opacity: 0.3;*/
+            transform: rotateY(-60deg) translateZ(200px);
+        }
+        ul li img{
+            width: 200px;
+            height: 200px;
+            border: 5px solid skyblue;
+            box-sizing: border-box;
+            opacity: 1;
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        ul:hover li img{
+            opacity:0.2;
+        }
+        ul li img:hover{
+            opacity: 1;
+            transform: scale(1.5,1.5);
+            z-index:999;
+        }
+        .heart{
+            position: absolute;
+            left:50%;
+            margin-left: -100px;
+            bottom:250px;
+            transform-style: preserve-3D;
+            animation:bounce 10s linear 0s infinite normal;
+        }
+        @keyframes bounce {
+            0%{
+                transform: rotateX(45deg) rotateY(0deg) translateZ(400px);
+                opacity: 0.2;
+            }
+            50%{
+                transform: rotateX(45deg) rotateY(180deg) translateZ(400px);
+                opacity: 1;
+            }
+            100%{
+                transform: rotateX(45deg) rotateY(360deg) translateZ(400px);
+                opacity: 0.2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><img src="ty/a1.png" alt=""></li>
+    <li><img src="ty/a2.png" alt=""></li>
+    <li><img src="ty/a3.png" alt=""></li>
+    <li><img src="ty/a4.png" alt=""></li>
+    <li><img src="ty/a5.png" alt=""></li>
+    <li><img src="ty/a6.png" alt=""></li>
+</ul>
+
+
+<img class="heart" src="ty/heart.png" alt="">
+<audio src="src/jimi.mp3" autoplay="autoplay" loop="loop"></audio>
+</body>
+</html>

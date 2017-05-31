@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>13.3-关于for和for in的使用</title>
+    <script type="text/javascript">
+
+
+        var json = {
+            'url':['images/1.jpg','images/2.jpg','images/3.jpg'],
+            'text':['a','b','c','d']
+        }
+        // alert(json.length)  //undefined  不可以用for循环
+        // 数组可以使用for in 遍历
+        for (var i = 0; i < json.length; i++) {
+            json[i]
+        };
+
+        var arr = ['a','b','c','d'];
+
+        for(var i in arr){
+            alert(arr[i]);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>87-a标签的伪类选择器练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            margin: 50px auto;
+            background-color: blue;
+        }
+        li{
+            list-style:none;
+            float: left;
+        }
+        ul li a{
+            display: inline-block;
+            font-size: 14px;
+            color: white;
+            background-color: pink;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+        }
+        ul li a:hover{
+            background-color: #ccc;
+            color: red;
+        }
+        ul li a:active{
+            background-color: #ccc;
+            color: gold;
+        }
+
+    </style>
+</head>
+<body>
+<!--
+注意点:
+1.在企业开发中,编写a标签伪类选择器最好写在标签选择器后面
+2.和a标签盒子相关的属性都写在a标签的标签选择器中(显示模式/高度/宽度/padding/margin/)
+3.和a标签文字/背景相关的都写在伪类选择器中
+-->
+<div class="nav">
+    <ul>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+        <li><a href="#">我是导航</a></li>
+    </ul>
+</div>
+<div></div>
+</body>
+</html>

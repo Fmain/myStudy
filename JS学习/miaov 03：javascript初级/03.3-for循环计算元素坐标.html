@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3.3-for循环计算元素坐标</title>
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            var aDiv = document.getElementsByTagName('div');
+
+            for(var i=0;i<100;i++){
+              document.body.innerHTML += '<div>'+i+'</div>';
+            }
+            for(var j=0;j<9;j++){
+                for (var i=0;i<aDiv.length;i++){
+                    aDiv[i].style.left = 10+ i*60 + 'px';
+                }
+                aDiv[i].style.top = 10+ i*60 + 'px';
+            }
+        }
+        /*
+        问题:
+            1.如何每隔十个换一行
+            2.如何做成'v'型
+         */
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

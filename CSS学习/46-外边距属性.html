@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>46-外边距属性</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            display: inline-block;
+            background: red;
+        }
+        div{
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .box1{
+            /*
+            margin-top: 20px;
+            margin-right: 40px;
+            margin-bottom: 80px;
+            margin-left: 160px;
+            */
+            margin: 20px 40px 80px 160px;
+        }
+    </style>
+</head>
+<body>
+<!--
+外边距:标签与标签之间的距离
+格式:
+非连写:
+margin-top:;
+margin-right:;
+margin-bottom:;
+margin-left:;
+连写:
+margin:上 右 下 左;
+
+注意点：
+外边距的那一部分是没有背景颜色的
+-->
+<span class="box1">我是span</span><span class="box2">我是span</span>
+<span class="box3">我是span</span><span class="box4">我是span</span><div class="box5"></div>
+</body>
+</html>

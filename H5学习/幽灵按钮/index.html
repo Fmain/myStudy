@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>幽灵按钮</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/front-background.jpg") no-repeat center center fixed;
+            background-size:cover;
+        }
+        .content{
+            width: 1000px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            margin-left: -500px;
+            top: 100px;
+            text-align: center;
+        }
+        @media screen and(min-width: 980px){
+            /*怎么设置响应式布局*/
+        }
+        .content .box{
+            position: relative;
+            display: inline-block;
+            width: 205px;
+            height: 220px;
+            margin-left: 50px;
+        }
+        .box .icon{
+            display: block;
+            width: 174px;
+            height: 155px;
+            margin:0 auto;
+            transition: transform 0.2s ease-out;
+        }
+        .box .icon:hover{
+            transform: rotate(360deg) scale(1.2);
+        }
+        .box-mission .icon{
+            background:  url("images/mission.svg") no-repeat center center ;
+            background-size:70%,70%;
+        }
+        .box-play .icon{
+            background:  url("images/play.svg") no-repeat center center ;
+            background-size:70%,70%;
+        }
+        .box-touch .icon{
+            background:  url("images/touch.svg") no-repeat center center ;
+            background-size:70%,70%;
+        }
+
+        .box .button{
+            display: inline-block;
+            width: 156px;
+            height: 45px;
+            line-height: 45px;
+            color: #2ecc71;
+            text-decoration: none;
+            font-family:"微软雅黑";
+            font-size: 18px;
+            font-weight:bolder;
+            transition: background 0.2s ease-out;
+            background: url("images/allow.svg") no-repeat 110px center;
+            border: 2px solid rgba(255,255,255,0.7);
+            box-sizing: border-box;
+            position: relative;
+            margin-top: 10px;
+        }
+        /*设置鼠标悬停状态*/
+        .box .button:hover{
+            background-position: 125px center;
+            border: 2px solid rgba(255,255,255,1);
+        }
+        .box .button .text{
+            float: left;
+            margin-left: 15px;
+        }
+        /*设置线条共同属性*/
+        .content .button .line{
+            background-color: #fff;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+        /*设置顶部线条*/
+        .content .button .line-top{
+            width: 0px;
+            height: 2px;
+            top: -2px;
+            left: -100%;
+        }
+        .box .button:hover .line-top{
+            width: 156px;
+            left: -2px;
+        }
+        /*设置底部线条*/
+        .content .button .line-bottom{
+            width: 0px;
+            height: 2px;
+            bottom: -2px;
+            right: -100%;
+        }
+        .box .button:hover .line-bottom{
+            width: 156px;
+            right: -2px;
+        }
+        /*设置右边线条*/
+        .content .button .line-right{
+            width: 2px;
+            height: 0px;
+            right: -2px;
+            top: -100%;
+        }
+        .box .button:hover .line-right{
+            height: 45px;
+            top: -2px;
+        }
+        /*设置左边线条*/
+        .content .button .line-left{
+            width: 2px;
+            height: 0px;
+            left: -2px;
+            bottom: -100%;
+        }
+        .box .button:hover .line-left{
+            height: 45px;
+            bottom: -2px;
+        }
+
+        .box .tip{
+            display: inline-block;
+            position: relative;
+            width: 85%;
+            height: 35px;
+            line-height: 35px;
+            background: #2DCB70;
+            color: #fff;
+            top: -100px;
+            font-size: 12px;
+            /*font-weight:normal;*/
+            /*设置圆角矩形*/
+            border-radius: 4px;
+            /*opacity: 0;*/
+        }
+        .box .tip em{
+            font-style: normal;
+        }
+        .box .tip span{
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            border: 7px solid transparent;
+            border-top-color: #2DCB70;
+            left: 50%;
+            margin-left: -3px;
+            bottom: -14px;
+        }
+        /**/
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="box box-mission">
+        <span class="icon"></span>
+        <a href="#" class="button" data-title="My mission is clear">
+            <span class="line line-top"></span>
+            <span class="line line-right"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="text">MISSION</span>
+        </a>
+        <div class="tip tip-mission">
+                <em>My mission is clear</em>
+                <span></span>
+        </div>
+    </div>
+    <div class="box box-play">
+        <span class="icon"></span>
+        <a href="#" class="button">
+            <span class="line line-top"></span>
+            <span class="line line-right"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="text">PLAY</span>
+        </a>
+        <div class="tip tip-mission">
+                <em>This is my playground</em>
+                <span></span>
+        </div>
+    </div>
+    <div class="box box-touch">
+        <span class="icon"></span>
+        <a href="#" class="button">
+            <span class="line line-top"></span>
+            <span class="line line-right"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            <span class="text">TOUCH</span>
+        </a>
+        <div class="tip tip-mission">
+                <em>Let's do something together</em>
+                <span></span>
+        </div>
+        <script>
+            $(function () {
+                var title = $(this).attr()
+            })
+        </script>
+    </div>
+</div>
+</body>
+</html>

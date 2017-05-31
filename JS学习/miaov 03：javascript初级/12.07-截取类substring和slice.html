@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.7-lastIndexOf</title>
+    <script type="text/javascript">
+    /*
+    substring();
+        截取类,如果前面参数大,会交换位置,负数当做0处理,
+    slice();
+        不交换位置,负数从后面倒着往前数
+    */
+    var str = '北京市医药分开综合改革已全面实施半个月以来，至此，所有公立医院全部取消挂号费、诊疗费，设立医事服务费。新政落地以来，北京各医疗机构在改善医疗服务和重塑医学价值层面效果初显，医改把提升医疗服务价值、让患者就诊环境更好当做重中之重。让我们看看改革新政实施后，医院、患者、管理者如何说 ? ';
+
+    // alert('10000'>'2'); //false     比较第一个字符串Unicode编码
+
+    // alert(str.substring(3,6));
+    // alert(str.substring(6,3));  //检测两个数的大小
+    // alert(str.substring(-3,3)); //-3当成0处理
+    // alert(str.substring(2,-3));
+
+    // alert(str.slice(0,2));
+    // alert(str.slice(2,0));  //不交换位置
+    alert(str.slice(-4));   //说 ?  ?    //负数就是从后面倒着往前面数
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

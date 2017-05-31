@@ -1,0 +1,23 @@
+
+布局模块:
+    header
+    nav
+    search
+
+    left(right)尽可能不适用
+    而用
+    main
+        section
+        options
+        main_ad
+    side
+        section_side
+
+    footer
+结构模块
+样式重置
+公共样式
+    wrap
+    fl
+    fr
+    clear

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>02-v-for</title>
+    <script src="vue.js"></script>
+    <!--<script src="../vue.js"></script>-->
+
+    <script>
+    /*
+    v-for循环数组
+        1. v-for="item in items"
+        v-for 还支持一个可选的第二个参数为当前项的索引。
+        2. v-for="(item, index) in items"
+        也可以用 of 替代 in 作为分隔符
+    v-for的对象迭代
+        3. v-for="(value, key, index) in object"
+
+     注意:在遍历对象时，是按 Object.keys() 的结果遍历，但是不能保证它的结果在不同的 JavaScript 引擎下是一致的。
+     */
+
+    window.onload = function () {
+        new Vue({
+            el:'#box',
+            data:{
+                arr:['a','b','c'],
+                json:{
+                    A:'a',
+                    B:'b',
+                    C:'c'
+                }
+            }
+        });
+    }
+    </script>
+</head>
+<body>
+
+<div id="box">
+    <ul>
+        <li v-for="(item,index) in arr">
+            {{item}}下标是:{{index}}
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="itme in json">
+            {{itme}}
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(v,k,i) in json">
+            {{v}}的key是:{{k}}下标是{{i}}
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

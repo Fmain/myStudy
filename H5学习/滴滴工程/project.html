@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload =function () {
+            var oNav = document.getElementById('navs');
+            var oImg = document.getElementById('images');
+            var aA = oNav.getElementsByTagName('a');
+
+            for(var i=0;i<aA.length;i++){
+                aA[i].index = i+1;
+
+                aA[i].onclick = function () {
+                    for(var i=0;i<aA.length;i++){
+                        aA[i].classList.remove('active');
+                    }
+
+                    oImg.src = 'image/tab'+this.index+'.png';
+
+                    this.classList.add('active');
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <section class="main project-main">
+        <!--顶部-->
+        <header class="header">
+            <a href="home.html"><img src="image/back.png" class="back" alt=""></a>
+            创业项目
+        </header>
+        <!--导航栏-->
+        <div id="navs" class="navs">
+            <a href="javascript:;" class="active">钻石创业者</a><a href="javascript:;">金牌创业者</a><a href="javascript:;">银牌创业者</a>
+        </div>
+        <!--导航栏对应图片-->
+        <div class="content" id="content1">
+            <img id="images" src="image/tab1.png" alt="">
+        </div>
+
+        <ul class="serves">
+            <li>
+                <h4>服务内容</h4>
+                <img src="image/pro-1.png" alt="">
+                <div>提供以上六个学院的技术支持、咨询服务、课件学习等内容</div>
+            </li>
+            <li>
+                <h4>创业者享受的回报收益</h4>
+                <img src="image/pro-2.png" alt="">
+                <div>
+                    x:渠道可享有的股份额度;
+                    <br>
+                    y:渠道个人业绩流水总额累计;
+                    <br>
+                    z:历年渠道全部各方业绩流水总额累计;
+                    <br>
+                    b:鸿鑫互联网集团所拥有的上市或重组公司总股本数;
+                </div>
+            </li>
+            <li>
+                <h4>获得收益条件</h4>
+                <div>
+                    ①N≥10人;
+                    <br>
+                    ②业绩流水≥1.2亿;
+                    <br>
+                    当满足以上两个条件时，钻石企业者才能取得期权。
+                </div>
+            </li>
+        </ul>
+
+    </section>
+    <footer class="footer">
+        <a href="home.html" class="footer-item home">
+            <span class="icon"></span>
+            <span class="name">首页</span>
+        </a>
+        <a href="project.html" class="footer-item active">
+            <span class="icon"></span>
+            <span class="name">创业项目</span>
+        </a>
+        <a href="process.html" class="footer-item">
+            <span class="icon"></span>
+            <span class="name">报名流程</span>
+        </a>
+        <a href="plat.html" class="footer-item">
+            <span class="icon"></span>
+            <span class="name">平台风采</span>
+        </a>
+        <a href="user.html" class="footer-item">
+            <span class="icon"></span>
+            <span class="name">我的滴滴</span>
+        </a>
+
+    </footer>
+</body>
+</html>

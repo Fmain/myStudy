@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>7-继承</title>
+    <script>
+    /*
+
+     */
+    function Person(name, sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+    Person.prototype.showName = function () {
+        alert(this.name);
+    };
+    Person.prototype.showSex = function () {
+        alert(tihs.sex);
+    };
+    //-----------------------
+    function Worker(name, sex, job) {
+        // 构造函数伪装 调用父级的构造函数 -- 为了继承父类属性
+        Person.call(this,name,sex);  //this -> new出来的Worker对象
+        this.job = job;
+    }
+    //通过原型来继承父级的方法
+    //Worker.prototype = Person.prototype;
+    for(var i in Person.prototype){
+        Worker.prototype[i] = Person.prototype[i];
+    }
+    Worker.prototype.showJob = function () {
+        alert(this.job);
+    };
+    var oW1 = new Worker('blue','nan','hhh');
+    oW1.showJob();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

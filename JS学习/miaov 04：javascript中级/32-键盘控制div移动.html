@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>32-键盘控制div移动</title>
+    <style>
+        #div1{
+            width: 30px;
+            height: 30px;
+            background: red;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+    <script>
+    /*
+    不是所有元素都能接收键盘事件,能够响应用户输入的元素,能够接收焦点的元素才能接收键盘事件,document可以
+
+
+     */
+    window.onload = function () {
+        var oDiv = document.getElementById('div1');
+
+        document.onkeydown = function (ev) {
+
+            var ev = ev || event;
+
+            //alert(ev.keyCode);
+
+            switch (ev.keyCode){
+                case 37:
+                    oDiv.style.left = oDiv.offsetLeft - 10 + 'px';
+                    break;
+                case 38:
+                    oDiv.style.top = oDiv.offsetTop - 10 + 'px';
+                    break;
+                case 39:
+                    oDiv.style.left = oDiv.offsetLeft + 10 + 'px';
+                    break;
+                case 40:
+                    oDiv.style.top = oDiv.offsetTop + 10 + 'px';
+                    break;
+            }
+
+        }
+
+    }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

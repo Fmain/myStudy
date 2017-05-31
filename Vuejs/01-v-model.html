@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01-v-model</title>
+    <script src="vue.js"></script>
+    <!--<script src="../vue.js"></script>-->
+    <script>
+    /*
+    * 一般用在表单元素上(input)
+    *
+    * 注意:vue1和vue2中data处理
+    *
+    * */
+        window.onload = function () {
+            new Vue({
+                el:'div',
+                data:{
+                    'msg':'aaa',
+                    num:12,
+                    b:true,
+                    arr:['1','2','你好'],
+                    json:{
+                        name:'f',
+                        sex:'男',
+                        ale:function () {
+                            alert(1);
+                        }
+                    }
+
+                }
+            });
+        }
+    </script>
+
+
+</head>
+<body>
+<div class="box">
+    <input type="text" v-model="msg" value="bbb">
+    <input type="text" v-model="msg" value="bbb">
+    <br>
+    {{msg}}
+    <br>
+    {{num}}
+    <br>
+    {{b}}
+    <br>
+    {{arr}}
+    <br>
+    {{json}}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>02.73-数组排序</title>
+    <script type="text/javascript">
+
+    /*
+    快速排序法
+    希尔排序法
+    冒泡排序法
+    归并排序法
+    选择排序法
+    插入排序法
+    ...
+     */
+        var arr = ['a','d','e','b','1','c'];
+        var arr1 = [1,61,4,5,6,7,4,9,4];
+
+        arr.sort();
+        arr1.sort();    //1,4,4,4,5,6,61,7,9
+        arr1.sort(function(a,b) {
+            // return a-b;//1,4,4,4,5,6,7,9,61
+            // return b-a; //61,9,7,6,5,4,4,4,1
+        });
+        // alert(arr1);
+
+        var arrWidth = ['345px','3415px','5px','34px']
+
+        arrWidth.sort(function(a,b) {
+            return parseInt(a)-parseInt(b);
+        })
+        alert(arrWidth);
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

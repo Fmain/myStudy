@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>9.2-getId</title>
+    <style type="text/css">
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            // var oBtn = document.getElementById('btn');
+
+            var oBtn = getId('btn1');
+            oBtn.onclick = function() {
+                alert(1);
+            };
+        };
+        function getId (id) {
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+
+<input id="btn1" type="button" value="按钮">
+<div></div>
+</body>
+</html>

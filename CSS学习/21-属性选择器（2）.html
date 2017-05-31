@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21-属性选择器（2）</title>
+    <style>
+        /*
+        img[alt^=adc]{
+            color: red;
+        }
+        */
+        img[alt*=abc]{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+属性选择器
+1.属性的取值是以什么开头的
+[attribute|=value] css2
+[attribute^=value] css3
+区别：
+css2中的只能找到value开头，并且value是被-和其他内容隔开的
+css3中的只要是以value开头的都可以找到，无论有没有被-隔开
+2.属性的取值是以什么结尾的
+[attribute$=value] css3
+3.属性的取值是否包含某个特定取值的
+[attribute~=value] css2
+[attribute*=value] css3
+区别：
+css2中的只能找到独立的单词，也就是包含value，并且balue是被空格隔开的
+css3中的只要是包含value就可以找到
+-->
+<!--
+<img src="" alt="adcdef">
+<img src="" alt="adc-www">
+<img src="" alt="adc ppp">
+<img src="" alt="defadc">
+<img src="" alt="ppp adc">
+<img src="" alt="www-adc">
+<img src="" alt="qq">
+<img src="" alt="yy">
+-->
+<img src="" alt="wwwabcmmm">
+<img src="" alt="abcwwwmmm">
+<img src="" alt="wwwmmmabc">
+<img src="" alt="www-abc-mmm">
+<img src="" alt="www abc mmm">
+<img src="" alt="qq">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>00-vue</title>
+    <script src="../../Vuejs/old/vue.js"></script>
+    <script>
+    /*
+    指令:
+        v-model(双向数据绑定)
+
+    循环:
+        v-for
+            v-for(item in items)
+            v-for((value,index) in items)
+            在json对象中
+            v-for((value,key) in items)
+            v-for((value,key,index) in object)
+
+    事件:
+        v-on:click="methods中的函数"
+
+     */
+        window.onload = function () {
+            new Vue({
+                el:'#box',
+                data:{
+                    msg:'welcome vue'
+                }
+            });
+
+        }
+    </script>
+</head>
+<body>
+
+<div id="box">
+    {{msg}}
+</div>
+
+
+</body>
+</html>

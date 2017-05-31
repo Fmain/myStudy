@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>69-清楚浮动方式4</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        .box1{
+            background-color: red;
+        }
+        .box1 p{
+            background-color: blue;
+            width: 100px;
+            float: left;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box2 p{
+            background-color: yellow;
+            width: 100px;
+            float: left;
+        }
+        .box1::after{
+            /*设置添加子元素内容为空*/
+            content: "";
+            /*设置添加子元素为会计元素*/
+            display: block;
+            /*设置添加子元素的告诉为0*/
+            height: 20px;
+            /*设置添加子元素看不见*/
+            visibility: hidden;
+            给添加子元素设置clear: both;
+            clear: both;
+        }
+        .box1{
+            /*兼容IE6*/
+            *zoom: 1;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+伪元素清楚浮动：通过修改css样式修改
+-->
+<div class="box1">
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+    <p>我是文字1</p>
+</div>
+
+<div class="box2">
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+    <p>我是文字2</p>
+</div>
+</body>
+</html>

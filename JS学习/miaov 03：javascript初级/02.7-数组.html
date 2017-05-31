@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.7-数组</title>
+    <script>
+    /*
+    数组属性:
+        length
+            设置arr.length = 0;快速清空数组
+            或者arr=[];   效率高
+
+        push
+            往数组最后一位添加内容
+            alert(arr.push('abc'));     返回值是新数组的长度
+
+        unshift
+            往数组前面添加内容
+            返回值是新数组的长度  IE6 8 不支持unshift返回值
+
+        pop
+            删除数组最后一位
+            返回值是删除的内容
+
+        shift
+            删除数组第一位
+            返回值也是删除的内容
+
+        splice  删除(从第几开始,删除几个,'替换成什么')
+            删除.替换.添加
+            只返回被删除的内容,如果没删,没有返回值
+
+        sort
+            根据Unicode编码进行排序,默认以字符串形式比较
+
+        concat
+            将几个数组连接在一起成为一个新的数组
+
+        reverse
+            颠倒数组
+     */
+
+        ////////////////////////////////////
+        ///            reverse          ///
+        ////////////////////////////////////
+        var arr1 = [1,2,3,4,5,6];
+        arr1.reverse();
+        // alert(arr1);    //6,5,4,3,2,1
+        var str = 'abcdef';
+        alert(str.split('').reverse()); //f,e,d,c,b,a
+
+        ////////////////////////////////////
+        //              splice
+        ////////////////////////////////////
+        var arr = ['a','b','c','a','D','e'];
+        // alert(arr);
+        //删除(从第几开始,删除几个,'替换成什么')
+        // arr.splice(0,1);
+        //替换
+        arr.splice(0,1,'A');
+        //添加
+        // arr.splice(1,0,'x');
+        // alert(arr);
+
+        ////////////////////////////////////
+        //              push
+        ////////////////////////////////////
+        arr.push('我是添加的最后一位');  //给数组添加元素
+        // alert(arr[arr.length-1]);
+
+
+        var num = 1;
+        var str1 = '这是一句话';
+        // var arr = new Array(1,2,3);
+        // var arr = new Array('30');
+        var arr = new Array(30);
+        // alert(arr.length);
+        //放数据的'仓库'
+        var arr = ['images/1.png','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是第三句话','这是第二句话','这是最后一句话'];
+        //alert(arr.length);  //3
+        //alert(arr[0]);
+        //访问数组最后一个元素
+        //alert(arr[arr.length-1]);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

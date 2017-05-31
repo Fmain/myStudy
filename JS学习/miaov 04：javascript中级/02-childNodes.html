@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>02-childNodes</title>
+    <script type="text/javascript">
+    /*
+    元素.childNodes[i]   只读属性,子节点列表集合     不推荐使用 推荐用children
+        标准浏览器下:包含了文本和元素类型的节点,也会包含非法嵌套的子节点
+        非标准下(IE):只包含元素类型的节点
+        只包含一级子节点,不包含后辈孙级以下的节点
+    元素.children     只读属性,元素子节点列表集合
+        只包含元素类型的节点
+    元素.nodeType     只读属性,当前元素的节点类型
+
+    元素.attributes   只读属性  属性列表的集合
+
+
+    DOM节点的类型有12种
+        元素节点    1
+        属性节点    2
+        文本节点    3
+
+     */
+        window.onload = function() {
+            var oUl = document.getElementById('ul1');
+
+            // alert(oUl.childNodes.length);   //9  包括回车的5个文本节点
+
+            // alert(oUl.nodeType);    //1
+            // alert(oUl.childNodes[0].nodeType);  //3
+            // alert(oUl.attributes[0].nodeType);  //2
+
+            // alert(oUl.attributes.length);   //2
+            // alert(oUl.attributes[0]);   //[object Attr]
+            // alert(oUl.attributes[0].name);   //id
+            // alert(oUl.attributes[1].value);   //border: 1px solid #000;
+
+
+
+            /*
+            for (var i = 0; i < oUl.childNodes.length; i++) {
+                if (oUl.childNodes[i].nodeType == 1) {
+                    oUl.childNodes[i].style.background = 'red';
+                };
+
+            };
+             */
+             for (var i = 0; i < oUl.children.length; i++) {
+                    oUl.children[i].style.background = 'red';
+            };
+
+
+
+        };
+    </script>
+</head>
+<body>
+<ul id="ul1" style="border: 1px solid #000;">
+    <li>111<span>span</span></li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+</ul>
+</body>
+</html>

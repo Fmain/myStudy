@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4.6-带省略图的图片轮换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            border-radius: 100%;
+            color: #FFF;
+        }
+        li{
+            list-style: none;
+        }
+        #box{
+            margin: 40px auto;
+            width: 500px;
+            height: 600px;
+            background: url("images/a2.jpg") no-repeat ;
+            padding: 5px 40px;
+            position: relative;
+            box-sizing: border-box;
+        }
+        #box p{
+            height: 30px;
+            line-height: 30px;
+            font-size: 22px;
+            color: #fff;
+            margin: 5px auto;
+        }
+        #img{
+            width: 400px;
+            height: 500px;
+            /*margin: 10px auto;    //此处不可以设置居中*/
+            position: absolute;
+            left: 50%;
+            margin-left: -200px;
+            border: 1px solid #FFF;
+            border-radius: 3%;
+            background: #F1F1F1 url("images/loader_ico.gif") no-repeat center;
+        }
+        #box .tab{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-weight: bolder;
+            font-size: 36px;
+            background: #ef9408;
+            position: absolute;
+            top:50%;
+            margin-top: -25px;
+            opacity: 0.3;
+        }
+        #box a:hover{
+            opacity: 1;
+
+        }
+        #box .tab_left{
+             left: 60px;
+         }
+        #box .tab_right{
+            right: 60px;
+        }
+        #items{
+            width: 100%;
+            height: 30px;
+            text-align: center;
+            position: absolute;
+            bottom: 5px;
+            left: 0px;
+        }
+        #items li{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            line-height: 30px;
+            margin: 0px 5px;
+            font-size: 16px;
+            display: inline-block;
+            background: rgba(117, 117, 0, 0.6);
+            position: relative;
+        }
+        #items .active{
+            color: #000;
+            background: #417a13;
+        }
+        #items a{
+            width: 30px;
+            height: 30px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        #items li div{
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            left: -30px;
+            bottom: 35px;
+            border: 5px solid #FFF;
+            border-radius: 5%;
+            display: none;
+        }
+        #items li:hover div{
+            display: block;
+        }
+        #items li div img{
+            width: 80px;
+            height: 100px;
+            background: #F1F1F1 url("images/loader_ico.gif") no-repeat center;
+        }
+        #items li div span{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 35px;
+            bottom: -14px;
+            border: 5px solid transparent;
+            border-top-color: #fff;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            var oBox = document.getElementById('box');
+            var oImg = document.getElementById('img');
+            var oTL = oBox.getElementsByClassName('tab_left')[0];
+            var oTR = oBox.getElementsByClassName('tab_right')[0];
+            var oItems = document.getElementById('items');
+            var aA = oItems.getElementsByTagName('a');
+            var aImgS = oItems.getElementsByTagName('img');
+
+            var arrImg = ["images/a1.jpg","images/a2.jpg","images/a3.jpg","images/a4.jpg"]
+            var num = 0;
+
+            //添加li标签和img_small的图片
+            for(var i=0;i<arrImg.length;i++){
+                oItems.innerHTML += '<li><a href="javascript:;">'+i+'</a><div><img><span></span></div></li>';
+                aImgS[i].src = arrImg[i];
+            }
+            //初始化
+            oImg.src = arrImg[num];
+            aA[num].className = 'active';
+
+            function listTab() {
+                //设置鼠标点击时,下列按钮变化,
+                for(var i=0;i<arrImg.length;i++){
+                    aA[i].className = '';
+                }
+                aA[num].className = 'active';
+            }
+
+            //设置tab_right点击事件
+            oTR.onclick = function () {
+                num++;
+                //设置切换到边界后的操作
+                if(num == arrImg.length){
+                    num = 0;
+                }
+                oImg.src = arrImg[num];
+
+                listTab();
+
+
+            }
+            //设置tab_left点击事件
+            oTL.onclick = function () {
+                num--;
+                if(num == -1){
+                    num = arrImg.length-1;
+                }
+                oImg.src = arrImg[num];
+
+                listTab();
+            }
+
+            for(var i=0;i<arrImg.length;i++){
+                aA[i].index = i;
+                //设置列表a标签点击事件
+                aA[i].onclick = function () {
+                    num = this.index;
+                    //设置鼠标点击时图片切换
+                    oImg.src = arrImg[num];
+                    //设置鼠标点击时,按钮变化,
+                    // 先清空所有
+                    for(var i=0;i<arrImg.length;i++){
+                        aA[i].className = '';
+                    }
+                    //再设置点击事件
+                    this.className = 'active';
+//                    alert(this.index);
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="box">
+    <p>带省略图的图片轮换</p>
+    <img id="img" src="">
+    <a class="tab tab_left" href="javascript:;"><</a>
+    <a class="tab tab_right" href="javascript:;">></a>
+    <ul id="items"><!--
+        <li>
+            <a class="active" href="javascript:;">*</a>
+            <div>
+                <img src="images/a1.jpg">
+                <span></span>
+            </div>
+        </li>
+        --></ul>
+</div>
+</body>
+</html>

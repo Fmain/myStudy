@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.2-JS数据类型转换</title>
+    <script>
+        /*
+        转换方法:
+            1.Number()    转换成数字类型
+                alert(Number(a)+100);
+            2.parseInt(x,10)  从左到右转换,遇到非数字停止,默认10进制
+            3.parseFloat()  认小数点
+                应用:判断是否是浮点数
+                    var num = '12.34';
+                    if(parseInt(num)==parseFloat(num)){
+                        alert(num+'是整数');
+                    }else{
+                        alert(num+'是浮点数');
+                    }
+
+        */
+
+        /*
+        var a = '-100';
+        //alert(a+100);   //'100100'
+         */
+        /*
+                var s = '';
+        //        alert(Number(s));  //0
+                var b = true;
+        //        alert(Number(b));  //true=1  false=0
+                var arr = [];
+        //        alert(Number(arr));  //0
+                var n = null;
+        //        alert(Number(n));   //0
+                var u;
+                alert(Number(u));
+                var fn = function () {
+                    alert(1);
+                }
+        //        alert(Number(fn));  //NaN
+                var json = {}
+        //        alert(Number(json));    //NaN
+         */
+        /*
+        var x = '100px12233';
+//        alert(parseInt(x)); //100
+        var b = true;   //NaN
+        var fn = function () {};    //NaN
+        var s = '-200px';   //200   识别+-/*空格
+        var c = '12.34元';   //12    不识别.
+         */
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

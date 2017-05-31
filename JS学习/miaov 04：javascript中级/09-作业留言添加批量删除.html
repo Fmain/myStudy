@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>09-作业留言添加批量删除</title>
+    <style>
+        .active{
+            background: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oText = document.getElementById('text1');
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oUl1 = document.getElementById('ul1');
+            var aLi = oUl1.getElementsByTagName('li');
+
+            oBtn1.onclick = function () {
+                aLi = document.createElement('li');
+                aLi.innerHTML = oText.value;
+                if (oUl1.childNodes[0]){
+                    oUl1.insertBefore(aLi,oUl1.childNodes[0]);
+                }else{
+                    oUl1.appendChild(aLi);
+                }
+                oUl1.childNodes[0].onclick = function () {
+                    this.className = 'active';
+                }
+                oBtn2.onclick = function () {
+                    alert(oUl1.childNodes[0].className);
+                    for (var i=0;i<aLi.length;i++){
+                        if (oUl1.childNodes[0].className == 'active'){
+                            alert(1);
+                            oUl1.removeChild(this);
+                        }
+                    }
+
+                }
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+<input id="text1" type="text">
+<input id="btn1" type="button" value="添加">
+<input id="btn2" type="button" value="批量删除">
+<ul id="ul1"></ul>
+</body>
+</html>

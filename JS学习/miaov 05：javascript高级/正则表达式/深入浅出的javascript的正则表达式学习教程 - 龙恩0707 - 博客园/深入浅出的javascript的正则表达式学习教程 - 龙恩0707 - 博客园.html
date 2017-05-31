@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://www.cnblogs.com/tugenhua0707/p/5037811.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>深入浅出的javascript的正则表达式学习教程 - 龙恩0707 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/bundle-Minyx2_Lite.css">
+<link type="text/css" rel="stylesheet" href="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/161525.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/bundle-Minyx2_Lite-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/tugenhua0707/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/tugenhua0707/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/tugenhua0707/wlwmanifest.xml">
+<script async="" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/analytics.js.下载"></script><script type="text/javascript" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/encoder.js.下载"></script><script src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/jquery.js.下载" type="text/javascript"></script>
+<script type="text/javascript">var currentBlogApp = 'tugenhua0707', cb_enable_mathjax=true;var isLogined=false;</script>
+<script src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/blog-common.js.下载" type="text/javascript"></script>
+<script src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/bundle-Minyx2_Lite.js.下载" language="javascript" type="text/javascript"></script>
+<style type="text/css">
+.c_ad_block,[id^="div-gpt-ad-"],#ibanner��#banner_right,[id^="ad_b"],#banner_right,[id^="cnblogs_a"],[id^="cnblogs_b"],#ad_right_text {display:none!important;display:none}[id="bb9c190068b8405587e5006f905e790c"]{display:none;position:absolute;top:-1000000px;visibility:hidden}</style>
+<script language="javascript" type="text/javascript" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/35ff706fd57d11c141cdefcd58d6562b.js.下载" charset="gb2312"></script><script type="text/javascript">
+hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');</script><script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({
+  tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  TeX: { equationNumbers: { autoNumber: ['AMS'], useLabelIds: true }, extensions: ['extpfeil.js'] },
+  'HTML-CSS': { linebreaks: { automatic: true } },
+  SVG: { linebreaks: { automatic: true } }});</script><script type="text/javascript" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/MathJax.js.下载"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+.MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MathJax .MJX-monospace {font-family: monospace}
+.MathJax .MJX-sans-serif {font-family: sans-serif}
+#MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+.MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+.MathJax:focus, body :focus .MathJax {display: inline-table}
+.MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+.MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+.MathJax nobr {white-space: nowrap!important}
+.MathJax img {display: inline!important; float: none!important}
+.MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+.MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+.MathJax_Processed {display: none!important}
+.MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+.MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+.MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+.MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+#MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+@font-face {font-family: MathJax_Main; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-bold; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Main-italic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Math-italic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Caligraphic; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size1; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size2; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size3; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?rev=2.6.1') format('opentype')}
+@font-face {font-family: MathJax_Size4; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?rev=2.6.1') format('opentype')}
+.MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style><style type="text/css">@font-face {font-family: MathJax_AMS; src: url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff?rev=2.6.1') format('woff'), url('http://mathjax.cnblogs.com/2_6_1/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf?rev=2.6.1') format('opentype')}
+</style></head>
+<body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;"><div id="MathJax_Hidden"></div></div><div id="MathJax_Message" style="display: none;"></div>
+<a name="top"></a>
+
+
+<div id="container">
+    <a class="minyx" href="http://www.cnblogs.com/">代码改变世界</a>
+    <ul id="topMnu">
+        <!-- 统计数据 -->
+        <li>
+            
+                <div id="blog_stats">
+Posts - 179, 
+Articles - 1, 
+Comments - 843
+<!----></div>
+            
+        </li>
+        <!-- 这边可以增加一些链接 -->
+        <!-- 博客园 -->
+        <li><a href="http://www.cnblogs.com/">Cnblogs</a></li>
+        <!-- 管理 -->
+        <li id="topMnu-dashboard">
+            <a id="lnkDashboard" href="http://www.cnblogs.com/tugenhua0707/admin/EditPosts.aspx">Dashboard</a></li>
+        <li>
+            <a id="lnkLogin" href="http://passport.cnblogs.com/login.aspx?ReturnUrl=http://www.cnblogs.com/tugenhua0707/p/5037811.html">Login</a></li>
+    </ul>
+
+    <script type="text/javascript">
+        var m = window.__blog.topMenuRendered;
+        if (m) { m(__$("topMnu")); }
+    </script>
+
+
+    <script type="text/javascript">
+        var m = window.__blog.headerRendered;
+        if (m) { m(__$("header")); }
+    </script>
+
+    <div id="wrapper">
+        <div id="content">
+            <script type="text/javascript">
+                var m = window.__blog.preRenderPosts;
+                if (m) { m(); }
+            </script>
+            
+<div id="post_detail">
+<div class="post" id="post">
+    <a name="top"></a>
+    <h2><a id="cb_post_title_url" href="http://www.cnblogs.com/tugenhua0707/p/5037811.html">深入浅出的javascript的正则表达式学习教程</a></h2>
+    <small>2015-12-11 00:29 by 龙恩0707, <span id="post_view_count">15179</span> 阅读, <span id="post_comment_count">6</span> 评论, <a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#" onclick="AddToWz(5037811);return false;">收藏</a>,  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5037811" rel="nofollow">编辑</a></small>
+    <div class="entry">
+        <div id="cnblogs_post_body"><style><!--
+a{color:#464646;text-decoration:none}
+--></style>
+<div><a name="_labelTop"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">深入浅出的javascript的正则表达式学习教程</p>
+<p style="font-size: 18px;"><strong>阅读目录</strong></p>
+<ul>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe0">了解正则表达式的方法</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe1">了解正则中的普通字符</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe2">了解正则中的方括号[]的含义</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe3">理解javascript中的元字符</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe4">RegExp特殊字符中的需要转义字符</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe5">了解量词</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe6">贪婪模式与非贪婪模式讲解</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe7">理解正则表达式匹配原理</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe8">理解正则表达式----环视</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe9">理解正则表达式---捕获组</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe10">理解非捕获性分组</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe11">反向引用详细讲解</a></li>
+<li><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labe12">正则表达式实战</a></li>
+</ul>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe0"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">了解正则表达式的方法</p>
+<p>&nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">RegExp对象表示正则表达式，它是对字符串执行模式匹配的工具；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;正则表达式的基本语法如下2种：</span></p>
+<ol>
+<li><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">直接量语法：</span></li>
+</ol>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;/pattern/attributes;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;2. 创建RegExp对象的语法</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;new&nbsp;RegExp(pattern,attributes);</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">参数：参数pattern是一个字符串，指定了正则表达式的模式；参数attributes是一个可选的参数，包含属性&nbsp;g，i，m，分别使用与全局匹配，不区分大小写匹配，多行匹配；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">@return&nbsp;返回值：一个新的RegExp对象，具有指定的模式和标志；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; <strong>1-1.&nbsp;支持正则表达式的String对象的方法</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; <strong>&nbsp;1.&nbsp;search()方法；</strong>该方法用于检索字符串中指定的子字符串，或检索与正 则表达式相匹配的字符串。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; &nbsp;基本语法：stringObject.search(regexp);</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; @param&nbsp;参数regexp可以需要在stringObject中检索的字符串，也可以 是需要检索的RegExp对象。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp; @return(返回值)&nbsp;stringObject中第一个与regexp对象相匹配的子串的起 始位置。如果没有找到任何匹配的子串，则返回-1；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; <strong>注意：</strong>search()方法不执行全局匹配，它将忽略标志g，同时它也没有regexp对象的lastIndex的属性，且总是从字符串开始位置进行查找，总是返回的是stringObject匹配的第一个位置。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试demo如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello world,hello world"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 返回匹配到的第一个位置(使用的regexp对象检索)</span>
+console.log(str.search(/hello/)); <span style="color: #008000;">//</span><span style="color: #008000;"> 0</span><span style="color: #008000;">
+//</span><span style="color: #008000;"> 没有全局的概念 总是返回匹配到的第一个位置</span>
+console.log(str.search(/hello/g)); <span style="color: #008000;">//</span><span style="color: #008000;">0</span>
+<span style="color: #000000;">
+console.log(str.search(</span>/world/)); <span style="color: #008000;">//</span><span style="color: #008000;"> 6</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 也可以是检索字符串中的字符</span>
+console.log(str.search("wo")); <span style="color: #008000;">//</span><span style="color: #008000;"> 6</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 如果没有检索到的话，则返回-1</span>
+console.log(str.search(/longen/)); <span style="color: #008000;">//</span><span style="color: #008000;"> -1</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 我们检索的时候 可以忽略大小写来检索</span>
+<span style="color: #0000ff;">var</span> str2 = "Hello"<span style="color: #000000;">;
+console.log(str2.search(</span>/hello/i)); <span style="color: #008000;">//</span><span style="color: #008000;"> 0</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>&nbsp; &nbsp; <span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">2. match()方法；</span></strong><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">该方法用于在字符串内检索指定的值，或找到一个或者多个正则表达式的匹配。该方法类似于indexOf()或者lastIndexOf();&nbsp;但是它返回的是指定的值，而不是字符串的位置；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>基本语法：</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;stringObject.match(searchValue)&nbsp;或者stringObject.match(regexp)</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>@param(参数)</strong>&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;searchValue&nbsp;需要检索字符串的值；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; regexp:&nbsp;需要匹配模式的RegExp对象；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>@return(返回值</strong><strong>)</strong>&nbsp;存放匹配成功的数组;&nbsp;它可以全局匹配模式，全局匹配的话，它返回的是一个数组。如果没有找到任何的一个匹配，那么它将返回的是null；返回的数组内有三个元素，第一个元素的存放的是匹配的文本，还有二个对象属性；index属性表明的是匹配文本的起始字符在stringObject中的位置；input属性声明的是对stringObject对象的引用；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello world"<span style="color: #000000;">;
+console.log(str.match(</span>"hello")); <span style="color: #008000;">//</span><span style="color: #008000;"> ["hello", index: 0, input: "hello world"]</span>
+console.log(str.match("Hello")); <span style="color: #008000;">//</span><span style="color: #008000;"> null</span>
+console.log(str.match(/hello/)); <span style="color: #008000;">//</span><span style="color: #008000;"> ["hello", index: 0, input: "hello world"]</span><span style="color: #008000;">
+//</span><span style="color: #008000;"> 全局匹配</span>
+<span style="color: #0000ff;">var</span> str2="1 plus 2 equal 3"<span style="color: #000000;">
+console.log(str2.match(</span>/\d+/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["1", "2", "3"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>3. replace()方法：</strong>该方法用于在字符串中使用一些字符替换另一些字符，或者替换一个与正则表达式匹配的子字符串；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; <strong>基本语法：</strong>stringObject.replace(regexp/substr,replacement);</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; <strong>&nbsp;@param(参数)&nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; regexp/substr;&nbsp;字符串或者需要替换模式的RegExp对象。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; replacement：一个字符串的值，被替换的文本或者生成替换文本的函数。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>@return(返回值) &nbsp;</strong>返回替换后的新字符串</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>&nbsp; &nbsp;注意：</strong>字符串的stringObject的replace()方法执行的是查找和替换操作，替换的模式有2种，既可以是字符串，也可以是正则匹配模式，如果是正则匹配模式的话，那么它可以加修饰符g,代表全局替换，否则的话，它只替换第一个匹配的字符串；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">replacement&nbsp;既可以是字符串，也可以是函数，如果它是字符串的话，那么匹配的将与字符串替换，replacement中的$有具体的含义，如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-1-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-1" role="math" style="width: 1.002em; display: inline-block;"><span style="display: inline-block; position: relative; width: 0.802em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(2.103em 1000.75em 3.252em -999.998em); top: -2.897em; left: 0.003em;"><span class="mrow" id="MathJax-Span-2"><span class="mn" id="MathJax-Span-3" style="font-family: MathJax_Main;">1</span><span class="mo" id="MathJax-Span-4" style="font-family: MathJax_Main;">,</span></span><span style="display: inline-block; width: 0px; height: 2.902em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.191em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>1</mn><mo>,</mo></math></span></span><script type="math/tex" id="MathJax-Element-1">1,</script>2,<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-2-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mn&gt;3....&lt;/mn&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-5" role="math" style="width: 2.002em; display: inline-block;"><span style="display: inline-block; position: relative; width: 1.602em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(2.103em 1001.5em 3.052em -999.998em); top: -2.897em; left: 0.003em;"><span class="mrow" id="MathJax-Span-6"><span class="mn" id="MathJax-Span-7" style="font-family: MathJax_Main;">3....</span></span><span style="display: inline-block; width: 0px; height: 2.902em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.059em; border-left: 0px solid; width: 0px; height: 1.003em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mn>3....</mn></math></span></span><script type="math/tex" id="MathJax-Element-2">3....</script>99&nbsp;含义是：与regexp中的第1到第99个子表达式相匹配的文本。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">$&amp;&nbsp;的含义是：与RegExp相匹配的子字符串。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">lastMatch或RegExp["$_"]的含义是：返回任何正则表达式搜索过程中的最后匹配的字符。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">lastParen或&nbsp;RegExp["$+"]的含义是：返回任何正则表达式查找过程中最后括号的子匹配。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">leftContext或RegExp["$`"]的含义是：返回被查找的字符串从字符串开始的位置到最后匹配之前的位置之间的字符。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">rightContext或RegExp["$'"]的含义是：返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello world"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 替换字符串</span>
+<span style="color: #0000ff;">var</span> s1 = str.replace("hello","a"<span style="color: #000000;">);
+console.log(s1);</span><span style="color: #008000;">//</span><span style="color: #008000;"> a world</span><span style="color: #008000;">
+//</span><span style="color: #008000;"> 使用正则替换字符串</span>
+<span style="color: #0000ff;">var</span> s2 = str.replace(/hello/,"b"<span style="color: #000000;">);
+console.log(s2); </span><span style="color: #008000;">//</span><span style="color: #008000;"> b world</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 使用正则全局替换 字符串</span>
+<span style="color: #0000ff;">var</span> s3 = str.replace(/l/g,''<span style="color: #000000;">);
+console.log(s3); </span><span style="color: #008000;">//</span><span style="color: #008000;"> heo word</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> $1,$2 代表的是第一个和第二个子表达式相匹配的文本</span><span style="color: #008000;">
+//</span><span style="color: #008000;"> 子表达式需要使用小括号括起来,代表的含义是分组</span>
+<span style="color: #0000ff;">var</span> name = "longen,yunxi"<span style="color: #000000;">;
+</span><span style="color: #0000ff;">var</span> s4 = name.replace(/(\w+)\s*,\s*(\w+)/,"$2 $1"<span style="color: #000000;">);
+console.log(s4); </span><span style="color: #008000;">//</span><span style="color: #008000;"> "yunxi,longen"</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> $&amp; 是与RegExp相匹配的子字符串</span>
+<span style="color: #0000ff;">var</span> name = "hello I am a chinese people"<span style="color: #000000;">;
+</span><span style="color: #0000ff;">var</span> regexp = /am/<span style="color: #000000;">g;
+</span><span style="color: #0000ff;">if</span><span style="color: #000000;">(regexp.test(name)) {
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">返回正则表达式匹配项的字符串</span>
+    console.log(RegExp['$&amp;']);  <span style="color: #008000;">//</span><span style="color: #008000;"> am</span>
+
+    <span style="color: #008000;">//</span><span style="color: #008000;">返回被搜索的字符串中从最后一个匹配位置开始到字符串结尾之间的字符。</span>
+    console.log(RegExp["$'"]); <span style="color: #008000;">//</span><span style="color: #008000;"> a chinese people</span>
+
+    <span style="color: #008000;">//</span><span style="color: #008000;">返回被查找的字符串从字符串开始的位置到最后匹配之前的位置之间的字符。</span>
+    console.log(RegExp['$`']);  <span style="color: #008000;">//</span><span style="color: #008000;"> hello I </span>
+    
+    <span style="color: #008000;">//</span><span style="color: #008000;"> 返回任何正则表达式查找过程中最后括号的子匹配。</span>
+    console.log(RegExp['$+']); <span style="color: #008000;">//</span><span style="color: #008000;"> 空字符串</span>
+
+    <span style="color: #008000;">//</span><span style="color: #008000;">返回任何正则表达式搜索过程中的最后匹配的字符。</span>
+    console.log(RegExp['$_']);  <span style="color: #008000;">//</span><span style="color: #008000;"> hello I am a chinese people</span>
+<span style="color: #000000;">}
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> replace 第二个参数也可以是一个function 函数</span>
+<span style="color: #0000ff;">var</span> name2 = "123sdasadsr44565dffghg987gff33234"<span style="color: #000000;">;
+name2.replace(</span>/\d+/g,<span style="color: #0000ff;">function</span><span style="color: #000000;">(v){
+    console.log(v); 
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">
+     * 第一次打印123
+     * 第二次打印44565
+     * 第三次打印987
+     * 第四次打印 33234
+     </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+});
+</span><span style="color: #008000;">/*</span><span style="color: #008000;">
+ * 如下函数，回调函数参数一共有四个
+ * 第一个参数的含义是 匹配的字符串
+ * 第二个参数的含义是 正则表达式分组内容，没有分组的话，就没有该参数,
+ * 如果没有该参数的话那么第四个参数就是undefined
+ * 第三个参数的含义是 匹配项在字符串中的索引index
+ * 第四个参数的含义是 原字符串
+ </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+ name2.replace(</span>/(\d+)/g,<span style="color: #0000ff;">function</span><span style="color: #000000;">(a,b,c,d){
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">
+     * 如上会执行四次，值分别如下(正则使用小括号，代表分组)：
+     * 第一次： 123,123,0,123sdasadsr44565dffghg987gff33234
+     * 第二次： 44565,44565,11,123sdasadsr44565dffghg987gff33234
+     * 第三次： 987,987,22,123sdasadsr44565dffghg987gff33234
+     * 第四次： 33234,33234,28,123sdasadsr44565dffghg987gff33234
+     </span><span style="color: #008000;">*/</span><span style="color: #000000;">
+ });</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>4.&nbsp;split()方法:</strong>&nbsp;该方法把一个字符串分割成字符串数组。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;<strong>基本语法如</strong>：stringObject.split(separator,howmany);</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>@param(参数)&nbsp;</strong></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;1.&nbsp;separator[必填项]，字符串或正则表达式，该参数指定的地方分割stringObject;&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;&nbsp;2.&nbsp;howmany[可选]&nbsp;该参数指定返回的数组的最大长度，如果设置了该参数，返回的子字符串不会多于这个参数指定的数组。如果没有设置该参数的话，整个字符串都会被分割，不考虑他的长度。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&nbsp;<strong>@return(返回值</strong><strong>)</strong>&nbsp;一个字符串数组。该数组通过在separator指定的边界处将字符串stringObject分割成子字符串。</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "what are you doing?"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 以" "分割字符串</span>
+console.log(str.split(" "<span style="color: #000000;">));
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 打印 ["what", "are", "you", "doing?"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 以 "" 分割字符串</span>
+console.log(str.split(""<span style="color: #000000;">));
+</span><span style="color: #008000;">/*</span><span style="color: #008000;">
+ * 打印：["w", "h", "a", "t", " ", "a", "r", "e", " ", "y", "o", "u", " ", "d", "o", "i", "n", 
+ * "g", "?"]
+ </span><span style="color: #008000;">*/</span>
+<span style="color: #008000;">//</span><span style="color: #008000;"> 指定返回数组的最大长度为3</span>
+console.log(str.split("",3<span style="color: #000000;">));
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 打印 ["w", "h", "a"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1-2&nbsp;RegExp对象方法</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>&nbsp; &nbsp;1.&nbsp;test()方法：</strong>该方法用于检测一个字符串是否匹配某个模式；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>基本语法：</strong>RegExpObject.test(str);</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>@param(参数)</strong> str是需要检测的字符串；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;<strong>@return&nbsp;(返回值</strong><strong>)</strong>&nbsp;如果字符串str中含有与RegExpObject匹配的文本的话，返回true，否则返回false；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "longen and yunxi"<span style="color: #000000;">;
+console.log(</span>/longen/.test(str)); <span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+console.log(/longlong/.test(str)); <span style="color: #008000;">//</span><span style="color: #008000;">false</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 或者创建RegExp对象模式</span>
+<span style="color: #0000ff;">var</span> regexp = <span style="color: #0000ff;">new</span> RegExp("longen"<span style="color: #000000;">);
+console.log(regexp.test(str)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2. exec()方法:&nbsp;</strong>该方法用于检索字符串中的正则表达式的匹配。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>&nbsp;基本语法：RegExpObject.exec(string)</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>@param(参数)</strong>：string【必填项】要检索的字符串。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>@return(返回值)：</strong>返回一个数组，存放匹配的结果，如果未找到匹配，则返回值为null；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">注意：该返回的数组的第一个元素是与正则表达式相匹配的文本，该方法还返回2个属性，index属性声明的是匹配文本的第一个字符的位置；input属性则存放的是被检索的字符串string；该方法如果不是全局的话，返回的数组与match()方法返回的数组是相同的。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "longen and yunxi"<span style="color: #000000;">;
+console.log(</span>/longen/<span style="color: #000000;">.exec(str)); 
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 打印 ["longen", index: 0, input: "longen and yunxi"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 假如没有找到的话，则返回null</span>
+console.log(/wo/.exec(str)); <span style="color: #008000;">//</span><span style="color: #008000;"> null</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe1"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">了解正则中的普通字符</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">字母，数字，汉字，下划线及一些没有特殊定义的标点符号，都属于普通字符，正则中的普通字符，在匹配字符串的时候，匹配与之相同的字符即可~&nbsp;比如如下代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/a/));&nbsp;//&nbsp;["a",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"abcde"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上代码，字符串abcde匹配a的时候，匹配成功，索引位置从0开始；</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe2"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">了解正则中的方括号[]的含义</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">方括号包含一系列字符，能够匹配其中任意一个字符,&nbsp;如[abc]可以匹配abc中任意一个字符，使用[^abc]包含的字符abc，则能够匹配abc字符之外的任何一个字符，只能是一个字符。如下的含义：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">[abc]:&nbsp;&nbsp;查找在方括号中的任意一个字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">[^abc]:&nbsp;查找不在方括号中的任意一个字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">[0-9]:&nbsp;查找0-9中的任意一个数字；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">[a-z]:&nbsp;查找从小写a到z中的任意一个字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">(red|blue|green);&nbsp;查找小括号中的任意一项，小括号中的&nbsp;|&nbsp;是或者的意思；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">列举1：表达式[bcd][bcd]&nbsp;匹配&nbsp;"abcde"时候，匹配成功，内容是bc，匹配到的位置开始于1，结束与3；如下代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/[bcd][bcd]/));&nbsp;//&nbsp;["bc",&nbsp;index:&nbsp;1,&nbsp;input:&nbsp;"abcde"]</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe3"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">理解javascript中的元字符</p>
+<div style="text-align: left;">
+<table border="0">
+<tbody>
+<tr>
+<td><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">元字符</span></td>
+<td><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">描述</span></td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">.</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找任意的单个字符，除换行符外</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\w</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">任意一个字母或数字或下划线，A_Za_Z0_9,_中任意一个</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\W</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找非单词的字符，等价于[^A_Za_z0_9_]</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\d</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个数字字符，等价于[0-9]</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\D</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个非数字字符，等价于[^0-9]</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\s</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配任何空白字符，包括空格，制表符，换行符等等。等价于[\f\n\r\t\v]</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\S</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配任何非空白字符，等价于[^\f\n\r\t\v]</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\b</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个单词边界，也就是指单词和空格间的位置，比如’er\b’可以匹配”never”中的”er”,但是不能匹配”verb”中的”er”</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\B</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配非单词边界,’er\B’能匹配’verb’中的’er’,但不能匹配’never’中的’er’</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\0</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找NUL字符。</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\n</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个换行符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\f</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个换页符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\r</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个回车符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\t</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个制表符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\v</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配一个垂直制表符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\xxx</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找一个以八进制数xxx规定的字符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\xdd</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找以16进制数dd规定的字符</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\uxxxx</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">查找以16进制数的xxxx规定的Unicode字符。</span></p>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1. 元字符</strong><strong>.</strong>&nbsp;用于匹配任何单个字符(除了换行符以外)；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“regexp.”)&nbsp;或者直接量语法&nbsp;/regexp./</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如代码如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/a.c/));&nbsp;//&nbsp;["abc",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"abcde"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2. \w;&nbsp;</strong>查找任意一个字母或数字或下划线，等价于A_Za_z0_9,_</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\w”);&nbsp;或&nbsp;直接量语法：/\w/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如代码如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">//&nbsp;匹配单个字符，找到一个直接返回</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/\w/));&nbsp;//&nbsp;["a",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"abcde"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">//&nbsp;匹配所有字符</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/\w+/));&nbsp;//["abcde",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"abcde"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>3. \W;&nbsp;</strong>查找非单词的字符，等价于[^A_Za_z0_9_]&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\W”)&nbsp;或直接量&nbsp;/\W/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">//&nbsp;匹配单个字符，没有找到返回null</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/\W/));&nbsp;//&nbsp;null</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>4. \d；</strong>匹配与一个数字字符，等价于[0-9];</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\d”);&nbsp;或&nbsp;直接量语法：/\d/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde111";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\d/g.exec(str));&nbsp;//&nbsp;["1",&nbsp;index:&nbsp;5,&nbsp;input:&nbsp;"abcde111"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>5. \D;</strong>&nbsp;匹配一个非数字字符，等价于[^0-9]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\D”)&nbsp;或直接量&nbsp;/\D/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"abcde111";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\D+/g.exec(str));&nbsp;//&nbsp;["abcde",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"abcde111"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>6. \s；</strong>匹配任何空白字符，包括空格，制表符，换行符等等。等价于[\f\n\r\t\v]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\s”)&nbsp;或直接量&nbsp;/\s/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\s/g.exec(str));&nbsp;//&nbsp;["&nbsp;",&nbsp;index:&nbsp;2,&nbsp;input:&nbsp;"Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>7. \S；</strong>匹配任何非空白字符，等价于[^\f\n\r\t\v]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\S”)&nbsp;或直接量&nbsp;/\S/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\S+/g.exec(str));&nbsp;//&nbsp;["Is",&nbsp;index:&nbsp;0,&nbsp;input:&nbsp;"Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>8. \b;</strong>&nbsp;匹配一个单词边界，也就是指单词和空格间的位置，比如’er\b’可以匹配”never”中的”er”,但是不能匹配”verb”中的”er”</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\bregexp”)&nbsp;或直接量&nbsp;/\bregexp/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\bthis\b/g.exec(str));&nbsp;//&nbsp;["this",&nbsp;index:&nbsp;3,&nbsp;input:&nbsp;"Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>9. \B;&nbsp;</strong>匹配非单词边界,’er\B’能匹配’verb’中的’er’,但不能匹配’never’中的’er’</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\Bregexp”)&nbsp;或直接量&nbsp;/\Bregexp/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\Bhi/g.exec(str));&nbsp;//&nbsp;["hi",&nbsp;index:&nbsp;4,&nbsp;input:&nbsp;"Is&nbsp;this&nbsp;all&nbsp;there&nbsp;is?"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<strong>10.&nbsp;\n;</strong>&nbsp;匹配一个换行符;返回换行符被找到的位置。如果未找到匹配，则返回&nbsp;-1。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\n”)&nbsp;或直接量&nbsp;/\n/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Is&nbsp;this&nbsp;all&nbsp;\nthere&nbsp;is?";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\n/g.exec(str));&nbsp;//&nbsp;["换行符",&nbsp;index:&nbsp;12,&nbsp;input:&nbsp;"Is&nbsp;this&nbsp;all&nbsp;↵there&nbsp;is?"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>11. \xxx;&nbsp;</strong>查找一个以八进制数xxx规定的字符,如果未找到匹配，则返回&nbsp;null。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\xxx”)&nbsp;或直接量&nbsp;/\xxx/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\127/g.exec(str));&nbsp;//&nbsp;["W",&nbsp;index:&nbsp;6,&nbsp;input:&nbsp;"Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上代码分析：127的八进制转换为10进制的值等于&nbsp;1*8的二次方&nbsp;+&nbsp;2*8的一次方&nbsp;+&nbsp;7*8的0次方&nbsp;=&nbsp;64&nbsp;+&nbsp;16&nbsp;+&nbsp;7&nbsp;=&nbsp;87&nbsp;而W的ASCLL编码转换为10进制也是87，因此打印W</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;<strong>12.&nbsp;\xdd；</strong>查找以16进制数dd规定的字符。如果未找到匹配，则返回&nbsp;null。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\xdd”)&nbsp;或直接量&nbsp;/\xdd/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\x57/g.exec(str));&nbsp;//&nbsp;["W",&nbsp;index:&nbsp;6,&nbsp;input:&nbsp;"Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!"]</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">W的16进制数等于57；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>13.\uxxxx;</strong>&nbsp;查找以16进制数的xxxx规定的Unicode字符。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“\uxxx”)&nbsp;或直接量&nbsp;/\uxxx/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str="Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/\u0057/g.exec(str));&nbsp;//&nbsp;["W",&nbsp;index:&nbsp;6,&nbsp;input:&nbsp;"Visit&nbsp;W3School.&nbsp;Hello&nbsp;World!"]</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe4"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">RegExp特殊字符中的需要转义字符</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">需要转义的特殊字符前面加&nbsp;\</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-3-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5339;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x914D;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8F93;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5165;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5B57;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7B26;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E32;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7684;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7ED3;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5C3E;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4F4D;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7F6E;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF0C;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5982;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x679C;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x9700;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8981;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5339;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x914D;&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-8" role="math" style="width: 19.003em; display: inline-block;"><span style="display: inline-block; position: relative; width: 15.203em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(1.852em 1015.2em 3.152em -999.998em); top: -2.798em; left: 0.003em;"><span class="mrow" id="MathJax-Span-9"><span class="texatom" id="MathJax-Span-10"><span class="mrow" id="MathJax-Span-11"><span class="mo" id="MathJax-Span-12"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">匹</span></span></span></span><span class="texatom" id="MathJax-Span-13"><span class="mrow" id="MathJax-Span-14"><span class="mo" id="MathJax-Span-15"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">配</span></span></span></span><span class="texatom" id="MathJax-Span-16"><span class="mrow" id="MathJax-Span-17"><span class="mo" id="MathJax-Span-18"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">输</span></span></span></span><span class="texatom" id="MathJax-Span-19"><span class="mrow" id="MathJax-Span-20"><span class="mo" id="MathJax-Span-21"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">入</span></span></span></span><span class="texatom" id="MathJax-Span-22"><span class="mrow" id="MathJax-Span-23"><span class="mo" id="MathJax-Span-24"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">字</span></span></span></span><span class="texatom" id="MathJax-Span-25"><span class="mrow" id="MathJax-Span-26"><span class="mo" id="MathJax-Span-27"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">符</span></span></span></span><span class="texatom" id="MathJax-Span-28"><span class="mrow" id="MathJax-Span-29"><span class="mo" id="MathJax-Span-30"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">串</span></span></span></span><span class="texatom" id="MathJax-Span-31"><span class="mrow" id="MathJax-Span-32"><span class="mo" id="MathJax-Span-33"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">的</span></span></span></span><span class="texatom" id="MathJax-Span-34"><span class="mrow" id="MathJax-Span-35"><span class="mo" id="MathJax-Span-36"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">结</span></span></span></span><span class="texatom" id="MathJax-Span-37"><span class="mrow" id="MathJax-Span-38"><span class="mo" id="MathJax-Span-39"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">尾</span></span></span></span><span class="texatom" id="MathJax-Span-40"><span class="mrow" id="MathJax-Span-41"><span class="mo" id="MathJax-Span-42"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">位</span></span></span></span><span class="texatom" id="MathJax-Span-43"><span class="mrow" id="MathJax-Span-44"><span class="mo" id="MathJax-Span-45"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">置</span></span></span></span><span class="texatom" id="MathJax-Span-46"><span class="mrow" id="MathJax-Span-47"><span class="mo" id="MathJax-Span-48"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">，</span></span></span></span><span class="texatom" id="MathJax-Span-49"><span class="mrow" id="MathJax-Span-50"><span class="mo" id="MathJax-Span-51"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">如</span></span></span></span><span class="texatom" id="MathJax-Span-52"><span class="mrow" id="MathJax-Span-53"><span class="mo" id="MathJax-Span-54"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">果</span></span></span></span><span class="texatom" id="MathJax-Span-55"><span class="mrow" id="MathJax-Span-56"><span class="mo" id="MathJax-Span-57"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">需</span></span></span></span><span class="texatom" id="MathJax-Span-58"><span class="mrow" id="MathJax-Span-59"><span class="mo" id="MathJax-Span-60"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">要</span></span></span></span><span class="texatom" id="MathJax-Span-61"><span class="mrow" id="MathJax-Span-62"><span class="mo" id="MathJax-Span-63"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">匹</span></span></span></span><span class="texatom" id="MathJax-Span-64"><span class="mrow" id="MathJax-Span-65"><span class="mo" id="MathJax-Span-66"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">配</span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.802em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo>匹</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>配</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>输</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>入</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>字</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>符</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>串</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>的</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>结</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>尾</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>位</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>置</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>，</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>如</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>果</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>需</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>要</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>匹</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>配</mo></mrow></math></span></span><script type="math/tex" id="MathJax-Element-3"> 匹配输入字符串的结尾位置，如果需要匹配</script>本身的话，使用\$</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;^&nbsp;匹配输入字符串的开始位置，匹配^本身的话，使用\^</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;*&nbsp;匹配前面的子表达式的零次或者多次，匹配*本身的话，使用\*</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;+&nbsp;匹配子表达式的1次或者多次，匹配+本身的话，使用\+</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;.&nbsp;匹配除换行符之外的任何一个字符，匹配.本身的话，使用\.</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;[&nbsp;匹配一个中括号开始，匹配本身的，使用\[</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;?&nbsp;匹配前面的子表达式的零次或者1次，或指明一个非贪婪限定符，要匹配本身的话，使用\?</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;\&nbsp;匹配本身的话，请使用\\</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;{&nbsp;标记限定符开始的地方，要匹配{&nbsp;,请使用\{</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;|&nbsp;指明多项中的一个选择，可以理解含义为或的意思，匹配本身的话，使用\|</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe5"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">了解量词</p>
+<div style="width: 100%; overflow: hidden;">
+<table style="height: 528px; width: 290px;" border="0" align="left">
+<tbody>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">量词</span></p>
+</td>
+<td width="70%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">描述</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n+</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配任何至少包含一个n的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p style="text-align: left;"><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n*</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配零个或者多个n的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n?</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配零个或者1个n的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n{x}</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配包含x个n的序列字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n{x,y}</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配至少x个，最多y个n的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n{x,}</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配至少x个的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">n$</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配以n结尾的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td width="30%">
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">^n</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配以n开头的字符串</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">?=n</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配其后紧接指定的n字符串</span></p>
+</td>
+</tr>
+<tr>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">?!n</span></p>
+</td>
+<td>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配其后没有紧接指定的n字符串</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1. n+&nbsp;匹配至少包含一个或者多个n的字符串。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>基本语法：</strong>new&nbsp;RegExp(“n+”)&nbsp;或直接量&nbsp;/n+/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配至少一个或者多个l的字符串</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/l+/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["ll", "l"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 匹配至少一个或者多个字母数字或者下划线</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\w+/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["hello", "longen"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2. n*&nbsp;匹配零个或者多个n的字符串。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>基本语法：</strong>new&nbsp;RegExp(“n*”)&nbsp;或直接量&nbsp;/n*/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello longen hello"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配至少零个或者多个l的字符串 </span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 可以匹配多个l或者不匹配l 全局匹配</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/el*/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["ell", "e", "ell"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 可以匹配多个u或者不匹配u 全局匹配</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/hu*/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["h", "h"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>3. n？匹配零个或者1个n的字符串，可以匹配n字符串，也可以只匹配一个n；先尽量匹配，如没有匹配到，就回溯，再进行不匹配；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>基本语法：</strong>new&nbsp;RegExp(“n?”)&nbsp;或直接量&nbsp;/n?/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello longen hello"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配至少零个或者1个l的字符串 </span>
+<span style="color: #000000;">
+console.log(str.match(</span>/el?/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["el", "e", "el"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 可以匹配1个u或者不匹配u 全局匹配</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/hu?/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["h", "h"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>4. n{x}&nbsp;&nbsp;匹配包含x个的n的序列字符串。X必须是数字。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>基本语法：new&nbsp;RegExp(“n{x}”)&nbsp;或直接量&nbsp;/n{x}/</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str="100, 1000 or 10000?"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配4个数字的 匹配到1000和10000</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\d{4}/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["1000", "1000"]</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>5.&nbsp;n{x,y}&nbsp;匹配包含至少x个的n字符串，最多y个n</strong><strong>字符串</strong>。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“n{x,y}”)&nbsp;或直接量&nbsp;/n{x,y}/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str="100, 1000 or 10000?"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配最小3个数字，最多四个数字的 匹配到100，1000和10000</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\d{3,4}/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["100", "1000", "1000"]</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>6. n{x,}&nbsp;匹配至少包含x个n序列的字符串；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“n{x,}”)&nbsp;或直接量&nbsp;/n{x,}/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str="100, 1000 or 10000?"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配最小3个数字 匹配到100，1000和10000</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\d{3,}/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["100", "1000", "1000"]</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>7. n$&nbsp;匹配任何以n结尾的字符串；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“n<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-4-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mo&gt;&amp;#x201D;&lt;/mo&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x6216;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x76F4;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x63A5;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x91CF;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;/&lt;/mo&gt;&lt;/mrow&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-67" role="math" style="width: 6.503em; display: inline-block;"><span style="display: inline-block; position: relative; width: 5.202em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(2.002em 1005.2em 3.353em -999.998em); top: -2.948em; left: 0.003em;"><span class="mrow" id="MathJax-Span-68"><span class="mo" id="MathJax-Span-69" style="font-family: MathJax_Main;">”</span><span class="mo" id="MathJax-Span-70" style="font-family: MathJax_Main;">)</span><span class="texatom" id="MathJax-Span-71"><span class="mrow" id="MathJax-Span-72"><span class="mo" id="MathJax-Span-73"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">或</span></span></span></span><span class="texatom" id="MathJax-Span-74"><span class="mrow" id="MathJax-Span-75"><span class="mo" id="MathJax-Span-76"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">直</span></span></span></span><span class="texatom" id="MathJax-Span-77"><span class="mrow" id="MathJax-Span-78"><span class="mo" id="MathJax-Span-79"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">接</span></span></span></span><span class="texatom" id="MathJax-Span-80"><span class="mrow" id="MathJax-Span-81"><span class="mo" id="MathJax-Span-82"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">量</span></span></span></span><span class="texatom" id="MathJax-Span-83"><span class="mrow" id="MathJax-Span-84"><span class="mo" id="MathJax-Span-85" style="font-family: MathJax_Main;">/</span></span></span><span class="mi" id="MathJax-Span-86" style="font-family: MathJax_Math-italic;">n</span></span><span style="display: inline-block; width: 0px; height: 2.952em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.372em; border-left: 0px solid; width: 0px; height: 1.441em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>”</mo><mo stretchy="false">)</mo><mrow class="MJX-TeXAtom-ORD"><mo>或</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>直</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>接</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>量</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>/</mo></mrow><mi>n</mi></math></span></span><script type="math/tex" id="MathJax-Element-4">”) 或直接量 /n</script>/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str="my name is longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配以en结尾的字符串</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/en$/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["en"]</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>8. ^n&nbsp;匹配任何以n开头的字符串；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“^n”)&nbsp;或直接量&nbsp;/^n/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str="my name is longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配以my开头的字符串</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/^my/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["my"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 匹配以na开头的字符串,没匹配到，返回null</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/^na/g)); <span style="color: #008000;">//</span><span style="color: #008000;">null</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>9. ?=n&nbsp;匹配任何其后紧接指定字符串n的字符串；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“regexp(?=n)”)&nbsp;或直接量&nbsp;/regexp(?=n)/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str="my name is longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配以na其后紧接m的字符串</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> ?= 只是匹配位置，不会返回值</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/na(?=m)/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["na"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>10&nbsp;?!n&nbsp;匹配任何其后不紧接n的字符串</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">基本语法：new&nbsp;RegExp(“regexp(?!n)”)&nbsp;或直接量&nbsp;/regexp(?!n)/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str="my name is longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配以na其后不紧接ma的字符串</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> ?! 只是匹配位置，不会返回值</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/na(?!ma)/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["na"]</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/na(?!m)/g)); <span style="color: #008000;">//</span><span style="color: #008000;"> null</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>11. ^&nbsp;以字符串开始的地方匹配，不匹配任何字符；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如：表达式^aaa&nbsp;在匹配字符串&nbsp;“longen&nbsp;aaa&nbsp;bbb”的时候，匹配的结果是失败的；因为^的含义是以某某字符串开始进行匹配；只有当aaa在字符串起始位置才能匹配成功；比如”aaa&nbsp;longen&nbsp;bbb”&nbsp;才匹配成功；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>12. $&nbsp;以字符串结束的地方匹配，不匹配任何字符；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如：表达式aaa<span class="MathJax_Preview" style="color: inherit;"></span><span class="MathJax" id="MathJax-Element-5-Frame" tabindex="0" data-mathml="&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5728;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5339;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x914D;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5B57;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7B26;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E32;&lt;/mo&gt;&lt;/mrow&gt;&lt;mo&gt;&amp;#x201C;&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo&gt;&amp;#x201D;&lt;/mo&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7684;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x65F6;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5019;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF0C;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5339;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x914D;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7684;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7ED3;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x679C;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x662F;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x5931;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x8D25;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x7684;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#xFF1B;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x56E0;&lt;/mo&gt;&lt;/mrow&gt;&lt;mrow class=&quot;MJX-TeXAtom-ORD&quot;&gt;&lt;mo&gt;&amp;#x4E3A;&lt;/mo&gt;&lt;/mrow&gt;&lt;/math&gt;" role="presentation" style="position: relative;"><nobr aria-hidden="true"><span class="math" id="MathJax-Span-87" role="math" style="width: 30.502em; display: inline-block;"><span style="display: inline-block; position: relative; width: 24.402em; height: 0px; font-size: 125%;"><span style="position: absolute; clip: rect(2.002em 1024.4em 3.302em -999.998em); top: -2.948em; left: 0.003em;"><span class="mrow" id="MathJax-Span-88"><span class="texatom" id="MathJax-Span-89"><span class="mrow" id="MathJax-Span-90"><span class="mo" id="MathJax-Span-91"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">在</span></span></span></span><span class="texatom" id="MathJax-Span-92"><span class="mrow" id="MathJax-Span-93"><span class="mo" id="MathJax-Span-94"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">匹</span></span></span></span><span class="texatom" id="MathJax-Span-95"><span class="mrow" id="MathJax-Span-96"><span class="mo" id="MathJax-Span-97"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">配</span></span></span></span><span class="texatom" id="MathJax-Span-98"><span class="mrow" id="MathJax-Span-99"><span class="mo" id="MathJax-Span-100"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">字</span></span></span></span><span class="texatom" id="MathJax-Span-101"><span class="mrow" id="MathJax-Span-102"><span class="mo" id="MathJax-Span-103"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">符</span></span></span></span><span class="texatom" id="MathJax-Span-104"><span class="mrow" id="MathJax-Span-105"><span class="mo" id="MathJax-Span-106"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">串</span></span></span></span><span class="mo" id="MathJax-Span-107" style="font-family: MathJax_Main;">“</span><span class="mi" id="MathJax-Span-108" style="font-family: MathJax_Math-italic;">l</span><span class="mi" id="MathJax-Span-109" style="font-family: MathJax_Math-italic;">o</span><span class="mi" id="MathJax-Span-110" style="font-family: MathJax_Math-italic;">n</span><span class="mi" id="MathJax-Span-111" style="font-family: MathJax_Math-italic;">g<span style="display: inline-block; overflow: hidden; height: 1px; width: 0.003em;"></span></span><span class="mi" id="MathJax-Span-112" style="font-family: MathJax_Math-italic;">e</span><span class="mi" id="MathJax-Span-113" style="font-family: MathJax_Math-italic;">n</span><span class="mi" id="MathJax-Span-114" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-115" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-116" style="font-family: MathJax_Math-italic;">a</span><span class="mi" id="MathJax-Span-117" style="font-family: MathJax_Math-italic;">b</span><span class="mi" id="MathJax-Span-118" style="font-family: MathJax_Math-italic;">b</span><span class="mi" id="MathJax-Span-119" style="font-family: MathJax_Math-italic;">b</span><span class="mo" id="MathJax-Span-120" style="font-family: MathJax_Main;">”</span><span class="texatom" id="MathJax-Span-121"><span class="mrow" id="MathJax-Span-122"><span class="mo" id="MathJax-Span-123"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">的</span></span></span></span><span class="texatom" id="MathJax-Span-124"><span class="mrow" id="MathJax-Span-125"><span class="mo" id="MathJax-Span-126"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">时</span></span></span></span><span class="texatom" id="MathJax-Span-127"><span class="mrow" id="MathJax-Span-128"><span class="mo" id="MathJax-Span-129"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">候</span></span></span></span><span class="texatom" id="MathJax-Span-130"><span class="mrow" id="MathJax-Span-131"><span class="mo" id="MathJax-Span-132"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">，</span></span></span></span><span class="texatom" id="MathJax-Span-133"><span class="mrow" id="MathJax-Span-134"><span class="mo" id="MathJax-Span-135"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">匹</span></span></span></span><span class="texatom" id="MathJax-Span-136"><span class="mrow" id="MathJax-Span-137"><span class="mo" id="MathJax-Span-138"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">配</span></span></span></span><span class="texatom" id="MathJax-Span-139"><span class="mrow" id="MathJax-Span-140"><span class="mo" id="MathJax-Span-141"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">的</span></span></span></span><span class="texatom" id="MathJax-Span-142"><span class="mrow" id="MathJax-Span-143"><span class="mo" id="MathJax-Span-144"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">结</span></span></span></span><span class="texatom" id="MathJax-Span-145"><span class="mrow" id="MathJax-Span-146"><span class="mo" id="MathJax-Span-147"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">果</span></span></span></span><span class="texatom" id="MathJax-Span-148"><span class="mrow" id="MathJax-Span-149"><span class="mo" id="MathJax-Span-150"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">是</span></span></span></span><span class="texatom" id="MathJax-Span-151"><span class="mrow" id="MathJax-Span-152"><span class="mo" id="MathJax-Span-153"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">失</span></span></span></span><span class="texatom" id="MathJax-Span-154"><span class="mrow" id="MathJax-Span-155"><span class="mo" id="MathJax-Span-156"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">败</span></span></span></span><span class="texatom" id="MathJax-Span-157"><span class="mrow" id="MathJax-Span-158"><span class="mo" id="MathJax-Span-159"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">的</span></span></span></span><span class="texatom" id="MathJax-Span-160"><span class="mrow" id="MathJax-Span-161"><span class="mo" id="MathJax-Span-162"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">；</span></span></span></span><span class="texatom" id="MathJax-Span-163"><span class="mrow" id="MathJax-Span-164"><span class="mo" id="MathJax-Span-165"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">因</span></span></span></span><span class="texatom" id="MathJax-Span-166"><span class="mrow" id="MathJax-Span-167"><span class="mo" id="MathJax-Span-168"><span style="font-family: STIXGeneral, &quot;Arial Unicode MS&quot;, serif; font-size: 80%; font-style: normal; font-weight: normal;">为</span></span></span></span></span><span style="display: inline-block; width: 0px; height: 2.952em;"></span></span></span><span style="display: inline-block; overflow: hidden; vertical-align: -0.309em; border-left: 0px solid; width: 0px; height: 1.378em;"></span></span></nobr><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow class="MJX-TeXAtom-ORD"><mo>在</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>匹</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>配</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>字</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>符</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>串</mo></mrow><mo>“</mo><mi>l</mi><mi>o</mi><mi>n</mi><mi>g</mi><mi>e</mi><mi>n</mi><mi>a</mi><mi>a</mi><mi>a</mi><mi>b</mi><mi>b</mi><mi>b</mi><mo>”</mo><mrow class="MJX-TeXAtom-ORD"><mo>的</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>时</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>候</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>，</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>匹</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>配</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>的</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>结</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>果</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>是</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>失</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>败</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>的</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>；</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>因</mo></mrow><mrow class="MJX-TeXAtom-ORD"><mo>为</mo></mrow></math></span></span><script type="math/tex" id="MathJax-Element-5"> 在匹配字符串 “longen aaa bbb”的时候，匹配的结果是失败的；因为</script>的含义是以某某字符串结束进行匹配；只有当aaa在字符串结束位置才能匹配成功；比如”longen&nbsp;bbb&nbsp;aaa”&nbsp;才匹配成功；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>13. \b&nbsp;匹配一个单词边界，也就是单词与空格之间的位置，不匹配任何字符；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str="my name is longen"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 匹配单词边界的字符</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\bname\b/g)); <span style="color: #008000;">//</span><span style="color: #008000;">["name"]</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 如果不是单词边界的地方，就匹配失败</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/\blong\b/g)); <span style="color: #008000;">//</span><span style="color: #008000;"> null</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>14. |&nbsp;&nbsp;左右两边表达式之间&nbsp;“或”&nbsp;关系，匹配左边或者右边。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "hello world"<span style="color: #000000;">;
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 使用|的含义是 或者 匹配成功 结果为["hello "] </span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;">如果再次匹配的话 就是world</span>
+<span style="color: #000000;">
+console.log(str.match(</span>/(hello | world)/g)); <span style="color: #008000;">//</span><span style="color: #008000;"> ["hello "]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>15：()的含义&nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">在被修饰匹配次数的时候，括号中的表达式可以作为整体被修饰。取匹配结果的时候，括号中的表达式匹配到的内容可以被单独得到。</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe6"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">贪婪模式与非贪婪模式讲解</p>
+<p>&nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">Javascript中的正则贪婪与非贪婪模式的区别是：被量词修饰的子表达式的匹配行为；贪婪模式在整个表达式匹配成功的情况下尽可能多的匹配；非贪婪模式在整个表达式匹配成功的前提下，尽可能少的匹配；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">一些常见的修饰贪婪模式的量词如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">{x,y}&nbsp;,&nbsp;&nbsp;{x,}&nbsp;,&nbsp;&nbsp;?&nbsp;,&nbsp;&nbsp;*&nbsp;,&nbsp;和&nbsp;&nbsp;+</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">那么非贪婪模式就是在如上贪婪模式后加上一个?(问号)，就可以变成非贪婪模式的量词；如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">{x,y}?，{x,}?，??，*?，和&nbsp;+?</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1. 什么是贪婪模式？</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">先看如下代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "longen&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 贪婪模式 匹配所有字符</span>
+console.log(str.match(/&lt;p&gt;.*&lt;\/p&gt;/)[0<span style="color: #000000;">]); 
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> &lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 后面加问号，变成非贪婪模式</span>
+console.log(str.match(/&lt;p&gt;.*?&lt;\/p&gt;/)[0]); <span style="color: #008000;">//</span><span style="color: #008000;"> &lt;p&gt;我是中国人&lt;/p&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">第一个console.log使用的是贪婪模式，我们来理解下匹配的基本原理；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先正则是&nbsp;/&lt;p&gt;.*&lt;\/p&gt;/&nbsp;匹配；&lt;p&gt;匹配字符串第一个字符匹配失败，接着往下，直接匹配到&lt;p&gt;时候，匹配成功，接着把匹配的控制权交给.*，从匹配到的&lt;p&gt;位置开始匹配，一直到&lt;/p&gt;之前，接着把控制权交给&lt;/p&gt;，接着在当前位置下往下匹配，因此匹配到&lt;/p&gt;，匹配成功；由于它是贪婪模式，在匹配成功的前提下，仍然会尝试向右往下匹配，因此会匹配到两个&lt;p&gt;标签结束；但是非贪婪模式，也就是第二个console.log()；他匹配到第一个p标签成功后，它就不会再进行匹配，因此打印的值为一个p标签的内容了；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>理解匹配成功前提下的含义：</strong>&nbsp;上面我们解释了，贪婪模式是要等一个表达式匹配成功后，再往下匹配；比如我们现在接着再看下们的表达式匹配代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str = "longen&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 贪婪模式</span>
+console.log(str.match(/&lt;p&gt;.*&lt;\/p&gt;yunxi/)[0<span style="color: #000000;">]); 
+</span><span style="color: #008000;">//</span><span style="color: #008000;">打印 &lt;p&gt;我是中国人&lt;/p&gt;yunxi </span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上代码，打印出一个p标签内容，我们知道.*是贪婪模式匹配，如果按照上面的解释会打印出2个p标签的内容，因为这里在匹配到p标签后，会继续匹配后面的yunxi字符串，直到整个表达式匹配成功，才提示匹配成功，因此当匹配到第一个yunxi后，第一个子表达式匹配成功，接着尝试往右继续匹配，&lt;p&gt;&lt;/p&gt;都匹配成功，但是yunxi不会匹配boyboy，所以第二次尝试匹配的子表达式匹配失败，因此只返回匹配成功后的第一个p标签的内容了；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>我们现在再来看看非贪婪模式的含义：</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>如下代码：</strong></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "longen&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy&lt;p&gt;我是中国人2&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy"<span style="color: #000000;">;
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 非贪婪模式1</span>
+console.log(str.match(/&lt;p&gt;.*?&lt;\/p&gt;boyboy/)[0<span style="color: #000000;">]); 
+</span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 贪婪模式</span>
+console.log(str.match(/&lt;p&gt;.*&lt;\/p&gt;yunxi/)[0<span style="color: #000000;">]); 
+</span><span style="color: #008000;">//</span><span style="color: #008000;">&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy&lt;p&gt;我是中国人2&lt;/p&gt;yunxi</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们先看表达式1，/&lt;p&gt;.*?&lt;\/p&gt;boyboy/&nbsp;匹配str字符串，首先先匹配到p标签内容；但是由于boyboy字符串一直没有匹配到，因此会一直尝试往后匹配，直到匹配到boyboy字符串后，才匹配成功，否则匹配失败；由于它是非贪婪模式，因此这时候它不会再往下进行匹配，所以匹配就结束了；因此第一个console输出为&lt;p&gt;我是中国人&lt;/p&gt;yunxi&lt;p&gt;我是男人&lt;/p&gt;boyboy；&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们可以再来看看贪婪模式&nbsp;第二个console.log()输出的；&nbsp;正则表达式&nbsp;/&lt;p&gt;.*&lt;\/p&gt;yunxi/&nbsp;匹配到第一个p标签yunxi后，由于它是贪婪的，它还想接着向右继续匹配，直到匹配完成后，匹配成功，才结束，因此把所有p标签后面跟随yunxi的字符串都匹配到，且之间的所有的字符串都被返回；</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe7"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">理解正则表达式匹配原理</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们先来理解下占有字符和零宽度的含义。</span></p>
+<p><strong><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">1. 占有字符和零宽度</span></strong></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;在正则表达式匹配的过程中，如果子表达式匹配到的是字符内容，而非位置的话，并被保存在匹配的结果当中，那么就认为该子表达式是占有字符的；如果子表达式匹配的仅仅是位置，或者说匹配中的内容不保存到匹配的结果当中，那么就认为该子表达式是零宽度的。我们先来理解下零宽度的列子，最常见的就是环视~&nbsp;它只匹配位置；比如顺序环视；环视待会就讲；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们先理解下匹配过程如下图：</span></p>
+<p><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151210235924340-1949291849.png" alt=""></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>正则匹配方式&nbsp;/abc/&nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配过程：首先由字符a取得控制权，从位置0开始进行匹配，a匹配a,匹配成功；接着往下匹配，把控制权交给b，那么现在从位置1开始，往下匹配，匹配到字符串b，匹配成功，接着继续往下匹配，位置是从2开始，把控制权交给c，继续往下匹配，匹配到字符串c，匹配成功，所以整个表达式匹配成功；匹配结果为&nbsp;abc&nbsp;匹配的开始位置为0，结束位置为3；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>含有匹配优先量词的匹配过程</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下：</span></p>
+<p><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151210235955215-15955637.png" alt=""></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">源字符串abc，正则表达式为ab?c&nbsp;；量词?可以理解为匹配优先量词，在可匹配可不匹配的时候，会优先选择匹配；当匹配不到的时候，再进行不匹配。先匹配b是否存在，如果不存在的话，就不匹配b；因此结果可以匹配的有&nbsp;abc，ac等</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>匹配过程：</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先由字符a取得控制权，从位置0开始匹配，a匹配到字符串a，匹配成功；接着继续匹配，把控制权交给b，b现在就从位置1开始匹配；匹配到字符串b，匹配成功；接着就把控制权交给c，c从位置2开始继续匹配，匹配字符串c，匹配成功；整个表达式匹配成功；假如b那会儿匹配不成功的话，它会忽略b，继续匹配字符串c，也就是如果匹配成功的话，结果是ac；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">因此abc匹配字符串abc，匹配的位置从0开始，到3结束。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如果匹配的结果为ac的话，那么匹配的位置从0开始，到2结束；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">假如我们把字符串改为abd，或者abe等其他的，那么当匹配到最后一个字符的时候，就匹配失败；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>含有忽略优先量词的匹配过程</strong></span></p>
+<p><strong><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151211000036746-975621183.png" alt=""></strong></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">量词??&nbsp;含义是&nbsp;忽略优先量词，在可匹配和可不匹配的时候，会选择不匹配，这里的量词是修饰b字符的，所以b??&nbsp;是一个整体的。匹配过程如下</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先由字符a取得控制权，从位置0开始匹配，有”a”匹配a，匹配成功，控制权交给b??&nbsp;;首先先不匹配b，控制权交给c，由c来匹配b，匹配失败，此时会进行回溯，由b??来进行匹配b，匹配成功，然后会再把控制权交给c，c匹配c，匹配成功，因此整个表达式都匹配成功；</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe8"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">理解正则表达式----环视</p>
+<p>&nbsp; &nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">环视只进行子表达式匹配，不占有字符，匹配到的内容不保存到最终的匹配的结果，是零宽度的，它匹配的结果就是一个位置；环视的作用相当于对所在的位置加了一个附加条件，只有满足了这个条件，环视子表达式才能匹配成功。环视有顺序和逆序2种，顺序和逆序又分为肯定和否定，因此共加起来有四种；但是javascript中只支持顺序环视，因此我们这边来介绍顺序环视的匹配过程；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下说明：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1. &nbsp;(?=Expression): &nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">顺序肯定环视，含义是所在的位置右侧位置能够匹配到regexp.</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2.&nbsp;(?!Expression)</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">顺序否定环视，含义是所在的位置右侧位置不能匹配到regexp</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>顺序肯定环视</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>先看如下图：</strong></span></p>
+<p><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151211000252746-31299090.png" alt="" style="width: 475px;"></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先我们需要明白的是：^和$&nbsp;是匹配的开始和结束位置的；?=&nbsp;是顺序肯定环视，它只匹配位置，不会占有字符，因此它是零宽度的。这个正则的含义是：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">以字母或者数字组成的，并且第一个字符必须为小写字母开头；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>匹配过程如下：</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先由元字符^取得控制权，需要以字母开头，接着控制权就交给&nbsp;顺序肯定环视&nbsp;(?=[a-z]);&nbsp;它的含义是：要求它所在的位置的右侧是有a-z小写字母开头的才匹配成功，字符a12，第一个字符是a，因此匹配成功；我们都知道环视都是匹配的是一个位置，不占有字符的，是零宽度的，因此位置是0，把控制权交给[a-z0-9]+,它才是真正匹配字符的，因此正则[a-z0-9]+从位置0开始匹配字符串a12，且必须以小写字母开头，第一个字母是a匹配成功，接着继续从1位置匹配，是数字1，也满足，继续，数字2也满足，因此整个表达式匹配成功；最后一个$符合的含义是以字母或者数字结尾的；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>顺序否定环视&nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">当顺序肯定环视匹配成功的话，顺序否定环视就匹配失败，当顺序肯定环视匹配失败的话，那么顺序否定环视就匹配成功；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>我们先看如下图：</strong></span></p>
+<p><strong><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151211000330090-507560722.png" alt="" style="width: 475px;"></strong></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>源字符串：aa&lt;p&gt;one&lt;/p&gt;bb&lt;div&gt;two&lt;/div&gt;cc&nbsp;</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则：&lt;(?!/?p\b)[^&gt;]+&gt;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则的含义是：匹配除&lt;p&gt;之外的其余标签；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下图：</span></p>
+<p><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/561794-20151211000419121-669335778.png" alt="" style="width: 475px;"></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配过程如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">首先由”&lt;”&nbsp;取得控制权，从位置0开始匹配，第一个位置和第二个位置都是字符a，因此匹配失败~&nbsp;接着从位置2匹配，匹配到&lt;，&nbsp;匹配成功了，现在控制权就交给(?!/?p\b)；?!是顺序否定环视，只匹配一个位置，不匹配字符，这个先不用管，首先是&nbsp;/?&nbsp;取得控制权，它的含义是：可匹配/,或者不匹配/,&nbsp;接着往下匹配的是p字符，匹配失败，进行回溯，不匹配，那么控制权就到一位了p字符，p匹配p，匹配成功，控制权就交给\b;&nbsp;\b的含义是匹配单词的边界符，\b就匹配到了&nbsp;&gt;&nbsp;，结果就是匹配成功，子表达式匹配就完成了；/?p\b&nbsp;就匹配成功了；所以(?!/?p\b)&nbsp;这个就匹配失败了；从而使表达式匹配失败；我们继续往下匹配，从b字符开始，和上面一样匹配失败，当位置是从14开始的时候&nbsp;&lt;&nbsp;字符匹配到”&lt;”，匹配成功，把控制权又交给了(?!/?p\b)，&nbsp;还是/?取得控制权，和上面匹配的逻辑一样，最后?p\b匹配失败了，但是(?!/?p\b)&nbsp;就匹配成功了，因此这一次表达式匹配成功；如下代码匹配：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;"aa&lt;p&gt;one&lt;/p&gt;bb&lt;div&gt;two&lt;/div&gt;cc";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">//&nbsp;匹配的结果为div，位置从14开始&nbsp;19结束</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(str.match(/&lt;(?!\/?p\b)[^&gt;]+&gt;/)[0]);</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe9"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">理解正则表达式---捕获组</p>
+<p>&nbsp; &nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获组就是把正则表达式中子表达式匹配的内容，保存到内存中以数字编号或显示命名的组里，方便后面使用；可以在正则表达式内部使用，也可以在外部使用；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获组有2种，一种是捕获性分组，另一种是&nbsp;非捕获性分组；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们先来看看捕获性的分组语法如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获组分组语法：(Expression)</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">我们都知道中括号是表示范围内选择，大括号表示重复次数，小括号的含义是允许重复多个字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获性分组的编号规则：编号是按照”(”出现的顺序，从左到右，从1开始进行编号；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如如下代码：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 分组的列子</span>
+console.log(/(longen){2}/.test("longen")); <span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+console.log(/(longen){2}/.test("longenlongen")); <span style="color: #008000;">//</span><span style="color: #008000;">true</span><span style="color: #008000;">
+//</span><span style="color: #008000;"> 分组的运用 RegExp.$1 获取小括号的分组</span>
+<span style="color: #0000ff;">var</span> str = 11122<span style="color: #000000;">;
+</span>/(\d+)/<span style="color: #000000;">.test(str);
+console.log(RegExp.$</span>1); <span style="color: #008000;">//</span><span style="color: #008000;"> 11122</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 使用replace替换 使用分组 把内容替换</span>
+<span style="color: #0000ff;">var</span> num = "11 22"<span style="color: #000000;">;
+</span><span style="color: #0000ff;">var</span> n = num.replace(/(\d+)\s*(\d+)/,"$2 $1"<span style="color: #000000;">);
+console.log(n); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 22 11</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">反向引用</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">反向引用标识由正则表达式中的匹配组捕获的子字符串。每个反向引用都由一个编号或名称来标识；并通过&nbsp;”\编号”&nbsp;表示法来进行引用；</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 反向引用</span>
+<span style="color: #000000;">
+console.log(</span>/(longen)\1/.test("longen")); <span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+<span style="color: #000000;">
+console.log(</span>/(longen)\1/.test("longenlongen")); <span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+</div>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe10"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">理解非捕获性分组</p>
+<p>&nbsp; &nbsp;&nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">并不是所有分组都能创建反向引用，有一种分组叫做非捕获性分组，它不能创建反向引用，要创建一个非捕获性分组，只要在分组的左括号的后面紧跟一个问号与冒号就ok；非捕获分组的含义我们可以理解为如下：子表达式可以作为被整体修饰但是子表达式匹配的结果不会被存储；如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 非捕获性分组</span>
+<span style="color: #0000ff;">var</span> num2 = "11 22"<span style="color: #000000;">;
+</span>/#(?:\d+)/<span style="color: #000000;">.test(num2);
+console.log(RegExp.$</span>1); <span style="color: #008000;">//</span><span style="color: #008000;">""</span>
+<span style="color: #000000;">我们再来看下使用 非捕获性分组来把页面上的所有标签都去掉，如下代码：
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 把页面上所有的标签都移除掉</span>
+<span style="color: #0000ff;">var</span> html = "&lt;p&gt;&lt;a href='http://baidu.com'&gt;我来测试下&lt;/a&gt;by &lt;em&gt;龙恩&lt;/em&gt;&lt;/p&gt;"<span style="color: #000000;">;
+</span><span style="color: #0000ff;">var</span> text = html.replace(/&lt;(?:.|\s)*?&gt;/g, ""<span style="color: #000000;">);
+console.log(text); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 我来测试下by 龙恩</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp; <span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上：我们来分析下：正则/&lt;(?:.|\s)*?&gt;/g&nbsp;的含义是：g是修饰符，全局匹配的含义；使用非捕获性分组?:&nbsp;的含义是&nbsp;子表达式可以作为被整体修饰但是子表达式匹配的结果不会被存储；因此：正则/&lt;(?:.|\s)*?&gt;/g&nbsp;的含义变为：匹配以&lt;&nbsp;开头&nbsp;及&nbsp;&gt;&nbsp;结束的所有字符；(?:.|\s)*?&nbsp;含义是：.&nbsp;代表任意字符，|&nbsp;含义是或者的意思，\s&nbsp;是匹配空格的意思；*号修饰符的含义是零个或者多个的意思；后面的?（问号）代表可匹配，可不匹配的含义；优先是可匹配；总起来的意思是：全局匹配字符串html&nbsp;中的&nbsp;以&lt;开头&nbsp;以&gt;结尾的所有字符&nbsp;替换成&nbsp;空字符串，因此留下来就是文本；当然我们使用捕获性分组也可以得到同样的结果~</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe11"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">反向引用详细讲解</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获性分组取到的内容，不仅可以在正则表达式外部通过程序进行引用，也可以在正则表达式内部进行引用，这种引用方式就叫做反向引用。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;<strong>反向引用的作用是</strong>：是用来查找或限定重复，查找或限定指定标识配对出现等。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获性分组的反向引用的写法如：\number</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">Number是十进制数字，即捕获组的编号。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>反向引用的匹配原理</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">捕获分组在匹配成功时，会将子表达式匹配到的内容，保存到内存中一个以数字编号的组里，可以简单的认为是对一个局部变量进行了赋值，这时就可以通过反向引用，引用这个局部变量的值。一个捕获分组在匹配成功之前，它的内容可以是不确定的，一旦匹配成功了，它的内容就确定了，反向引用的内容也就确定了。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如如下代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str = "longenaabcd"<span style="color: #000000;">;
+console.log(str.match(</span>/([ab])\1/)[0]);<span style="color: #008000;">//</span><span style="color: #008000;">aa</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码分析：对于如上代码中的正则&nbsp;/([ab])\1/,&nbsp;捕获组中子表达式[ab]；可以匹配a，也可以匹配b，但是如果匹配成功的话，那么它的反向引用也就确定了，如果捕获分组匹配到的是a，那么它的反向引用就只能匹配a，如果捕获分组匹配到的是b，那么它的反向引用就只能匹配到b；\1的含义是&nbsp;捕获分组匹配到是什么，那么它必须与捕获分组到是相同的字符；也就是说&nbsp;只能匹配到aa或者bb才能匹配成功；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">该正则匹配的过程我们可以来分析下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">字符串匹配正则/([ab])\1/,&nbsp;在位置0处开始匹配，0处字符是l，很明显不满足，把控制权就交给下一个字符，一直到第6个字符，才匹配到a，匹配成功，把控制权交给\1,&nbsp;也就是反向引用和分组中是相同的字符，因此也匹配a，字符串中下一个字符也是a，因此匹配成功，因此整个表达式找到匹配的字符，匹配的位置开始于6，结束与8；我们再可以匹配b，原理和上面一样，这里就不再多解释了；</span></p>
+<div style="text-align: right;"><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#_labelTop">回到顶部</a><a name="_labe12"></a></div>
+<p style="background: #55895B; color: #fff; font-size: 24px; height: 40px; line-height: 40px; padding-left: 12px; font-weight: bold;">正则表达式实战</p>
+<p>&nbsp;<span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>1. 匹配以数字结尾的；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;正则：/\d+$/g;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>2. 去掉空格；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;var&nbsp;str&nbsp;=&nbsp;"我&nbsp;是&nbsp;龙&nbsp;恩";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;console.log(str.replace(/\s+/g,""));//我是龙恩</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>3. 判断字符串是不是由数字组成；</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;var&nbsp;str&nbsp;=&nbsp;"123344我&nbsp;是&nbsp;龙&nbsp;恩&nbsp;1123344";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;console.log(/^\d*$/.test(str));&nbsp;//false</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;var&nbsp;str2&nbsp;=&nbsp;"123445566";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp;console.log(/^\d*$/.test(str2));&nbsp;//&nbsp;true</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>4.&nbsp;电话号码正则</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; 分析如下：电话号码有区号(3-4位数字)，区号之后使用&nbsp;”-”&nbsp;与电话号码连接；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; 区号正则：^\d{3,4}</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; &nbsp;电话号码7~8位&nbsp;正则&nbsp;\d{7,8}</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; 电话号码也有分机号，分机号为3-4位数字，非必填项，如果要填写的话，则以”-”与电话号码相连接。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; &nbsp; 正则(-\d{3,4})?</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp; 因此正则匹配电话号码正则为：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">/^\d{3,4}-/d{7,8}(-\d{3,4})?$/;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>5.&nbsp;手机号码正则</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">手机号码需要匹配；手机号码开头不以0开始的，并且是11位数字，目前的手机号码有如下开头的：13,14,15,17,18开头的；因此正则如下：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">/(^1[3|4|5|7|8][0-9]{9}$)/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下测试代码：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;str&nbsp;=&nbsp;15606512345;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">var&nbsp;reg&nbsp;=&nbsp;/(^1[3|4|5|7|8][0-9]{9}$)/;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(reg.test(str));&nbsp;//true</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>6.&nbsp;删除字符串左右空格</strong></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 删除字符串两侧的空白</span>
+
+<span style="color: #008000;">/*</span><span style="color: #008000;">
+
+ * 下面的正则的含义是以1个或者多个空白开头的
+
+ * | 是或者的意思 或者以1个或者多个空白结尾的
+
+ * 也就是去掉头部和尾部的1个或者多个空格
+
+ </span><span style="color: #008000;">*/</span>
+
+<span style="color: #0000ff;">function</span><span style="color: #000000;"> trim(str) {
+
+</span><span style="color: #0000ff;">    return</span> str.replace(/^\s+|\s+$/g,''<span style="color: #000000;">);
+
+}
+
+</span><span style="color: #0000ff;">var</span> str1 = " 1234 "<span style="color: #000000;">;
+
+console.log(trim(str1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 输出去掉空格的 1234</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>7. 限制文本框只能输入数字和小数点(二位小数点)</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">分析：开头有0个或者多个数字，中间有0个或者1个小数点，小数点后面有0个或者最多2个数字；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>/^\d*\.?\d{0,2}$/
+
+<span style="color: #008000;">//</span><span style="color: #008000;">测试代码如下：</span>
+<span style="color: #0000ff;">var</span> reg = /^\d*\.?\d{0,2}$/<span style="color: #000000;">;
+</span><span style="color: #0000ff;">var</span> str1 = .9<span style="color: #000000;">;
+console.log(reg.test(str1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> str2 = 1.99<span style="color: #000000;">;
+console.log(reg.test(str2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> str3 = "1a.99"<span style="color: #000000;">;
+console.log(reg.test(str3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>8.替换小数点前面的内容为指定内容</strong></span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> href = "aa.php?d=1"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> reg = href.replace(/\b^(\w*)(?=\.)/,"bb"<span style="color: #000000;">);
+
+console.log(reg); </span><span style="color: #008000;">//</span><span style="color: #008000;"> bb.php?d=1</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>代码分析如下：</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如上代码的含义是&nbsp;使用正则replace替换操作</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">找出以字母数字下划线开头的字符，前面以\b分隔单词与边界的地方</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">因此会找出第一个字符串中第一个开头的字符,后面是以捕获性分组来匹配</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">后面紧跟着一个.号的匹配，分组只匹配位置，不匹配字符，是零宽度的；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>9. 匹配中文的正则</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">使用&nbsp;Unicode，必须使用\u开头，接着是字符编码的四位16进制表现形式。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">console.log(/[\u4E00-\u9FA5\uf900-\ufa2d]/g.test("我是"));&nbsp;//true</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>10. 返回字符串中&nbsp;中文字符的个数。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">分析:使用replace方法把不是中文字符全部替换成空</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">返回被替换的字符，因此是中文字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str = "111我是涂根华说得对aaaaa1234556"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> reg = /[^\u4E00-\u9FA5\uf900-\ufa2d]/<span style="color: #000000;">g;
+
+</span><span style="color: #0000ff;">var</span> val = str.replace(reg,''<span style="color: #000000;">);
+
+console.log(val); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 我是涂根华说得对</span>
+<span style="color: #000000;">
+console.log(val.length); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 长度为 8</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>11. 正则获取ip地址的前三段</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如如:192.168.16.162&nbsp;需要变成&nbsp;192.168.16</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;分析：使用正则匹配&nbsp;.号后面带1-3位数字即可，</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;且以数字结尾的，把他们替换成空字符串。</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> ip = "192.168.16.162"<span style="color: #000000;">;
+
+console.log(ip.replace(</span>/\.\d{1,3}$/,""));<span style="color: #008000;">//</span><span style="color: #008000;"> 192.168.16</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>12. 匹配标签中的内容</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如匹配如代码&nbsp;&lt;ul&gt;&lt;li&gt;aaa&lt;/li&gt;&lt;li&gt;bbb&lt;/li&gt;&lt;/ul&gt;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;分析：&nbsp;想获取ul中的内容，可以对匹配的内容使用分组</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;然后打印RegExp.$1&nbsp;就获取到分组的内容了;&nbsp;匹配所有字符</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;使用[\s\S]+&nbsp;空白和非空白的所有字符，且使用修饰符g代表全局的</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str2 = "&lt;ul&gt;&lt;li&gt;aaa&lt;/li&gt;&lt;li&gt;bbb&lt;/li&gt;&lt;/ul&gt;"<span style="color: #000000;">;
+
+str2.match(</span>/&lt;ul&gt;([\s\S]+?)&lt;\/ul&gt;/<span style="color: #000000;">g);
+
+console.log(RegExp.$</span>1); <span style="color: #008000;">//</span><span style="color: #008000;">&lt;li&gt;aaa&lt;/li&gt;&lt;li&gt;bbb&lt;/li&gt;</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>13. 匹配标签中的文本。</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配文本思路：可以先把字符串内的所有标签替换成空字符串</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;因此返回的就是文本了；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;正则/&lt;\/?[\s\S]+?&gt;/gi</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">如下代码：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str3 = "&lt;ul&gt;&lt;li&gt;aaa&lt;/li&gt;&lt;li&gt;bbb&lt;/li&gt;&lt;/ul&gt;"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> c = str3.replace(/&lt;\/?[\s\S]+?&gt;/gi,""<span style="color: #000000;">);
+
+console.log(c); </span><span style="color: #008000;">//</span><span style="color: #008000;"> aaabbb</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>14. 正则获取文件名</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">文件名有如下几种：</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;1.&nbsp;c:\images\tupian\006.jpg</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;2.&nbsp;C:\006.JPG</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;3.&nbsp;"c:\\images\\tupian\\006.jpg";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;4.&nbsp;"c:\\images\\tupian\\aa.jpg";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;5.&nbsp;"c:/images/tupian/test2.jpg";</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;正则如：/[^\\\/]*[\\\/]+/gi;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;上面的正则含义是：[^\\\/]*&nbsp;不以一个\&nbsp;或者&nbsp;2个\\&nbsp;或者&nbsp;/(需要转义,使用\)这样的反斜杠开头的&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;零个或者多个字符,后面紧跟以一个\&nbsp;或者&nbsp;两个\\&nbsp;或者&nbsp;/(需要转义，使用\)这样一个或者多个分隔符</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;全局匹配；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> s1 = "c:\\images\\tupian\\006.jpg"<span style="color: #000000;">,
+
+s2 </span>= "c:\\images\\tupian\\aa.jpg"<span style="color: #000000;">,
+
+s3 </span>= "c:/images/tupian/test2.jpg"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getFileName(str){
+</span><span style="color: #0000ff;">    var</span> reg = /[^\\\/]*[\\\/]+/<span style="color: #000000;">gi;
+    str </span>= str.replace(reg,''<span style="color: #000000;">);
+</span><span style="color: #0000ff;">    return</span><span style="color: #000000;"> str;
+}
+console.log(getFileName(s1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 006.jpg</span><span style="color: #000000;">
+console.log(getFileName(s3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> test2.jpg</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>15. 绝对路径变成相对路径</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如绝对路径&nbsp;http://172.16.28.162/images/a.jpg&nbsp;需要替换成</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">./images/a.jpg&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">使用正则匹配&nbsp;http://&nbsp;//需要使用转义字符转义的&nbsp;继续匹配除/以外的任何一个字符</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">直到有反斜杠/为止；然后替换成&nbsp;.&nbsp;字符</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下：</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> reg = /http:\/\/[^\/]+/<span style="color: #000000;">g;
+
+</span><span style="color: #0000ff;">var</span> r1 = "http://172.16.28.162/images/a.jpg"<span style="color: #000000;">;
+
+console.log(r1.replace(reg,</span>'.')); <span style="color: #008000;">//</span><span style="color: #008000;"> ./images/a.jpg</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>16. 用户名正则</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配规则：只能是中文，英文，数字，下划线，4-16个字符；</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配中文字符正则：/[\u4E00-\u9FA5\uf900-\ufa2d]/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">\w是&nbsp;匹配英文，数字，下划线</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^[\u4E00-\u9FA5\uf900-\ufa2d\w]{4,16}$/<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str = "我是12345678aa_123"<span style="color: #000000;">;
+
+console.log(reg.test(str)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> str = "我是12345678aa_1235"<span style="color: #000000;">;
+
+console.log(reg.test(str)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 17位 false</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>17. 匹配英文地址</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配规则：包含点，字母，空格，逗号，数字，但是开头和结尾必须为字母</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">分析：开头必须为字母可以这样写&nbsp;/^[a-zA-Z]/&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">结尾必须为字母可以这样写：/[a-zA-Z]+$/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">中间包含点，字母，空格，逗号，数字的正则：/[\.a-zA-Z\s,0-9]*?/&nbsp;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">外面的*号是0个或者多个，后面的问号?&nbsp;代表可有可无;有就匹配，没有就不匹配;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^[a-zA-Z][\.a-zA-Z\s,0-9]*?[a-zA-Z]+$/<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str1 = "11aa"<span style="color: #000000;">;
+
+console.log(reg.test(str1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+
+<span style="color: #0000ff;">var</span> str2 = "aa111aaa"<span style="color: #000000;">;
+
+console.log(reg.test(str2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>18 匹配价格</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配规则:&nbsp;开头有0个或者多个数字，中间可能有一个小数点，后面有可能有0-2位小数</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则:/^\d*(\.\d{0,2})?$/</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">代码如下测试</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^\d*(\.\d{0,2})?$/
+
+<span style="color: #0000ff;">var</span> num1 = 12<span style="color: #000000;">;
+
+console.log(reg.test(num1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> num2 = .01<span style="color: #000000;">;
+
+console.log(reg.test(num2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> num3 = 1.01<span style="color: #000000;">;
+
+console.log(reg.test(num3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> num4 = "1.aa1"<span style="color: #000000;">;
+
+console.log(reg.test(num4)); </span><span style="color: #008000;">//</span><span style="color: #008000;">false</span>
+
+<span style="color: #0000ff;">var</span> num5 = "1.1a"<span style="color: #000000;">;
+
+console.log(reg.test(num5)); </span><span style="color: #008000;">//</span><span style="color: #008000;">false</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>19. 身份证号码的匹配</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配规则：身份证号码有15位或者18位，其中最后一位可能是X，其他全是数字</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;正则：&nbsp;/^(\d{14}|\d{17})(\d|[xX])$/</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^(\d{14}|\d{17})(\d|[xX])$/<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> identity1 = "36232919578996x"<span style="color: #000000;">;
+
+console.log(reg.test(identity1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+<span style="color: #0000ff;">var</span> identity2 = "36232919578996a"<span style="color: #000000;">;
+
+console.log(reg.test(identity2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;"> 16位</span>
+
+<span style="color: #0000ff;">var</span> identity3 = "362329195789961x"<span style="color: #000000;">;
+
+console.log(reg.test(identity3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>20. 单词的首字母大写</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">匹配字符串，让其字符串的首个字母大写</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;正则：/\b(\w)|\s(\w)/g</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">function</span><span style="color: #000000;"> replaceReg(reg,str) {
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 先转换为小写</span>
+<span style="color: #000000;">
+str </span>=<span style="color: #000000;"> str.toLowerCase();
+
+</span><span style="color: #0000ff;">return</span> str.replace(reg,<span style="color: #0000ff;">function</span><span style="color: #000000;">(m){
+
+</span><span style="color: #0000ff;">return</span><span style="color: #000000;"> m.toUpperCase();
+
+});
+
+ }
+
+ </span><span style="color: #0000ff;">var</span> reg = /\b(\w)|\s(\w)/<span style="color: #000000;">g;
+
+ </span><span style="color: #0000ff;">var</span> str = "aadfdfCC"<span style="color: #000000;">;
+
+ console.log(replaceReg(reg,str)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> Aadfdfcc</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>21. 验证日期格式</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">日期格式有2种&nbsp;第一种是yyyy-mm-dd&nbsp;或&nbsp;yyyy/mm/dd</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;分析&nbsp;月和天数可以有1位或者2位</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;正则：/^\d{4}[-\/]\d{1,2}[-\/]\d{1,2}$/;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^\d{4}[-\/]\d{1,2}[-\/]\d{1,2}$/<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> d1 = "2015-12-1"<span style="color: #000000;">;
+
+console.log(reg.test(d1)); </span><span style="color: #008000;">//</span><span style="color: #008000;">true</span>
+
+<span style="color: #0000ff;">var</span> d2 = "2015-12-02"<span style="color: #000000;">;
+
+console.log(reg.test(d2)); </span><span style="color: #008000;">//</span><span style="color: #008000;">true</span>
+
+<span style="color: #0000ff;">var</span> d3 = "2015/12/12"<span style="color: #000000;">;
+
+console.log(reg.test(d3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>22. 验证邮箱的正则表达式</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">思路分析:&nbsp;邮箱的规则是:&nbsp;由3部分组成</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;由1个或者多个字母数字下划线和杠&nbsp;+&nbsp;@&nbsp;+&nbsp;1个或者多个字母数字下划线和杠&nbsp;+&nbsp;.&nbsp;+&nbsp;1个或者多个字母数字下划线和杠</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;因此正则：<a href="http://www.cnblogs.com/mailto:/%5E([a-zA-Z_0-9-])+@([a-zA-Z_0-9-])+(/.[a-zA-Z_0-9-])+$/">/^([a-zA-Z_0-9-])+@([a-zA-Z_0-9-])+(\.[a-zA-Z_0-9-])+$/</a></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^([a-zA-Z_0-9-])+@([a-zA-Z_0-9-])+(\.[a-zA-Z_0-9-])+/<span style="color: #000000;">;
+
+ </span><span style="color: #0000ff;">var</span> email1 = "tugenhua@126.com"<span style="color: #000000;">;
+
+ console.log(reg.test(email1)); </span><span style="color: #008000;">//</span><span style="color: #008000;">true</span>
+
+ <span style="color: #0000ff;">var</span> email2 = "879083421_aaAA@qqAAzz_AA.comaaa"<span style="color: #000000;">;
+
+ console.log(reg.test(email2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>23. 匹配代码中的a链接</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如&lt;a&nbsp;href='http://www.baidu.com'&gt;222&lt;/a&gt;&nbsp;匹配这样的</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;使用正则：/&lt;a[.\s]*href\s*=\s*'http:\/\/.*'&gt;\w*&lt;\/a&gt;/gi;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /&lt;a[.\s]*href\s*=\s*'http:\/\/.*'&gt;\w*&lt;\/a&gt;/<span style="color: #000000;">gi;
+
+</span><span style="color: #0000ff;">var</span> html = "&lt;div&gt;&lt;a href='http://www.baidu.com'&gt;222&lt;/a&gt;&lt;p&gt;344&lt;/p&gt;&lt;/div&gt;"<span style="color: #000000;">;
+
+console.log(html.match(reg)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> ["&lt;a href='http://www.baidu.com'&gt;222&lt;/a&gt;"]</span>
+
+<span style="color: #0000ff;">var</span> html2 = "&lt;div&gt;&lt;a href='http://www.baidu.com'&gt;222&lt;/a&gt;&lt;p&gt;344&lt;/p&gt;&lt;a href='http://www.baidu2.com'&gt;333&lt;/a&gt;&lt;/div&gt;"<span style="color: #000000;">;
+
+console.log(html2.match(reg)); </span><span style="color: #008000;">//</span><span style="color: #008000;">["&lt;a href='http://www.baidu.com'&gt;222&lt;/a&gt;&lt;p&gt;344&lt;/p&gt;&lt;a href='http://www.baidu2.com'&gt;333&lt;/a&gt;"]</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>24. 正则判断标签是否闭合</strong></span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">没有闭合的标签有2种&nbsp;类型&nbsp;一种像img标签那样的</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&lt;img&nbsp;src=""&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;还有一种像div或者p标签那样的</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&lt;div&gt;aaa&lt;/div&gt;</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&lt;p&gt;&lt;/p&gt;</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;分析：先匹配起始标签&nbsp;如&lt;img&nbsp;或&nbsp;&lt;p&nbsp;使用正则：/&lt;[a-z]+/i&nbsp;</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;接着匹配标签里面的多个属性&nbsp;使用正则&nbsp;/(\s*\w*?\s*=\s*.+?)*(\s*?&gt;[\s\S]*?(&lt;\/\1&gt;)+|\s*\/&gt;)/i</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;因此整个正则表达式合并为&nbsp;/&lt;([a-z]+)(\s*\w*?\s*=\s*.+?)*(\s*?&gt;[\s\S]*?(&lt;\/\1&gt;)+|\s*\/&gt;)/i</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;正则分析如下：</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;首先我们匹配像img标签或者div标签的开头位置时候&nbsp;&lt;img&nbsp;或&nbsp;&lt;div&nbsp;使用正则&nbsp;/&lt;([a-z]+)/i&nbsp;以&nbsp;&lt;&nbsp;开始&nbsp;[a-z]中任意一个字符，修饰符+是一个或者多个字符&nbsp;i代表不区分大小写</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;(\s*\w*?\s*=\s*.+?)*的含义是：比如&lt;img&nbsp;src&nbsp;=&nbsp;""&nbsp;或&nbsp;&lt;div&nbsp;id&nbsp;=&nbsp;""&nbsp;先\s*匹配0个或多个空白&nbsp;\w*&nbsp;匹配0个或者多个(数字或者字母或下划线)&nbsp;后面的问号？(尽可能少的匹配)</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;接着\s*&nbsp;匹配0个或者多个空白&nbsp;=&nbsp;号紧接后面的&nbsp;\s*&nbsp;也是匹配0个或者多个空白&nbsp;.+?&nbsp;的含义是匹配除换行符之外的任意一个或多个字符(尽可能少的匹配);</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;下面我们继续看标签的闭合&nbsp;标签闭合有2种，一种像img这样的&nbsp;&lt;img&nbsp;src=""/&gt;&nbsp;还有一种是&nbsp;&lt;div&gt;&lt;/div&gt;这样的；</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;如果是类似img标签这样的话，匹配结束字符为&nbsp;/&gt;&nbsp;匹配正则为：(\s*\/&gt;);&nbsp;如果是div这样的话&nbsp;正则为：(\s*?&gt;[\s\S]*?&lt;\/\1&gt;)</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;&lt;\/\1&gt;&nbsp;的含义是：指的是&nbsp;([a-z]+)&nbsp;这个分组</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;">&nbsp;整个正则&nbsp;/&lt;([a-z]+)(\s*\w*?\s*=\s*".+?")*(\s*?&gt;[\s\S]*?&lt;\/\1&gt;)|\s*\/&gt;/i</span></p>
+<p><span style="font-size: 16px; font-family: &#39;Microsoft YaHei&#39;;"><strong>&nbsp;注意：在元字符*&nbsp;或者&nbsp;+&nbsp;号后加一个问号(?)&nbsp;目的是&nbsp;尽可能少的匹配；</strong></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /&lt;([a-z]+)(\s*\w*?\s*=\s*".+?")*(\s*?&gt;[\s\S]*?&lt;\/\1&gt;)|\s*\/&gt;/<span style="color: #000000;">i;
+
+ </span><span style="color: #0000ff;">var</span> str1 = "&lt;img src='aa' /&gt;"<span style="color: #000000;">;
+
+ </span><span style="color: #0000ff;">var</span> str2 = "&lt;div&gt;&lt;/div&gt;"<span style="color: #000000;">;
+
+ console.log(reg.test(str1));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #000000;">
+ console.log(reg.test(str2));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+
+ <span style="color: #0000ff;">var</span> str3 = "&lt;img src='bb'"<span style="color: #000000;">;
+
+ console.log(reg.test(str3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+
+ <span style="color: #0000ff;">var</span> str4 = "&lt;div&gt;aaa"<span style="color: #000000;">;
+
+ console.log(reg.test(str4)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+
+<span style="color: #008000;">//</span><span style="color: #008000;">但是如上正则对下面的这个demo列子就不适用了；相同的标签嵌套没有闭合的情况下 如下</span>
+
+ <span style="color: #0000ff;">var</span> str5  = "&lt;div&gt;&lt;div&gt;aaa&lt;/div&gt;"<span style="color: #000000;">;
+
+ console.log(reg.test(str5)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> true 实际上是false 因为有没有闭合标签</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>25. 获取标签里面的内容</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则和上面一样&nbsp;只是使用了一个分组后，再获取那个分组即可；</span></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">var</span> str = "&lt;div&gt;111&lt;/div&gt;"<span style="color: #000000;">;
+
+str.match(</span>/&lt;([a-z]+)(\s*\w*?\s*=\s*".+?")*\s*?&gt;([\s\S]*?)&lt;\/\1&gt;/<span style="color: #000000;">);
+
+console.log(RegExp.$</span>3);  <span style="color: #008000;">//</span><span style="color: #008000;"> 111</span></pre>
+</div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>26. 正则判断是否为数字和字母的混合</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">规则：字母和数字的混合</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则如：&nbsp;/^(([a-z]+)([0-9]+)|([0-9]+([a-z]+)))[a-z0-9]*$/i</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">分析：^([a-z]+)([0-9]+)&nbsp;含义是&nbsp;以1个或多个字母开头&nbsp;后面紧跟1个或者多个数字</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^([0-9]+([a-z]+))&nbsp;或者是以1个或者多个数字开头&nbsp;后面紧跟1个或者多个字母</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">&nbsp;&nbsp;[a-z0-9]*$&nbsp;后面还可以紧跟数字或者字母0个或者多个</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> reg = /^(([a-z]+)([0-9]+)|([0-9]+([a-z]+)))[a-z0-9]*$/<span style="color: #000000;">i;
+
+</span><span style="color: #0000ff;">var</span> str1 = "aaaa"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str2 = "aa22"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str3 = "111sddtr"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str4 = "问问啊啊啊ass"<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str5 = "1111ssdsd111sasddas"<span style="color: #000000;">;
+
+console.log(reg.test(str1));  </span><span style="color: #008000;">//</span><span style="color: #008000;">false</span>
+<span style="color: #000000;">
+console.log(reg.test(str2));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #000000;">
+console.log(reg.test(str3));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span>
+<span style="color: #000000;">
+console.log(reg.test(str4));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> false</span>
+<span style="color: #000000;">
+console.log(reg.test(str5));  </span><span style="color: #008000;">//</span><span style="color: #008000;"> true</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>27. 将阿拉伯数字转换为中文大写字符</strong></span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> arrs = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"<span style="color: #000000;">];
+
+</span><span style="color: #0000ff;">function</span><span style="color: #000000;"> replaceReg2(reg,str){
+
+</span><span style="color: #0000ff;">return</span> str.replace(reg,<span style="color: #0000ff;">function</span>(m){<span style="color: #0000ff;">return</span><span style="color: #000000;"> arrs[m];})
+
+}
+
+</span><span style="color: #0000ff;">var</span> reg = /\d/<span style="color: #000000;">g;
+
+</span><span style="color: #0000ff;">var</span> str1 = '13889294444'<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str2 = '12889293333'<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> str3 = '23445567'<span style="color: #000000;">;
+
+console.log(replaceReg2(reg,str1)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 壹叁捌捌玖贰玖肆肆肆肆</span>
+<span style="color: #000000;">
+console.log(replaceReg2(reg,str2)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 壹贰捌捌玖贰玖叁叁叁叁</span>
+<span style="color: #000000;">
+console.log(replaceReg2(reg,str3)); </span><span style="color: #008000;">//</span><span style="color: #008000;"> 贰叁肆肆伍伍陆柒</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>28. 替换文本中的url为链接</strong></span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">比如一段文本中有&nbsp;aaaaahttp://www.baidu.combbbbb&nbsp;需要替换成&nbsp;aaaaa&lt;a&nbsp;href="http://www.baidu.com"&gt;http://www.baidu.com&lt;/a&gt;bbbbb</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">分析：最主要的还是需要正则匹配http://www.baidu.com&nbsp;的url</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">正则如：/http:\/\/\w*(\.\w*)+/ig;</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;">测试代码如下：</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> str1 = "aaaaahttp://www.baidu.com bbbbb"<span style="color: #000000;">;
+
+ </span><span style="color: #008000;">//</span><span style="color: #008000;">var reg = /http:\/\/\w*(\.\w)+/ig;</span>
+
+ <span style="color: #0000ff;">var</span> reg = /http:\/\/\w*(\.\w*)+/<span style="color: #000000;">ig;
+
+ </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> replaceUrl(reg,str) {
+
+</span><span style="color: #0000ff;">return</span> str.replace(reg,<span style="color: #0000ff;">function</span><span style="color: #000000;">(r){
+
+</span><span style="color: #0000ff;">return</span> "&lt;a href='"+r+"'&gt;"+r+"&lt;/a&gt;"<span style="color: #000000;">;
+
+});
+
+ }
+
+console.log(replaceUrl(reg,str1)); 
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> aaaaa&lt;a href='http://www.baidu.com'&gt;http://www.baidu.com&lt;/a&gt; bbbbb</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+        <div class="clear"></div>
+        <div id="blog_post_info_block">
+        <div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5037811,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;0bb325ba-be0e-e311-8d02-90b11c0b17d6&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tugenhua0707/" target="_blank"><img src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/20160306101106.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/tugenhua0707/">龙恩0707</a><br>
+            <a href="http://home.cnblogs.com/u/tugenhua0707/followees">关注 - 21</a><br>
+            <a href="http://home.cnblogs.com/u/tugenhua0707/followers">粉丝 - 814</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;0bb325ba-be0e-e311-8d02-90b11c0b17d6&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5037811,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">14</span>
+    </div>
+    <div class="buryit" onclick="votePost(5037811,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+        <div class="clear"></div>
+        <div id="post_next_prev"><a href="http://www.cnblogs.com/tugenhua0707/p/4982646.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/tugenhua0707/p/4982646.html" title="发布于2015-11-20 23:28">Gulp解决发布线上文件(CSS和JS)缓存问题</a><br><a href="http://www.cnblogs.com/tugenhua0707/p/5046854.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/tugenhua0707/p/5046854.html" title="发布于2015-12-14 23:13">javascript函数式编程要掌握的知识点讲解</a><br></div>
+    </div>
+</div>
+    <ul class="postmetadata">
+        <li class="icon_cat" id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/tugenhua0707/category/765929.html" target="_blank">javascript正则表达式</a></li>
+        <li class="icon_bullet" id="EntryTag">标签: <a href="http://www.cnblogs.com/tugenhua0707/tag/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA%E7%9A%84javascript%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B/">深入浅出的javascript的正则表达式学习教程</a></li>
+    </ul>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=161525,cb_entryId=5037811,cb_blogApp=currentBlogApp,cb_blogUserGuid='0bb325ba-be0e-e311-8d02-90b11c0b17d6',cb_entryCreatedDate='2015/12/11 0:29:00';loadViewCount(cb_entryId);</script>
+<script type="text/javascript">
+    var m = window.__blog.postRendered;
+    if (m) { m(__$("post")); }
+</script>
+<script type="text/javascript">
+    var m = window.__blog.postRenderPosts;
+    if (m) { m(); }
+</script>
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<a class="addcomment" href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#comment_tip">Add your comment</a>
+<h3 id="comments"></h3>
+<div class="feedbackNoItems"></div>
+
+
+<ol class="commentlist" id="commentList">	
+
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3324952" class="layer">#1楼</a><a name="3324952" id="comment_anchor_3324952"></a></cite> <a id="a_comment_author_3324952" href="http://home.cnblogs.com/u/87552/" target="_blank">/*白开水*/</a> <a href="http://msg.cnblogs.com/send/%2F%2A%E7%99%BD%E5%BC%80%E6%B0%B4%2A%2F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-12-11 10:14</span></small>
+			</h5>
+			<div id="comment_body_3324952" class="blog_comment_body">马克</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3324952,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3324952,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3324969" class="layer">#2楼</a><a name="3324969" id="comment_anchor_3324969"></a></cite> <a id="a_comment_author_3324969" href="http://www.cnblogs.com/zjczoo/" target="_blank">早起的菜鸟</a> <a href="http://msg.cnblogs.com/send/%E6%97%A9%E8%B5%B7%E7%9A%84%E8%8F%9C%E9%B8%9F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-12-11 10:31</span></small>
+			</h5>
+			<div id="comment_body_3324969" class="blog_comment_body">好详细啊，很好的讲解！！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3324969,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3324969,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3324969_avatar" style="display:none;">http://pic.cnblogs.com/face/u303645.png?id=18134639</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3325014" class="layer">#3楼</a><a name="3325014" id="comment_anchor_3325014"></a></cite> <a id="a_comment_author_3325014" href="http://www.cnblogs.com/baozhan/" target="_blank">Chendye</a> <a href="http://msg.cnblogs.com/send/Chendye" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-12-11 11:29</span></small>
+			</h5>
+			<div id="comment_body_3325014" class="blog_comment_body">感谢博主</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3325014,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3325014,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3325014_avatar" style="display:none;">http://pic.cnblogs.com/face/710291/20160121222737.png</span>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3329655" class="layer">#4楼</a><a name="3329655" id="comment_anchor_3329655"></a></cite> <a id="a_comment_author_3329655" href="http://www.cnblogs.com/niceofday/" target="_blank">凫.鸳</a> <a href="http://msg.cnblogs.com/send/%E5%87%AB.%E9%B8%B3" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2015-12-18 14:47</span></small>
+			</h5>
+			<div id="comment_body_3329655" class="blog_comment_body">写得太全面了，辛苦博主了，收藏了！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3329655,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3329655,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3579589" class="layer">#5楼</a><a name="3579589" id="comment_anchor_3579589"></a></cite> <a id="a_comment_author_3579589" href="http://home.cnblogs.com/u/797734/" target="_blank">梅梅梅耀向</a> <a href="http://msg.cnblogs.com/send/%E6%A2%85%E6%A2%85%E6%A2%85%E8%80%80%E5%90%91" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-12-13 17:15</span></small>
+			</h5>
+			<div id="comment_body_3579589" class="blog_comment_body">非常谢谢！！！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3579589,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3579589,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+		<li class="alt">
+			<h5>
+				<cite><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#3586021" class="layer">#6楼</a><a name="3586021" id="comment_anchor_3586021"></a><span id="comment-maxId" style="display:none;">3586021</span><span id="comment-maxDate" style="display:none;">2016/12/21 11:00:01</span></cite> <a id="a_comment_author_3586021" href="http://www.cnblogs.com/yilyl/" target="_blank">壹-零</a> <a href="http://msg.cnblogs.com/send/%E5%A3%B9-%E9%9B%B6" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><small> <span class="comment_date">2016-12-21 11:00</span></small>
+			</h5>
+			<div id="comment_body_3586021" class="blog_comment_body">博主，顺序否定环视中的正则示例：&lt;(?!/?p\b)[^&gt;]+&gt;，是不是写错漏了'\'，应该是&lt;(?!\/?p\b)[^&gt;]+&gt;吧？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3586021,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3586021,&#39;Bury&#39;,this)">反对(0)</a></div>
+			<div class="opt_comment"><span class="comment_actions"></span></div>
+		</li>
+	
+</ol>
+
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/tugenhua0707/p/5037811.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://www.gcpowertools.com.cn/products/activereports_casestudies.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank">【推荐】中铁、中石油等大型企业的复杂报表解决方案</a><br><a href="http://click.aliyun.com/m/15483" target="_blank">【活动】阿里云海外云服务全面降价助力企业全球布局</a><br><a href="http://web.tanzhouedu.com/index/keCourse.html" target="_blank">【粉丝福利】Web前端基础到高级在线直播教学</a><br><a href="https://group.cnblogs.com/topic/76829.html" target="_blank">【实用】40+篇云服务器操作及运维基础知识！</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="https://cn.udacity.com/course/front-end-web-developer-nanodegree--nd001-cn-basic/?utm_source=cnblogs&amp;utm_medium=referral&amp;utm_campaign=FEND03" target="_blank"><img width="300" height="250" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/24442-20170506063932914-1691562367.png" alt="udacity0506"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/568885/" target="_blank">滴滴首推五星级出行服务 “豪华车”入口在京开放预约</a><br> ·  <a href="http://news.cnblogs.com/n/568884/" target="_blank">大慈善家盖茨：帮印度建7500万个厕所应对卫生挑战</a><br> ·  <a href="http://news.cnblogs.com/n/568882/" target="_blank">微软拟推Cortana智能扬声器 争霸“家庭枢纽”</a><br> ·  <a href="http://news.cnblogs.com/n/568881/" target="_blank">富士康证实特朗普郭台铭会谈 美国六州抢富士康面板厂</a><br> ·  <a href="http://news.cnblogs.com/n/568880/" target="_blank">Google Maps出错 导致数百名游客访问田园诗般的挪威小镇</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/17215/" target="_blank"><img width="468" height="60" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/24442-20170417123605337-535991337.jpg" alt="阿里云E4"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/565901/" target="_blank">唱吧DevOps的落地，微服务CI/CD的范本技术解读</a><br> ·  <a href="http://kb.cnblogs.com/page/566523/" target="_blank">程序员，如何从平庸走向理想？</a><br> ·  <a href="http://kb.cnblogs.com/page/566318/" target="_blank">我为什么鼓励工程师写blog</a><br> ·  <a href="http://kb.cnblogs.com/page/566528/" target="_blank">怎么轻松学习JavaScript</a><br> ·  <a href="http://kb.cnblogs.com/page/509431/" target="_blank">如何打好前端游击战</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"><b>历史上的今天:</b><br>2013-12-11 <a href="http://www.cnblogs.com/tugenhua0707/p/3470234.html">JS编写简单的弹窗插件(含有demo和源码)</a><br></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+        </div>
+
+        <script type="text/javascript">
+            var m = window.__blog.contentRendered;
+            if (m) { m(__$("content")); }
+        </script>
+
+
+
+        <script type="text/javascript">
+            var m = window.__blog.sidebarRendered;
+            if (m) { m(__$("sidebar")); }
+        </script>
+
+        <div id="footer">
+            
+<p id="logoFoot">
+    <a href="http://www.spiga.com.mx/" title="Agencia Interactiva Spiga">www.spiga.com.mx</a>
+</p>
+<div class="footText">
+<p>
+Copyright ©2017 龙恩0707
+</p>
+<p>
+<a href="http://www.cnblogs.com/">博客园</a>
+</p>
+</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var m = window.__blog.wrapperRendered;
+        if (m) { m(__$("wrapper")); }
+    </script>
+
+</div>
+<script type="text/javascript">
+    var m = window.__blog.containerRendered;
+    if (m) { m(__$("container")); }
+</script>
+
+
+<iframe frameborder="0" scrolling="no" src="深入浅出的javascript的正则表达式学习教程%20-%20龙恩0707%20-%20博客园_files/4.html" style="visibility: hidden; width: 299px; height: 249px; right: 0px; bottom: 0px; position: fixed; border: none; background: white; opacity: 0; display: none !important;"></iframe><div style="position: absolute; width: 0px; height: 0px; overflow: hidden; padding: 0px; border: 0px; margin: 0px;"><div id="MathJax_Font_Test" style="position: absolute; visibility: hidden; top: 0px; left: 0px; width: auto; padding: 0px; border: 0px; margin: 0px; white-space: nowrap; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; font-size: 40px; font-weight: normal; font-style: normal; font-family: MathJax_Math-italic, sans-serif;"></div></div></body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1-获取元素的第二种方法</title>
+    <script>
+        /*
+        1.ById 前面只能跟document 不能跟其他元素
+          而ByTagName 前面既可以跟document 也能跟其他元素
+            #list{} var oUl = document.getElementById('list');        静态方法
+            li{}    document.getElementsByTagName('li');              动态方法
+        2.ById 找到的是一个元素
+          ByTagName 找到的是一堆元素的集合  所以再用TagName的时候,必须加上:[]    oLi[0]
+            #list li{}  var oLi = oUl.getElementsByTagName('li');   oLi -> [li1,li2,li3]元素的集合
+
+        */
+        window.onload = function () {
+            /*
+            //var oUl = document.getElementById('list');
+            var oUl = document.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            alert(aLi.length);
+            document.body.innerHTML = 'abc';
+            document.title = 123;
+             */
+            var aBtn = document.getElementsByTagName('input');
+//            alert(aBtn.length);
+            document.body.innerHTML = '<input type="button" value="按钮"><input type="button" value="按钮"><input type="button" value="按钮">';
+            //alert(aBtn.length);
+            aBtn[0].onclick = function () { alert(1); }
+            aBtn[1].onclick = function () { alert(2); }
+            aBtn[2].onclick = function () { alert(3); }
+        }
+        
+    </script>
+</head>
+<body>
+<ul id="list">
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>
+</body>
+</html>

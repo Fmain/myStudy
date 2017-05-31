@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>93-2D转换模块</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            height: 700px;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+        ul li{
+            list-style: none;
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            margin: 50px auto 0px;
+            text-align: center;
+            line-height: 50px;
+        }
+        /*旋转*/
+        ul li:nth-child(2){
+            /*deg是角度单位*/
+            transform: rotate(90deg);
+        }
+        /*平移*/
+        ul li:nth-child(3){
+            /*参数中间用,隔开*/
+            transform: translate(-300px,50px);
+        }
+        /*缩放*/
+        ul li:nth-child(4){
+            transform: scale(0.5 ,1.5);
+        }
+        /*注意:
+        1.先后顺序,先平移后旋转,和先旋转后平移效果不一样
+        2.不可以分开写
+        */
+        ul li:nth-child(5){
+
+            /*先平移后旋转*/
+            transform:translate(-50px,10px) rotate(45deg) ;
+            /*transform: translate(100px,10px);*/
+        }
+        ul li:nth-child(6){
+            /*先旋转后平移*/
+            transform:rotate(45deg) translate(-50px,10px);
+        }
+        ul li:nth-child(7){
+            transform: skew(30deg,20deg) ;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>正常</li>
+    <li>旋转</li>
+    <li>平移</li>
+    <li>缩放</li>
+    <li>综合1:先平移后旋转</li>
+    <li>综合2:先旋转后平移</li>
+    <li>补充：skew() </li>
+</ul>
+</body>
+</html>

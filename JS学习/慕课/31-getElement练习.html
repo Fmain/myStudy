@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>31-getElement练习</title>
+</head>
+<body>
+<form>
+    请选择你爱好:<br>
+    <input type="checkbox" name="hobby" id="hobby1">  音乐
+    <input type="checkbox" name="hobby" id="hobby2">  登山
+    <input type="checkbox" name="hobby" id="hobby3">  游泳
+    <input type="checkbox" name="hobby" id="hobby4">  阅读
+    <input type="checkbox" name="hobby" id="hobby5">  打球
+    <input type="checkbox" name="hobby" id="hobby6">  跑步
+    <br>
+    <input type="button" value = "全选" onclick = "checkall();">
+    <input type="button" value = "全不选" onclick = "clearall();">
+    <p>请输入您要选择爱好的序号，序号为1-6:</p>
+    <input id="wb" name="wb" type="text" >
+    <input name="ok" type="button" value="确定" onclick = "checkone();">
+</form>
+<script type="text/javascript">
+    function checkall(){
+        // 任务1
+        var hobby = document.getElementsByName("hobby");
+        for (var i=0;i<hobby.length;i++){
+            hobby[i].checked=true;
+        }
+    }
+
+    function clearall(){
+        // 任务2
+        var hobby = document.getElementsByName("hobby");
+        for (var i=0;i<hobby.length;i++){
+        hobby[i].checked=false;
+        }
+
+    }
+
+    function checkone(){
+        // 任务3
+        clearall();
+        var j=document.getElementById("wb").value;
+        alert("输入的值:"+j);
+        //alert(j.length);
+        var hobby = document.getElementsByName("hobby");
+/*
+        for (var i=0;i<j.length;i++){
+            if(j.charAt(i)>6||j.charAt(i)<1){
+                alert("越界,请重新输入")
+                document.getElementById("wb").value="";
+            }
+
+        }
+        for(var n=0;n<j.length;n++){
+            hobby[(j.charAt(n))-1].checked=true;
+        }
+        */
+
+        switch (j){
+            case "1":
+                hobby[0].checked=true;
+                break;
+            case "2":
+                hobby[1].checked=true;
+                break;
+            case "3":
+                hobby[2].checked=true;
+                break;
+            case "4":
+                hobby[3].checked=true;
+                break;
+            case "5":
+                hobby[4].checked=true;
+                break;
+            case "6":
+                hobby[5].checked=true;
+                break;
+            default:
+                alert("输入错误,请重新输入");
+                document.getElementById("wb").value="";
+        }
+    }
+
+</script>
+</body>
+</html>

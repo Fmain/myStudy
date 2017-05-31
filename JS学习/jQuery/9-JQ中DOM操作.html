@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.8-JQ中DOM操作</title>
+    <style>
+        /*p{
+            border: 1px solid #000;
+        }*/
+    </style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+     遍历 - 祖先元素
+         parent()       返回被选元素的直接父元素。只会向上一级对 DOM 树进行遍历。
+         parents()      返回被选元素的所有祖先元素,它一路向上直到文档的根元素 (<html>)。
+         parentsUntil() 返回介于两个给定元素之间的所有祖先元素。
+
+     遍历 - 后代元素
+         children()     返回被选元素的所有直接子元素，只会向下一级对 DOM 树进行遍历。
+         find()         返回被选元素的后代元素，一路向下直到最后一个后代。
+
+     遍历 - 同胞(siblings)
+         siblings()     返回被选元素的所有同胞元素。
+         next()         返回被选元素的下一个同胞元素。
+         nextAll()      返回被选元素的所有跟随的同胞元素。
+         nextUntil()    返回介于两个给定参数之间的所有跟随的同胞元素。
+         prev()         返回被选元素的前一个同胞元素。
+         prevAll()      返回被选元素的所有前面的同胞元素。
+         prevUntil()    返回介于两个给定参数之间的所有前面的同胞元素。
+
+     遍历- 过滤
+         first()        返回被选元素的首个元素
+         last()         返回被选元素的最后一个元素。
+         eq()           返回被选元素中带有指定索引号的元素。
+         filter()       规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。
+         not()          返回不匹配标准的所有元素。not() 方法与 filter() 相反。
+    共同点:
+        1.都可以使用可选参数来过滤
+     */
+    $(function () {
+        //parent()
+        //$('span').parent().css({'listStyle':'none','background':'red'});
+
+        //parents()
+        //$('span').parents('div').css({'width':'500px','height':'400px','border':'1px solid #000'});
+
+        //parentsUntil()
+        //$('li').parentsUntil('div').css('border','1px solid blue');
+
+
+        //children()
+        //$('ul').children('li.l2').css({'width':'300px','border':'1px solid blue'});
+
+        //find()
+        $('ul').find('li').css({'width':'400px','border':'2px solid pink'});
+
+
+    });
+
+    </script>
+</head>
+<body>
+<div class="box2">
+    <ul>
+        <li class="l1">
+            <span>span1</span>
+            <p>p1</p>
+        </li>
+        <li class="l2">
+            <span>span2</span>
+            <p>p2</p>
+        </li>
+        <li class="l3">
+            <span>span3</span>
+            <p>p3</p>
+            <ul>
+                <li>这是l3下面的ul的li</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

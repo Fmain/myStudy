@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-this</title>
+    <script>
+    function Fn() {
+        var that = this;
+        this.a = 12;
+        setInterval(function () {
+            that.show();
+        },1000);
+    }
+    Fn.prototype.show = function () {
+        alert(this.a);
+        //alert(this); //[object Window]
+    };
+    var obj = new Fn();
+    //obj.show();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

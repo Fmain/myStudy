@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>85-定位流-z-index属性</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+        }
+        .box1{
+            background-color: red;
+            position: relative;
+            top: 0px;
+            left: 0px;
+        }
+        .box2{
+            background-color: green;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        .box3{
+            background-color: blue;
+            position: fixed;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--
+z-index属性
+默认情况下所有元素都有一个默认的z-index属性
+    作用
+    专门用于控制定位刘元素的覆盖关系
+
+默认情况下,定位流的元素会覆盖标准流元素
+默认情况下,定位刘流元素的元素后面编写的会盖住前面编写的
+如果定位流元素设置了z-index属性,那么谁的z-index属性比较大,谁就显示在上面
+
+注意点:
+如果两个元素都没有设置z-index属性,那么谁的z-index属性比较大谁就显示在上面
+如果两个元素的父元素都设置了z-index属性,那么谁的父元素z-index属性大谁就显示在上面
+
+-->
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+</body>
+</html>

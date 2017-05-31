@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.2-封装</title>
+    <style type="text/css">
+        #div1{width: 100px;height: 100px;background: red;position: absolute;top: 100px;left: 200px;}
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var oBtn1 = $('btn1');
+            var oBtn2 = $('btn2');
+            var oBtn3 = $('btn3');
+            var oBtn4 = $('btn4');
+            var oDiv = $('div1');
+            //var timer = null;
+
+            oBtn1.onclick = function() {
+                /*
+                //防止多次点击
+                clearInterval(oDiv.timer);
+                // oDiv.style.left = 30
+                oDiv.timer = setInterval(function() {
+                    var speed = parseInt(getStyle(oDiv,'left')) + 1 ;
+                    if (speed>800) {
+                        speed = 800;
+                    };
+                    oDiv.style.left = speed + 'px';
+                    if (speed==800) {
+                        clearInterval(oDiv.timer);
+                    };
+                },1);
+                 */
+                 doMove(oDiv,'left',60,800);
+            };
+            oBtn2.onclick = function() {
+                doMove(oDiv,'left',10,10);
+
+            };
+            oBtn3.onclick = function() {
+                doMove(oDiv,'top',10,0);
+
+            };
+            oBtn4.onclick = function() {
+                doMove(oDiv,'top',10,300);
+
+            };
+
+            /*
+            oDiv +1  800 >
+            oDiv -1 10  <
+
+            doMove(oDiv,1,800)
+             */
+            function doMove (obj,attr,dir,target) {
+                //三目运算符: a?b:c if(a){return b}else{return c};
+                dir = parseInt(getStyle(obj,attr))<target ? dir : -dir;//判断dir正负,控制方向
+                clearInterval(obj.timer);
+                obj.timer = setInterval(function() {
+                    var speed = parseInt(getStyle(obj,attr)) + dir ;
+                    /*
+                    //判断往前跑还是往后跑
+                    if (speed>target&&dir>0) {
+                        speed = target;
+                    };
+                    if (speed<target&&dir<0) {
+                        speed = target;
+                    };
+                     */
+
+                    if (speed>target&&dir>0 || speed<target&&dir<0) {
+                        speed = target;
+                    };
+                    obj.style[attr] = speed + 'px';
+                    if (speed==target) {
+                        clearInterval(obj.timer);
+                    };
+                },20);
+            }
+        })
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="往右">
+<input id="btn2" type="button" value="往左">
+<input id="btn3" type="button" value="往上">
+<input id="btn4" type="button" value="往下">
+<div id="div1"></div>
+</body>
+</html>

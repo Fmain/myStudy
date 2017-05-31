@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.2-innerHTML</title>
+    <script>
+        /*
+        * oP.innerHTML  读取元素内的所有HTML代码
+        *
+        * oP.innerHTML = 新的值；   替换元素内的所有HTML代码
+        * */
+        window.onload = function () {
+            var oText = document.getElementById("text1");
+            var oBtn = document.getElementById("btn1");
+            var oP = document.getElementById("p1");
+
+
+            oBtn.onclick = function () {
+                //alert(oP.innerHTML);
+                oP.innerHTML = oText.value;
+                oText.value = '';
+
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<input type="text" name="" id="text1">
+<input type="button" value="按钮" id="btn1">
+<p id="p1">这是一段文字。。。</p>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>63-浮动练习</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        .header{
+            width: 980px;
+            height: 100px;
+            /*background-color: red;*/
+            margin:0 auto;
+        }
+        .content{
+            width: 980px;
+            height: 400px;
+            /*background-color: green;*/
+            margin:0 auto;
+            margin-top: 10px;
+        }
+        .footer{
+            width: 980px;
+            height: 40px;
+            background-color: tomato;
+            margin:0 auto;
+            margin-top: 10px;
+        }
+        .header .left{
+            float: left;
+            width: 250px;
+            height: 100px;
+            background-color: pink;
+        }
+        .header .right .top{
+            float: right;
+            width: 150px;
+            height: 50px;
+            background-color: #88ccea;
+        }
+        .header .right .bottom{
+            float: right;
+            width: 650px;
+            height: 50px;
+            background-color: purple;
+        }
+        .content .c1{
+            float: left;
+            width: 320px;
+            height: 400px;
+            background-color: yellow;
+        }
+        .content .right{
+            float: right;
+            width: 650px;
+            height: 400px;
+            /*background-color: black;*/
+            margin-left: 10px;
+        }
+        .content .right .top{
+            width: 650px;
+            height: 350px;
+            /*background-color: #fff;*/
+        }
+        .content .right .c5{
+            width: 650px;
+            height: 40px;
+            margin-top: 10px;
+            background-color: #b38806;
+        }
+        .content .right .left{
+            width: 400px;
+            height: 350px;
+            /*background-color: burlywood;*/
+            float: left;
+        }
+        .content .c2{
+            width: 400px;
+            height: 200px;
+            background-color: #ff1394;
+        }
+        .content .c3{
+            width: 400px;
+            height: 140px;
+            background-color: #00bcfe;
+            margin-top: 10px;
+        }
+        .content .c4{
+            width: 240px;
+            height: 350px;
+            background-color: #9dcb31;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="left"></div>
+    <div class="right">
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</div>
+<div class="content">
+    <div class="c1"></div>
+    <div class="right">
+        <div class="top">
+            <div class="left">
+                <div class="c2"></div>
+                <div class="c3"></div>
+            </div>
+            <div class="c4"></div>
+        </div>
+        <div class="c5"></div>
+    </div>
+</div>
+<div class="footer"></div>
+
+</body>
+</html>

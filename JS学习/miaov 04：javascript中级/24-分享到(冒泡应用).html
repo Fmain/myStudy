@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>24-分享到</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 200px;
+            background: red;
+            position: absolute;
+            left: -100px;
+            top: 100px;
+        }
+        #div2{
+            width: 30px;
+            height: 60px;
+            position: absolute;
+            right: -30px;
+            top: 70px;
+            background: black;
+            color: #FFF;
+            text-align: center;
+        }
+    </style>
+    <script>
+    window.onload = function () {
+        var oDiv1 = document.getElementById('div1');
+        //var oDiv2 = document.getElementById('div2');
+
+        /*
+        oDiv1.onmouseover = function (ev) {
+            //因为oDiv在接收到onmouseover事件的时候,会把这个事件冒泡传递给父级oDiv2,父级接收到事件之后,做出此处的事件处理即可
+            var ev = ev || event;
+            ev.cancelBubble = true;
+            oDiv1.style.left = '0px';
+        };
+
+        /*
+        //此处的oDiv2事件处理不用写
+         oDiv2.onmouseover = function (ev) {
+         var ev = ev || event;
+         ev.cancelBubble = true;
+         oDiv1.style.left = '0px';
+         };
+        document.onmouseover = function () {
+            oDiv1.style.left = '-100px';
+        }
+         */
+        oDiv1.onmouseover = function () {
+            oDiv1.style.left = '0px';
+        };
+        oDiv1.onmouseout = function () {
+            oDiv1.style.left = '-100px';
+        }
+    }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">分享到</div>
+</div>
+</body>
+</html>

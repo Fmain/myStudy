@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.4-抖动原理</title>
+    <style type="text/css">
+        img{position: absolute;top: 100px;left: 500px;height: 300px;width: 200px;}
+        #img1{left: 100px;}
+    </style>
+    <script src="js/fmx.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var oImg1 = $('img1');
+            var oImg2 = $('img2');
+            var pos = parseInt(getStyle(oImg2,'left'));
+
+
+            oImg1.onclick = function(){
+                var _this = this;
+                 shake(_this,'left',function() {
+                    shake(_this,'top')
+                 });
+            }
+            oImg2.onclick = function(){
+                var _this = this;
+                shake(_this,'left',pos);
+            }
+        })
+
+        function shake ( obj,attr,pos,endFn) {
+            // alert(pos);
+            var arr = [];
+            var num = 0;
+            for (var i = 20; i > 0; i -= 1) {
+                arr.push(i,-i);
+            };
+            arr.push(0);
+
+            clearInterval(obj.shake);   //
+            obj.shake = setInterval(function() {
+                obj.style[attr] = pos + arr[num] + 'px';
+                num++;
+                if(num == arr.length){
+                    clearInterval(obj.shake);
+                    endFn&&endFn();
+                }
+            },50);
+        }
+        /**/
+    </script>
+</head>
+<body>
+<img id="img1" src="images/a1.jpg">
+<img id="img2" src="images/a2.jpg">
+</body>
+</html>

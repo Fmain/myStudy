@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.match();方法</title>
+    <script>
+    /*
+     match(); 方法:该方法用于在字符串内检索指定的值,或找到一个或者多个正则表达式的匹配.该方法类似于indexOf()或者lastIndexOf();但是他返回的是指定的值,而不是字符串的位置;
+        语法: stringObject.match(searchValue)或者stringObject.match(regexp)
+            @param(参数)
+                searchValue 需要检索字符串的值;
+                regexp 需要匹配模式的RegExp对象;
+            @return(返回值)
+                存放匹配成功的数组;
+                返回的数组内有三个元素,第一个元素存放的是匹配的文本,还有两个对象属性;
+                index属性标明的是匹配文本的起始字符在stringObject中的位置;
+                input属性声明的是对stringObject对象的引用;
+                它可以全局匹配模式,全局匹配的话,它返回的是一个数组.
+                如果没有找到任何的一个匹配,那么它将返回的是null.
+     */
+    var str = 'hello world,hello hello world,1 plus 20 equal 201';
+
+    console.log(str.match('ll')); //["ll", index: 2, input: "hello world,hello world"]
+
+    console.log(str.match('LL')); //null
+
+    console.log(str.match(/ll/)); //["ll", index: 2, input: "hello world,hello world"]
+
+    console.log(str.match(/\d+/g)); // \d 任何数字 \D 除数字之外的任何字符
+    </script>
+</head>
+<body>
+
+</body>
+</html>

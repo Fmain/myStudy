@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.6-css()方法</title>
+    <style>
+        /*p{
+            background: red;
+        }*/
+    </style>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+    /*
+     css() 方法设置或返回被选元素的一个或多个样式属性。
+
+     返回指定的 CSS 属性:
+        css("propertyname");
+        如:返回首个匹配元素的 background-color 值：
+            $("p").css("background-color");     //rgb(255, 0, 0)
+
+     设置 CSS 属性:
+        css("propertyname","value");
+        如:为所有匹配元素设置 background-color 值
+            $("p").css("background-color","yellow");
+
+     设置多个 CSS 属性
+        css({"propertyname":"value","propertyname":"value",...});
+        如:为所有匹配元素设置 background-color 和 font-size：
+            $("p").css({"background-color":"yellow","font-size":"200%"});
+
+     */
+
+    $(function () {
+        $(".p").css("background-color","yellow");
+        $("p").css({"height":"50px","width":"50px"});
+        alert($(".p").css("background-color"));  //rgb(255, 255, 0)
+        alert($("p").css("width"));  //rgb(255, 0, 0)
+    });
+    </script>
+</head>
+<body>
+<p>11111</p>
+<p class="p">22222</p>
+<p class="p">33333</p>
+</body>
+</html>

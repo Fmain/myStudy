@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>116-多重背景图片练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+        }
+        div{
+            width: 600px;
+            height: 200px;
+            border: 1px solid #ccc;
+            margin: 200px auto;
+            background: url("matter/纸飞机.fw.png"),url("matter/太阳.png"),url("matter/云朵.png") skyblue;
+            background-repeat:no-repeat;
+            background-size: 50px 50px,70px 70px,100% 50%;
+            background-position: 50px 150px,400px 50px,0px 0px;
+            animation: move 5s linear 0s infinite normal;
+        }
+        @keyframes move {
+            from{
+                background-position: 50px 200px,400px 50px,left bottom;
+            }
+            to{
+                background-position: 500px -250px,400px 50px,-600px 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>

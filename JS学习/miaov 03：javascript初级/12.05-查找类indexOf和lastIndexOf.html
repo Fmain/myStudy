@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>12.5-indexof</title>
+    <script type="text/javascript">
+        /*
+        indexOf();  从左往右找
+        lastIndexOf();  从右往左找   如果下标为负数,默认当成0来处理
+         */
+        var str = 'fmxaxjy';
+        /*
+        for (var i = 0; i < str.length; i++) {
+            if (str.charAt(i)=='x') {
+                alert(i);
+            };
+        };
+         */
+        alert(str.indexOf('x'));  // 2  只返回第一个查找的元素位置
+        alert(str.indexOf('x',3));  //4 从下标3开始找'x'
+        alert(str.indexOf('x',100));  //-1 表示没找到
+
+        alert(str.indexOf('xa'));   //2
+    </script>
+</head>
+<body>
+
+</body>
+</html>

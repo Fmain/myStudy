@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>18-BOM事件操作</title>
+    <script>
+    /*
+    onscroll : 当滚动条滚动的时候触发
+    onresize : 当窗口大小发生改变的时候触发
+     */
+    var i = 0;
+
+    window.onscroll = function () {
+        document.title = i++;
+    }
+    window.onresize = function () {
+        document.title = i++;
+    }
+    </script>
+</head>
+<body style="height: 2000px;">
+
+</body>
+</html>

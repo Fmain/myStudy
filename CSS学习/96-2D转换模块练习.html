@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>96-2D转换模块练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 310px;
+            height: 438px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            perspective: 500px;
+            background-color: skyblue;
+            /*transition-duration:2s;*/
+
+        }
+        img{
+            transform-origin: bottom;
+            /*鼠标放上和离开的时间*/
+            transition-duration:0.5s;
+
+        }
+
+        div:hover img{
+            /*如果加上,只代表鼠标放上去之后的时间*/
+            transition-duration:2s;
+            transform: rotateX(80deg);
+        }
+        /*
+        换成这个会导致,鼠标离开img却在div中的时候,会进行变化
+        img:hover{
+
+            transition-duration:2s;
+            transform: rotateX(80deg);
+        }
+        */
+    </style>
+</head>
+<body>
+<div>
+    <img src="image/k.png" alt="图片未显示">
+</div>
+</body>
+</html>

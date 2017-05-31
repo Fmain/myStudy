@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>10.1-定时器管理</title>
+    <style type="text/css">
+        #div1{width: 100px;height: 100px;background: red;position: absolute;top: 50px;left: 30px;}
+    </style>
+    <script src="../JS库/fmx.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var oBtn1 = $('btn1');
+            var oBtn2 = $('btn2');
+            var oDiv = $('div1');
+            //var timer = null;
+
+            oBtn1.onclick = function() {
+                //防止多次点击
+                clearInterval(oDiv.timer);
+                // oDiv.style.left = 30
+                oDiv.timer = setInterval(function() {
+                    var speed = parseInt(getStyle(oDiv,'left')) + 1 ;
+                    if (speed>800) {
+                        speed = 800;
+                    };
+                    oDiv.style.left = speed + 'px';
+                    if (speed==800) {
+                        clearInterval(oDiv.timer);
+                    };
+                },1);
+            };
+            oBtn2.onclick = function() {
+                //防止多次点击
+                clearInterval(oDiv.timer);
+                // oDiv.style.left = 30
+                oDiv.timer = setInterval(function() {
+                    var speed = parseInt(getStyle(oDiv,'left')) - 1 ;
+                    if (speed<10) {
+                        speed = 10;
+                    };
+                    oDiv.style.left = speed + 'px';
+                    if (speed==10) {
+                        clearInterval(oDiv.timer);
+                    };
+                },1);
+
+            };
+        })
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="往前">
+<input id="btn2" type="button" value="往后">
+<div id="div1"></div>
+</body>
+</html>

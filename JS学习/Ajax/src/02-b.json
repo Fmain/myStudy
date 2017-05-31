@@ -1,0 +1,10 @@
+/**
+ * Created by Administrator on 2017/5/20.
+ */
+{
+    "person":{
+        "name":"sina",
+        "website":"http://www.sina.com",
+        "email":"sina@sina.com"
+}
+}

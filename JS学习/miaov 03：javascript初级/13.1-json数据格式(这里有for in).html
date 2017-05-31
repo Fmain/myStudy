@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>13.1-json数据格式</title>
+
+    <script type="text/javascript">
+        var json = {name:'fmx',age:32};
+        // alert(json.name);
+        var arrUrl = ['images/1.jpg','images/2.jpg','images/3.jpg'];
+        var attText = ['a','a','a','a'];
+        var imgData = {
+            url:['images/1.jpg','images/2.jpg','images/3.jpg'],
+            text:['a','a','a','a']
+        };
+        // alert(imgData.url[2]);
+        // var json2 = {name:'miaov'};
+        var json2 = {'name':'miaov'}
+        // alert(json2.name);
+        json2['name'] = '妙味';
+        // alert(json2['name']);
+        json2['name'] = 'xixi';
+
+        var json3 = {abc:123,xyz:''}
+        var arr = [{'name':'Tm','age':23},{'name':'fmx','age':21}]
+        // alert(arr[0].name+'今年'+arr[1]['age']);
+
+        var json4 = {'name':'miaov','age':3,'fun':'前端开发'};
+
+        for(var attr in json4){
+            //alert(attr);
+            //alert(json4[attr]);
+             alert(json4['name']);    //加上引号,代表在json4中查找''中的内容
+        }
+
+        var json5 = {
+            'url':['images/1.jpg','images/2.jpg','images/3.jpg'],
+            'text':['a','b','c','d']
+        }
+        for (var attr in json5) {
+            for (var i = 0; i < json5[attr].length; i++) {
+                //alert(json5[attr][i]);
+            };
+        };
+        // var arr = [{},{},{}]
+    </script>
+</head>
+<body>
+
+</body>
+</html>

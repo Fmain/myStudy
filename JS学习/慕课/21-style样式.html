@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>21-style样式</title>
+    <style>
+        #con{
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+<body>
+<!--
+改变 HTML 样式
+    HTML DOM 允许 JavaScript 改变 HTML 元素的样式。如何改变 HTML 元素的样式呢？
+
+语法:
+    Object.style.property=new style;
+
+注意:
+    1.Object是获取的元素对象，如通过document.getElementById("id")获取的元素。
+    2.property为CSS样式属性,有:background  height  width   color   font    等...
+    3.JS中调用样式时，使用连字符的属性名称需要改为驼峰式的名称才能正常使用，如myChar.style.backgroundColor，css中的background-color要更改为backgroundColor，去连字符，第二个单词首字母大写。
+
+问题:
+    为什么script标签必须放在body中才能正确显示?
+ -->
+
+<h2 id="con">I love JavaScript</h2>
+<p id="conn">JavaScript使网页显示动态效果并实现与用户交互功能。</p>
+<script type="text/javascript">
+    var myChar = document.getElementById("conn");
+    var myStyle = myChar.style.fontSize;
+    alert(myStyle);
+    myChar.style.color = "red";
+    myChar.style.backgroundColor = "#ccc";
+    myChar.style.width("300px");
+    document.getElementById("conn").style.fontSize = myStyle;
+</script>
+</body>
+</html>

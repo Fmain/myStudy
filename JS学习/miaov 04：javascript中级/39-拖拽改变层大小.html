@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>39-拖拽改变层大小</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            position: relative;
+            left: 100px;
+            top: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            
+            var oDiv = document.getElementById('div1');
+            
+            oDiv.onmousedown = function (ev) {
+                var a = '';
+
+                var ev = ev || event;
+
+                //鼠标down的时候,距离屏幕距离
+                var disX = ev.clientX;
+                //鼠标down的时候,oDiv的宽
+                var disW = this.offsetWidth;
+
+                var L = this.offsetLeft;
+                var R = L + disW;
+                var T = this.offsetTop;
+                var B = T + this.offsetHeight;
+
+                if (disX > L + disW - 10){
+                    a = 'right';
+                }
+                if (disX < L + 10){
+                    a = 'left';
+                }
+                document.onmousemove = function (ev) {
+                    var ev = ev || event;
+                    switch (a){
+                        case 'left':
+                            //oDiv.style.left = ev.clientX + 'px';
+                            //oDiv.style.width = R - ev.clientX + 'px';
+                            oDiv.style.width = disW - (ev.clientX-disX) + 'px';
+                            oDiv.style.left = L + (ev.clientX-disX) + 'px';
+                            break;
+                        case 'right':
+                            oDiv.style.width = disW + (ev.clientX-disX) + 'px';
+                            break;
+                    }
+                };
+
+                //抬起时清空事件
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                }
+                return false;
+            }
+        }
+        /*
+        存在bug:
+            当鼠标快速移动把div的宽变成负值时,div可能会跟着鼠标移动,原因是,当div宽小到和判断事件距离界限一样时,区分不了是left还是right执行函数
+         */
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>28-优先级之权重问题</title>
+    <style>
+        #id1 .box2{
+            color: red;
+        }
+        .box1 .box2{
+            color: green;
+        }
+        div ul li p{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<!--
+权重问题
+作用：当多个选择器混合在一起使用时，我们可以通过计算权重来判断谁的优先级最高
+规则：
+通过计算id>类>标签>的权重，使用优先级高的选择器
+如果id、类、标签权重都一样，谁写在后面听谁的
+注意点：
+只有选择器是直接选中标签的才需要计算权重
+-->
+
+<div id="id1" class="box1">
+    <ul>
+        <li>
+            <p id="id2" class="box2">abcd</p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

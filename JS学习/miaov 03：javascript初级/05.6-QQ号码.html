@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>5.6-QQ号码</title>
+    <script type="text/javascript">
+        window.onload = function  () {
+            var aInp = document.getElementsByTagName('input');
+
+            aInp[1].onclick = function  () {
+                str = aInp[0].value;
+                switch(str){
+                    case '':
+                    alert('请输入QQ号码')
+                    break;
+                    case str<10000:
+                    alert('请输入5位数以上QQ号码')
+                    break;
+                    case parseInt(num)!=parseFloat(num):
+                    alert('请不要输入小数')
+                    break;
+                    default:
+                    alert('你输入的是:'+str);
+
+                }
+                // if (str=='') {
+                //
+                // }else if (str<10000) {
+                //     alert('请输入5位数以上QQ号码');
+                // }else if (parseInt(num)!=parseFloat(num)) {
+                //     alert('请不要输入小数');
+                // }else{
+                //     alert('你输入的是:'+str);
+                // };
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+请输入QQ号码：<input type="text" />
+<input type="button" value="判断" />
+
+
+<br />
+1、有没有输入<br />
+2、输入的是不是数字<br />
+3、不能有0在前面<br />
+4、不能是小数<br />
+5、输入的数字必须在5位以上、10位以内<br />
+
+</body>
+</html>

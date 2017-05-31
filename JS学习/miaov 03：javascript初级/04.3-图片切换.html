@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.3-图片切换</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #000;
+        }
+        li{
+            list-style:none;
+        }
+        #pic{
+            width: 400px;
+            height: 500px;
+            margin: 20px auto;
+            border: 1px solid #000;
+            position: relative;
+            background: url("images/loader_ico.gif") no-repeat center #fff;
+        }
+
+        #pic img{
+            width: 400px;
+            height: 500px;
+        }
+        #pic span,#pic p{
+            position: absolute;
+            left: 0;
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #ffffff;
+            background: rgba(56, 56, 56, 0.54);
+        }
+        #pic span{
+            top: 5px;
+        }
+        #pic p{
+            bottom: 5px;
+        }
+        #pic ul{
+            position: absolute;
+            top: 0;
+            right: -50px;
+        }
+        #pic li{
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 4px;
+            background: #666666;
+            text-align: center;
+            color: #ffffff;
+        }
+        #pic .active{
+            background: #ffcc33;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('pic');
+            var oImg = oDiv.getElementsByTagName('img')[0];
+            var oSpan = oDiv.getElementsByTagName('span')[0];
+            var oP = oDiv.getElementsByTagName('p')[0];
+            var oUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+
+            var arrUrl = ['../images/1.png','../images/2.png','../images/3.png','../images/4.png'];
+            var arrText = ['傲娇','生气','难受','害羞'];
+            var num = 0;    //有数组的地方,尽量写一个计数器
+            var oldLi = null;
+            //var onOff = true;
+
+            for(var i=0;i<arrUrl.length;i++){
+                oUl.innerHTML += '<li>'+(1+i)+'</li>';
+            }
+            oldLi = aLi[num];
+
+            //初始化
+            oImg.src = arrUrl[num];
+            oP.innerHTML = arrText[num];
+            oSpan.innerHTML = 1 + num + '/' + arrUrl.length;
+            aLi[num].className = 'active';  //给li动态添加.active样式
+
+            for (var i=0;i<aLi.length;i++){
+                aLi[i].index = i;
+                aLi[i].onclick = function () {
+                    num = this.index;
+                    oImg.src = arrUrl[num];
+                    oP.innerHTML = arrText[num];
+                    oSpan.innerHTML = 1 + num + '/' + arrUrl.length;
+                    /*
+                    给li添加切换颜色的思路:
+                        //1.全部清空,然后给当前添加(性能差,但是扩展性强)
+                    for(var i=0;i<arrUrl.length;i++){
+                        aLi[i].className = 'none';
+                    }
+                    this.className = 'active';
+                     */
+                        //2.清空上一个,然后给当前添加
+                    oldLi.className = '';
+                    oldLi = this;
+                    this.className = 'active';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="pic">
+    <img src="images/1.png" alt="">
+    <span>数量加载数量中...</span>
+    <p>文字说明正在加载中...</p>
+    <ul></ul>
+</div>
+</body>
+</html>

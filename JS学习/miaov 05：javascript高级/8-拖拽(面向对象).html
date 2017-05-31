@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>35-拖拽封装</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+        img{
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var oImg = document.getElementById('img');
+            var oText = document.getElementById('text1');
+
+            drag(oDiv);
+            drag(oDiv2);
+            drag(oImg);
+            drag(oText);
+
+
+        };
+        function drag(obj) {
+            obj.onmousedown = fnDown;
+        }
+        function fnDown (ev) {
+            obj.style.position = 'absolute';
+            var that = this;
+            var ev = ev || event;
+            that.disX = ev.clientX - this.offsetLeft;
+            that.disY = ev.clientY - this.offsetTop;
+            if (obj.setCapture) { //解决: 3非标准IE下
+                obj.setCapture();
+            }
+            document.onmousemove = function (ev) { //oDiv->document 解决:1.拖拽过快
+                var ev = ev || event;
+
+                var L = ev.clientX - that.disX;
+                var T = ev.clientY - that.disY;
+                if (L<0){
+                    L = 0;
+                }else if(L>document.documentElement.clientWidth-obj.offsetWidth){
+                    L = document.documentElement.clientWidth-obj.offsetWidth;
+                }
+                if(T<0){
+                    T = 0;
+                }else if(T>document.documentElement.clientHeight-obj.offsetHeight){
+                    T = document.documentElement.clientHeight-obj.offsetHeight;
+                }
+                obj.style.left = L + 'px';
+                obj.style.top = T + 'px';
+            };
+            document.onmouseup = function () { //oDiv->document 解决:2.把div拖拽到另一个标签后面,然后在这个标签上面释放鼠标
+                document.onmousemove = document.onmouseup = null;
+                if (obj.setCapture) { //解决: 3非标准IE下
+                    obj.releaseCapture();
+                }
+            };
+            return false; // ->添加 解决:3标准下.拖拽的时候,如果有文字被选中
+        }
+    </script>
+</head>
+<body>
+abcdefghijkhlmn
+<input type="text" id="text1">
+<div id="div1"></div>
+<div id="div2" style="width: 100px;height: 100px;background: green;position: absolute;left: 400px;top: 200px;"></div>
+<img id="img" src="../miaov%2003：javascript初级/images/4.png" alt="">
+<!--<script>
+    window.onload = function () {
+        var oDiv = document.getElementById('div1');
+        var oDiv2 = document.getElementById('div2');
+        var oImg = document.getElementById('img');
+        var oText = document.getElementById('text1');
+
+        drag(oDiv);
+        drag(oDiv2);
+        drag(oImg);
+        drag(oText);
+        function drag(obj) {
+            obj.style.zIndex = '99999';
+            obj.onmousedown = function (ev) {
+                obj.style.position = 'absolute';
+                var ev = ev || event;
+                var disX = ev.clientX - this.offsetLeft;
+                var disY = ev.clientY - this.offsetTop;
+                if (obj.setCapture) { //解决: 3非标准IE下
+                    obj.setCapture();
+                }
+                document.onmousemove = function (ev) { //oDiv->document 解决:1.拖拽过快
+                    var ev = ev || event;
+
+                    var L = ev.clientX - disX;
+                    var T = ev.clientY - disY;
+                    if (L<0){
+                        L = 0;
+                    }else if(L>document.documentElement.clientWidth-obj.offsetWidth){
+                        L = document.documentElement.clientWidth-obj.offsetWidth;
+                    }
+                    if(T<0){
+                        T = 0;
+                    }else if(T>document.documentElement.clientHeight-obj.offsetHeight){
+                        T = document.documentElement.clientHeight-obj.offsetHeight;
+                    }
+                    obj.style.left = L + 'px';
+                    obj.style.top = T + 'px';
+                };
+                document.onmouseup = function () { //oDiv->document 解决:2.把div拖拽到另一个标签后面,然后在这个标签上面释放鼠标
+                    document.onmousemove = document.onmouseup = null;
+                    if (obj.setCapture) { //解决: 3非标准IE下
+                        obj.releaseCapture();
+                    }
+                };
+                return false; // ->添加 解决:3标准下.拖拽的时候,如果有文字被选中
+            };
+        }
+
+    }
+</script>-->
+</body>
+</html>

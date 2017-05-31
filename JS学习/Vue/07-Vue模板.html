@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>07-Vue模板</title>
+    <script src="vue.js"></script>
+    <!-- <script src="../vue.js"></script> -->
+    <script type="text/javascript">
+    /*
+    1.{{{msg}}}
+        Vue1.0x版本中{{{content}}}可转义content内容中的html代码,vue 2.0 已经废弃了 三大括号 的插值了，需要使用 v-html
+    2.{{*msg}}
+        禁止刷新模板以前用的是{{*}},现在用v-once,
+    3.{{}}
+        依然用来做模板插值
+
+    参考:http://blog.csdn.net/kkae8643150/article/details/52815007
+     */
+     window.onload = function  () {
+         new Vue({
+            el:'#box',
+            data:{
+                msg:'abc'
+            }
+         })
+     }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="text" v-model='msg'/>
+    <br>
+    {{msg}}
+    <br>
+    <!-- {{*msg}} -->
+    <div v-once>{{msg}}</div>
+    <!-- {{{msg}}} -->
+    <div v-html="msg"></div>
+</div>
+</body>
+</html>

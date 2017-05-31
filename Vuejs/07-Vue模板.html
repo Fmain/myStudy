@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>07-Vue模板</title>
+    <script src="vue.js"></script>
+    <!-- <script src="../vue.js"></script> -->
+    <script type="text/javascript">
+    /*
+    Vue1.x
+        1.{{{msg}}}
+            Vue1.0x版本中{{{content}}}可转义content内容中的html代码,vue 2.0 已经废弃了 三大括号 的插值了，需要使用 v-html
+        2.{{*msg}}
+            禁止刷新模板以前用的是{{*}},现在用v-once,
+        3.{{}}
+            依然用来做模板插值
+    Vue2.x
+        1.文本
+            数据绑定最常见的形式就是使用 {{...}}（双大括号）的文本插值：
+        2.Html
+            使用 v-html 指令用于输出 html 代码：
+        3.属性
+            HTML 属性中的值应使用 v-bind 指令。
+        4.表达式
+            Vue.js 都提供了完全的 JavaScript 表达式支持。
+        5.指令
+            指令是带有 v- 前缀的特殊属性。指令用于在表达式的值改变时，将某些行为应用到 DOM 上。
+        6.参数
+            参数在指令后以冒号指明。例如， v-bind 指令被用来响应地更新 HTML 属性：
+        7.修饰符
+            修饰符是以半角句号 . 指明的特殊后缀，用于指出一个指定应该以特殊方式绑定。例如，.prevent 修饰符告诉 v-on 指令对于触发的事件调用 event.preventDefault()：
+
+
+     以下实例判断 class1 的值，如果为 true 使用 class1 类的样式，否则不使用该类：
+
+    参考:http://blog.csdn.net/kkae8643150/article/details/52815007
+     */
+     window.onload = function  () {
+         new Vue({
+            el:'#box',
+            data:{
+                msg:'abc'
+            }
+         })
+     }
+    </script>
+</head>
+<body>
+<div id="box">
+    <input type="text" v-model='msg'/>
+    <br>
+    {{msg}}
+    <br>
+    <!-- {{*msg}} -->
+    <div v-once>{{msg}}</div>
+    <!-- {{{msg}}} -->
+    <div v-html="msg"></div>
+</div>
+</body>
+</html>

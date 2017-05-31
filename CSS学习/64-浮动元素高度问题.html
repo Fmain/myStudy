@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>64-浮动元素高度问题</title>
+    <style>
+        body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+            margin:0;
+            padding:0
+        }
+        div{
+            border: 1px solid #000;
+            /*float: left;*/
+        }
+        p{
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!--
+在标准流内容高度可以撑起父元素高度
+在浮动流中浮动的元素是不可以撑起父元素高度
+-->
+<div>
+    <p></p>
+</div>
+</body>
+</html>

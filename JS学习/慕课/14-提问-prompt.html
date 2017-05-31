@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>14-提问-prompt</title>
+    <script type="text/javascript">
+        function rec(){
+            var score;
+            score = prompt("请输入你的成绩:","请输入0-100以内的数字");
+            if (score>=90) {
+                document.write("你考了:"+score+",你很棒!");
+            } else if(score>=75){
+                document.write("你考了:"+score+",不错哟!");
+            }else if(score>=60){
+                document.write("你考了:"+score+",加油哦!");
+            }else if(score<60|score>=0){
+                document.write("你考了:"+score+",要努力了!");
+            }else if(score==null){
+                close($(this));
+            }else {
+                document.write("对不起,你输入的不是0-100以内的数字!");
+            };
+        }
+    </script>
+</head>
+<body>
+<!--
+prompt:
+    弹出消息对话框,通常用于询问一些需要与用户交互的信息。弹出消息对话框（包含一个确定按钮、取消按钮与一个文本输入框）。
+
+语法:
+    prompt(str1, str2);
+
+参数说明：
+    str1: 要显示在消息对话框中的文本，不可修改
+    str2：文本框中的内容，可以修改
+
+返回值:
+    1. 点击确定按钮，文本框中的内容将作为函数返回值
+    2. 点击取消按钮，将返回null
+
+注意:
+    1.参数之间用逗号隔开
+    2.取消按钮返回的是null值
+    3.str2是默认返回值
+
+问题:
+    怎么设置点击取消按钮,取消对话框
+    怎么设置str2位0-100的数字,而不是其他字符集
+ -->
+ <input type="button" value="点击这里输入你的成绩" onclick="rec();" />
+</body>
+</html>
