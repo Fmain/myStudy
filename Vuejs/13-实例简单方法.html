@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>vue</title>
+    <script src="vue.js"></script>
+    <!--<script src="./old/vue.js"></script>-->
+<!--
+vm.$el 是获取的元素
+
+vm.$data 是本身的数据对象
+
+vm.$mount('#box'); //手动挂载vue程序*/
+
+vm.$options     获取自定义属性
+
+vm.$destroy     销毁对象
+
+vm.$log     查看现在数据的状态
+
+-->
+</head>
+<body>
+<div id="box" v-text="a">
+</div>
+<script type="text/javascript">
+
+    /*var vm = new Vue({
+        el:'#box',
+        data:{
+            a:1
+        }
+    });
+    console.log(vm.$el);
+    vm.$el.style.backgroundColor='red';
+    ///////////////////////////
+    console.log(vm.$data.a);*/
+
+    /*var vm = new Vue({
+        data:{
+            a:1
+        }
+    });
+    vm.$mount('#box'); //手动挂载
+    var vm = new Vue({
+        data:{
+            a:1
+        }
+    }).$mount('#box'); //手动挂载
+     */
+
+    /*var vm = new Vue({
+        b:11,  //自定义属性
+        show:function () {
+            alert(1);
+        },
+        data:{
+            a:1
+        }
+    }).$mount('#box');
+    console.log(vm.$options.b);
+    vm.$options.show();*/
+
+    var vm = new Vue({
+        data:{
+            a:1,
+            b:2
+        }
+    }).$mount('#box');
+    console.log(vm.$log);
+
+
+</script>
+</body>
+</html>

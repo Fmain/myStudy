@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>08-Vue过滤器</title>
+    <script src="vue.js"></script>
+     <!--<script src="./old/vue.js"></script>-->
+
+</head>
+<body>
+<div id="box">
+    a->{{a}}
+    <br>
+    b->{{b}}
+</div>
+<script type="text/javascript">
+    /*
+
+     */
+    var vm = new Vue({
+        el:'#box',
+        data:{
+            a:1
+        },
+        computed:{
+            /*b:function () {
+                //业务逻辑代码
+                return this.a+1;
+            }*/
+            b:{
+                get:function () {
+                    return this.a+2;
+                },
+                set:function (val) {
+                    this.a=val;
+                }
+            }
+        }
+    });
+    console.log(vm.a);
+    document.onclick = function () { vm.b=10; }
+</script>
+</body>
+</html>
