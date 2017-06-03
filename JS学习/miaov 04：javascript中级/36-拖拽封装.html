@@ -32,6 +32,7 @@
                 obj.onmousedown = function (ev) {
                     obj.style.position = 'absolute';
                     var ev = ev || event;
+                    console.log(ev.clientX);
                     var disX = ev.clientX - this.offsetLeft;
                     var disY = ev.clientY - this.offsetTop;
                     if (obj.setCapture) { //解决: 3非标准IE下

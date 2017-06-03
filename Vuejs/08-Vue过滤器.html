@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>08-Vue过滤器</title>
     <script src="vue.js"></script>
-    <!-- <script src="../vue.js"></script> -->
+     <!--<script src="../vue.js"></script>-->
     <script type="text/javascript">
     /*
     过滤器:Vue 2.x 中，过滤器只能在{{}} 绑定中使用。
@@ -25,7 +25,12 @@
          <!-- 在 v-bind 指令中 -->
          <div v-bind:id="rawId | formatId"></div>
 
-
+    自定义过滤器
+        filters:{
+            toDou:function (a) {
+              return a<10?'0'+a:''+a;
+            }
+        }
 
     参考:http://blog.csdn.net/kkae8643150/article/details/52815007
      */
@@ -36,8 +41,47 @@
                 msg:'abcdefg',
                 price:12
             }
+         });
+         new Vue({
+            el:'#box1',
+            data:{
+            },
+            methods:{
+                show:function () {
+                    alert(1);
+                }
+            }
+         });
+         new Vue({
+            el:'#box2',
+            data:{
+                a:8
+            },
+            filters:{
+                toDou:function (a) {
+                    return a<10?'0'+a:''+a;
+                }
+            }
+         });
+         new Vue({
+            el:'#box3',
+            data:{
+                a:Date.now()
+            },
+            methods:{
+                myDate:function () {
+                    var nDate = new Date();
+                    alert(nDate.getFullYear()+'-'+nDate.getMonth()+'-'+nDate.getDate()+' '+nDate.getHours()+':'+nDate.getMinutes()+':'+nDate.getSeconds());
+                }
+            },
+            filters:{
+                date:function (a) {
+                    var oDate = new Date(a);
+                    return oDate.getFullYear()+'-'+oDate.getMonth()+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes()+':'+oDate.getSeconds();
+                }
+            }
          })
-     }
+     };
     </script>
 </head>
 <body>
@@ -49,6 +93,19 @@
     {{msg[0].toUpperCase() + msg.slice(1)}}
     <br>
     {{'$' + price.toFixed(2)}}
+</div>
+<hr>
+<div id="box1">
+    <input type="text" @keyup="show">
+</div>
+<hr>
+<div id="box2">
+    <input type="text" v-model="a">
+    {{a | toDou}}
+    {{}}
+</div>
+<div id="box3" @click="myDate()">
+  {{a | date}}
 </div>
 </body>
 </html>

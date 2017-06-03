@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<!--
+在vue1版本中 v-for="item in items" 不能添加重复数据
+需要配合 track-by="索引"  来使用,已达到能多次添加重复数据的目的
+而vue 2 中,可以添加重复数据
+-->
+<div id="box">
+    <input type="button" value="添加" @click="add">
+    <ul v-for="(v,i) in arr" track-by="i">
+        <li>{{v}}</li>
+    </ul>
+</div>
+<script>
+    var vm = new Vue({
+        data:{
+           arr:['a','b','c']
+        },
+        methods:{
+            add:function () {
+                this.arr.push('tomato');
+            }
+        }
+    }).$mount('#box');
+</script>
+</body>
+</html>
