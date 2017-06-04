@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<!--
+全局组件:
+    var Aaa = Vue.extend({
+        template:'<h3>我是标题3</h3>'
+    });
+    Vue.component('aaa',Aaa);
+    组件里面放数据:
+        data必须是函数的形式,函数必须返回一个对象(json)
+
+-->
+<div id="box">
+<aaa></aaa>
+</div>
+<!--suppress JSAnnotator -->
+<script>
+    var Aaa = Vue.extend({
+        data:function () {
+            return{
+                msg:'我是标题3'
+            }
+        },
+        methods:{
+            change:function(){
+                this.msg='changed'
+            }
+        },
+        template:'<h3 @click="change">{{msg}}</h3>'
+    });
+    /*var a=new Aaa();
+    console.log(Aaa);
+    console.log('********');
+    console.log(a);*/
+    Vue.component('aaa',Aaa);
+
+    Vue.component('bbb',{
+        template:'<h2>我是标题2</h2>>'
+    });
+    var vm = new Vue({
+        el:'#box',
+        data:{
+
+        }
+    })
+</script>
+</body>
+</html>

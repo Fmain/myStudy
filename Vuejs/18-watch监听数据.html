@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./vue.js"></script>
+    <script>
+        /*
+        watch
+        */
+        window.onload = function () {
+            var vm = new Vue({
+                el:'#box',
+                data:{
+                    a:111,
+                    b:222,
+                    c:{name:'ccc',age:10}
+                }
+            });
+            vm.$watch('c.name',function () {
+                alert('changed!!!');
+                this.b=this.a+100;
+            });
+            document.onclick = function () {
+                //vm.a=1;
+                vm.c.name='c';
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    {{a}}
+    <br>
+    {{b}}
+    <br>
+    {{c}}
+</div>
+</body>
+</html>

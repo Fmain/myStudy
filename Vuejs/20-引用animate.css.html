@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./animate.min.css">
+    <script src="./vue.js"></script>
+    <style>
+        #box{
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        #div1{
+            height: 100px;
+            width: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <input type="button" value="按钮" @click="show = !show">
+    <transition name="custom-classes-transition" enter-active-class="animated bounce" leave-active-class="animated bounceOutRight" >
+        <div  v-if="show" id="div1"></div>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            show:true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .fade-enter-active, .fade-leave-active{
+            transition: opacity 1s;
+        }
+        .fade-enter, .fade-leave-active{
+            opacity:0;
+        }
+    </style>
+    <script src="./vue.js"></script>
+    <!--
+    会有 4 个(CSS)类名在 enter/leave 的过渡中切换
+        v-enter: 定义进入过渡的开始状态。在元素被插入时生效，在下一个帧移除。
+        v-enter-active: 定义进入过渡的结束状态。在元素被插入时生效，在 transition/animation 完成之后移除。
+        v-leave: 定义离开过渡的开始状态。在离开过渡被触发时生效，在下一个帧移除。
+        v-leave-active: 定义离开过渡的结束状态。在离开过渡被触发时生效，在 transition/animation 完成之后移除。
+    -->
+</head>
+<body>
+<div id="box">
+    <input type="button" value="按钮" @click="show = !show">
+    <transition name="fade" v-if="show">
+        <div id="div1"></div>
+    </transition>
+</div>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            show:true
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./vue.js"></script>
+    <!--<script src="./old/vue.js"></script>-->
+</head>
+<body>
+<div id="box">
+    <my-aaa></my-aaa>
+</div>
+<template id="aaa">
+    <h1>标题</h1>
+    <ul>
+        <li v-for="v in arr">
+            {{v}}
+        </li>
+    </ul>
+</template>
+<script>
+    new Vue({
+        el:'#box',
+        data:{
+            msg:'welcome vue'
+        }
+
+    });
+    Vue.component('my-aaa',{
+        data:function(){
+            return{
+                arr:['a','b','c','d']
+            }
+        },
+        template:'#aaa'
+    })
+</script>
+</body>
+</html>

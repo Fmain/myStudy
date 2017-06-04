@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<!--
+局部组件:
+    放到某组件内部
+    var vm = new Vue({
+        el:'#box',
+        components:{ //局部组件
+            aaa:Aaa
+        }
+    })
+-->
+<div id="box">
+    <aaa></aaa>
+</div>
+<!--suppress JSAnnotator -->
+<script>
+    var Aaa = Vue.extend({
+        template:'<h3>{{msg}}</h3>',
+        data(){
+            return {
+                msg:'vue'
+            }
+        }
+    });
+    var vm = new Vue({
+        el:'#box',
+        components:{ //局部组件
+            aaa:Aaa
+        }
+    })
+</script>
+</body>
+</html>

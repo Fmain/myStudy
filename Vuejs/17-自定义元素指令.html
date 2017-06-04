@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    /*
+    el 的 Vue.extend 移除
+
+    el 选项不再在 Vue.extend中使用。仅在实例创建参数中可用。
+    */
+        zns-red{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            display: block;
+        }
+    </style>
+    <script src="./vue.js"></script>
+    <script>
+        window.onload = function () {
+            Vue.directive('zns-red',function (el) {
+                el.style.background='red'
+            });
+            var vm = new Vue({
+                el:'#box'
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <zns-red>1111</zns-red>
+</div>
+</body>
+</html>
