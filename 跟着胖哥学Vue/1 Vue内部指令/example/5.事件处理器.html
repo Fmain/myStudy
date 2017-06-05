@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>事件处理器</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-on:</h1>
+    <hr>
+    <div id="app">
+        <h2>展示:</h2>
+        本场比赛得分:{{score}}分
+
+        <h2>绑定事件监听器(v-on:)</h2>
+        <p>可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码。</p>
+        <button v-on:click="score++">+</button>
+
+        <h2>方法事件处理器</h2>
+        <p>许多事件处理的逻辑都很复杂，所以直接把 JavaScript 代码写在 v-on 指令中是不可行的。因此 v-on 可以接收一个定义的方法来调用。</p>
+        <button @click="minus">-</button>
+
+        <h2>内联处理器方法</h2>
+        <p>除了直接绑定到一个方法，也可以用内联 JavaScript 语句：</p>
+        <button @click="show(score,$event)">alert(score)</button>
+        <p>有时也需要在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法：</p>
+        <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+
+        <h2>事件修饰符</h2>
+        <p>Vue.js 为 v-on 提供了 事件修饰符。通过由点(.)表示的指令后缀来调用修饰符。</p>
+        <ul>
+            <li>.stop  阻止单击事件冒泡</li>
+            <li>.prevent  阻止默认事件</li>
+            <li>.capture  添加事件侦听器时使用事件捕获模式</li>
+            <li>.self  只当事件在该元素本身（而不是子元素）触发时触发回调</li>
+            <li>.once  点击事件将只会触发一次</li>
+        </ul>
+
+        <h2>按键修饰符</h2>
+        <ul>
+            <li>@keydown.enter=""</li>
+            <input type="text" @keydown.enter="show($event.keyCode)" v-model='score'>
+
+            <!-- <li>@keyup.13="show("你松开了enter键")"</li> -->
+            <li>@keyup.13=""</li>
+            <input type="text" @keyup.13="show('你松开了enter键')" v-model='score'>
+
+        </ul>
+        <br>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                score:0
+            },
+            methods:{
+                minus(ev){
+                    this.score--;
+                    if(this.score<0){
+                        this.score=0;
+                        alert('已经最小了')
+                    }else{
+                        //ev是原生DOM事件
+                        alert(ev.target.tagName)
+                    }
+                },
+                show(p){
+                    alert(p)
+                },
+                warn(message, event) {
+                    // 现在我们可以访问原生事件对象
+                    if (event) event.preventDefault()
+                    alert(message)
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

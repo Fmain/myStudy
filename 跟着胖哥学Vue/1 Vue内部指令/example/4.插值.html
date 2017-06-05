@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>插值</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>插值(v-text v-html)</h1>
+    <hr>
+    <div id="app">
+        <h2 v-pre>{{}}</h2>
+        <span>{{msg}}</span>
+        <h2>v-text=""</h2>
+        <span v-text="msg"></span>
+        <h2>v-html=""</h2>
+        <span v-html="strong"></span>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'HelloWorld!',
+                strong:'<strong>HelloWorld!</strong>'
+            }
+
+        })
+    </script>
+</body>
+</html>
