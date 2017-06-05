@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HelloWorld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+        <input type="text" v-model='msg'>
+        <br>
+        {{msg}}
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'HelloWorld!'
+            }
+
+        })
+    </script>
+</body>
+</html>

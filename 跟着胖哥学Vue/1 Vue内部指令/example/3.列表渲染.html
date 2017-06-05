@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>列表渲染</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>v-for</h1>
+    <hr>
+    <ul>
+        <h2>v-for="v in numArr"</h2>
+        <!-- <li v-for="v in numArr"> -->
+        <li v-for="v in sortNumArr">
+            {{v}}
+        </li>
+
+        <h2>v-for="(v,i) in items"</h2>
+        <!-- <li v-for="(v,i) in items"> -->
+        <li v-for="(v,i) in sortItems">
+            name:{{v.name}};num:{{v.num}};index:{{i}}
+        </li>
+
+        <h2>v-for="(v,k,i) in json"</h2>
+        <li v-for="(v,k,i) in json">
+            key:{{k}};<br />
+            value:{{v}};<br />
+            index:{{i}}
+        </li>
+
+    </ul>
+</div>
+<script type="text/javascript">
+    var app = new Vue({
+        el:'#app',
+        data:{
+            numArr:[1,13,5,17,7,19,11],
+
+            items:[
+                {name:'a',num:1},
+                {name:'c',num:3},
+                {name:'b',num:2}
+            ],
+
+            json:{
+                name:'fmain',
+                age:21,
+                job:'student'
+            }
+
+        },
+        computed:{
+            sortNumArr:function(){
+                /*//unicode排序
+                return this.numArr.sort();*/
+                return this.numArr.sort(sortNumber);
+            },
+            sortItems:function(){
+                return sortByKey(this.items,'num')
+            }
+        }
+    });
+
+    //数字排序
+    function sortNumber (a,b) {
+        return a-b;
+    }
+    //数组对象方法排序
+    function sortByKey (array,key) {
+        return array.sort(function  (a,b) {
+            var x=a[key];
+            var y=b[key];
+            return ((x<y)?-1:((x>y)?1:0))
+        })
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>条件渲染</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-if v-else v-else-if v-show</h1>
+    <hr>
+    <div id="app">
+        <button @click="isLogin=!isLogin">
+            {{isLogin}}
+        </button>
+        <span v-if="isLogin">yes</span>
+        <span v-else>no</span>
+
+        <hr>
+
+        <span v-show="isLogin" @click="isLogin=!isLogin">点击隐藏</span>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                isLogin:true
+            }
+        })
+    </script>
+</body>
+</html>
