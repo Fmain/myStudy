@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8" />
     <title>Vue</title>
+    <style type="text/css">
+        body{padding: 10px;}
+        a{text-decoration: none;line-height: 23px;color: #000;margin: 5px;}
+        a:hover{background: #ccc;}
+    </style>
 </head>
 <body>
     <h1>Vue2.0</h1>
     <hr>
     <ol>
+        <ul><li><h3>基础入门</h3></li></ul>
         <li>
             <a href="example/1.helloworld.html">
                 Hello World 实例
@@ -15,35 +21,46 @@
         </li>
         <li>
             <a href="example/2.条件渲染.html">
-                条件渲染(v-if v-else v-else-if v-show)
+                v-if & v-else & v-else-if & v-show 条件渲染
             </a>
         </li>
         <li>
             <a href="example/3.列表渲染.html">
-                列表渲染(v-for)
+                v-for 列表渲染
             </a>
         </li>
         <li>
             <a href="example/4.插值.html">
-                插值({{}} v-text v-html)
+                {{}} & v-text & v-html 插值
             </a>
         </li>
         <li>
             <a href="example/5.事件处理器.html">
-                事件处理器(v-on:)
+                v-on: 事件处理器
             </a>
         </li>
         <li>
             <a href="example/6.表单控件绑定.html">
-                表单控件绑定(v-model)
+                v-model 表单控件绑定
             </a>
         </li>
         <li>
             <a href="example/7.属性绑定.html">
-                属性绑定(v-bind:)
+                v-bind: 属性绑定
+            </a>
+        </li>
+        <li>
+            <a href="example/8.其他内部指令.html">
+                v-pre & v-cloak & v-once 其他内部指令
             </a>
         </li>
 
+        <ul><li><h3>全局API</h3></li></ul>
+        <li>
+            <a href="example/9.自定义指令.html">
+                Vue.directive 自定义指令
+            </a>
+        </li>
     </ol>
 </body>
 </html>

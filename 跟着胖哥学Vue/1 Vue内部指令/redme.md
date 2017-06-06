@@ -6,6 +6,7 @@
 /- 代码块
 ! 注意块或者tips
 
+## 基础入门
 # 第1节：走起我的Vue2.0
     + Vue下载
         : https://cn.vuejs.org/v2/guide/installation.html#独立版本
@@ -98,11 +99,37 @@
         - :index="i"
     + class绑定
         - :class="{red:isRed,blue:isBlue}"
+        - :class="a"
         - :class="[a, b]"
         - :class="[a,{classB:isB,classC:isC}]
     + style绑定
         - :style="[styleObjectA,styleObjectB]"
-        - :style="json"
+        - :style="styleObject"
     + 绑定一个有属性的对象
         - v-bind="{id:someProp,'other-attr':otherProp}"
 # 第8节：其他内部指令(v-pre & v-cloak & v-once)
+    + v-pre
+        : 在模板中跳过vue的编译，直接输出原始值
+    + v-cloak
+        : 在vue渲染完指定的整个DOM后才进行显示。它必须和CSS样式一起使用
+    + v-once
+        : 在第一次DOM时进行渲染，渲染完成后视为静态内容，跳出以后的渲染过程
+
+## 全局API
+# 第9节：Vue.directive 自定义指令
+
+# 第10节：Vue.extend构造器的延伸
+
+# 第11节：Vue.set全局操作
+
+# 第12节：Vue的生命周期（钩子函数）
+
+# 第13节：Template 制作模版
+
+# 第14节：Component 初识组件
+
+# 第15节：Component 组件props 属性设置
+
+# 第16节：Component 父子组件关系
+
+# 第17节：Component 标签
