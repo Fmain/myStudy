@@ -77,9 +77,35 @@
     + 按键修饰符
         - @keydown.enter=""
         - @keyup.13=""
-# 第6节：v-model指令
-
-# 第7节：v-bind 指令
-    : v-bind 指令被用来响应地更新 HTML 属性
-
+# 第6节：表单控件绑定
+    + 表单控件绑定(v-model="")
+        : 在表单控件元素上创建双向数据绑定。它负责监听用户的输入事件以更新数据，根据控件类型自动选取正确的方法来更新元素
+    + 文本
+    + 文本域
+    + 复选框
+        - 单个勾选框
+        - 多个勾选框
+    + 单选按钮
+    + 选择列表
+    + 修饰符
+        - .lazy
+        - .number
+        - .trim
+# 第7节：属性绑定
+    + 标签属性绑定(v-bind:)
+        : v-bind:指令被用来响应地更新 HTML 属性,简写为:
+    + 绑定一个属性
+        - :index="i"
+    + class绑定
+        - :class="[classA]"
+        - :class="[classA,classB]"
+        - :class="[classA,{classB:isB,classC:isC}]"
+        - :class="{red:isRed}"
+        - :class="{red:isRed,blue:isBlue}"
+        - :class="json"
+    + style绑定
+        - :style="[styleObjectA,styleObjectB]"
+        - :style="json"
+    + 绑定一个有属性的对象
+        - v-bind="{id:someProp,'other-attr':otherProp}"
 # 第8节：其他内部指令(v-pre & v-cloak & v-once)

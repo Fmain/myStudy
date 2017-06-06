@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>属性绑定</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>属性绑定(v-bind:)</h1>
+    <hr>
+    <div id="app">
+        <h2>标签属性绑定</h2>
+        <a :href="url">
+            <img :src="imgSrc" :width=w+"px">
+        </a>
+
+        <h2>class绑定</h2>
+        <h3>:class="className"</h3>
+        <div :class="className">
+            :class="className"
+        </div>
+
+
+
+        <h2>style绑定</h2>
+    </div>
+    <style>
+        .classA{width: 100px;height: 100px;}
+        .classB{color:red;}
+        .classC{border: 1px solid #000;}
+    </style>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://www.baidu.com/img/bd_logo1.png',
+                w:100,
+                url:'https://www.baidu.com',
+                className:'classB'
+            }
+
+        })
+    </script>
+</body>
+</html>

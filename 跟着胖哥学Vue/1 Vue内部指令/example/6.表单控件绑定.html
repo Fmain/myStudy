@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>表单控件绑定</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-model=""</h1>
+    <hr>
+    <div id="app">
+        <h2>文本</h2>
+        <input type="text" v-model='msg'>
+        <p>{{msg}}</p>
+
+        <h2>文本域</h2>
+        <textarea cols="30" rows="10" v-model="msg"></textarea>
+        <p style="white-space: pre">{{msg}}</p>
+
+        <h2>复选框</h2>
+        <p>单个勾选框</p>
+        <input type="checkbox" v-model="isTrue">
+        <p>isTrue:{{isTrue}}</p>
+        <p>多个勾选框</p>
+        <input type="checkbox" value="a" v-model="checkedNames"><span>a</span>
+        <input type="checkbox" value="b" v-model="checkedNames"><span>b</span>
+        <input type="checkbox" value="c" v-model="checkedNames"><span>c</span>
+        <p>checkedNames:{{checkedNames}}</p>
+
+        <h2>单选按钮</h2>
+        <input type="radio" value="yes" v-model="picked"><span>yes</span>
+        <input type="radio" value="no" v-model="picked"><span>no</span>
+        <input type="radio" value="no idea" v-model="picked"><span>no idea</span>
+        <p>picked:{{picked}}</p>
+
+        <h2>选择列表</h2>
+        <p>*绑定 value 到 Vue 实例的一个动态属性上，这时可以用 v-bind 实现，并且这个属性的值可以不是字符串</p>
+        <select v-model="selected">
+            <option v-for="option in options" :value="option.value">{{option.name}}</option>
+        </select>
+        <p>selected:{{selected}}</p>
+
+        <h2>修饰符</h2>
+        <h3>展示</h3>
+        <p>{{msg}}</p>
+        <h3>.lazy</h3>
+        <p>懒加载， v-model 在 input 事件中同步输入框的值与数据 (除了 上述 IME 部分)，但你可以添加一个修饰符 lazy ，从而转变为在 change 事件中同步</p>
+        <input type="text" v-model.lazy="msg">
+
+        <h3>.number</h3>
+        <p>如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个修饰符 number 给 v-model 来处理输入值：</p>
+        <input type="text" v-model.number="msg">
+
+        <h3>.trim</h3>
+        <p>如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：</p>
+        <input type="text" v-model.trim="msg">
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'HelloWorld!',
+                isTrue:true,
+                checkedNames:['b'],
+                picked:'no',
+                selected:null,
+                options:[
+                    {name:'A',value:'a'},
+                    {name:'B',value:'b'},
+                    {name:'C',value:'c'}
+                ]
+            }
+
+        })
+    </script>
+</body>
+</html>

@@ -12,6 +12,11 @@
         <h2>展示:</h2>
         本场比赛得分:{{score}}分
 
+        <h3>事件对象:</h3>
+        @click="showClientX($event)"
+        <h3>事件对象绑定函数传参:</h3>
+        @click="showClientX($event,12)"
+
         <h2>绑定事件监听器(v-on:)</h2>
         <p>可以用 v-on 指令监听 DOM 事件来触发一些 JavaScript 代码。</p>
         <button v-on:click="score++">+</button>
