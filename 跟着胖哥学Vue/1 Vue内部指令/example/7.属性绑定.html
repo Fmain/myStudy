@@ -13,21 +13,47 @@
         <a :href="url">
             <img :src="imgSrc" :width=w+"px">
         </a>
+        <h2>class正常绑定</h2>
+        <div class="classA classB"></div>
 
         <h2>class绑定</h2>
-        <h3>:class="className"</h3>
-        <div :class="className">
-            :class="className"
-        </div>
+        <ol>
+            <li>
+                <h3>:class="{red:isRed,blue:isBlue}"</h3>
+                <p>此处red,blue为style中的样式.red, .blue</p>
+                <div :class="{red:isRed,blue:isBlue}"></div>
+                <input type="checkbox" v-model="isRed" value="red">red:{{isRed}}
+                <input type="checkbox" v-model="isBlue" value="bule">blue:{{isBlue}}
+            </li>
+            <li>
+                <h3>:class="a"</h3>
+                <p>此处a为data中的json对象</p>
+                <div :class="a"></div>
 
-
+                <h3>:class="[a:true, b]"</h3>
+                <p>b为data中的b,指向style中的classB样式</p>
+                <div :class="[a, b]"></div>
+            </li>
+            <li>
+                <h3>:class="[a,{classB:isB,classC:isC}]</h3>
+                <p>此处classB,classC为style中样式</p>
+                <div :class="[a,{classB:isB,classC:isC}]"></div>
+            </li>
+        </ol>
+        <h3>总结:[]中的为data中数据,{}中的为style样式</h3>
 
         <h2>style绑定</h2>
+        <ol>
+            <li></li>
+        </ol>
     </div>
     <style>
-        .classA{width: 100px;height: 100px;}
-        .classB{color:red;}
-        .classC{border: 1px solid #000;}
+        #app div{width: 50px;height: 50px;border: 1px solid #000;}
+        #app .red{background:red;}
+        #app .blue{border: 3px solid blue;}
+        #app .classA{width:80px;}
+        #app .classB{height: 80px;}
+        #app .classC{border-radius:50%;}
     </style>
     <script type="text/javascript">
         var app = new Vue({
@@ -36,7 +62,14 @@
                 imgSrc:'https://www.baidu.com/img/bd_logo1.png',
                 w:100,
                 url:'https://www.baidu.com',
-                className:'classB'
+                isRed:true,
+                isBlue:true,
+                isA:true,
+                isB:true,
+                isC:true,
+                a:'classA',
+                b:'classB',
+                c:'classC'
             }
 
         })

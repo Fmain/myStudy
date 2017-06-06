@@ -97,12 +97,9 @@
     + 绑定一个属性
         - :index="i"
     + class绑定
-        - :class="[classA]"
-        - :class="[classA,classB]"
-        - :class="[classA,{classB:isB,classC:isC}]"
-        - :class="{red:isRed}"
         - :class="{red:isRed,blue:isBlue}"
-        - :class="json"
+        - :class="[a, b]"
+        - :class="[a,{classB:isB,classC:isC}]
     + style绑定
         - :style="[styleObjectA,styleObjectB]"
         - :style="json"
