@@ -117,13 +117,42 @@
 
 ## 全局API
 # 第9节：Vue.directive 自定义指令
-
+    + 注册全局自定义指令
+    + 注册局部自定义指令
+    + 自定义指令的生命周期(钩子函数)
+        - bind
+        - inserted
+        - update
+        - componentUpdated
+        - unbind
+    + 钩子函数的参数
+        - el
+        - binding
+            - name
+            - value
+            - oldValue
+            - expression
+            - arg
+            - modifiers
+        - vnode
+        - oldVnode
 # 第10节：Vue.extend构造器的延伸
-
+    : 对比组件
+    -
 # 第11节：Vue.set全局操作
-
+    : 设置对象的属性。如果对象是响应式的，确保属性被创建后也是响应式的，同时触发视图更新。这个方法主要用于避开 Vue 不能检测属性被添加的限制。
+    -
 # 第12节：Vue的生命周期（钩子函数）
-
+    + beforeCreate
+    + created
+    + beforeMount
+    + mounted
+    + beforeUpdate
+    + updated
+    + activated
+    + deactivated
+    + beforeDestroy
+    + destroyed
 # 第13节：Template 制作模版
 
 # 第14节：Component 初识组件

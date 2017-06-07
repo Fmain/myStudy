@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.set</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.set 全局操作</h1>
+    <hr>
+    <button onclick="add()">作用域外的数据操作</button>
+    <div id="app">
+        <button @click="count++">作用域内的数据操作</button>
+        <br>
+        <input type="text" v-model='count'>
+        <br>
+        {{count}}
+
+        <ul>
+            <li v-for="v in arr">{{v}}</li>
+        </ul>
+    </div>
+
+
+    <script type="text/javascript">
+        function add () {
+            //对构造器外声明的数据进行操作
+            //Vue.set(outData,'count',1);
+            // app.count++;
+            //outData.count++;
+
+            //先虚拟DOM,然后在虚拟DOM中操作
+            // outData.count++;
+            // app.arr[1]='ddd'
+            //此时arr[1]可以读,但需要对数组操作才能写
+            // alert(outData.arr[1])
+            //通过Vue.set对arr[1]进行写操作
+            Vue.set(app.arr,1,'dd')
+        }
+        //构造器外声明的数据
+        var outData={
+            count:1,
+            jobs:'student',
+            arr:['aaa','bbb','ccc']
+        }
+
+        var app = new Vue({
+            el:'#app',
+            data:outData
+
+        })
+    </script>
+</body>
+</html>
