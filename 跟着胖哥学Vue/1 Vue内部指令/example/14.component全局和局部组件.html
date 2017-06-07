@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HelloWorld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+        <h3>全局组件</h3>
+        <p>可以在作用域外使用</p>
+        <tag1></tag1>
+    </div>
+    <div id="app1">
+        <tag1></tag1>
+        <h3>局部组件</h3>
+        <p>不在作用域内的局部组件无效</p>
+        <tag2></tag2>
+        <tag3></tag3>
+    </div>
+    <script type="text/javascript">
+        //全局组件
+        Vue.component('tag1',{
+            //这里是定义模板的第一种方法
+            template:`
+                <div style="color:red;">我是全局的tag1组件</div>
+            `
+        })
+        new Vue({
+            el:'#app'
+        })
+
+        //局部组件
+        new Vue({
+            el:'#app1',
+            components:{
+                'tag2':{
+                    template:`
+                        <div style="color:blue;">我是全局的tag2组件</div>
+                    `
+                },
+                'tag3':{
+                    template:`
+                        <div style="color:blue;">我是全局的tag3组件</div>
+                    `
+                }
+            }
+        })
+    </script>
+</body>
+</html>

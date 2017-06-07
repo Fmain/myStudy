@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>HelloWorld</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+
+    <h2>建立模板方法一</h2>
+    <div id="app"></div>
+
+    <h2>建立模板方法二</h2>
+    优势:在面对模板内容过多的时候,方便使用
+    <template id="dd2">
+        <h3 style="color:blue">我是Template标签模板</h3>
+    </template>
+    <div id="app2"></div>
+    <div id="app3"></div>
+
+    <h2>建立模板方法三</h2>
+    优势:可以引用外部文件
+    <script type="x-template" id="dd3">
+        <h3 style="color:yellow">我是Template标签模板</h3>
+    </script>
+    <div id="app4"></div>
+
+    <script type="text/javascript">
+        //1.建立模板方法一
+        new Vue({
+            el:'#app',
+            template:`
+                <h3 style="color:red">我是选项模板</h3>
+            `
+        })
+
+        //2.建立模板方法二
+        new Vue({
+            el:'#app2',
+            template:'#dd2'
+        })
+        new Vue({
+            el:'#app3',
+            template:'#dd2'
+        })
+
+        //3.建立模板方法三
+        new Vue({
+            el:'#app4',
+            template:'#dd3'
+        })
+
+
+    </script>
+</body>
+</html>

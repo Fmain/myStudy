@@ -154,11 +154,18 @@
     + beforeDestroy
     + destroyed
 # 第13节：Template 制作模版
-
-# 第14节：Component 初识组件
-
+    + template:``
+    + <template></template>
+    + <script type="x-template" src=""></script>
+# 第14节：Component 全局和局部组件
+    + 全局组价
+    + 局部组件
 # 第15节：Component 组件props 属性设置
-
+    + 普通属性
+    + 带-的属性
+    + 绑定数据的属性
 # 第16节：Component 父子组件关系
-
+    + 构造器外部的局部注册组件
+    + 定义父组件
+    + 定义子组件,需要放在前面
 # 第17节：Component 标签

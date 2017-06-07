@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>父子组件关系</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>component父子组件关系</h1>
+    <hr>
+    <div id="app">
+        <h3>构造器外部写局部注册组件</h3>
+        <tag1></tag1>
+
+    </div>
+    <script type="text/javascript">
+        //定义子组件,需要放在前面
+        var tag2Component = {
+            template:`
+                <div style="color:red;">我是tag1Component的子组件</div>
+            `
+        }
+        //定义父组件
+        var tag1Component = {
+            //需要用div包裹在一个作用域内
+            template:`
+                <div>
+                    <p>我是构造器外部的局部注册组件</p>
+                    <tag2></tag2>
+                </div>
+
+            `,
+            components:{
+                'tag2':tag2Component
+            }
+        }
+        new Vue({
+            el:'#app',
+            components:{
+                'tag1':tag1Component
+            }
+        })
+    </script>
+</body>
+</html>
