@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>计算选项</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>computed</h1>
+    <hr>
+
+    <div id="app">
+        <h3>vue2.0中移除了一些过滤器,用computed作对原始数据进行改造输出,包括:</h3>
+        <ul>
+            <li>格式的编辑</li>
+            <li>大小写转换</li>
+            <li>顺序重排
+                <ul v-for="item in reverseNews">
+                    <li>
+                        <strong>{{item.title}}</strong>
+                        <p>{{item.date}}</p>
+                    </li>
+                </ul>
+            </li>
+            <li>添加符号
+                {{newPrice}}
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        var newsList=[
+            {title:'标题1',date:'2017-6-8 15:20'},
+            {title:'标题2',date:'2017-6-8 15:21'},
+            {title:'标题3',date:'2017-6-8 15:22'},
+            {title:'标题4',date:'2017-6-8 15:23'}
+        ]
+        var app = new Vue({
+            el:'#app',
+            data:{
+                newsList:newsList,
+                price:100
+            },
+            computed:{
+                reverseNews(){
+                    return this.newsList.reverse();
+                },
+                newPrice(){
+                    return this.price='￥'+this.price+'元';
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

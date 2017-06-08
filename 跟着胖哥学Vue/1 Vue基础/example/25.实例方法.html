@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>实例方法</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>实例方法</h1>
+    <hr>
+    <div id="app"></div>
+    <button onclick="destory()">卸载</button>
+    <button onclick="reload()">刷新</button>
+    <button onclick="tick()">修改</button>
+    <script type="text/javascript">
+        var fmain = Vue.extend({
+            template:`
+                <p>{{msg}}</p>
+            `,
+            data(){
+                return{
+                    msg:'Hello Vue'
+                }
+            },
+            mounted(){
+                console.log("实例被创建");
+            },
+            updated(){
+                console.log("实例被更新");
+            },
+            destroyed(){
+                console.log("实例被销毁");
+            }
+        })
+
+        var vm = new fmain().$mount('#app');
+
+        function destory() {
+            //销毁实例
+            vm.$destroy()
+        }
+
+        function reload () {
+            //强制更新
+            vm.$forceUpdate();
+        }
+
+        function tick(){
+            vm.msg="update message info ";
+            vm.$nextTick(function(){
+            console.log('message更新完后我被调用了');
+        })
+}
+    </script>
+</body>
+</html>

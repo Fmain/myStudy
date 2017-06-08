@@ -169,3 +169,34 @@
     + 定义父组件
     + 定义子组件,需要放在前面
 # 第17节：Component 标签
+
+## 构造器中的选项
+# 第18节：propsData Option  全局扩展的数据传递
+    : 由于data(){}中的数据return返回值,所以需要用propsData在全局Vue.extend中的传递数据
+    -
+# 第19节：computed Option  计算选项
+    : vue2.0中移除了一些过滤器,用computed作对原始数据进行改造输出,包括:
+    + 格式的编辑
+    + 大小写转换
+    + 顺序重排
+    + 添加符号
+# 第20节：Methods Option  方法选项
+    + 方法传参：@click="add(score,$event)"
+    + 构造器内使用原始方法：@click.native="num++"
+    + 外部调用构造器内原始方法：onclick="app.add(6)"
+# 第21节：Watch 选项 监控数据
+# 第22节：Mixins 混入选项操作
+# 第23节：Extends Option  扩展选项
+
+## 实例和内置组件
+# 第1节：实例入门-实例属性
+# 第2节：实例方法
+    + $mount方法
+    + $destroy() 卸载方法
+    + $forceUpdate() 更新方法
+    + $nextTick() 数据修改方法
+# 第3节：实例事件
+    + $on 写入方法
+    + $once 写入方法
+    + off 关闭事件
+# 第4节：内置组件 -slot讲解

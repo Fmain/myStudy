@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>方法选项</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Methods</h1>
+    <hr>
+    <div id="app">
+        <input type="text" v-model='num'>
+        <br>
+        +<input type="text" v-model='score'>
+        <br>
+        <h3>@click="num++"</h3>
+        <button @click="num++">add</button>
+        <br>
+        <h3>@click="add(score,$event)"</h3>
+        <button @click="add(score,$event)">add()</button>
+        <br>
+        <h3>@click.native="num++"</h3>
+        <p>加native修饰符,意味着调用构造器里面的原始方法,否则click无效</p>
+        <btn @click.native="num++"></btn>
+    </div>
+    <h3>onclick="app.add(6)"</h3>
+    <p>外部调用构造器里面的原始方法,需要以对象形式调用</p>
+    <button onclick="app.add(6)">外部add</button>
+    <script type="text/javascript">
+        var btn={
+            template:`
+                <button>组件btn</button>
+            `
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:0,
+                score:3
+            },
+            methods:{
+                add(score,ev){
+                    if(score!=''){
+                        this.num+=score;
+                    }else{
+                        num++;
+                    }
+                    console.log(ev);
+                }
+            },
+            components:{
+                'btn':btn
+            }
+
+        })
+    </script>
+</body>
+</html>

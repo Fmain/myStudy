@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>内置组件</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>内置组件-slot</h1>
+    <hr>
+    <div id="app">
+        <bolg>
+            <span slot="bolgUrl">{{bolgData.bolgUrl}}</span>
+            <span slot="netName">ukisssky</span>
+            <span slot="skill">{{bolgData.skill}}</span>
+        </bolg>
+    </div>
+    <template id="tep">
+        <div>
+            <p>博客地址:<slot name="bolgUrl"></slot></p>
+            <p>网名:<slot name="netName"></slot></p>
+            <p>技术:<slot name="skill"></slot></p>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var cmp = {
+            template:'#tep'
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                bolgData:{
+                    bolgUrl:'http://fmain.win',
+                    netName:'fmain',
+                    skill:'web前端'
+                }
+            },
+            components:{
+                'bolg':cmp
+            }
+
+        })
+    </script>
+</body>
+</html>

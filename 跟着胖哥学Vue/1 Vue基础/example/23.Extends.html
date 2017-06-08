@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>扩展选项</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Extends</h1>
+    <hr>
+    <h2>允许声明扩展另一个组件(可以是一个简单的选项对象或构造函数),而无需使用Vue.extend 。这主要是为了便于扩展单文件组件。和 mixins 类似，区别在于，组件自身的选项会比要扩展的源组件具有更高的优先级</h2>
+    <div id="app">
+        <input type="text" v-model='num'>
+        <br>
+        {{num}}------${num}
+
+        <br>
+        <button @click="add">add</button>
+
+
+
+    </div>
+    <script type="text/javascript">
+        var extendObj={
+            updated(){
+                console.log("我是扩展的updated");
+            },
+            methods:{
+                add(){
+                    console.log("我是扩展出来的方法");
+                    this.num++;
+                }
+            }
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:1
+            },
+            methods:{
+                add(){
+                    console.log("我是原生方法");
+                    this.num++;
+                }
+            },
+            updated:function () {
+                console.log("我是原生的updated");
+            },
+            //只能放一个对象,不能放数组
+            extends:extendObj,
+
+            //如果现有项目插值和现在的插值有冲突,可以用这个修改
+            delimiters:['${',"}"]
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>实例属性</title>
+    <script src="../assets/js/vue.js"></script>
+    <script src="../assets/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+    <h1>实例属性</h1>
+    <hr>
+    <div id="app">
+        <h3>只有在mounted和update中才能用jQuery,如果没有挂载,则找不到DOM</h3>
+        <input type="text" v-model='msg'>
+        <br>
+        {{msg}}
+        <h4>现在页面显示是：我是jQuery，而不是HelloWorld了。</h4>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'HelloWorld!'
+            },
+            mounted(){
+                $('#app').html("我是jQuery");
+            },
+            methods:{
+                add(){
+                    console.log("调用了构造器内部的add方法");
+                }
+            }
+        })
+        app.add();
+    </script>
+</body>
+</html>

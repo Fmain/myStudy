@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>混入选项操作(插件)</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Mixins</h1>
+    <hr>
+    <h2>全局注册一个混合，影响注册之后所有创建的每个 Vue 实例。插件作者可以使用混合，向组件注入自定义的行为。不推荐在应用代码中使用。</h2>
+    <div id="app">
+        <input type="text" v-model='num'>
+        <br>
+        {{num}}
+        <br>
+        <button @click="add">add</button>
+
+        <h3>全局API混入</h3>
+
+        <h3>执行顺序</h3>
+
+
+    </div>
+    <script type="text/javascript">
+        var addConsole={
+            updated:function () {
+                console.log("数据发生变化,变成了"+this.num);
+            }
+        };
+        Vue.mixin({
+            updated(){
+                console.log("我是全局的混入");
+            }
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:1
+            },
+            methods:{
+                add(){
+                    this.num++
+                }
+            },
+            updated:function () {
+                console.log("我是原生的updated");
+            },
+            mixins:[addConsole]
+
+        })
+    </script>
+</body>
+</html>
