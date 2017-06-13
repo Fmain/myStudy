@@ -1,0 +1,9 @@
+#re {
+	border: 1px solid red;
+}
+button{
+	border-radius: 10px;
+}
+input{
+	transform: translateX(0px);
+}
