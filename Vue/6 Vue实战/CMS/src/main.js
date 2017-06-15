@@ -1,7 +1,7 @@
 // 1.0 导入相关包
 import Vue from 'vue'
 import vueRouter from 'vue-router'
-import vueResource from 'vue-resource'
+// import vueResource from 'vue-resource' //用axios代替
 import mintUI from 'mint-ui'
 // 1.1 导入mint-ui的css
 import 'mint-ui/lib/style.min.css'
@@ -15,7 +15,7 @@ import  '../statics/css/site.css'
 
 // 2.0 在Vue中加载相关组件
 Vue.use(vueRouter);
-Vue.use(vueResource);
+// Vue.use(vueResource); //用axios代替
 Vue.use(mintUI);
 
 // 3.0 导入相关.vue组件
@@ -24,6 +24,8 @@ import Home from './components/Home/Home.vue'
 import member from './components/member/member.vue'
 import shopcar from './components/shopcar/shopcar.vue'
 import search from './components/search/search.vue'
+import newsList from './components/news/newsList.vue'
+
 // 3.1 定义路由规则对象
 let router = new vueRouter({
   linkActiveClass:'mui-active',
@@ -33,6 +35,7 @@ let router = new vueRouter({
 		{name:'member',path:'/member',component:member},
 		{name:'shopcar',path:'/shopcar',component:shopcar},
 		{name:'search',path:'/search',component:search},
+		{name:'newsList',path:'/newsList',component:newsList},
 
 	]
 });
@@ -41,5 +44,5 @@ let router = new vueRouter({
 new Vue({
 	el:'#app',
 	router,
-	render:c=>c(App)
+	render:c=>c(App),
 })

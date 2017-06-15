@@ -1,6 +1,6 @@
 <template>
   <div class="tmpl">
-    Search
+    <div  @click="goBack">Search</div>
   </div>
 </template>
 <script>
@@ -9,6 +9,11 @@
     data(){
       return{
 
+      }
+    },
+    methods:{
+      goBack(){
+        alert(1)
       }
     }
   }
