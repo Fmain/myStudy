@@ -3,6 +3,8 @@ import Vue from 'vue'
 import vueRouter from 'vue-router'
 // import vueResource from 'vue-resource' //用axios代替
 import mintUI from 'mint-ui'
+// 导入时间格式化插件
+import moment from 'moment'
 // 1.1 导入mint-ui的css
 import 'mint-ui/lib/style.min.css'
 // 1.2.1 导入mui的css和字体图标样式
@@ -25,9 +27,11 @@ import member from './components/member/member.vue'
 import shopcar from './components/shopcar/shopcar.vue'
 import search from './components/search/search.vue'
 import newsList from './components/news/newsList.vue'
+import newsInfo from './components/news/newsInfo.vue'
 
 // 3.1 定义路由规则对象
 let router = new vueRouter({
+	//实现底部导航栏点击后高亮功能
   linkActiveClass:'mui-active',
 	routes:[
 		{name:'root',path:'/',redirect:'/Home'},//重定向,此次不可用component,否则选项图标不自动高亮
@@ -35,8 +39,8 @@ let router = new vueRouter({
 		{name:'member',path:'/member',component:member},
 		{name:'shopcar',path:'/shopcar',component:shopcar},
 		{name:'search',path:'/search',component:search},
-		{name:'newsList',path:'/newsList',component:newsList},
-
+		{name:'newsList',path:'/news/newsList',component:newsList},
+		{name:'newsInfo',path:'/news/newsInfo/:id',component:newsInfo}
 	]
 });
 
@@ -45,4 +49,10 @@ new Vue({
 	el:'#app',
 	router,
 	render:c=>c(App),
+});
+
+// 5.0 全局过滤器
+Vue.filter('fmtdate',function (input,datefmtstring) {
+	// 发表时间：2015-04-16T03:50:28.000Z
+	return moment(input).format(datefmtstring)
 })

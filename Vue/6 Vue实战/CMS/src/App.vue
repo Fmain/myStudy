@@ -2,15 +2,13 @@
 <div class="app">
   <link rel="stylesheet" href="http://at.alicdn.com/t/font_up2swoulu2l0udi.css">
   <!-- header-->
-  <mt-header fixed title="CMS内容管理系统">
-    <router-link  to="/" slot="left" @click="goBack">
-      <mt-button class="goBack" icon="back">返回</mt-button>
-    </router-link>
-  </mt-header>
+  <mt-header fixed title="CMS内容管理系统"></mt-header>
+  <div class="goBack" @click="goBack" v-show="isShow"><</div>
   <!-- end header-->
   <!-- content-->
   <!--路由占位-->
-  <router-view></router-view>
+   <router-view></router-view>
+
   <!-- end content-->
   <!-- footer-->
   <nav class="mui-bar mui-bar-tab">
@@ -41,22 +39,36 @@
   export default{
     data(){
       return{
-
+        isShow:false
       }
-    },
+    } ,
     methods:{
       goBack(){
-        alert(1);
-//        this.$route.go(-1)
+        this.$router.go(-1);
       }
     },
     watch:{
+      $route(newVal,oldVal){
+        if(newVal.path=='/Home'){
+          this.isShow = false
+        }else{
+          this.isShow = true
+        }
+      }
 
     }
   }
 </script>
 <style>
   .goBack{
-    background: #000;
+    position: fixed;
+    left: 10px;
+    top: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9;
+    cursor: pointer;
+    padding: 5px 10px;
   }
 </style>

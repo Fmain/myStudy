@@ -31,10 +31,10 @@ module.exports = {
 				test:/\.scss$/,
 				loader:'style-loader!css-loader!autoprefixer-loader!sass-loader' //加载顺序先执行css-loader再执行style-loader所以这个编写的顺序一定不能颠倒，否则无效
 			},
-			 {
-		        test: /\.(png|jpg|ttf)$/,  //表示匹配的文件后缀名为 .png 或者.jpg也可以自己增加
-		        loader: 'url?limit=40000' // url其实就是url-loader的缩写,后面的limit表示如果图片大小小于40000，那么则将这张图片编译成base64的字符串给浏览器使用，否则将图片打包到编译文件夹中（图片大小不不变），这里注意一下，值不能太大，否则会导致build.js文件过大影响性能
-		     }
+			{
+				test: /\.(png|jpg|ttf)$/,  //表示匹配的文件后缀名为 .png 或者.jpg也可以自己增加
+				loader: 'url?limit=40000' // url其实就是url-loader的缩写,后面的limit表示如果图片大小小于40000，那么则将这张图片编译成base64的字符串给浏览器使用，否则将图片打包到编译文件夹中（图片大小不不变），这里注意一下，值不能太大，否则会导致build.js文件过大影响性能
+			}
 		]
 	},
 	babel: {  
