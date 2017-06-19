@@ -12,7 +12,7 @@
       <h4>评论列表</h4>
       1 <span>条评论</span>
     </div>
-    <!--<div>
+    <div>
       <ul class="submitlist">
         <li v-for="item in comments">
           <div class="content" v-text="item.content"></div>
@@ -22,9 +22,11 @@
           </div>
         </li>
       </ul>
-    </div>-->
-----------------------------
-    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+    </div>
+    <div>
+      <mt-button type="danger" size="large" plain @click="getmore">加载更多</mt-button>
+    </div>
+    <!-- <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
       <ul class="submitlist">
         <li v-for="item in comments">
           <div class="content" v-text="item.content"></div>
@@ -34,7 +36,7 @@
           </div>
         </li>
       </ul>
-    </mt-loadmore>
+    </mt-loadmore> -->
   </div>
 </template>
 <script>
@@ -48,11 +50,6 @@
         comments:[]
       }
     },
-    /*{
-      'content': '-block-block-block-block-block-block-block-block-block-block-block-block-block评论内容',
-      'user_name': '匿名用户',
-      'add_time': '2017-06-17 19:13:22'
-    }*/
     methods: {
       // 1.0 提交评论
       postcomment(){
@@ -81,13 +78,23 @@
         })*/
       },
       // 2.0 获取评论
-      getcomment(pageindex){
+      getcomment(){
         let url = 'http://webhm.top:8899/api/getcomments/'+ this.artid +'?pageindex='+ this.pageindex;
         axios.get(url).then(res=>{
-          this.comments = res.data.message;
+          // this.comments = res.data.message;
+          this.comments = this.comments.concat(res.data.message);
+          // console.log(this.comments)
+          if(res.data.message == ''){
+            Toast('暂无更多数据');
+          }
         }).catch(err=>{
           console.log("404: "+error);
         });
+      },
+      getmore(){
+        this.pageindex++;
+        this.getcomment();
+
       }
     },
     created(){
