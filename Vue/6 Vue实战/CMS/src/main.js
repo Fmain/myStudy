@@ -1,7 +1,7 @@
 // 1.0 导入相关包
 import Vue from 'vue'
 import vueRouter from 'vue-router'
-// import vueResource from 'vue-resource' //用axios代替
+import vueResource from 'vue-resource' //用axios代替
 import mintUI from 'mint-ui'
 // 导入时间格式化插件
 import moment from 'moment'
@@ -17,7 +17,7 @@ import  '../statics/css/site.css'
 
 // 2.0 在Vue中加载相关组件
 Vue.use(vueRouter);
-// Vue.use(vueResource); //用axios代替
+Vue.use(vueResource); //用axios代替
 Vue.use(mintUI);
 
 // 3.0 导入相关.vue组件

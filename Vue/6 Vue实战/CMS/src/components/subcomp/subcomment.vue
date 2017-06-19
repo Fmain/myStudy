@@ -4,7 +4,7 @@
       <h4>提交评论</h4>
     </div>
     <div class="submintarea">
-      <textarea class="textarea" placeholder="请输入评论内容" v-model="contemt"></textarea>
+      <textarea ref="postcontent" class="textarea" placeholder="请输入评论内容" v-model="content"></textarea>
       <mt-button type="primary" size="large" @click="postcomment">发表</mt-button>
     </div>
 
@@ -12,7 +12,7 @@
       <h4>评论列表</h4>
       1 <span>条评论</span>
     </div>
-    <div>
+    <!--<div>
       <ul class="submitlist">
         <li v-for="item in comments">
           <div class="content" v-text="item.content"></div>
@@ -22,16 +22,28 @@
           </div>
         </li>
       </ul>
-    </div>
-
+    </div>-->
+----------------------------
+    <mt-loadmore :top-method="loadTop" :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+      <ul class="submitlist">
+        <li v-for="item in comments">
+          <div class="content" v-text="item.content"></div>
+          <div>
+            <span class="user" v-text="item.user_name"></span>
+            <span class="time">{{item.add_time | fmtdate('YYYY-MM-DD HH:mm:ss')}} </span>
+          </div>
+        </li>
+      </ul>
+    </mt-loadmore>
   </div>
 </template>
 <script>
   import axios from 'axios'
+  import { Toast } from 'mint-ui'
   export default{
     data(){
       return {
-        contemt: '',
+        content: '',
         pageindex: 1,
         comments:[]
       }
@@ -45,17 +57,31 @@
       // 1.0 提交评论
       postcomment(){
         let url = 'http://webhm.top:8899/api/postcomment/'+this.artid;
-        axios.post(url,{
-          artid: 14,
-          content: '测试post请求是否提交成功'
+        if (this.content == ''){
+          Toast('请输入内容');
+        }else{
+          this.$http.post(url,{content:this.content},{emulateJSON:true}).then(res=>{
+            Toast('发表成功');
+            this.getcomment();//重新加载评论
+            this.content = '';//清空文本框中的值
+          },res=>{
+            Toast('发表失败');
+          })
+        }
+        /*let content = this.content;
+        console.log(this.content);
+        axios.post(url,{content:content},{
+          headers: {'Content-Type':'application/x-www-form-urlencoded'}
         }).then(res=>{
-          console.log(res.data.message)
+          Toast('发表成功');
+          console.log(res.data.message);
         }).catch(err=>{
+          Toast('发表失败');
           console.log('post请求失败')
-        })
+        })*/
       },
       // 2.0 获取评论
-      getcomment(){
+      getcomment(pageindex){
         let url = 'http://webhm.top:8899/api/getcomments/'+ this.artid +'?pageindex='+ this.pageindex;
         axios.get(url).then(res=>{
           this.comments = res.data.message;
@@ -65,7 +91,7 @@
       }
     },
     created(){
-      this.getcomment()
+      this.getcomment();
     },
     props: ['artid']
   }
@@ -124,5 +150,10 @@
     display: inline;
     font-size: 14px;
     width: 40%;
+  }
+  #pullrefresh{
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*position: inherit;*/
   }
 </style>
