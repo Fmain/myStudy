@@ -28,6 +28,7 @@ import shopcar from './components/shopcar/shopcar.vue'
 import search from './components/search/search.vue'
 import newsList from './components/news/newsList.vue'
 import newsInfo from './components/news/newsInfo.vue'
+import photoList from './components/photo/photoList.vue'
 
 // 3.1 定义路由规则对象
 let router = new vueRouter({
@@ -40,7 +41,8 @@ let router = new vueRouter({
 		{name:'shopcar',path:'/shopcar',component:shopcar},
 		{name:'search',path:'/search',component:search},
 		{name:'newsList',path:'/news/newsList',component:newsList},
-		{name:'newsInfo',path:'/news/newsInfo/:id',component:newsInfo}
+		{name:'newsInfo',path:'/news/newsInfo/:id',component:newsInfo},
+		{name:'photoList',path:'/photo/photoList',component:photoList},
 	]
 });
 
