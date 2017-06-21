@@ -14,9 +14,9 @@
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/photo/photoList">
         <span class="mui-icon iconfont icon-zixun_on2"></span>
         <div class="mui-media-body">图片分享</div></router-link></li>
-      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+      <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/photo/photoInfo">
         <span class="mui-icon iconfont icon-yuanxinggouwuche"></span>
-        <div class="mui-media-body">商品购买</div></a></li>
+        <div class="mui-media-body">商品购买</div></router-link></li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
         <span class="mui-icon iconfont icon-wode-fankui"></span>
         <div class="mui-media-body">留言反馈</div></a></li>

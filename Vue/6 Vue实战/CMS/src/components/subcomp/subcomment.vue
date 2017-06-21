@@ -59,8 +59,10 @@
         }else{
           this.$http.post(url,{content:this.content},{emulateJSON:true}).then(res=>{
             Toast('发表成功');
-            this.getcomment();//重新加载评论
             this.content = '';//清空文本框中的值
+            //console.log('重新加载评论');
+            //存在bug: 重新加载评论失败
+            this.getcomment();//重新加载评论
           },res=>{
             Toast('发表失败');
           })
@@ -79,10 +81,14 @@
       },
       // 2.0 获取评论
       getcomment(){
+        //console.log('正在获取评论:'+this.pageindex);
         let url = 'http://webhm.top:8899/api/getcomments/'+ this.artid +'?pageindex='+ this.pageindex;
         axios.get(url).then(res=>{
-          // this.comments = res.data.message;
-          this.comments = this.comments.concat(res.data.message);
+          if(this.pageindex==1){
+            this.comments = res.data.message;
+          }else{
+            this.comments = this.comments.concat(res.data.message);
+          }
           // console.log(this.comments)
           if(res.data.message == ''){
             Toast('暂无更多数据');

@@ -3,9 +3,11 @@
 		<!-- 分类 -->
 		<div class="cate">
 			<ul>
-				<a href="#">全部</a>
+				<li>
+					<a href="javascript:;" @click="change(0)">全部</a>
+				</li>
 				<li v-for="item in imgcategory">
-					<a :id="item.id">{{item.title}}{{item.id}}</a>
+					<a href="javascript:;" @click="change(item.id)">{{item.title}}</a>
 				</li>
 			</ul>
 		</div>
@@ -13,11 +15,18 @@
 		 <div class="imgList">
 			<ul>
 			  <li v-for="item in images">
-			    <img v-lazy="item.img_url">
+					<router-link v-bind='{to:"/photo/photoInfo/"+item.id}'>
+						<img v-lazy="item.img_url">
+						<div>
+							<p class="title" v-text="item.title"></p>
+							<p v-text="item.zhaiyao"></p>
+						</div>
+					</router-link>
 			  </li>
 			</ul>
 		</div>
-
+		<!-- 加载动画 -->
+		<!--<mt-spinner class="onloadImg" type="fading-circle" color="#3680FF" v-show="isShow"></mt-spinner>-->
 	</div>
 </template>
 
@@ -28,7 +37,9 @@
 			return{
 				imgcategory:[],
         images:[],
-        cateid:0
+        cateid:0,
+				imgid: 0,
+				isShow: false
 			}
 		},
 		methods: {
@@ -42,6 +53,7 @@
         });
 			},
       getimages(){
+        this.isShow = true;
         let url = 'http://webhm.top:8899/api/getimages/' + this.cateid;
         axios.get(url).then(res=>{
           this.images = res.data.message;
@@ -49,16 +61,17 @@
         }).catch(err=>{
           console.log('404: ' + err)
         });
+        this.isShow = false;
       },
-			change(){
-        alert(this.id);
-        this.cateid = this.imgcategory.id;
+			change(i){
+        //alert(i);
+        this.cateid = i;
+        this.getimages();
       }
 		},
 		created(){
-			this.getimgcategory();
+      this.getimgcategory();
 			this.getimages();
-
 		}
 	}
 </script>
@@ -79,25 +92,52 @@ li a {
 	color: #0094ff;
 	padding: 10px 5px;
 }
+
+.cate {
+	/*overflow-x: auto;*/
+	overflow-y: hidden;
+}
+.cate ul {
+	width: 700px;
+	font-size: 12px;
+}
+
 img {
 	width: 100%;
 }
 .imgList li {
 	width: 100%;
+	position: relative;
+	margin-bottom: 5px;
+}
+.imgList li div{
+	/*height: 40%;*/
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.4);
+	overflow: hidden;
+}
+
+.imgList li div p {
+	font-size: 12px;
+	color: #fff;
+	margin-bottom: 4px;
+	line-height: 18px;
+}
+.imgList li div .title {
+	font-weight:600;
+	font-size: 13px;
 }
 image[lazy=loading] {
 	width: 100%;
 	height: 100%;
 	margin: auto;
 }
-.cate {
-	min-width: 400px;
-	overflow-x: auto;
-	overflow-y: hidden;
+.onloadImg {
+	position: absolute;
+	left: 50%;
+	margin-left: -14px;
+	top: 40%;
 }
-.cate ul {
-	width: 900px;
-	font-size: 12px;
-}
-
 </style>

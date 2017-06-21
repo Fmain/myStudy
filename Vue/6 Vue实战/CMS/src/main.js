@@ -15,10 +15,14 @@ import '../statics/mui/js/mui.min.js'
 // 1.3 导入自定义的全局样式,可以用来覆盖mint-ui和mui中的样式
 import  '../statics/css/site.css'
 
+
 // 2.0 在Vue中加载相关组件
 Vue.use(vueRouter);
 Vue.use(vueResource); //用axios代替
 Vue.use(mintUI);
+
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview);
 
 // 3.0 导入相关.vue组件
 import App from './App.vue'
@@ -29,6 +33,7 @@ import search from './components/search/search.vue'
 import newsList from './components/news/newsList.vue'
 import newsInfo from './components/news/newsInfo.vue'
 import photoList from './components/photo/photoList.vue'
+import photoInfo from './components/photo/photoInfo.vue'
 
 // 3.1 定义路由规则对象
 let router = new vueRouter({
@@ -43,7 +48,9 @@ let router = new vueRouter({
 		{name:'newsList',path:'/news/newsList',component:newsList},
 		{name:'newsInfo',path:'/news/newsInfo/:id',component:newsInfo},
 		{name:'photoList',path:'/photo/photoList',component:photoList},
-	]
+    {name:'photoInfo',path:'/photo/photoInfo/:id',component:photoInfo},
+
+  ]
 });
 
 // 4.0 使用router

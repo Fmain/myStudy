@@ -2,10 +2,15 @@
   <div class="tmpl">
     <div class="title">
       <h3 v-text="newsInfo.title"></h3>
-      <div class="title_info"></div>
-      {{newsInfo.add_time | fmtdate('YYYY-MM-DD')}}
-      {{newsInfo.click}}次浏览
-      分类:经济民生
+      <span class="time">
+        {{newsInfo.add_time | fmtdate('YYYY-MM-DD')}}
+      </span>
+      <span class="liulan">
+        {{newsInfo.click}}次浏览
+      </span>
+      <span class="fenlei">
+        分类:经济民生
+      </span>
     </div>
     <div class="content"><div v-html="newsInfo.content"></div></div>
     <!--评论组件-->
@@ -56,8 +61,8 @@
   font-weight:bold;
   color: #0094ff;
 }
-.title_info {
-  /*margin-top: 10px;*/
+.liulan, .fenlei {
+  margin-left: 20px;
 }
 .content {
   padding: 5px;
