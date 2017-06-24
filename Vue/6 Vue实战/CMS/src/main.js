@@ -34,6 +34,10 @@ import newsList from './components/news/newsList.vue'
 import newsInfo from './components/news/newsInfo.vue'
 import photoList from './components/photo/photoList.vue'
 import photoInfo from './components/photo/photoInfo.vue'
+import goodsList from './components/goods/goodsList.vue'
+import goodsInfo from './components/goods/goodsInfo.vue'
+import goodsComment from './components/goods/goodsComment.vue'
+import goodsDesc from './components/goods/goodsDesc.vue'
 
 // 3.1 定义路由规则对象
 let router = new vueRouter({
@@ -49,6 +53,10 @@ let router = new vueRouter({
 		{name:'newsInfo',path:'/news/newsInfo/:id',component:newsInfo},
 		{name:'photoList',path:'/photo/photoList',component:photoList},
     {name:'photoInfo',path:'/photo/photoInfo/:id',component:photoInfo},
+    {name:'goodsList',path:'/goods/goodsList',component:goodsList},
+    {name:'goodsInfo',path:'/goods/goodsInfo/:id',component:goodsInfo},
+    {name:'goodsComment',path:'/goods/goodsComment/:id',component:goodsComment},
+    {name:'goodsDesc',path:'/goods/goodsDesc/:id',component:goodsDesc},
 
   ]
 });

@@ -41,6 +41,8 @@
 </template>
 <script>
   import axios from 'axios'
+  import qs from 'qs';
+
   import { Toast } from 'mint-ui'
   export default{
     data(){
@@ -66,18 +68,28 @@
           },res=>{
             Toast('发表失败');
           })
+          /*let content = this.content;
+          console.log(this.content);
+          axios.post(url,{content:content},{
+            headers: {'Content-Type':'application/x-www-form-urlencoded'}
+          }).then(res=>{
+            Toast('发表成功');
+            console.log(res.data.message);
+          }).catch(err=>{
+            Toast('发表失败');
+            console.log('post请求失败')
+          })*/
+          /*let str = this.content;
+          console.log(str);
+          axios.post(url,str).then((res)=>{
+            Toast('发表成功');
+            console.log(res.data.message);
+          }).catch(err=>{
+            Toast('发表失败');
+            console.log('post请求失败')
+          })*/
         }
-        /*let content = this.content;
-        console.log(this.content);
-        axios.post(url,{content:content},{
-          headers: {'Content-Type':'application/x-www-form-urlencoded'}
-        }).then(res=>{
-          Toast('发表成功');
-          console.log(res.data.message);
-        }).catch(err=>{
-          Toast('发表失败');
-          console.log('post请求失败')
-        })*/
+        
       },
       // 2.0 获取评论
       getcomment(){
